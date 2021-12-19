@@ -1,3 +1,4 @@
+// function for a responsive nav
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -20,4 +21,8 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-
+// close modal form
+const close = document.querySelector('.close');
+close.addEventListener('click', (e)=> {
+  modalbg.style.display = "none";
+})
