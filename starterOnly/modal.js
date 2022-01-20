@@ -128,7 +128,6 @@ function formValidationCheck() {
 function createErrorMessage() {
   const errorMessage = document.createElement("span");
   errorMessage.classList.add("error-message");
-  errorMessage.style.cssText = "color: #D8000C; font-size: 12px; line-height: 12px";
   return errorMessage;
 }
 
