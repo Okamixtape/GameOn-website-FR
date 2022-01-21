@@ -189,7 +189,7 @@ input {
 }
 
 .formData {
-  margin-bottom: 5%;
+  margin-bottom: 4%;
 }
 
 .formData[data-error]::after {
@@ -566,6 +566,9 @@ footer {
 }
 
 @media screen and (max-width: 890px) {
+  .topnav {
+    margin: 4%;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -589,7 +592,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0px;
   }
   .hero-content::after {
     content: unset;
@@ -598,14 +601,15 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: calc(2rem + 3vw);
     white-space: normal;
     text-align: center;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: calc(1rem + 1.5vw);
     text-align: center;
+    margin-top: 20px;
   }
   .hero-img img {
     border-radius: 10px;
@@ -615,9 +619,41 @@ footer {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
+    font-size: 1.3rem;
   }
   .copyrights {
     margin: 0 0 50px 0;
     text-align: center;
+  }
+  .text-control {
+    font-size: 16px;
+    height: 46px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .hero-headline {
+    font-size: calc(1.5rem + 3vw);
+  }
+  .hero-text {
+    font-size: calc(0.7rem + 1.5vw);
+  }
+  .copyrights {
+    font-size: 0.8rem;
+  }
+  .modal-body {
+    padding: 15px 4%;
+}
+}
+
+@media screen and (max-width: 340px) {
+  .hero-headline {
+    font-size: calc(1.5rem + 2vw);
+  }
+  .hero-text {
+    font-size: calc(0.7rem + 1.5vw);
+  }
+  .copyrights {
+    font-size: 0.8rem;
   }
 }
