@@ -61,8 +61,7 @@
 
             <form
               name="reserve"
-              action="index.html"
-              method="get">
+              >
 
               <div class="formData">
                 <label for="first">Prénom</label><br>
@@ -105,8 +104,8 @@
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
 
-              <p class="text-label">Dans quelle ville souhaitez-vous participer au tournoi cette année ?</p>
-              <div class="formData" id="chosenCity">
+              <fieldset class="formData" id="chosenCity">
+                <legend class="text-label">Dans quelle ville souhaitez-vous participer au tournoi cette année ?</legend>
 
                 <input
                   class="checkbox-input"
@@ -167,7 +166,7 @@
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label>
-              </div>
+              </fieldset>
 
               <div class="formData">
                 <input class="checkbox-input" type="checkbox" id="checkbox1" checked required="required"/>

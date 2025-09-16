@@ -15,147 +15,141 @@ const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 
 // Form Inputs
-const allInputs = Array.from(form.querySelectorAll("input"));
-
-const formElements = {
-  firstInput: document.getElementById("first"),
-  lastInput: document.getElementById("last"),
-  emailInput: document.getElementById("email"),
-  birthdateInput: document.getElementById("birthdate"),
-  quantityInput: document.getElementById("quantity"),
-  chosenCity: document.getElementById("chosenCity"),
-  termsOfUseCheckbox: document.getElementById("checkbox1"),
-  newsletterCheckbox: document.getElementById("checkbox2"),
-};
-
+const firstName = document.getElementById("first");
+const lastName = document.getElementById("last");
+const email = document.getElementById("email");
+const birthdate = document.getElementById("birthdate");
+const quantity = document.getElementById("quantity");
+const locations = document.querySelectorAll('input[name="location"]');
+const termsOfUse = document.getElementById("checkbox1");
 const submitBtn = document.querySelector(".btn-submit");
 
 // Modal Behaviour
-modalBtn.forEach((btn) => btn.addEventListener("click", () => (modalbg.style.display = "block")));
-closeBtn.addEventListener('click', () => (modalbg.style.display = "none"));
+modalBtn.forEach((btn) => btn.addEventListener("click", () => {
+  // Reset form state when opening modal
+  form.style.display = "block";
+  const thankYouContainer = modalBody.querySelector(".thank-you-container");
+  if (thankYouContainer) {
+    thankYouContainer.remove();
+  }
+  form.reset();
+  clearAllErrorMessages();
+  modalbg.style.display = "block";
+}));
+
+closeBtn.addEventListener('click', () => {
+    modalbg.style.display = "none";
+});
+
+// Helper functions for error display
+function setErrorMessage(inputElement, message) {
+  inputElement.parentElement.setAttribute("data-error", message);
+  inputElement.parentElement.setAttribute("data-error-visible", "true");
+}
+
+function clearAllErrorMessages() {
+    formData.forEach((el) => {
+        el.setAttribute("data-error-visible", "false");
+        el.removeAttribute("data-error");
+    });
+}
 
 // Form validation check function
 function formValidationCheck() {
-  deleteErrorMessages();
+  clearAllErrorMessages();
+  let isValid = true;
 
-  const formData = new FormData(form);
-
-  const { first, last, email, birthdate, quantity, location } = Object.fromEntries(formData);
-
-  const errorMessages = {
-    first: "Veuillez entrer 2 caractères ou plus.",
-    last: "Veuillez entrer 2 caractères ou plus.",
-    email: "Veuillez saisir une adresse courriel valide.",
-    birthdate: "Veuillez entrer votre date de naissance.",
-    quantity: "Veuillez entrer un nombre.",
-    location: "Veuillez choisir une ville.",
-    termsOfUseCheckbox: "Veuillez cocher la case des conditions d'utilisation.",
-  };
-
-  for (const [fieldName, fieldValue] of Object.entries(formElements)) {
-    if (fieldName === 'location' && fieldValue.value === null) {
-      displayErrorMessage(fieldValue, errorMessages[fieldName]);
-      return false;
-    }
-
-    if (fieldName === 'birthdate' && isNaN(new Date(fieldValue).getTime())) {
-      displayErrorMessage(fieldValue, errorMessages[fieldName]);
-      return false;
-    }
-
-    if (fieldName === 'quantity' && (isNaN(Number(fieldValue)) || fieldValue === "")) {
-      displayErrorMessage(fieldValue, errorMessages[fieldName]);
-      return false;
-    }
-
-    if (fieldName === 'email' && !fieldValue.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-      displayErrorMessage(fieldValue, errorMessages[fieldName]);
-      return false;
-    }
-
-    if ((fieldName === 'first' || fieldName === 'last') && fieldValue.length < 2) {
-      displayErrorMessage(fieldValue, errorMessages[fieldName]);
-      return false;
-    }
+  // First Name validation
+  if (firstName.value.trim().length < 2) {
+    setErrorMessage(firstName, "Veuillez entrer 2 caractères ou plus pour le prénom.");
+    isValid = false;
   }
 
-  return true;
-}
+  // Last Name validation
+  if (lastName.value.trim().length < 2) {
+    setErrorMessage(lastName, "Veuillez entrer 2 caractères ou plus pour le nom.");
+    isValid = false;
+  }
 
-// Error message creation
-function createErrorMessage() {
-  const errorMessage = document.createElement("span");
-  errorMessage.classList.add("error-message");
-  return errorMessage;
-}
+  // Email validation
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  if (!emailRegex.test(email.value.trim())) {
+    setErrorMessage(email, "Veuillez saisir une adresse courriel valide.");
+    isValid = false;
+  }
 
-// Error message display
-function displayErrorMessage(input, errorText) {
-  const errorMessage = createErrorMessage();
-  errorMessage.innerHTML = errorText;
-  input.after(errorMessage);
-  input.style.outline = "2px solid #D8000C";
-}
+  // Birthdate validation
+  if (birthdate.value.trim() === "") {
+    setErrorMessage(birthdate, "Veuillez entrer votre date de naissance.");
+    isValid = false;
+  }
 
-// Error message deletion
-function deleteErrorMessages() {
-  const errorMessages = document.querySelectorAll(".error-message");
-  formElements.chosenCity.style.outline = "none";
-  allInputs.forEach((input) => (input.style.outline = "none"));
-  errorMessages.forEach((errorMessage) => errorMessage.remove());
-}
+  // Quantity validation
+  if (quantity.value.trim() === "" || !Number.isInteger(Number(quantity.value))) {
+    setErrorMessage(quantity, "Veuillez entrer un nombre entier pour les tournois.");
+    isValid = false;
+  }
 
-// Check input validation on input change
-allInputs.forEach((input) => {
-  input.addEventListener("input", () => {
-    if (validationRequired === false) return;
-    formValidationCheck();
+  // Location validation
+  let locationChecked = false;
+  locations.forEach(location => {
+    if (location.checked) {
+      locationChecked = true;
+    }
   });
-});
+  if (!locationChecked) {
+    setErrorMessage(locations[0], "Veuillez choisir une ville.");
+    isValid = false;
+  }
 
-// Modal thank you message creation
-function createThankYouModal() {
-  const newModal = modalbg.cloneNode(true);
-  const modalBody = newModal.querySelector(".modal-body");
-  const closeIcon = newModal.querySelector(".close");
-  const form = modalBody.querySelector("form");
+  // Terms of use validation
+  if (!termsOfUse.checked) {
+    setErrorMessage(termsOfUse, "Veuillez accepter les conditions d'utilisation.");
+    isValid = false;
+  }
 
-  form.remove();
-  
-  newModal.style.display = "block";
-  modalBody.style.cssText = "display: flex; flex-direction: column;";
+  return isValid;
+}
+
+// Display thank you message
+function displayThankYouMessage() {
+  // Hide the form
+  form.style.display = "none";
+
+  // Create and display the thank you message
+  const thankYouContainer = document.createElement("div");
+  thankYouContainer.className = "thank-you-container"; // Add a class for easier selection
+  thankYouContainer.style.cssText = "display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;";
 
   const thankYouText = document.createElement("p");
-  thankYouText.innerHTML = "Merci pour votre participation à notre tournoi !";
-  thankYouText.style.cssText = "text-align: center; padding: 36px 8px";
+  thankYouText.textContent = "Merci ! Votre inscription a bien été reçue.";
+  thankYouText.style.fontSize = "1.2rem";
+  thankYouText.style.padding = "20px";
 
-  const thankYouButton = document.createElement("button");
-  thankYouButton.classList.add("btn-submit");
-  thankYouButton.classList.add("final-submit");
-  thankYouButton.style.cssText = "margin: 4px 12px; text-align: center;";
-  thankYouButton.innerHTML = "Revenir sur la page d'accueil";
+  const closeButton = document.createElement("button");
+  closeButton.textContent = "Fermer";
+  closeButton.className = "btn-submit";
 
-  modalBody.appendChild(thankYouText);
-  modalBody.appendChild(thankYouButton);
-  modalbg.after(newModal);
+  thankYouContainer.appendChild(thankYouText);
+  thankYouContainer.appendChild(closeButton);
 
-  thankYouButton.addEventListener("click", () => newModal.remove());
-  closeIcon.addEventListener("click", () => newModal.remove());
+  modalBody.appendChild(thankYouContainer);
+
+  // Add event listener to the close button
+  closeButton.addEventListener("click", () => {
+    modalbg.style.display = "none";
+  });
 }
 
-const displayThankYouMessage = "displayThankYouMessage";
-const getThankYouModal = sessionStorage.getItem(displayThankYouMessage);
+// Form submission handler
+// Form submission handler
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  submitBtn.disabled = true; // Disable button on click
 
-if (getThankYouModal === "true") {
-  sessionStorage.setItem(displayThankYouMessage, "false");
-  createThankYouModal();
-}
-
-form.onsubmit = (event) => {
-  const validationCheck = formValidationCheck();
-  if (validationCheck === false) {
-    event.preventDefault();
+  if (formValidationCheck()) {
+    displayThankYouMessage();
   } else {
-    sessionStorage.setItem(displayThankYouMessage, "true");
+    submitBtn.disabled = false; // Re-enable if validation fails
   }
-};
+});
