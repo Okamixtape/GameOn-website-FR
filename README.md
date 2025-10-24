@@ -1,109 +1,239 @@
-# GameOn - Amélioration Professionnelle de Landing Page
+# GameOn Landing Page 🎮
 
-## Aperçu du Projet
+> Landing page professionnelle pour inscriptions événement GameOn  
+> **Projet Portfolio** : Démonstration compétences Full-Stack + Cloud Engineering
 
-GameOn est une landing page entièrement responsive pour l'inscription à un tournoi de jeux vidéo. Ce projet, initialement un exercice d'étudiant d'OpenClassrooms, a été professionnellement amélioré pour démontrer des compétences avancées en développement front-end. L'objectif principal était de transformer un projet partiellement fonctionnel avec des bugs connus en une application soignée, prête pour la production, avec une expérience utilisateur fluide.
-
-## Fonctionnalités Clés
-
-*   **Design Responsive :** Optimisé pour les ordinateurs de bureau, tablettes et appareils mobiles.
-*   **Modale d'Inscription Interactive :** Un formulaire propre et intuitif pour l'inscription des utilisateurs.
-*   **Validation Robuste Côté Client :** Des messages d'erreur en temps réel guident l'utilisateur pour remplir correctement le formulaire.
-*   **UX Moderne avec Soumission de type AJAX :** Le formulaire se soumet sans rechargement de la page, offrant un retour instantané.
-*   **Message de Confirmation Dynamique :** Un message de succès s'affiche dans la modale après une inscription réussie.
-
-## Améliorations Professionnelles Apportées
-
-Pour élever ce projet à un standard professionnel, les améliorations clés suivantes ont été mises en œuvre :
-
-1.  **Refonte de la Logique de Validation du Formulaire :**
-    *   La validation JavaScript originale, qui était buggée, a été entièrement réécrite pour être robuste et fiable.
-    *   Des vérifications complètes sont maintenant en place pour tous les champs : longueur du nom, format d'email valide, présence de la date de naissance, quantité de tournois (en tant que nombre entier), sélection d'une ville et acceptation des conditions d'utilisation.
-
-2.  **Modernisation de l'Expérience Utilisateur (UX) :**
-    *   Implémentation d'une soumission de formulaire de type AJAX avec `event.preventDefault()` pour créer une sensation d'application monopage fluide.
-    *   Remplacement du rechargement de page par un message de confirmation dynamique qui apparaît dans la modale, améliorant le retour utilisateur et la fluidité du parcours.
-
-3.  **Nettoyage du Code et Bonnes Pratiques :**
-    *   Refactorisation du JavaScript pour une meilleure lisibilité et maintenabilité.
-    *   Suppression des attributs HTML inutiles (`action`, `method`) de la balise `<form>`, garantissant que la fonctionnalité est correctement gérée par JavaScript.
-    *   Assurance que l'état de la modale et du formulaire se réinitialise correctement lors de la fermeture et de la réouverture, empêchant la persistance de données ou de messages d'erreur.
-
-## Technologies Utilisées
-
-*   HTML5
-*   CSS3
-*   JavaScript (ES6+)
-
-## Comment Lancer le Projet
-
-1.  **Clonez le dépôt :**
-    ```bash
-    git clone <votre-url-de-depot>
-    ```
-2.  **Naviguez vers le répertoire du projet :**
-    ```bash
-    cd GameOn-website-FR/starterOnly
-    ```
-3.  **Lancez le projet :**
-    Pour une expérience optimale et pour garantir que toutes les fonctionnalités JavaScript fonctionnent correctement, lancez le projet sur un serveur local. Si Python est installé, vous pouvez utiliser :
-    ```bash
-    python3 -m http.server
-    ```
-    Ensuite, ouvrez votre navigateur et allez à `http://localhost:8000`.
+[![Astro](https://img.shields.io/badge/Astro-5.14.8-FF5D01?logo=astro&logoColor=white)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 ---
 
-# GameOn - Professional Landing Page Enhancement
+## 🎯 Objectif Projet
 
-## Project Overview
+### Problème Résolu
+Les organisateurs d'événements gaming ont besoin d'une solution pour collecter des inscriptions de manière **fiable**, **performante** et **accessible**, sans nécessiter de compétences backend complexes.
 
-GameOn is a fully responsive landing page for registering for a video game tournament. This project began as a student exercise from OpenClassrooms and has been professionally enhanced to demonstrate advanced front-end development skills. The primary goal was to take a partially functional project with known bugs and transform it into a polished, production-ready application with a seamless user experience.
+### Solution Proposée
+Landing page statique **ultra-performante** (Lighthouse 95+) avec :
+- ⚡ Temps de chargement < 1 seconde
+- ♿ Accessibilité WCAG 2.1 AA validée
+- 🔒 Sécurité HTTPS + conformité RGPD
+- 🌍 CDN global (CloudFront)
+- 🤖 CI/CD automatisé (GitHub Actions)
 
-## Key Features
+### Différenciation
+Ce n'est **pas** une landing page classique. C'est une **démonstration d'expertise technique** :
 
-*   **Responsive Design:** Optimized for desktop, tablet, and mobile devices.
-*   **Interactive Registration Modal:** A clean and intuitive form for user registration.
-*   **Robust Client-Side Validation:** Real-time error messages guide the user to fill out the form correctly.
-*   **Modern UX with AJAX-Style Submission:** The form submits without a page reload, providing instant feedback.
-*   **Dynamic Confirmation Message:** A success message is displayed within the modal upon successful registration.
+| Critère | Landing Page Standard | GameOn Portfolio |
+|---------|----------------------|------------------|
+| Performance | ~50-70 Lighthouse | **95+** |
+| Accessibilité | Non testée | **WCAG 2.1 AA** (tests auto) |
+| Hébergement | Hébergement mutualisé | **AWS S3 + CloudFront** |
+| Déploiement | FTP manuel | **CI/CD GitHub Actions** |
+| Tests | Manuels | **Automatisés** (axe, Lighthouse) |
+| Sécurité | Basique | **Headers CSP + SSL** |
 
-## Professional Enhancements Made
+---
 
-To elevate this project to a professional standard, the following key improvements were implemented:
+## 📊 Liens Projet
 
-1.  **Refactored Form Validation Logic:**
-    *   The original buggy JavaScript validation was completely rewritten to be robust and reliable.
-    *   Comprehensive checks are now in place for all fields: name length, valid email format, birthdate presence, tournament quantity (as an integer), city selection, and acceptance of terms.
+- **📋 Spécifications complètes** : [Confluence - GameOn Specs](https://loupaubour.atlassian.net/wiki/spaces/DL/pages/163843)
+- **🎫 Suivi de projet** : [Jira - Epic SCRUM-5](https://loupaubour.atlassian.net/browse/SCRUM-5)
+- **🌐 Demo Live** : [À venir]
+- **📦 Archive version originale** : [Branche archive/html-vanilla](https://github.com/Okamixtape/GameOn-website-FR/tree/archive/html-vanilla)
 
-2.  **Modernized User Experience (UX):**
-    *   Implemented an AJAX-style form submission using `event.preventDefault()` to create a smooth, single-page application feel.
-    *   Replaced the jarring page reload with a dynamic confirmation message that appears within the modal, improving user feedback and flow.
+---
 
-3.  **Code Cleanup and Best Practices:**
-    *   Refactored the JavaScript for better readability and maintainability.
-    *   Removed unnecessary HTML attributes (`action`, `method`) from the `<form>` tag, ensuring that functionality is correctly handled by JavaScript.
-    *   Ensured the modal and form state reset properly when closed and reopened, preventing stale data or error messages from persisting.
+## 🏗️ Stack Technique
 
-## Technologies Used
+**Validée Octobre 2025** - Production-ready
 
-*   HTML5
-*   CSS3
-*   JavaScript (ES6+)
+| Composant | Version | Rôle | Documentation |
+|-----------|---------|------|---------------|
+| **Astro** | 5.14.8 | SSG Framework | [docs.astro.build](https://docs.astro.build) |
+| **Tailwind CSS** | 4.x | Styling (via @tailwindcss/vite) | [Installation Guide](https://tailwindcss.com/docs/installation/framework-guides/astro) |
+| **TypeScript** | 5.x | Type Safety (strict mode) | [typescriptlang.org](https://www.typescriptlang.org/) |
+| **Playwright** | Latest | Tests E2E | [playwright.dev](https://playwright.dev) |
+| **axe-core** | Latest | Tests accessibilité | [github.com/dequelabs/axe-core](https://github.com/dequelabs/axe-core) |
+| **Formspark** | API | Gestion formulaire | [formspark.io](https://formspark.io) |
+| **AWS S3** | - | Hébergement statique | [AWS S3 Docs](https://docs.aws.amazon.com/s3/) |
+| **CloudFront** | - | CDN global | [CloudFront Docs](https://docs.aws.amazon.com/cloudfront/) |
+| **GitHub Actions** | - | CI/CD | [GitHub Actions Docs](https://docs.github.com/actions) |
 
-## How to Run the Project
+---
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <your-repository-url>
-    ```
-2.  **Navigate to the project directory:**
-    ```bash
-    cd GameOn-website-FR/starterOnly
-    ```
-3.  **Run the project:**
-    For the best experience and to ensure all JavaScript features work correctly, run the project on a local server. If you have Python installed, you can use:
-    ```bash
-    python3 -m http.server
-    ```
-    Then, open your browser and go to `http://localhost:8000`.
+## 🎨 Architecture
+
+```
+Developer
+    ↓ git push
+┌─────────────────┐
+│  GitHub Repo    │
+└────────┬────────┘
+         ↓ trigger
+┌─────────────────┐
+│ GitHub Actions  │  ← Build + Tests
+│  - npm ci       │    • Lighthouse CI
+│  - npm build    │    • axe (a11y)
+│  - npm test     │    • ESLint
+└────────┬────────┘
+         ↓ deploy
+┌─────────────────┐
+│    AWS S3       │  ← Hébergement statique
+│    Bucket       │
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│   CloudFront    │  ← CDN + HTTPS + Cache
+│     (CDN)       │
+└────────┬────────┘
+         ↓
+   👤 Users (Global)
+```
+
+---
+
+## 🚀 Quick Start
+
+### Prérequis
+- Node.js ≥ 18.x
+- npm ≥ 9.x
+- Git
+
+### Installation
+
+```bash
+# 1. Cloner le repo
+git clone https://github.com/Okamixtape/GameOn-website-FR.git
+cd GameOn-website-FR
+
+# 2. Installer dépendances
+npm install
+
+# 3. Lancer dev server
+npm run dev
+# → http://localhost:4321
+```
+
+### Commandes Disponibles
+
+| Commande | Description |
+|----------|-------------|
+| `npm run dev` | Lancer serveur dev (hot reload) |
+| `npm run build` | Build production (`dist/`) |
+| `npm run preview` | Prévisualiser build production |
+| `npm run test:a11y` | Tests accessibilité (Playwright + axe) |
+| `npm run test:lighthouse` | Tests performance (Lighthouse CI) |
+| `npm run lint` | Linter ESLint |
+| `npm run format` | Formatter Prettier |
+
+---
+
+## 📋 Spécifications Quick Reference
+
+### Fonctionnelles (RF)
+- **RF-001** : Affichage événement responsive (320px → 1920px+)
+- **RF-002** : Formulaire inscription (prénom, nom, email, date naissance, ville, tournois)
+- **RF-003** : Validation temps réel + messages erreur explicites
+
+### Techniques (ST)
+- **ST-001** : Performance Lighthouse ≥ 95/100
+- **ST-002** : Accessibilité WCAG 2.1 AA minimum (axe score 100%)
+- **ST-003** : Responsive mobile-first
+- **ST-004** : Sécurité HTTPS + CSP headers + RGPD
+
+---
+
+## 📚 Documentation
+
+### Documentation Technique
+- **Architecture Détaillée** : `docs/ARCHITECTURE.md` - Stack, diagrammes, décisions techniques
+- **Spécifications Complètes** : `docs/SPECIFICATIONS.md` - Besoins fonctionnels/techniques
+- **Guide Déploiement AWS** : `docs/DEPLOYMENT.md` - Configuration S3 + CloudFront
+
+### Assistance IA & Windsurf
+- **Règles Workspace** : `.windsurf/rules/` - Règles Cascade pour le projet
+- **Références IA** : `.windsurf/AI-REFERENCES.md` - Articles leaders tech sur l'IA
+- **Setup Guide** : `.windsurf/SETUP-COMPLETE.md` - Configuration complète Windsurf
+
+> Ce projet utilise Windsurf/Cascade avec des règles professionnelles pour garantir qualité et cohérence du code. Voir `.windsurf/` pour détails.
+
+---
+
+## 📈 Métriques Cibles
+
+### Performance
+- **Lighthouse Score** : ≥ 95/100 (toutes catégories)
+- **Time to Interactive (TTI)** : < 1.5s
+- **First Contentful Paint (FCP)** : < 0.8s
+- **Cumulative Layout Shift (CLS)** : < 0.1
+
+### Business
+- **Taux de conversion** : ≥ 5% (visiteurs → inscriptions)
+- **Taux de rebond** : ≤ 40%
+- **Temps moyen sur page** : ≥ 2 minutes
+
+### Technique
+- **Uptime** : ≥ 99.9%
+- **Temps réponse CDN** : ≤ 200ms
+- **Erreurs JS production** : 0
+
+---
+
+## 🤝 Contribution
+
+Voir `CONTRIBUTING.md` pour les guidelines.
+
+### Workflow Git
+
+```bash
+# 1. Créer branche feature
+git checkout -b feature/nom-feature
+
+# 2. Développer + commiter
+git add .
+git commit -m "feat: description"
+
+# 3. Pusher + créer PR
+git push origin feature/nom-feature
+```
+
+### Conventions Commits
+- `feat:` - Nouvelle fonctionnalité
+- `fix:` - Correction bug
+- `docs:` - Documentation
+- `style:` - Formatting (pas de changement code)
+- `refactor:` - Refactoring
+- `test:` - Ajout/modification tests
+- `chore:` - Maintenance (deps, config)
+
+---
+
+## 📝 License
+
+Ce projet est un portfolio personnel.  
+Code source disponible à des fins éducatives.
+
+---
+
+## 👤 Auteur
+
+**Loup Aubour** - Développeur Full-Stack indépendant
+
+- **Portfolio** : [À venir]
+- **GitHub** : [@Okamixtape](https://github.com/Okamixtape)
+- **LinkedIn** : [À compléter]
+
+---
+
+## 🙏 Remerciements
+
+- **Astro Team** pour l'excellent framework
+- **Tailwind Labs** pour Tailwind CSS
+- **Deque Systems** pour axe-core
+- **Gemini & Claude** pour l'assistance technique
+
+---
+
+*Dernière mise à jour : Octobre 2025*

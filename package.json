@@ -1,0 +1,29 @@
+{
+  "name": "gameon-temp",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "playwright test",
+    "test:a11y": "playwright test tests/accessibility.test.ts",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.16",
+    "astro": "^5.15.1",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "^1.56.1",
+    "eslint": "^9.38.0",
+    "prettier": "^3.6.2"
+  }
+}
