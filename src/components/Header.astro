@@ -1,0 +1,82 @@
+---
+// Header avec navigation et logo
+---
+
+<header class="bg-white pt-[33px] md:pt-[53px] pb-[27px] md:pb-[35px]">
+  <nav aria-label="Navigation principale" class="w-full max-w-[1440px] mx-auto px-[30px] md:px-[100px]">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" aria-label="GameOn - Retour à l'accueil" class="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded">
+        <img src="/Logo.png" alt="Logo GameOn" width="277" height="50" class="h-[19px] md:h-[50px] w-auto" />
+      </a>
+      
+      <!-- Hamburger Menu (Mobile) -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden flex flex-col gap-[3px] focus:outline-none focus:ring-2 focus:ring-primary rounded p-2"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <span class="w-[19px] h-[2px] bg-dark"></span>
+        <span class="w-[19px] h-[2px] bg-dark"></span>
+        <span class="w-[19px] h-[2px] bg-dark"></span>
+      </button>
+      
+      <!-- Navigation Menu (Desktop) -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#apropos" class="text-[18px] font-medium hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" style="color: #232323;">
+          À Propos
+        </a>
+        <a href="#contact" class="text-[18px] font-medium hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" style="color: #232323;">
+          Contact
+        </a>
+        <a 
+          href="#evenements" 
+          class="relative text-[18px] font-medium text-white bg-primary hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-card px-6 py-[11px] inline-flex flex-col items-center"
+        >
+          <span>Détails de l'évènement</span>
+          <span class="absolute bottom-[3px] w-[calc(100%-48px)] h-[2px] bg-white"></span>
+        </a>
+        <a href="#passes" class="text-[18px] font-medium hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" style="color: #232323;">
+          Évènements passés
+        </a>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden mt-6 flex-col gap-4">
+      <a href="#apropos" class="text-[16px] font-medium hover:text-primary transition-colors py-2" style="color: #232323;">
+        À Propos
+      </a>
+      <a href="#contact" class="text-[16px] font-medium hover:text-primary transition-colors py-2" style="color: #232323;">
+        Contact
+      </a>
+      <a href="#evenements" class="text-[16px] font-medium text-white bg-primary hover:bg-primary-dark transition-colors rounded-card px-4 py-2 text-center">
+        Détails de l'évènement
+      </a>
+      <a href="#passes" class="text-[16px] font-medium hover:text-primary transition-colors py-2" style="color: #232323;">
+        Évènements passés
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuButton?.addEventListener('click', () => {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+    
+    if (mobileMenu) {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      }
+    }
+  });
+</script>

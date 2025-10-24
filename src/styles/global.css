@@ -9,6 +9,44 @@
 @import "tailwindcss";
 
 /* ============================================
+   Tailwind v4 Theme Configuration
+   ============================================ */
+@theme {
+  /* Colors */
+  --color-primary: #fe142f;
+  --color-primary-dark: #e01128;
+  --color-dark: #232323;
+  --color-dark-lighter: #2a2a2a;
+  --color-success: #279e7a;
+  --color-error: #ff4e60;
+  --color-border: #c4c4c4;
+  
+  /* Fonts */
+  --font-sans: 'DM Sans', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+  
+  /* Font Sizes */
+  --font-size-hero: 96px;
+  --font-size-hero-mobile: 48px;
+  --font-size-subtitle: 24px;
+  --font-size-button: 25px;
+  --font-size-button-sm: 14px;
+  --font-size-nav: 18px;
+  --font-size-label: 14px;
+  --font-size-small: 12px;
+  
+  /* Shadows */
+  --shadow-card: 0px 12px 12px 0px rgba(0, 0, 0, 0.25);
+  
+  /* Border Radius */
+  --radius-card: 8px;
+  --radius-pill: 25px;
+  
+  /* Max Width */
+  --max-width-container: 1240px;
+}
+
+/* ============================================
    Custom Fonts (DM Sans)
    ============================================ */
 @font-face {
@@ -16,8 +54,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/DM_Sans/DMSans-Regular.woff2') format('woff2'),
-       url('/fonts/DM_Sans/DMSans-Regular.woff') format('woff');
+  src: url('/fonts/DM_Sans/DMSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -25,8 +62,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/DM_Sans/DMSans-Medium.woff2') format('woff2'),
-       url('/fonts/DM_Sans/DMSans-Medium.woff') format('woff');
+  src: url('/fonts/DM_Sans/DMSans-Medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -34,8 +70,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/DM_Sans/DMSans-Bold.woff2') format('woff2'),
-       url('/fonts/DM_Sans/DMSans-Bold.woff') format('woff');
+  src: url('/fonts/DM_Sans/DMSans-Bold.ttf') format('truetype');
 }
 
 /* ============================================

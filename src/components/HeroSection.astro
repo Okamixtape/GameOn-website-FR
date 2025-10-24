@@ -1,0 +1,75 @@
+---
+// Section Hero avec titre principal et CTA
+---
+
+<section class="w-full max-w-[1440px] mx-auto px-[30px] md:px-[100px] pt-0 pb-12">
+  <!-- Mobile Layout (Stack Vertical) -->
+  <div class="md:hidden flex flex-col bg-dark rounded-card shadow-card overflow-hidden">
+    <!-- Text Content -->
+    <div class="px-[30px] pt-[80px] pb-[30px] text-center">
+      <h1 class="text-[48px] leading-[1.1] text-white font-medium mb-6">
+        Marathon national<br />de jeux vidéos
+      </h1>
+      <p class="text-[18px] leading-[1.4] text-white mb-8">
+        Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !
+      </p>
+    </div>
+    
+    <!-- Image -->
+    <div class="relative h-[329px] mx-[30px] mb-[30px]">
+      <img 
+        src="/bg_img.jpg" 
+        alt="" 
+        class="w-full h-full object-cover object-center rounded-card"
+        aria-hidden="true"
+      />
+    </div>
+    
+    <!-- CTA Button -->
+    <div class="text-center pb-[30px]">
+      <a 
+        href="#inscription" 
+        class="inline-block bg-primary hover:bg-primary-dark text-white text-[18px] leading-none font-medium px-8 py-3 rounded-card transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+        style="color: white !important;"
+      >
+        Je M'inscris
+      </a>
+    </div>
+  </div>
+  
+  <!-- Desktop Layout (Split Horizontal) -->
+  <div class="hidden md:block relative bg-dark rounded-card shadow-card overflow-hidden h-[657px]">
+    <div class="absolute inset-0 flex">
+      <!-- Left: Text Content -->
+      <div class="w-[47%] pl-[80px] pr-12 py-12 flex flex-col justify-center">
+        <h1 class="text-[96px] leading-[1.05] text-white font-medium mb-10">
+          Marathon national<br />de jeux vidéos
+        </h1>
+        <p class="text-[24px] leading-[1.5] text-white mb-14 max-w-[420px]">
+          Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !
+        </p>
+        <div>
+          <a 
+            href="#inscription" 
+            class="inline-block bg-primary hover:bg-primary-dark text-white text-[25px] leading-none font-medium px-10 py-4 rounded-card transition-colors focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+            style="color: white !important;"
+          >
+            Je M'inscris
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right: Image -->
+      <div class="w-[53%] relative">
+        <div class="absolute inset-0 overflow-hidden rounded-br-card rounded-tr-card">
+          <img 
+            src="/bg_img.jpg" 
+            alt="" 
+            class="w-full h-full object-cover object-center"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
