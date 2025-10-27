@@ -37,15 +37,15 @@
     </div>
   </div>
   
-  <!-- Desktop Layout (Split Horizontal) -->
+  <!-- Desktop Layout (Overlap) -->
   <div class="hidden md:block relative bg-dark rounded-card shadow-card overflow-hidden h-[657px]">
-    <div class="absolute inset-0 flex">
-      <!-- Left: Text Content -->
-      <div class="w-[47%] pl-[80px] pr-12 py-12 flex flex-col justify-center">
-        <h1 class="text-[96px] leading-[1.05] text-white font-medium mb-10">
+    <div class="absolute inset-0">
+      <!-- Text Content (z-10 pour être au-dessus de l'image) -->
+      <div class="absolute top-0 bottom-0 flex flex-col justify-center z-10" style="left: 4.52%; right: 41.45%; padding-top: 8.07%; padding-bottom: 10.65%;">
+        <h1 class="text-[96px] leading-normal text-white font-medium mb-10">
           Marathon national<br />de jeux vidéos
         </h1>
-        <p class="text-[24px] leading-[1.5] text-white mb-14 max-w-[420px]">
+        <p class="text-[24px] leading-normal text-white mb-14 max-w-[430px]">
           Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !
         </p>
         <div>
@@ -59,16 +59,14 @@
         </div>
       </div>
       
-      <!-- Right: Image -->
-      <div class="w-[53%] relative">
-        <div class="absolute inset-0 overflow-hidden rounded-br-card rounded-tr-card">
-          <img 
-            src="/bg_img.jpg" 
-            alt="" 
-            class="w-full h-full object-cover object-center"
-            aria-hidden="true"
-          />
-        </div>
+      <!-- Image (commence à 47.02%, passe sous le texte) -->
+      <div class="absolute right-0 top-0 bottom-0 overflow-hidden rounded-br-card rounded-tr-card" style="left: 47.02%;">
+        <img 
+          src="/bg_img.jpg" 
+          alt="" 
+          class="w-full h-full object-cover object-[60%_center]"
+          aria-hidden="true"
+        />
       </div>
     </div>
   </div>
