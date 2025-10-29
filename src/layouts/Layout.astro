@@ -23,6 +23,7 @@ import '../styles/global.css';
 
 // Import components
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import RegistrationModal from '../components/RegistrationModal.astro';
 ---
 <!DOCTYPE html>
@@ -61,9 +62,12 @@ import RegistrationModal from '../components/RegistrationModal.astro';
   <!-- Generator -->
   <meta name="generator" content={Astro.generator} />
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased flex flex-col min-h-screen">
   <Header currentPath={Astro.url.pathname} />
-  <slot />
+  <main class="flex-grow">
+    <slot />
+  </main>
+  <Footer />
   <RegistrationModal />
 </body>
 </html>
