@@ -20,6 +20,9 @@ const canonicalImageUrl = new URL(image, Astro.site).href;
 
 // Import global styles (includes fonts)
 import '../styles/global.css';
+
+// Import components
+import Header from '../components/Header.astro';
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -58,6 +61,7 @@ import '../styles/global.css';
   <meta name="generator" content={Astro.generator} />
 </head>
 <body class="font-sans antialiased">
+  <Header currentPath={Astro.url.pathname} />
   <slot />
 </body>
 </html>
