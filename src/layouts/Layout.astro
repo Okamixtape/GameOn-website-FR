@@ -23,6 +23,7 @@ import '../styles/global.css';
 
 // Import components
 import Header from '../components/Header.astro';
+import RegistrationModal from '../components/RegistrationModal.astro';
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -63,5 +64,6 @@ import Header from '../components/Header.astro';
 <body class="font-sans antialiased">
   <Header currentPath={Astro.url.pathname} />
   <slot />
+  <RegistrationModal />
 </body>
 </html>

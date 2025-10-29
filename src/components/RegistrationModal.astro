@@ -1,0 +1,503 @@
+---
+interface Props {
+  isOpen?: boolean;
+}
+
+const { isOpen = false } = Astro.props;
+---
+
+<!-- Overlay (backdrop) -->
+<div
+  id="modal-overlay"
+  class="fixed inset-0 bg-black/60 z-40 hidden"
+  aria-hidden="true"
+></div>
+
+<!-- Modal Dialog -->
+<div
+  id="registration-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
+>
+  <div class="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <!-- Header -->
+    <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+      <h2 id="modal-title" class="text-2xl font-bold text-gray-900">
+        Inscription au Tournoi
+      </h2>
+      <button
+        type="button"
+        id="close-modal-btn"
+        class="text-gray-400 hover:text-gray-600 transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"
+        aria-label="Fermer la fenêtre"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Body (Form) -->
+    <div class="px-6 py-6">
+      <p id="modal-description" class="text-gray-600 mb-6">
+        Remplissez le formulaire ci-dessous pour vous inscrire au tournoi gaming régional 2025.
+      </p>
+
+      <!-- Form -->
+      <form id="registration-form" class="space-y-6" novalidate>
+        <!-- Prénom -->
+        <div class="form-group">
+          <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2">
+            Prénom <span class="text-red-600" aria-label="obligatoire">*</span>
+          </label>
+          <input
+            type="text"
+            id="first-name"
+            name="first"
+            required
+            minlength="2"
+            maxlength="50"
+            autocomplete="given-name"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+            aria-describedby="first-name-error"
+            aria-invalid="false"
+          />
+          <p id="first-name-error" class="text-red-600 text-sm mt-1 hidden" role="alert">
+            Le prénom doit contenir au moins 2 caractères.
+          </p>
+        </div>
+
+        <!-- Nom -->
+        <div class="form-group">
+          <label for="last-name" class="block text-sm font-medium text-gray-700 mb-2">
+            Nom <span class="text-red-600" aria-label="obligatoire">*</span>
+          </label>
+          <input
+            type="text"
+            id="last-name"
+            name="last"
+            required
+            minlength="2"
+            maxlength="50"
+            autocomplete="family-name"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+            aria-describedby="last-name-error"
+            aria-invalid="false"
+          />
+          <p id="last-name-error" class="text-red-600 text-sm mt-1 hidden" role="alert">
+            Le nom doit contenir au moins 2 caractères.
+          </p>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+            Email <span class="text-red-600" aria-label="obligatoire">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+            aria-describedby="email-error"
+            aria-invalid="false"
+          />
+          <p id="email-error" class="text-red-600 text-sm mt-1 hidden" role="alert">
+            Veuillez entrer une adresse email valide.
+          </p>
+        </div>
+
+        <!-- Date de Naissance -->
+        <div class="form-group">
+          <label for="birthdate" class="block text-sm font-medium text-gray-700 mb-2">
+            Date de naissance <span class="text-red-600" aria-label="obligatoire">*</span>
+          </label>
+          <input
+            type="date"
+            id="birthdate"
+            name="birthdate"
+            required
+            min="1900-01-01"
+            max="2024-12-31"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+            aria-describedby="birthdate-error"
+            aria-invalid="false"
+          />
+          <p id="birthdate-error" class="text-red-600 text-sm mt-1 hidden" role="alert">
+            Vous devez avoir au moins 13 ans pour vous inscrire.
+          </p>
+        </div>
+
+        <!-- Nombre de Tournois -->
+        <div class="form-group">
+          <label for="quantity" class="block text-sm font-medium text-gray-700 mb-2">
+            Nombre de tournois auxquels vous avez participé <span class="text-red-600" aria-label="obligatoire">*</span>
+          </label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            required
+            min="0"
+            max="99"
+            step="1"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+            aria-describedby="quantity-error"
+            aria-invalid="false"
+          />
+          <p id="quantity-error" class="text-red-600 text-sm mt-1 hidden" role="alert">
+            Veuillez entrer un nombre entre 0 et 99.
+          </p>
+        </div>
+
+        <!-- Ville -->
+        <div class="form-group">
+          <label for="location" class="block text-sm font-medium text-gray-700 mb-2">
+            Ville <span class="text-red-600" aria-label="obligatoire">*</span>
+          </label>
+          <select
+            id="location"
+            name="location"
+            required
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors bg-white"
+            aria-describedby="location-error"
+            aria-invalid="false"
+          >
+            <option value="" disabled selected>Sélectionnez votre ville</option>
+            <option value="Paris">Paris</option>
+            <option value="Lyon">Lyon</option>
+            <option value="Marseille">Marseille</option>
+            <option value="Toulouse">Toulouse</option>
+            <option value="Bordeaux">Bordeaux</option>
+            <option value="Lille">Lille</option>
+            <option value="Nantes">Nantes</option>
+            <option value="Strasbourg">Strasbourg</option>
+          </select>
+          <p id="location-error" class="text-red-600 text-sm mt-1 hidden" role="alert">
+            Veuillez sélectionner une ville.
+          </p>
+        </div>
+
+        <!-- Conditions Générales -->
+        <div class="form-group">
+          <div class="flex items-start">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              required
+              class="mt-1 h-5 w-5 text-red-600 border-gray-300 rounded focus:ring-2 focus:ring-red-500 transition-colors"
+              aria-describedby="terms-error"
+              aria-invalid="false"
+            />
+            <label for="terms" class="ml-3 text-sm text-gray-700">
+              J'accepte les <a href="/terms" class="text-red-600 hover:underline" target="_blank">conditions d'utilisation</a> et la <a href="/privacy" class="text-red-600 hover:underline" target="_blank">politique de confidentialité</a> <span class="text-red-600" aria-label="obligatoire">*</span>
+            </label>
+          </div>
+          <p id="terms-error" class="text-red-600 text-sm mt-1 ml-8 hidden" role="alert">
+            Vous devez accepter les conditions pour continuer.
+          </p>
+        </div>
+
+        <!-- Newsletter (optionnel) -->
+        <div class="form-group">
+          <div class="flex items-start">
+            <input
+              type="checkbox"
+              id="newsletter"
+              name="newsletter"
+              value="true"
+              class="mt-1 h-5 w-5 text-red-600 border-gray-300 rounded focus:ring-2 focus:ring-red-500 transition-colors"
+            />
+            <label for="newsletter" class="ml-3 text-sm text-gray-700">
+              Je souhaite recevoir les actualités des prochains tournois (optionnel)
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-8">
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-lg transition-colors shadow-lg hover:shadow-xl focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span id="submit-text">Confirmer mon inscription</span>
+            <span id="submit-loading" class="hidden">
+              <svg class="inline-block animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Envoi en cours...
+            </span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Success Message (hidden by default) -->
+      <div id="success-message" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+        <div class="flex items-start">
+          <svg class="h-6 w-6 text-green-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <h3 class="text-green-800 font-bold mb-1">Inscription confirmée !</h3>
+            <p class="text-green-700">Votre inscription a été enregistrée avec succès. Vous recevrez un email de confirmation sous peu.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Message (hidden by default) -->
+      <div id="error-message" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div class="flex items-start">
+          <svg class="h-6 w-6 text-red-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <h3 class="text-red-800 font-bold mb-1">Erreur d'inscription</h3>
+            <p class="text-red-700" id="error-text">Une erreur est survenue. Veuillez réessayer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Configuration Formspark
+  const FORMSPARK_ACTION_URL = 'https://submit-form.com/YOUR_FORM_ID'; // À remplacer
+
+  // DOM Elements
+  const modal = document.getElementById('registration-modal');
+  const overlay = document.getElementById('modal-overlay');
+  const closeBtn = document.getElementById('close-modal-btn');
+  const form = document.getElementById('registration-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-text');
+  const submitLoading = document.getElementById('submit-loading');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+  const errorText = document.getElementById('error-text');
+
+  // Trigger buttons (depuis Hero.astro)
+  const openModalBtns = document.querySelectorAll('[data-open-modal]');
+
+  // Open Modal
+  openModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  function openModal() {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // Focus premier champ
+    const firstInput = form.querySelector('input');
+    if (firstInput) firstInput.focus();
+    // Trap focus
+    trapFocus(modal);
+  }
+
+  // Close Modal
+  function closeModal() {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    // Reset form
+    form.reset();
+    clearErrors();
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+    form.classList.remove('hidden');
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+
+  // Trap Focus (Accessibilité)
+  function trapFocus(element) {
+    const focusableElements = element.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    element.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          lastFocusable.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          firstFocusable.focus();
+          e.preventDefault();
+        }
+      }
+    });
+  }
+
+  // Validation Custom
+  function validateAge(birthdate) {
+    const today = new Date();
+    const birth = new Date(birthdate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    
+    return age >= 13;
+  }
+
+  function validateForm() {
+    let isValid = true;
+    clearErrors();
+
+    // Validate each field
+    const firstName = form.querySelector('#first-name');
+    if (!firstName.value.trim() || firstName.value.length < 2) {
+      showError('first-name', 'Le prénom doit contenir au moins 2 caractères.');
+      isValid = false;
+    }
+
+    const lastName = form.querySelector('#last-name');
+    if (!lastName.value.trim() || lastName.value.length < 2) {
+      showError('last-name', 'Le nom doit contenir au moins 2 caractères.');
+      isValid = false;
+    }
+
+    const email = form.querySelector('#email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailRegex.test(email.value)) {
+      showError('email', 'Veuillez entrer une adresse email valide.');
+      isValid = false;
+    }
+
+    const birthdate = form.querySelector('#birthdate');
+    if (!birthdate.value) {
+      showError('birthdate', 'Veuillez entrer votre date de naissance.');
+      isValid = false;
+    } else if (!validateAge(birthdate.value)) {
+      showError('birthdate', 'Vous devez avoir au moins 13 ans pour vous inscrire.');
+      isValid = false;
+    }
+
+    const quantity = form.querySelector('#quantity');
+    const quantityValue = parseInt(quantity.value);
+    if (isNaN(quantityValue) || quantityValue < 0 || quantityValue > 99) {
+      showError('quantity', 'Veuillez entrer un nombre entre 0 et 99.');
+      isValid = false;
+    }
+
+    const location = form.querySelector('#location');
+    if (!location.value) {
+      showError('location', 'Veuillez sélectionner une ville.');
+      isValid = false;
+    }
+
+    const terms = form.querySelector('#terms');
+    if (!terms.checked) {
+      showError('terms', 'Vous devez accepter les conditions pour continuer.');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  function showError(fieldId, message) {
+    const field = form.querySelector(`#${fieldId}`);
+    const errorElement = form.querySelector(`#${fieldId}-error`);
+    
+    if (field && errorElement) {
+      field.setAttribute('aria-invalid', 'true');
+      field.classList.add('border-red-500');
+      errorElement.textContent = message;
+      errorElement.classList.remove('hidden');
+    }
+  }
+
+  function clearErrors() {
+    const errorElements = form.querySelectorAll('[id$="-error"]');
+    errorElements.forEach(el => el.classList.add('hidden'));
+    
+    const invalidFields = form.querySelectorAll('[aria-invalid="true"]');
+    invalidFields.forEach(field => {
+      field.setAttribute('aria-invalid', 'false');
+      field.classList.remove('border-red-500');
+    });
+  }
+
+  // Form Submission
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validate
+    if (!validateForm()) {
+      return;
+    }
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitText.classList.add('hidden');
+    submitLoading.classList.remove('hidden');
+
+    // Prepare data
+    const formData = new FormData(form);
+
+    try {
+      // Submit to Formspark
+      const response = await fetch(FORMSPARK_ACTION_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur réseau');
+      }
+
+      // Success
+      form.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+
+      // Auto-close après 5 secondes
+      setTimeout(() => {
+        closeModal();
+      }, 5000);
+
+    } catch (error) {
+      // Error
+      errorText.textContent = 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.';
+      errorMessage.classList.remove('hidden');
+      console.error('Form submission error:', error);
+    } finally {
+      // Reset button state
+      submitBtn.disabled = false;
+      submitText.classList.remove('hidden');
+      submitLoading.classList.add('hidden');
+    }
+  });
+</script>
