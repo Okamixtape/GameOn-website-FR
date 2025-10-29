@@ -1,0 +1,70 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaAction?: string;
+  imageUrl?: string;
+}
+
+const {
+  title = "Tournoi Gaming Régional 2025",
+  subtitle = "Rejoignez la plus grande compétition esport de la région. Inscription ouverte aux joueurs de tous niveaux. Places limitées !",
+  ctaText = "Je M'inscris",
+  ctaAction = "#",
+  imageUrl = "/bg_img.jpg"
+} = Astro.props;
+---
+
+<section 
+  class="relative min-h-[600px] md:min-h-screen flex items-center"
+  aria-label="Section principale"
+>
+  <!-- Desktop : Grid 2 colonnes | Mobile : Stack vertical -->
+  <div class="w-full grid md:grid-cols-2 min-h-[600px] md:min-h-screen">
+    
+    <!-- Zone Texte avec Overlay -->
+    <div class="bg-black/80 md:bg-black/70 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-1 md:order-1">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+        {title}
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
+        {subtitle}
+      </p>
+      
+      <div class="flex justify-center md:justify-start">
+        <a
+          href={ctaAction}
+          class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black"
+        >
+          {ctaText}
+        </a>
+      </div>
+    </div>
+    
+    <!-- Zone Image -->
+    <!-- Desktop : Background CSS | Mobile : <img> tag -->
+    <div class="relative order-2 md:order-2 min-h-[300px] md:min-h-full">
+      <!-- Image Desktop (background) -->
+      <div 
+        class="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={`background-image: url('${imageUrl}')`}
+        role="img"
+        aria-label="Gaming setup avec casque et manette"
+      ></div>
+      
+      <!-- Image Mobile (img tag) -->
+      <div class="md:hidden p-4">
+        <img 
+          src={imageUrl}
+          alt="Gaming setup avec casque et manette"
+          class="w-full h-auto object-cover rounded-lg shadow-xl"
+          width="800"
+          height="600"
+        />
+      </div>
+    </div>
+    
+  </div>
+</section>
