@@ -30,6 +30,8 @@ const {
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col bg-white font-sans">
-    <slot />
+    <div class="w-full max-w-[1440px] mx-auto px-[30px] md:px-[100px]">
+      <slot />
+    </div>
   </body>
 </html>
