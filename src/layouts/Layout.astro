@@ -1,17 +1,63 @@
 ---
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
 }
-const { title } = Astro.props;
+
+const {
+  title,
+  description = "Inscrivez-vous au tournoi GameOn et participez à des compétitions gaming exceptionnelles. Événements e-sport partout en France.",
+  image = "/Logo.png",
+  type = "website",
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const canonicalImageUrl = new URL(image, Astro.site).href;
+
+// Import global styles (includes fonts)
+import '../styles/global.css';
 ---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Meta basics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <title>{title} | GameOn</title>
+  
+  <!-- OpenGraph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={canonicalImageUrl} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="GameOn Events" />
+  <meta property="og:locale" content="fr_FR" />
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={canonicalImageUrl} />
+  
+  <!-- Fonts preload -->
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Medium.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Bold.ttf" as="font" type="font/ttf" crossorigin />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- Generator -->
+  <meta name="generator" content={Astro.generator} />
 </head>
-<body>
+<body class="font-sans antialiased">
   <slot />
 </body>
 </html>
