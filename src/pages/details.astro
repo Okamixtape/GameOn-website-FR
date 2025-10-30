@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Détails du Tournoi"
+  description="Toutes les informations sur le Tournoi Gaming Régional 2025 : dates, lieu, règlement et inscription."
+>
+  <div class="container mx-auto px-4 py-16">
+    
+    <!-- Hero Section -->
+    <section class="mb-16 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Tournoi Gaming Régional 2025</h1>
+      <p class="text-xl text-zinc-600 max-w-3xl mx-auto">
+        La plus grande compétition esport de la région. Rejoignez-nous pour trois jours 
+        de compétition intense et de passion gaming !
+      </p>
+    </section>
+
+    <!-- Informations Pratiques -->
+    <section class="grid md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-zinc-50 p-8 rounded-lg border border-zinc-200 hover:border-red-500 transition-colors">
+        <div class="text-4xl mb-4">📅</div>
+        <h2 class="text-2xl font-semibold mb-3">Dates</h2>
+        <p class="text-lg font-medium text-zinc-900">15-17 Mars 2025</p>
+        <p class="text-zinc-600">3 jours de compétition</p>
+      </div>
+
+      <div class="bg-zinc-50 p-8 rounded-lg border border-zinc-200 hover:border-red-500 transition-colors">
+        <div class="text-4xl mb-4">📍</div>
+        <h2 class="text-2xl font-semibold mb-3">Lieu</h2>
+        <p class="text-lg font-medium text-zinc-900">Arena GameOn</p>
+        <p class="text-zinc-600">123 Rue du Gaming, Paris 75001</p>
+      </div>
+
+      <div class="bg-zinc-50 p-8 rounded-lg border border-zinc-200 hover:border-red-500 transition-colors">
+        <div class="text-4xl mb-4">🏆</div>
+        <h2 class="text-2xl font-semibold mb-3">Prix</h2>
+        <p class="text-lg font-medium text-zinc-900">15 000€ de cashprize</p>
+        <p class="text-zinc-600">Répartis sur le top 8</p>
+      </div>
+
+      <div class="bg-zinc-50 p-8 rounded-lg border border-zinc-200 hover:border-red-500 transition-colors">
+        <div class="text-4xl mb-4">👥</div>
+        <h2 class="text-2xl font-semibold mb-3">Participants</h2>
+        <p class="text-lg font-medium text-zinc-900">128 joueurs maximum</p>
+        <p class="text-zinc-600">Tous niveaux acceptés</p>
+      </div>
+    </section>
+
+    <!-- Règlement -->
+    <section class="mb-16 bg-white p-8 md:p-12 rounded-lg border border-zinc-200">
+      <h2 class="text-3xl font-bold mb-8 text-center">Règlement du Tournoi</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-red-600">Format de Compétition</h3>
+          <ul class="space-y-3 text-zinc-700">
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Phase de groupes</strong> : Best of 1 (BO1)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Phase finale</strong> : Best of 3 (BO3)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Grande finale</strong> : Best of 5 (BO5)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Système</strong> : Double élimination</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-red-600">Conditions d'Éligibilité</h3>
+          <ul class="space-y-3 text-zinc-700">
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Âge minimum</strong> : 13 ans révolus</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Résidence</strong> : France métropolitaine</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Inscription</strong> : Avant le 1er mars 2025</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 mr-2">•</span>
+              <span><strong>Équipement</strong> : Fourni sur place</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
+        <h3 class="text-xl font-semibold mb-3 text-red-900">⚠️ Important</h3>
+        <ul class="space-y-2 text-red-800">
+          <li>• Les mineurs doivent présenter une autorisation parentale signée</li>
+          <li>• Une pièce d'identité sera demandée le jour du tournoi</li>
+          <li>• Le règlement complet sera envoyé par email après inscription</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Programme -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">Programme des 3 Jours</h2>
+      
+      <div class="space-y-6">
+        <div class="bg-zinc-50 p-6 rounded-lg border-l-4 border-red-600">
+          <h3 class="text-xl font-semibold mb-2">Jour 1 - Vendredi 15 Mars</h3>
+          <ul class="space-y-2 text-zinc-700">
+            <li>• <strong>14h00</strong> : Accueil et enregistrement des participants</li>
+            <li>• <strong>15h00</strong> : Cérémonie d'ouverture</li>
+            <li>• <strong>16h00</strong> : Début phase de groupes (Groupes A-D)</li>
+            <li>• <strong>22h00</strong> : Fin de la journée</li>
+          </ul>
+        </div>
+
+        <div class="bg-zinc-50 p-6 rounded-lg border-l-4 border-red-600">
+          <h3 class="text-xl font-semibold mb-2">Jour 2 - Samedi 16 Mars</h3>
+          <ul class="space-y-2 text-zinc-700">
+            <li>• <strong>10h00</strong> : Phase de groupes (Groupes E-H)</li>
+            <li>• <strong>14h00</strong> : Début phase finale (Quarts de finale)</li>
+            <li>• <strong>18h00</strong> : Demi-finales</li>
+            <li>• <strong>21h00</strong> : Soirée networking</li>
+          </ul>
+        </div>
+
+        <div class="bg-zinc-50 p-6 rounded-lg border-l-4 border-red-600">
+          <h3 class="text-xl font-semibold mb-2">Jour 3 - Dimanche 17 Mars</h3>
+          <ul class="space-y-2 text-zinc-700">
+            <li>• <strong>14h00</strong> : Petite finale (3ème place)</li>
+            <li>• <strong>16h00</strong> : Grande finale</li>
+            <li>• <strong>18h00</strong> : Cérémonie de remise des prix</li>
+            <li>• <strong>19h00</strong> : Clôture du tournoi</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Répartition Cashprize -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">Répartition du Cashprize</h2>
+      
+      <div class="grid md:grid-cols-4 gap-4">
+        <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 p-6 rounded-lg text-white text-center">
+          <div class="text-4xl mb-2">🥇</div>
+          <div class="text-2xl font-bold mb-1">1er</div>
+          <div class="text-3xl font-bold">6 000€</div>
+        </div>
+        <div class="bg-gradient-to-br from-zinc-300 to-zinc-500 p-6 rounded-lg text-white text-center">
+          <div class="text-4xl mb-2">🥈</div>
+          <div class="text-2xl font-bold mb-1">2ème</div>
+          <div class="text-3xl font-bold">3 500€</div>
+        </div>
+        <div class="bg-gradient-to-br from-orange-400 to-orange-600 p-6 rounded-lg text-white text-center">
+          <div class="text-4xl mb-2">🥉</div>
+          <div class="text-2xl font-bold mb-1">3ème</div>
+          <div class="text-3xl font-bold">2 000€</div>
+        </div>
+        <div class="bg-gradient-to-br from-zinc-600 to-zinc-800 p-6 rounded-lg text-white text-center">
+          <div class="text-4xl mb-2">🏅</div>
+          <div class="text-2xl font-bold mb-1">4-8ème</div>
+          <div class="text-2xl font-bold">3 500€</div>
+          <div class="text-sm opacity-90">Répartis</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="text-center bg-gradient-to-r from-red-600 to-red-700 p-12 rounded-lg text-white">
+      <h2 class="text-3xl font-bold mb-4">Prêt à Rejoindre l'Aventure ?</h2>
+      <p class="text-xl mb-8 opacity-90">
+        Les places sont limitées à 128 joueurs. Ne manquez pas cette opportunité !
+      </p>
+      <button 
+        data-open-modal
+        class="bg-white text-red-600 hover:bg-zinc-100 px-10 py-5 rounded-lg text-xl font-bold transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
+      >
+        Je M'inscris Maintenant
+      </button>
+      <p class="mt-4 text-sm opacity-75">
+        Inscription gratuite • Confirmation immédiate par email
+      </p>
+    </section>
+
+  </div>
+</Layout>
