@@ -36,6 +36,9 @@ import RegistrationModal from '../components/RegistrationModal.astro';
   {noindex && <meta name="robots" content="noindex, nofollow" />}
   <title>{title} | GameOn</title>
   
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalUrl} />
+  
   <!-- OpenGraph -->
   <meta property="og:type" content={type} />
   <meta property="og:title" content={title} />
@@ -61,6 +64,39 @@ import RegistrationModal from '../components/RegistrationModal.astro';
   
   <!-- Generator -->
   <meta name="generator" content={Astro.generator} />
+  
+  <!-- Structured Data JSON-LD (SportsEvent) -->
+  {Astro.url.pathname === '/' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SportsEvent",
+      "name": "Tournoi Gaming Régional 2025",
+      "description": "La plus grande compétition esport de la région. 15 000€ de cashprize, 128 joueurs, tous niveaux acceptés.",
+      "startDate": "2025-03-15",
+      "endDate": "2025-03-17",
+      "location": {
+        "@type": "Place",
+        "name": "Arena GameOn",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Paris",
+          "addressCountry": "FR"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://gameon-events.web.app/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "GameOn",
+        "url": "https://gameon-events.web.app/"
+      }
+    })} />
+  )}
 </head>
 <body class="font-sans antialiased flex flex-col min-h-screen">
   <Header currentPath={Astro.url.pathname} />
