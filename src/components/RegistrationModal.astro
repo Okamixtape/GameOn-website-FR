@@ -48,6 +48,9 @@ const { isOpen = false } = Astro.props;
 
       <!-- Form -->
       <form id="registration-form" class="space-y-6" novalidate>
+        <!-- Honeypot (anti-spam) - Hidden field -->
+        <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+        
         <!-- Prénom -->
         <div class="form-group">
           <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2">
@@ -271,7 +274,7 @@ const { isOpen = false } = Astro.props;
 
 <script is:inline>
   // Configuration Formspark
-  const FORMSPARK_ACTION_URL = 'https://submit-form.com/YOUR_FORM_ID'; // À remplacer
+  const FORMSPARK_ACTION_URL = 'https://submit-form.com/HTpvjziNN';
 
   // DOM Elements
   const modal = document.getElementById('registration-modal');
