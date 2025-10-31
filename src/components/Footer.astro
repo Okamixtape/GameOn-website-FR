@@ -2,7 +2,7 @@
 interface Props {
   /**
    * Nom de l'entreprise affiché dans le copyright
-   * @default "GameOn"
+   * @default "PIXEL CLASH"
    */
   companyName?: string;
 
@@ -26,13 +26,13 @@ interface Props {
 }
 
 const { 
-  companyName = "GameOn", 
+  companyName = "PIXEL CLASH", 
   year = new Date().getFullYear(),
   socialLinks 
 } = Astro.props;
 ---
 
-<footer class="bg-zinc-900 text-zinc-300 py-6 mt-auto">
+<footer class="bg-gradient-to-r from-zinc-900 via-purple-900/50 to-zinc-900 text-zinc-300 py-6 mt-auto border-t border-retro-blue/20">
   <div class="container mx-auto px-4 sm:px-6">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
       
@@ -47,19 +47,19 @@ const {
       <nav aria-label="Liens légaux" class="flex flex-wrap justify-center sm:justify-end gap-4 text-sm">
         <a 
           href="/mentions-legales" 
-          class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
+          class="hover:text-retro-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
         >
           Mentions légales
         </a>
         <a 
           href="/politique-confidentialite" 
-          class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
+          class="hover:text-retro-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
         >
           Politique de confidentialité
         </a>
         <a 
           href="/cgu" 
-          class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
+          class="hover:text-retro-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
         >
           CGU
         </a>
