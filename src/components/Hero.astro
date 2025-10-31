@@ -23,24 +23,53 @@ const {
   <!-- Desktop : Grid 2 colonnes | Mobile : Stack vertical -->
   <div class="w-full grid md:grid-cols-2 min-h-[600px] md:min-h-screen">
     
-    <!-- Zone Texte avec Overlay -->
-    <div class="bg-black/80 md:bg-black/70 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-1 md:order-1">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-        {title}
-      </h1>
+    <!-- Zone Texte avec Gradient Overlay Gaming -->
+    <div class="relative bg-gradient-to-r from-red-600/90 via-black/85 to-black/70 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-1 md:order-1 overflow-hidden">
+      <!-- Pattern background subtil -->
+      <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.03) 10px, rgba(255,255,255,.03) 20px);"></div>
       
-      <p class="text-lg md:text-xl text-gray-200 font-medium mb-8 max-w-lg mx-auto md:mx-0">
-        {subtitle}
-      </p>
-      
-      <div class="flex justify-center md:justify-start">
-        <button
-          data-open-modal
-          aria-label="Ouvrir le formulaire d'inscription au tournoi"
-          class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black"
-        >
-          {ctaText}
-        </button>
+      <div class="relative z-10">
+        <!-- Titre avec glow effect -->
+        <h1 class="font-gaming text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(220,38,38,0.8)]">
+          {title}
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-200 font-medium mb-8 max-w-lg mx-auto md:mx-0">
+          {subtitle}
+        </p>
+        
+        <!-- Trust Signals -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-8">
+          <!-- Compteur participants -->
+          <div class="backdrop-blur-sm bg-white/20 border border-white/30 rounded-full px-5 py-2 flex items-center gap-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span class="text-white font-medium text-sm">487 inscrits</span>
+          </div>
+          
+          <!-- Badge urgence -->
+          <div class="bg-gaming-amber text-black font-bold px-4 py-2 rounded-lg animate-pulse-slow text-sm">
+            Places limitées !
+          </div>
+        </div>
+        
+        <!-- CTA Gaming Redesign -->
+        <div class="flex justify-center md:justify-start">
+          <button
+            data-open-modal
+            aria-label="Ouvrir le formulaire d'inscription au tournoi"
+            class="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold rounded-lg text-lg shadow-lg shadow-red-500/50 hover:shadow-xl hover:shadow-red-500/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black"
+          >
+            <span class="flex items-center gap-2">
+              {ctaText}
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
     
