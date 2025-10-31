@@ -17,61 +17,59 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </section>
 
-    <!-- Informations Pratiques - Glassmorphism Cards sur fond sombre -->
-    <section class="relative bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 -mx-4 px-4 md:px-8 py-12 mb-16 rounded-lg">
-      <div class="grid md:grid-cols-2 gap-8">
+    <!-- Informations Pratiques - Cards Impactantes sur Fond Blanc -->
+    <section class="grid md:grid-cols-2 gap-8 mb-16">
       <!-- Card Dates -->
-      <div class="group relative backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-8 hover:bg-white/20 hover:border-red-500/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
-        <!-- Icône SVG Calendar -->
-        <div class="w-12 h-12 mb-4 text-red-500">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="group relative bg-white border-2 border-zinc-200 rounded-xl p-8 hover:border-red-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
+        <!-- Icône SVG Calendar avec background -->
+        <div class="w-14 h-14 mb-4 bg-red-100 rounded-lg flex items-center justify-center">
+          <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
           </svg>
         </div>
-        <h2 class="text-2xl font-bold mb-3 text-white">Dates</h2>
-        <p class="text-lg font-medium text-gray-100">15-17 Mars 2025</p>
-        <p class="text-gray-300">3 jours de compétition</p>
+        <h2 class="text-2xl font-bold mb-3 text-zinc-900">Dates</h2>
+        <p class="text-lg font-semibold text-red-600">15-17 Mars 2025</p>
+        <p class="text-zinc-600">3 jours de compétition</p>
       </div>
 
       <!-- Card Lieu -->
-      <div class="group relative backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-8 hover:bg-white/20 hover:border-red-500/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
-        <!-- Icône SVG Location -->
-        <div class="w-12 h-12 mb-4 text-red-500">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="group relative bg-white border-2 border-zinc-200 rounded-xl p-8 hover:border-red-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
+        <!-- Icône SVG Location avec background -->
+        <div class="w-14 h-14 mb-4 bg-red-100 rounded-lg flex items-center justify-center">
+          <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
         </div>
-        <h2 class="text-2xl font-bold mb-3 text-white">Lieu</h2>
-        <p class="text-lg font-medium text-gray-100">Arena GameOn</p>
-        <p class="text-gray-300">123 Rue du Gaming, Paris 75001</p>
+        <h2 class="text-2xl font-bold mb-3 text-zinc-900">Lieu</h2>
+        <p class="text-lg font-semibold text-red-600">Arena GameOn</p>
+        <p class="text-zinc-600">123 Rue du Gaming, Paris 75001</p>
       </div>
 
       <!-- Card Prix -->
-      <div class="group relative backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-8 hover:bg-white/20 hover:border-red-500/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
-        <!-- Icône SVG Trophy -->
-        <div class="w-12 h-12 mb-4 text-gaming-amber">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="group relative bg-white border-2 border-zinc-200 rounded-xl p-8 hover:border-gaming-amber hover:-translate-y-2 hover:shadow-2xl hover:shadow-gaming-amber/20 transition-all duration-300">
+        <!-- Icône SVG Trophy avec background -->
+        <div class="w-14 h-14 mb-4 bg-amber-100 rounded-lg flex items-center justify-center">
+          <svg class="w-8 h-8 text-gaming-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
           </svg>
         </div>
-        <h2 class="text-2xl font-bold mb-3 text-white">Prix</h2>
-        <p class="text-lg font-medium text-gray-100">15 000€ de cashprize</p>
-        <p class="text-gray-300">Répartis sur le top 8</p>
+        <h2 class="text-2xl font-bold mb-3 text-zinc-900">Prix</h2>
+        <p class="text-lg font-semibold text-gaming-amber">15 000€ de cashprize</p>
+        <p class="text-zinc-600">Répartis sur le top 8</p>
       </div>
 
       <!-- Card Participants -->
-      <div class="group relative backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-8 hover:bg-white/20 hover:border-red-500/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
-        <!-- Icône SVG Users -->
-        <div class="w-12 h-12 mb-4 text-red-500">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="group relative bg-white border-2 border-zinc-200 rounded-xl p-8 hover:border-red-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
+        <!-- Icône SVG Users avec background -->
+        <div class="w-14 h-14 mb-4 bg-red-100 rounded-lg flex items-center justify-center">
+          <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
           </svg>
         </div>
-        <h2 class="text-2xl font-bold mb-3 text-white">Participants</h2>
-        <p class="text-lg font-medium text-gray-100">128 joueurs maximum</p>
-        <p class="text-gray-300">Places limitées, inscription obligatoire</p>
-      </div>
+        <h2 class="text-2xl font-bold mb-3 text-zinc-900">Participants</h2>
+        <p class="text-lg font-semibold text-red-600">128 joueurs maximum</p>
+        <p class="text-zinc-600">Places limitées, inscription obligatoire</p>
       </div>
     </section>
 
