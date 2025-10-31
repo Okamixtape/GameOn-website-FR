@@ -17,8 +17,9 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </section>
 
-    <!-- Informations Pratiques - Glassmorphism Cards -->
-    <section class="grid md:grid-cols-2 gap-8 mb-16">
+    <!-- Informations Pratiques - Glassmorphism Cards sur fond sombre -->
+    <section class="relative bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 -mx-4 px-4 md:px-8 py-12 mb-16 rounded-lg">
+      <div class="grid md:grid-cols-2 gap-8">
       <!-- Card Dates -->
       <div class="group relative backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-8 hover:bg-white/20 hover:border-red-500/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300">
         <!-- Icône SVG Calendar -->
@@ -70,6 +71,7 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="text-2xl font-bold mb-3 text-white">Participants</h2>
         <p class="text-lg font-medium text-gray-100">128 joueurs maximum</p>
         <p class="text-gray-300">Places limitées, inscription obligatoire</p>
+      </div>
       </div>
     </section>
 
