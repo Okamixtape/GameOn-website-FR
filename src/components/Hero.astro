@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = "Tournoi Gaming Régional 2025",
-  subtitle = "Rejoignez la plus grande compétition esport de la région. Inscription ouverte aux joueurs de tous niveaux. Places limitées !",
+  title = "PIXEL CLASH Championship 2025",
+  subtitle = "Rejoignez le championnat retro gaming qui célèbre les racines du jeu vidéo. Compétitions classiques, ambiance arcade, nostalgie garantie !",
   ctaText = "Je m'inscris",
   ctaLink = "#",
   imageUrl = "/bg_img.jpg"
@@ -23,14 +23,14 @@ const {
   <!-- Desktop : Grid 2 colonnes | Mobile : Stack vertical -->
   <div class="w-full grid md:grid-cols-2 min-h-[600px] md:min-h-screen">
     
-    <!-- Zone Texte avec Gradient Overlay Gaming -->
-    <div class="relative bg-gradient-to-br from-red-600/95 via-red-900/90 via-30% to-black/95 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-1 md:order-1 overflow-hidden">
+    <!-- Zone Texte avec Gradient Overlay Retro Gaming -->
+    <div class="relative bg-gradient-to-br from-retro-purple/95 via-retro-blue/80 via-40% to-purple-900/95 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-1 md:order-1 overflow-hidden">
       <!-- Pattern background subtil -->
       <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.03) 10px, rgba(255,255,255,.03) 20px);"></div>
       
       <div class="relative z-10">
-        <!-- Titre avec glow effect -->
-        <h1 class="font-gaming text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(220,38,38,0.8)]">
+        <!-- Titre avec glow effect retro -->
+        <h1 class="font-gaming text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]">
           {title}
         </h1>
         
@@ -55,12 +55,12 @@ const {
           </div>
         </div>
         
-        <!-- CTA Gaming Redesign -->
+        <!-- CTA Retro Gaming -->
         <div class="flex justify-center md:justify-start">
           <button
             data-open-modal
             aria-label="Ouvrir le formulaire d'inscription au tournoi"
-            class="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold rounded-lg text-lg shadow-lg shadow-red-500/50 hover:shadow-xl hover:shadow-red-500/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black"
+            class="group relative px-8 py-4 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-lg shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-black"
           >
             <span class="flex items-center gap-2">
               {ctaText}
