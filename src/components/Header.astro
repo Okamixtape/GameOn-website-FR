@@ -65,6 +65,20 @@ const navItems = [
       class="hidden md:hidden absolute top-full left-0 right-0 bg-zinc-900 border-t border-zinc-800 shadow-lg"
       role="menu"
     >
+      <!-- Bouton Close Mobile -->
+      <div class="flex justify-end px-4 pt-4">
+        <button
+          id="mobile-menu-close"
+          type="button"
+          class="text-gray-400 hover:text-white transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"
+          aria-label="Fermer le menu"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      
       <ul class="flex flex-col py-4">
         {navItems.map(item => (
           <li role="none">
@@ -88,29 +102,37 @@ const navItems = [
 <script is:inline>
   // Toggle menu mobile
   const button = document.getElementById('mobile-menu-button');
+  const closeButton = document.getElementById('mobile-menu-close');
   const menu = document.getElementById('mobile-menu');
 
   if (button && menu) {
-    // Toggle au clic sur le bouton
+    // Fonction pour fermer le menu
+    const closeMenu = () => {
+      button.setAttribute('aria-expanded', 'false');
+      menu.classList.add('hidden');
+    };
+
+    // Toggle au clic sur le bouton hamburger
     button.addEventListener('click', () => {
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
       button.setAttribute('aria-expanded', String(!isExpanded));
       menu.classList.toggle('hidden');
     });
 
+    // Fermer au clic sur le bouton close
+    if (closeButton) {
+      closeButton.addEventListener('click', closeMenu);
+    }
+
     // Fermer le menu en cliquant sur un lien
     menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        button.setAttribute('aria-expanded', 'false');
-        menu.classList.add('hidden');
-      });
+      link.addEventListener('click', closeMenu);
     });
 
     // Fermer le menu en cliquant à l'extérieur
     document.addEventListener('click', (e) => {
       if (!button.contains(e.target) && !menu.contains(e.target)) {
-        button.setAttribute('aria-expanded', 'false');
-        menu.classList.add('hidden');
+        closeMenu();
       }
     });
 

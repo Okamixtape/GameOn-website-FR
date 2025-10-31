@@ -3,15 +3,15 @@ interface Props {
   title?: string;
   subtitle?: string;
   ctaText?: string;
-  ctaAction?: string;
+  ctaLink?: string;
   imageUrl?: string;
 }
 
 const {
   title = "Tournoi Gaming Régional 2025",
   subtitle = "Rejoignez la plus grande compétition esport de la région. Inscription ouverte aux joueurs de tous niveaux. Places limitées !",
-  ctaText = "Je M'inscris",
-  ctaAction = "#",
+  ctaText = "Je m'inscris",
+  ctaLink = "#",
   imageUrl = "/bg_img.jpg"
 } = Astro.props;
 ---
@@ -29,7 +29,7 @@ const {
         {title}
       </h1>
       
-      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
+      <p class="text-lg md:text-xl text-gray-200 font-medium mb-8 max-w-lg mx-auto md:mx-0">
         {subtitle}
       </p>
       
