@@ -6,22 +6,49 @@ import Layout from '../layouts/Layout.astro';
   title="À Propos - PIXEL CLASH Championship"
   description="Découvrez PIXEL CLASH, le championnat retro gaming qui célèbre l'âge d'or du jeu vidéo. Notre mission, nos valeurs, notre équipe."
 >
-  <div class="container mx-auto px-4 py-16">
+  <!-- Hero Section Immersive -->
+  <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-20 md:py-28 overflow-hidden">
+    <!-- Pattern retro background -->
+    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,110,.2) 10px, rgba(255,0,110,.2) 20px);"></div>
     
-    <!-- Hero Section -->
-    <section class="mb-16 text-center">
-      <div class="inline-block bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink p-1 rounded-lg mb-6">
-        <h1 class="font-gaming text-4xl md:text-5xl font-bold uppercase tracking-wide bg-white px-8 py-4 rounded-lg">
-          <span class="bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink bg-clip-text text-transparent">
-            À Propos de PIXEL CLASH
-          </span>
-        </h1>
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-6">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+        </svg>
+        <span class="font-bold text-sm uppercase tracking-wider">Notre Histoire</span>
       </div>
-      <p class="text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">
-        Le championnat retro gaming qui célèbre les racines du jeu vidéo et 
-        rassemble les passionnés de l'âge d'or de l'arcade.
+
+      <h1 class="font-gaming text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(255,0,110,0.8)]">
+        À Propos de PIXEL CLASH
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
+        Le championnat qui célèbre les racines du jeu vidéo et rassemble les passionnés de l'âge d'or de l'arcade.
       </p>
-    </section>
+      
+      <!-- CTA -->
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button
+          data-open-modal
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-pink hover:bg-retro-blue hover:text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-retro-pink"
+        >
+          Rejoindre l'aventure
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </button>
+        <a
+          href="/details"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-retro-pink"
+        >
+          Voir les détails
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-4 py-16">
 
     <!-- Mission -->
     <section class="mb-16 bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple p-12 rounded-lg text-white shadow-lg shadow-retro-blue/30">

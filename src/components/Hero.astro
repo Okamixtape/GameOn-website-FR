@@ -17,91 +17,108 @@ const {
 ---
 
 <section 
-  class="relative min-h-[600px] md:min-h-screen flex items-center"
+  class="relative min-h-[600px] md:min-h-[85vh] flex items-center overflow-hidden"
   aria-label="Section principale"
 >
-  <!-- Desktop : Grid 2 colonnes | Mobile : Stack vertical -->
-  <div class="w-full grid md:grid-cols-2 min-h-[600px] md:min-h-screen">
-    
-    <!-- Zone Texte avec Gradient Overlay Retro Gaming -->
-    <div class="relative bg-gradient-to-br from-retro-purple/95 via-retro-blue/80 via-40% to-purple-900/95 p-8 md:p-12 flex flex-col justify-center text-center md:text-left order-1 md:order-1 overflow-hidden">
-      <!-- Pattern background subtil -->
-      <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.03) 10px, rgba(255,255,255,.03) 20px);"></div>
+  <!-- Image de fond pleine largeur -->
+  <picture class="absolute inset-0 w-full h-full">
+    <source 
+      srcset="/retro-gaming-hero.webp" 
+      type="image/webp"
+    />
+    <img 
+      src="/retro-gaming-hero.jpg"
+      alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
+      class="w-full h-full object-cover object-center"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+    />
+  </picture>
+
+  <!-- Overlay gradient pour lisibilité -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-retro-purple/60 to-black/50"></div>
+
+  <!-- Pattern retro subtil -->
+  <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,217,255,.1) 10px, rgba(0,217,255,.1) 20px);"></div>
+
+  <!-- Contenu centré dans container (cohérent avec autres pages) -->
+  <div class="container mx-auto px-4 py-16 relative z-10">
+    <div class="max-w-3xl">
       
-      <div class="relative z-10">
-        <!-- Titre avec glow effect retro -->
-        <h1 class="font-gaming text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]">
+      <!-- Badge "Événement 2025" -->
+      <div class="inline-flex items-center gap-2 bg-retro-blue/20 backdrop-blur-sm border border-retro-blue/50 rounded-full px-4 py-2 mb-6">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-retro-blue opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-retro-blue"></span>
+        </span>
+        <span class="text-retro-blue font-bold text-sm uppercase tracking-wider">Événement 2025</span>
+      </div>
+
+      <!-- Titre principal avec effet néon -->
+      <h1 class="font-gaming text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-wide leading-tight">
+        <span class="block drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]">
           {title}
-        </h1>
-        
-        <p class="text-lg md:text-xl text-gray-200 font-medium mb-8 max-w-lg mx-auto md:mx-0">
-          {subtitle}
-        </p>
-        
-        <!-- Trust Signals -->
-        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-8">
-          <!-- Compteur participants -->
-          <div class="backdrop-blur-sm bg-white/20 border border-white/30 rounded-full px-5 py-2 flex items-center gap-2">
-            <span class="relative flex h-3 w-3">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-            </span>
-            <span class="text-white font-medium text-sm">487 inscrits</span>
-          </div>
-          
-          <!-- Badge urgence -->
-          <div class="bg-retro-pink text-white font-bold px-4 py-2 rounded-lg animate-pulse-slow text-sm shadow-lg shadow-retro-pink/50">
-            Places limitées !
-          </div>
+        </span>
+      </h1>
+      
+      <!-- Sous-titre -->
+      <p class="text-xl md:text-2xl text-gray-200 font-medium mb-8 leading-relaxed">
+        {subtitle}
+      </p>
+      
+      <!-- Trust Signals -->
+      <div class="flex flex-wrap items-center gap-4 mb-10">
+        <!-- Compteur participants -->
+        <div class="backdrop-blur-sm bg-white/20 border border-white/30 rounded-full px-5 py-2.5 flex items-center gap-2">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+          <span class="text-white font-bold text-sm">487 inscrits</span>
         </div>
         
-        <!-- CTA Retro Gaming -->
-        <div class="flex justify-center md:justify-start">
-          <button
-            data-open-modal
-            aria-label="Ouvrir le formulaire d'inscription au tournoi"
-            class="group relative px-8 py-4 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-lg shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-black"
-          >
-            <span class="flex items-center gap-2">
-              {ctaText}
-              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-              </svg>
-            </span>
-          </button>
+        <!-- Cashprize -->
+        <div class="backdrop-blur-sm bg-amber-500/20 border border-amber-400/50 rounded-full px-5 py-2.5 flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-amber-400 font-bold text-sm">15 000€ de cashprize</span>
+        </div>
+        
+        <!-- Badge urgence -->
+        <div class="bg-retro-pink text-white font-bold px-5 py-2.5 rounded-full animate-pulse-slow text-sm shadow-lg shadow-retro-pink/50">
+          Places limitées !
         </div>
       </div>
+      
+      <!-- CTA Principal -->
+      <div class="flex flex-wrap gap-4">
+        <button
+          data-open-modal
+          aria-label="Ouvrir le formulaire d'inscription au tournoi"
+          class="group relative px-8 py-4 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-lg shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-black"
+        >
+          <span class="flex items-center gap-2">
+            {ctaText}
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </span>
+        </button>
+
+        <!-- CTA Secondaire -->
+        <a
+          href="/details"
+          class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+        >
+          En savoir plus
+        </a>
+      </div>
+
     </div>
-    
-    <!-- Zone Image -->
-    <!-- Desktop & Mobile : <picture> optimisé pour LCP -->
-    <div class="relative order-2 md:order-2 min-h-[300px] md:min-h-full overflow-hidden">
-      <picture class="absolute inset-0 w-full h-full">
-        <!-- WebP pour navigateurs modernes -->
-        <source 
-          srcset="/retro-gaming-hero.webp" 
-          type="image/webp"
-          media="(min-width: 768px)"
-        />
-        <source 
-          srcset="/retro-gaming-hero.webp" 
-          type="image/webp"
-          media="(max-width: 767px)"
-        />
-        
-        <!-- JPG fallback -->
-        <img 
-          src="/retro-gaming-hero.jpg"
-          alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
-          class="w-full h-full object-cover md:object-center object-top"
-          width="1920"
-          height="1080"
-          fetchpriority="high"
-          loading="eager"
-          decoding="async"
-        />
-      </picture>
-    </div>
-    
   </div>
 </section>

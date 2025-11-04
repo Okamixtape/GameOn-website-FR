@@ -32,69 +32,105 @@ const {
 } = Astro.props;
 ---
 
-<footer class="bg-gradient-to-r from-retro-purple via-purple-900 to-blue-900 text-zinc-300 py-6 mt-auto border-t border-retro-blue/30 shadow-lg shadow-retro-blue/10">
-  <div class="container mx-auto px-4 sm:px-6">
-    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+<footer class="relative bg-zinc-950 text-zinc-300 py-12 mt-auto border-t-4 border-retro-blue overflow-hidden">
+  <!-- Pattern retro background -->
+  <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,217,255,.3) 10px, rgba(0,217,255,.3) 20px);"></div>
+  
+  <!-- Glow effect top -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-retro-blue to-transparent"></div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+    
+    <!-- Section principale -->
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
       
-      <!-- Section copyright -->
-      <div class="text-center sm:text-left">
-        <p class="text-sm">
-          © {year} {companyName}. Tous droits réservés.
+      <!-- Colonne 1 : Branding -->
+      <div class="text-center md:text-left">
+        <h3 class="font-gaming text-3xl font-bold mb-4 uppercase tracking-wide">
+          <span class="bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,217,255,0.5)]">
+            PIXEL CLASH
+          </span>
+        </h3>
+        <p class="text-base text-zinc-300 leading-relaxed mb-3">
+          Le championnat retro gaming qui célèbre les racines du jeu vidéo.
+        </p>
+        <p class="text-sm text-zinc-500">
+          © {year} Tous droits réservés.
         </p>
       </div>
 
-      <!-- Section liens légaux -->
-      <nav aria-label="Liens légaux" class="flex flex-wrap justify-center sm:justify-end gap-4 text-sm">
-        <a 
-          href="/mentions-legales" 
-          class="hover:text-retro-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
-        >
-          Mentions légales
-        </a>
-        <a 
-          href="/politique-confidentialite" 
-          class="hover:text-retro-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
-        >
-          Politique de confidentialité
-        </a>
-        <a 
-          href="/cgu" 
-          class="hover:text-retro-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-1"
-        >
-          CGU
-        </a>
-      </nav>
+      <!-- Colonne 2 : Navigation rapide -->
+      <div class="text-center">
+        <h4 class="text-white font-bold mb-5 uppercase text-sm tracking-widest border-b border-retro-blue/30 pb-2 inline-block">Navigation</h4>
+        <nav aria-label="Navigation footer" class="flex flex-col gap-3 mt-4">
+          <a href="/" class="text-zinc-300 hover:text-retro-blue transition-colors font-medium">
+            🏠 Accueil
+          </a>
+          <a href="/details" class="text-zinc-300 hover:text-retro-blue transition-colors font-medium">
+            📋 Détails du tournoi
+          </a>
+          <a href="/about" class="text-zinc-300 hover:text-retro-blue transition-colors font-medium">
+            ℹ️ À propos
+          </a>
+        </nav>
+      </div>
 
-      <!-- Section réseaux sociaux (optionnel) -->
-      {socialLinks && socialLinks.length > 0 && (
-        <div class="flex justify-center sm:justify-end gap-4">
-          {socialLinks.map(({ platform, url, ariaLabel }) => (
-            <a
-              href={url}
-              aria-label={ariaLabel}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-zinc-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] focus:ring-offset-2 focus:ring-offset-zinc-900 rounded"
-            >
-              <!-- Icône placeholder - à remplacer par SVG réel -->
-              <span class="sr-only">{ariaLabel}</span>
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" />
-              </svg>
-            </a>
-          ))}
+      <!-- Colonne 3 : Liens légaux -->
+      <div class="text-center md:text-right">
+        <h4 class="text-white font-bold mb-5 uppercase text-sm tracking-widest border-b border-retro-blue/30 pb-2 inline-block">Légal</h4>
+        <nav aria-label="Liens légaux" class="flex flex-col gap-3 mt-4">
+          <a 
+            href="/mentions-legales" 
+            class="text-zinc-300 hover:text-retro-blue transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-retro-blue rounded px-1"
+          >
+            Mentions légales
+          </a>
+          <a 
+            href="/politique-confidentialite" 
+            class="text-zinc-300 hover:text-retro-blue transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-retro-blue rounded px-1"
+          >
+            Confidentialité
+          </a>
+          <a 
+            href="/cgu" 
+            class="text-zinc-300 hover:text-retro-blue transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-retro-blue rounded px-1"
+          >
+            CGU
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Bannière Portfolio - Haute Visibilité -->
+    <div class="mt-10 pt-8 border-t-2 border-retro-blue/40">
+      <div class="bg-gradient-to-r from-retro-blue/20 via-retro-purple/20 to-retro-pink/20 backdrop-blur-sm border-2 border-retro-blue/50 rounded-xl p-8 text-center shadow-lg shadow-retro-blue/20">
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <svg class="w-6 h-6 text-retro-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span class="text-retro-blue font-bold uppercase text-base tracking-widest">💼 Projet Portfolio</span>
         </div>
-      )}
+        <p class="text-base text-white mb-4 font-medium">
+          Design & développement par 
+          <a 
+            href="https://github.com/Okamixtape" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="text-retro-blue font-bold hover:text-retro-pink transition-colors underline decoration-2 decoration-retro-blue/70 hover:decoration-retro-pink"
+          >
+            Loup Aubour
+          </a>
+        </p>
+        <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/50 rounded-full px-4 py-2">
+          <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-sm text-amber-300 font-medium">
+            L'événement PIXEL CLASH est fictif - Projet de démonstration
+          </span>
+        </div>
+      </div>
     </div>
 
-    <!-- Bannière Portfolio -->
-    <div class="mt-6 pt-4 border-t border-retro-blue/20">
-      <p class="text-center text-xs text-zinc-400">
-        💼 <strong class="text-retro-blue">Projet Portfolio</strong> • Design & développement par <a href="https://github.com/Okamixtape" target="_blank" rel="noopener noreferrer" class="text-retro-blue hover:text-retro-purple transition-colors underline">Loup Aubour</a>
-        <br class="sm:hidden" />
-        <span class="hidden sm:inline">•</span>
-        <span class="block sm:inline mt-1 sm:mt-0">L'événement PIXEL CLASH est fictif et créé à des fins de démonstration.</span>
-      </p>
-    </div>
   </div>
 </footer>
