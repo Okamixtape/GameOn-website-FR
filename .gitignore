@@ -22,3 +22,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Development notes archive
+.archive/
+
+# Test results
+test-results/
+playwright-report/
+
+# Lighthouse CI
+.lighthouseci/
