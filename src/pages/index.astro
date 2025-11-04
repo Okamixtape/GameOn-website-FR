@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import CTAButton from '../components/CTAButton.astro';
 ---
 <Layout title="Accueil">
   <Hero />
@@ -87,15 +88,13 @@ import Hero from '../components/Hero.astro';
 
       <!-- CTA Final -->
       <div class="text-center mt-16">
-        <button
-          data-open-modal
-          class="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink hover:from-retro-pink hover:via-retro-purple hover:to-retro-blue text-white font-bold rounded-xl text-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2"
-        >
-          <span>Réserver ma place maintenant</span>
-          <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </button>
+        <CTAButton 
+          text="Réserver ma place maintenant"
+          variant="primary"
+          size="xl"
+          opensModal={true}
+          class="group"
+        />
         <p class="text-sm text-zinc-500 mt-4">
           ⚡ Places limitées • Inscription gratuite
         </p>

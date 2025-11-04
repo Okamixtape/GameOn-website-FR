@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CTAButton from '../components/CTAButton.astro';
 ---
 
 <Layout 
@@ -29,21 +30,18 @@ import Layout from '../layouts/Layout.astro';
       
       <!-- CTA -->
       <div class="flex flex-wrap gap-4 justify-center">
-        <button
-          data-open-modal
-          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-pink hover:bg-retro-blue hover:text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-retro-pink"
-        >
-          Rejoindre l'aventure
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </button>
-        <a
+        <CTAButton 
+          text="Rejoindre l'aventure"
+          variant="primary"
+          size="lg"
+          opensModal={true}
+        />
+        <CTAButton 
+          text="Voir les détails"
+          variant="secondary"
+          size="lg"
           href="/details"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-retro-pink"
-        >
-          Voir les détails
-        </a>
+        />
       </div>
     </div>
   </section>

@@ -1,4 +1,6 @@
 ---
+import CTAButton from './CTAButton.astro';
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -97,26 +99,20 @@ const {
       
       <!-- CTA Principal -->
       <div class="flex flex-wrap gap-4">
-        <button
-          data-open-modal
-          aria-label="Ouvrir le formulaire d'inscription au tournoi"
-          class="group relative px-8 py-4 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-lg shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2 focus:ring-offset-black"
-        >
-          <span class="flex items-center gap-2">
-            {ctaText}
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-            </svg>
-          </span>
-        </button>
+        <CTAButton 
+          text={ctaText}
+          variant="primary"
+          size="lg"
+          opensModal={true}
+        />
 
         <!-- CTA Secondaire -->
-        <a
+        <CTAButton 
+          text="En savoir plus"
+          variant="secondary"
+          size="lg"
           href="/details"
-          class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-        >
-          En savoir plus
-        </a>
+        />
       </div>
 
     </div>

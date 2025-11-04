@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CTAButton from '../components/CTAButton.astro';
 ---
 
 <Layout 
@@ -28,15 +29,12 @@ import Layout from '../layouts/Layout.astro';
       </p>
       
       <!-- CTA -->
-      <button
-        data-open-modal
-        class="inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-purple hover:bg-retro-blue hover:text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-retro-purple"
-      >
-        Je m'inscris maintenant
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-        </svg>
-      </button>
+      <CTAButton 
+        text="Je m'inscris maintenant"
+        variant="primary"
+        size="lg"
+        opensModal={true}
+      />
     </div>
   </section>
 

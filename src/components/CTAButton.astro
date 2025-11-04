@@ -1,0 +1,72 @@
+---
+interface Props {
+  /**
+   * Texte du bouton
+   */
+  text: string;
+  
+  /**
+   * Variante du CTA
+   * - primary: Gradient signature (inscription)
+   * - secondary: Transparent avec border
+   */
+  variant?: 'primary' | 'secondary';
+  
+  /**
+   * Taille du bouton
+   */
+  size?: 'md' | 'lg' | 'xl';
+  
+  /**
+   * Si true, ouvre le modal d'inscription
+   */
+  opensModal?: boolean;
+  
+  /**
+   * URL de destination (si pas de modal)
+   */
+  href?: string;
+  
+  /**
+   * Classes CSS additionnelles
+   */
+  class?: string;
+}
+
+const {
+  text,
+  variant = 'primary',
+  size = 'lg',
+  opensModal = false,
+  href,
+  class: additionalClasses = ''
+} = Astro.props;
+
+const sizeClasses = {
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+  xl: 'px-10 py-5 text-xl'
+};
+
+const variantClasses = {
+  primary: 'bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink hover:from-retro-pink hover:via-retro-purple hover:to-retro-blue text-white shadow-lg hover:shadow-xl',
+  secondary: 'bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white'
+};
+
+const baseClasses = 'inline-flex items-center gap-2 font-bold rounded-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2';
+
+const Tag = opensModal ? 'button' : 'a';
+const attributes = opensModal 
+  ? { 'data-open-modal': true, type: 'button' }
+  : { href: href || '#' };
+---
+
+<Tag
+  {...attributes}
+  class={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${additionalClasses}`}
+>
+  <span>{text}</span>
+  <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+  </svg>
+</Tag>
