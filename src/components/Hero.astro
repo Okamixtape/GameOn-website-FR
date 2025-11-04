@@ -84,15 +84,19 @@ const {
         aria-label="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
       ></div>
       
-      <!-- Image Mobile (img tag) -->
+      <!-- Image Mobile (picture tag with WebP) -->
       <div class="md:hidden p-4">
-        <img 
-          src={imageUrl}
-          alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
-          class="w-full h-auto object-cover rounded-lg shadow-xl"
-          width="800"
-          height="600"
-        />
+        <picture>
+          <source srcset="/retro-gaming-hero.webp" type="image/webp" />
+          <img 
+            src={imageUrl}
+            alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
+            class="w-full h-auto object-cover rounded-lg shadow-xl"
+            width="800"
+            height="600"
+            loading="eager"
+          />
+        </picture>
       </div>
     </div>
     
