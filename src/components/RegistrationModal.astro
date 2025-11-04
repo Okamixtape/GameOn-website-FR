@@ -16,12 +16,13 @@ const { isOpen = false } = Astro.props;
 <!-- Modal Dialog -->
 <div
   id="registration-modal"
-  class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden"
+  class="fixed inset-0 z-50 hidden"
   role="dialog"
   aria-modal="true"
   aria-labelledby="modal-title"
   aria-describedby="modal-description"
 >
+  <div class="flex items-center justify-center min-h-full p-4">
   <div class="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
     <!-- Header -->
     <div class="sticky top-0 bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple border-b border-retro-blue/30 px-6 py-4 flex items-center justify-between z-10">
@@ -168,7 +169,7 @@ const { isOpen = false } = Astro.props;
             id="location"
             name="location"
             required
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors bg-white"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B5CF6] focus:border-[#8B5CF6] transition-colors bg-white"
             aria-describedby="location-error"
             aria-invalid="false"
           >
@@ -274,6 +275,7 @@ const { isOpen = false } = Astro.props;
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 

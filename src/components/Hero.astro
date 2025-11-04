@@ -74,30 +74,33 @@ const {
     </div>
     
     <!-- Zone Image -->
-    <!-- Desktop : Background CSS | Mobile : <img> tag -->
-    <div class="relative order-2 md:order-2 min-h-[300px] md:min-h-full">
-      <!-- Image Desktop (background) -->
-      <div 
-        class="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={`background-image: url('${imageUrl}')`}
-        role="img"
-        aria-label="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
-      ></div>
-      
-      <!-- Image Mobile (picture tag with WebP) -->
-      <div class="md:hidden p-4">
-        <picture>
-          <source srcset="/retro-gaming-hero.webp" type="image/webp" />
-          <img 
-            src={imageUrl}
-            alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
-            class="w-full h-auto object-cover rounded-lg shadow-xl"
-            width="800"
-            height="600"
-            loading="eager"
-          />
-        </picture>
-      </div>
+    <!-- Desktop & Mobile : <picture> optimisé pour LCP -->
+    <div class="relative order-2 md:order-2 min-h-[300px] md:min-h-full overflow-hidden">
+      <picture class="absolute inset-0 w-full h-full">
+        <!-- WebP pour navigateurs modernes -->
+        <source 
+          srcset="/retro-gaming-hero.webp" 
+          type="image/webp"
+          media="(min-width: 768px)"
+        />
+        <source 
+          srcset="/retro-gaming-hero.webp" 
+          type="image/webp"
+          media="(max-width: 767px)"
+        />
+        
+        <!-- JPG fallback -->
+        <img 
+          src="/retro-gaming-hero.jpg"
+          alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
+          class="w-full h-full object-cover md:object-center object-top"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
     </div>
     
   </div>

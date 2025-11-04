@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="404 - Page Non Trouvée"
+  description="La page que vous recherchez n'existe pas ou a été déplacée."
+  noindex={true}
+>
+  <div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <div class="max-w-2xl mx-auto text-center">
+      
+      <!-- Glitch Effect 404 -->
+      <div class="relative mb-8">
+        <h1 
+          class="font-gaming text-8xl md:text-9xl font-bold text-retro-purple drop-shadow-[0_0_20px_rgba(114,9,183,0.5)]"
+          aria-label="Erreur 404"
+        >
+          404
+        </h1>
+        
+        <!-- Glitch layers (décoratives uniquement) -->
+        <div 
+          class="absolute inset-0 font-gaming text-8xl md:text-9xl font-bold text-retro-blue opacity-50 animate-glitch-1 pointer-events-none"
+          aria-hidden="true"
+        >
+          404
+        </div>
+        <div 
+          class="absolute inset-0 font-gaming text-8xl md:text-9xl font-bold text-retro-pink opacity-50 animate-glitch-2 pointer-events-none"
+          aria-hidden="true"
+        >
+          404
+        </div>
+      </div>
+
+      <!-- Message d'erreur -->
+      <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+        Game Over
+      </h2>
+      
+      <p class="text-lg md:text-xl text-zinc-600 mb-8 max-w-lg mx-auto">
+        La page que vous recherchez n'existe pas ou a été déplacée. 
+        Peut-être qu'elle s'est perdue dans les pixels...
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <!-- Bouton principal : Retour accueil -->
+        <a
+          href="/"
+          class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-lg shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2"
+        >
+          <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Retour à l'accueil
+        </a>
+
+        <!-- Bouton secondaire : Détails tournoi -->
+        <a
+          href="/details"
+          class="inline-flex items-center gap-2 px-8 py-4 border-2 border-retro-purple text-retro-purple hover:bg-retro-purple hover:text-white font-bold rounded-lg text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-purple focus:ring-offset-2"
+        >
+          Voir le tournoi
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Liens utiles -->
+      <div class="mt-12 pt-8 border-t border-zinc-200">
+        <p class="text-sm text-zinc-500 mb-4">Liens utiles :</p>
+        <nav class="flex flex-wrap gap-4 justify-center text-sm">
+          <a href="/about" class="text-retro-blue hover:text-retro-purple transition-colors">
+            À propos
+          </a>
+          <span class="text-zinc-300">•</span>
+          <a href="/details" class="text-retro-blue hover:text-retro-purple transition-colors">
+            Détails du tournoi
+          </a>
+          <span class="text-zinc-300">•</span>
+          <a href="/cgu" class="text-retro-blue hover:text-retro-purple transition-colors">
+            CGU
+          </a>
+          <span class="text-zinc-300">•</span>
+          <a href="/politique-confidentialite" class="text-retro-blue hover:text-retro-purple transition-colors">
+            Confidentialité
+          </a>
+        </nav>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @keyframes glitch-1 {
+    0%, 100% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+  }
+
+  @keyframes glitch-2 {
+    0%, 100% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(2px, -2px);
+    }
+    40% {
+      transform: translate(2px, 2px);
+    }
+    60% {
+      transform: translate(-2px, -2px);
+    }
+    80% {
+      transform: translate(-2px, 2px);
+    }
+  }
+
+  .animate-glitch-1 {
+    animation: glitch-1 0.3s infinite;
+  }
+
+  .animate-glitch-2 {
+    animation: glitch-2 0.3s infinite reverse;
+  }
+</style>

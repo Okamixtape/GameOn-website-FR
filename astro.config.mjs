@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gameon-events.web.app',
+  site: 'https://pixelclash.netlify.app',
   output: 'static',
   integrations: [tailwind()],
   build: {

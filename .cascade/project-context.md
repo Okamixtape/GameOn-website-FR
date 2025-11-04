@@ -1,4 +1,4 @@
-# Contexte Projet GameOn - Pour Cascade/Claude Code
+# Contexte Projet PIXEL CLASH - Pour Cascade/Claude Code
 
 > **Note** : Ce fichier est lu automatiquement par Cascade pour comprendre le contexte du projet.
 
@@ -6,7 +6,7 @@
 
 ## 🎯 Mission Principale
 
-Transformer la landing page GameOn existante (HTML/CSS/JS vanilla) en **projet portfolio professionnel** démontrant :
+Transformer la landing page PIXEL CLASH (anciennement GameOn) en **projet portfolio professionnel** démontrant :
 - ✅ Architecture cloud moderne (AWS S3 + CloudFront)
 - ✅ CI/CD automatisé (GitHub Actions)
 - ✅ Performance optimale (Lighthouse 95+)
@@ -101,7 +101,7 @@ Transformer la landing page GameOn existante (HTML/CSS/JS vanilla) en **projet p
 
 ## 📋 Tickets Jira En Cours
 
-**Epic** : SCRUM-5 - GameOn Refonte Professionnelle
+**Epic** : SCRUM-5 - PIXEL CLASH Refonte Professionnelle
 
 **Stories (ordre chronologique)** :
 
@@ -247,7 +247,7 @@ Vérifier avant commit :
 
 ## 🎓 Contexte Métier
 
-**Client fictif** : Organisateurs événement gaming "GameOn"
+**Client fictif** : Organisateurs événement gaming "PIXEL CLASH" (anciennement GameOn)
 
 **Besoin** : Landing page pour collecter inscriptions
 

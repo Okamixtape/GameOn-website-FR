@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gameon-events.web.app/sitemap.xml
+Sitemap: https://pixelclash.netlify.app/sitemap.xml

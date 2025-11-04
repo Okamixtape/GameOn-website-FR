@@ -5,7 +5,8 @@
       "url": [
         "http://localhost:4321/",
         "http://localhost:4321/details",
-        "http://localhost:4321/mentions-legales"
+        "http://localhost:4321/about",
+        "http://localhost:4321/404"
       ],
       "numberOfRuns": 1
     },

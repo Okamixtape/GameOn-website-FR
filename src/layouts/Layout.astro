@@ -54,15 +54,19 @@ import RegistrationModal from '../components/RegistrationModal.astro';
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={canonicalImageUrl} />
   
+  <!-- Hero image preload (desktop WebP) -->
+  <link rel="preload" href="/retro-gaming-hero.webp" as="image" type="image/webp" media="(min-width: 768px)" />
+  
   <!-- Fonts preload -->
   <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="/fonts/DM_Sans/DMSans-Medium.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="/fonts/DM_Sans/DMSans-Bold.ttf" as="font" type="font/ttf" crossorigin />
   
-  <!-- Gaming Font (Google Fonts) -->
+  <!-- Google Fonts - Rajdhani (async loading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" /></noscript>
   
   <!-- Favicon PIXEL CLASH -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -93,7 +97,7 @@ import RegistrationModal from '../components/RegistrationModal.astro';
         "price": "0",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
-        "url": "https://gameon-events.web.app/"
+        "url": "https://pixelclash.netlify.app/"
       },
       "organizer": {
         "@type": "Organization",

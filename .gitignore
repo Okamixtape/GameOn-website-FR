@@ -32,3 +32,6 @@ playwright-report/
 
 # Lighthouse CI
 .lighthouseci/
+
+# Original unoptimized images
+*-original.*
