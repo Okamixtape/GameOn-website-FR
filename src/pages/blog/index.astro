@@ -1,28 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import ArticleCard from '../../components/blog/ArticleCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 // Récupérer tous les articles publiés
-const allPosts = await getCollection('blog', ({ data }) => {
+const allPosts = await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
   return data.draft !== true;
 });
 
 // Trier par date (plus récent en premier)
-const sortedPosts = allPosts.sort((a, b) => 
+const sortedPosts = allPosts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => 
   b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 // Articles featured
-const featuredPosts = sortedPosts.filter(post => post.data.featured);
-
-// Formater la date
-function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('fr-FR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }).format(date);
-}
+const featuredPosts = sortedPosts.filter((post: CollectionEntry<'blog'>) => post.data.featured);
 ---
 
 <Layout 
@@ -47,7 +39,7 @@ function formatDate(date: Date): string {
       </h1>
       
       <p class="text-xl text-zinc-600 max-w-2xl mx-auto">
-        Histoire, guides, actualités et culture gaming. Plongez dans l'âge d'or de l'arcade.
+        Histoire, guides, actualités et culture gaming. <br/>Plongez dans l'âge d'or de l'arcade.
       </p>
     </section>
 
@@ -60,49 +52,8 @@ function formatDate(date: Date): string {
         </h2>
         
         <div class="grid md:grid-cols-2 gap-8">
-          {featuredPosts.map((post) => (
-            <a 
-              href={`/blog/${post.slug}`}
-              class="group relative bg-white border-2 border-zinc-200 rounded-xl overflow-hidden hover:border-retro-blue hover:-translate-y-2 hover:shadow-2xl hover:shadow-retro-blue/20 transition-all duration-300"
-            >
-              <!-- Image -->
-              <div class="aspect-video bg-gradient-to-br from-retro-blue to-retro-purple overflow-hidden">
-                <img 
-                  src={post.data.image.url} 
-                  alt={post.data.image.alt}
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              
-              <!-- Content -->
-              <div class="p-6">
-                <!-- Tags -->
-                <div class="flex flex-wrap gap-2 mb-3">
-                  {post.data.tags.slice(0, 3).map((tag) => (
-                    <span class="text-xs bg-retro-blue/10 text-retro-blue px-2 py-1 rounded-full">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <!-- Title -->
-                <h3 class="font-bold text-2xl text-zinc-900 mb-3 group-hover:text-retro-blue transition-colors">
-                  {post.data.title}
-                </h3>
-                
-                <!-- Description -->
-                <p class="text-zinc-600 mb-4 line-clamp-2">
-                  {post.data.description}
-                </p>
-                
-                <!-- Meta -->
-                <div class="flex items-center gap-4 text-sm text-zinc-500">
-                  <span>{formatDate(post.data.pubDate)}</span>
-                  <span>•</span>
-                  <span>{post.data.author}</span>
-                </div>
-              </div>
-            </a>
+          {featuredPosts.map((post: CollectionEntry<'blog'>) => (
+            <ArticleCard post={post} variant="featured" maxTags={3} />
           ))}
         </div>
       </section>
@@ -113,47 +64,8 @@ function formatDate(date: Date): string {
       <h2 class="text-3xl font-bold mb-8">Tous les Articles</h2>
       
       <div class="grid md:grid-cols-3 gap-8">
-        {sortedPosts.map((post) => (
-          <a 
-            href={`/blog/${post.slug}`}
-            class="group relative bg-white border-2 border-zinc-200 rounded-xl overflow-hidden hover:border-retro-purple hover:-translate-y-2 hover:shadow-2xl hover:shadow-retro-purple/20 transition-all duration-300"
-          >
-            <!-- Image -->
-            <div class="aspect-video bg-gradient-to-br from-retro-purple to-retro-pink overflow-hidden">
-              <img 
-                src={post.data.image.url} 
-                alt={post.data.image.alt}
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            
-            <!-- Content -->
-            <div class="p-6">
-              <!-- Tags -->
-              <div class="flex flex-wrap gap-2 mb-3">
-                {post.data.tags.slice(0, 2).map((tag) => (
-                  <span class="text-xs bg-retro-purple/10 text-retro-purple px-2 py-1 rounded-full">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-              
-              <!-- Title -->
-              <h3 class="font-bold text-xl text-zinc-900 mb-3 group-hover:text-retro-purple transition-colors line-clamp-2">
-                {post.data.title}
-              </h3>
-              
-              <!-- Description -->
-              <p class="text-zinc-600 mb-4 line-clamp-3 text-sm">
-                {post.data.description}
-              </p>
-              
-              <!-- Meta -->
-              <div class="text-sm text-zinc-500">
-                {formatDate(post.data.pubDate)}
-              </div>
-            </div>
-          </a>
+        {sortedPosts.map((post: CollectionEntry<'blog'>) => (
+          <ArticleCard post={post} variant="default" maxTags={2} />
         ))}
       </div>
     </section>

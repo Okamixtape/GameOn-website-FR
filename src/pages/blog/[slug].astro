@@ -1,41 +1,39 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import ArticleCard from '../../components/blog/ArticleCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { formatDate } from '../../utils/date';
+import { BLOG_CONFIG } from '../../constants/blog';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog', ({ data }) => {
+  const blogEntries = await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
     return data.draft !== true;
   });
   
-  return blogEntries.map(entry => ({
+  return blogEntries.map((entry: CollectionEntry<'blog'>) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-// Formater la date
-function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('fr-FR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }).format(date);
-}
-
 // Articles similaires (même tags)
-const allPosts = await getCollection('blog', ({ data }) => {
+const allPosts = await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
   return data.draft !== true;
 });
 
 const relatedPosts = allPosts
-  .filter(post => 
+  .filter((post: CollectionEntry<'blog'>) => 
     post.slug !== entry.slug && 
-    post.data.tags.some(tag => entry.data.tags.includes(tag))
+    post.data.tags.some((tag: string) => entry.data.tags.includes(tag))
   )
-  .slice(0, 3);
+  .slice(0, BLOG_CONFIG.MAX_RELATED_POSTS);
 ---
 
 <Layout 
@@ -59,7 +57,7 @@ const relatedPosts = allPosts
     <header class="mb-12">
       <!-- Tags -->
       <div class="flex flex-wrap gap-2 mb-4">
-        {entry.data.tags.map((tag) => (
+        {entry.data.tags.map((tag: string) => (
           <a 
             href={`/blog/tags/${tag}`}
             class="text-sm bg-retro-blue/10 text-retro-blue px-3 py-1 rounded-full hover:bg-retro-blue hover:text-white transition-colors"
@@ -141,24 +139,8 @@ const relatedPosts = allPosts
         <h2 class="font-gaming text-3xl font-bold mb-8 uppercase">Articles Similaires</h2>
         
         <div class="grid md:grid-cols-3 gap-6">
-          {relatedPosts.map((post) => (
-            <a 
-              href={`/blog/${post.slug}`}
-              class="group bg-white border-2 border-zinc-200 rounded-xl overflow-hidden hover:border-retro-purple hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
-            >
-              <div class="aspect-video bg-gradient-to-br from-retro-purple to-retro-pink overflow-hidden">
-                <img 
-                  src={post.data.image.url} 
-                  alt={post.data.image.alt}
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <div class="p-4">
-                <h3 class="font-bold text-lg text-zinc-900 group-hover:text-retro-purple transition-colors line-clamp-2">
-                  {post.data.title}
-                </h3>
-              </div>
-            </a>
+          {relatedPosts.map((post: CollectionEntry<'blog'>) => (
+            <ArticleCard post={post} variant="default" maxTags={0} />
           ))}
         </div>
       </section>

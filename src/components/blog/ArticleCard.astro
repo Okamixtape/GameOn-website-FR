@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../../utils/date';
+import { BLOG_VARIANTS, BLOG_CONFIG } from '../../constants/blog';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  variant?: 'featured' | 'default';
+  maxTags?: number;
+}
+
+const { 
+  post, 
+  variant = 'default', 
+  maxTags = variant === 'featured' ? BLOG_CONFIG.FEATURED_TAGS_COUNT : BLOG_CONFIG.DEFAULT_TAGS_COUNT 
+} = Astro.props;
+
+// Récupération des styles selon variant
+const styles = BLOG_VARIANTS[variant];
+---
+
+<a 
+  href={`/blog/${post.slug}`}
+  class={`group relative bg-white border-2 border-zinc-200 rounded-xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ${styles.hoverBorder}`}
+>
+  <!-- Image -->
+  <div class={`aspect-video bg-gradient-to-br ${styles.gradient} overflow-hidden`}>
+    <img 
+      src={post.data.image.url} 
+      alt={post.data.image.alt}
+      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+      loading="lazy"
+    />
+  </div>
+  
+  <!-- Content -->
+  <div class={variant === 'featured' ? 'p-6' : 'p-4'}>
+    <!-- Tags -->
+    {maxTags > 0 && (
+      <div class="flex flex-wrap gap-2 mb-3">
+        {post.data.tags.slice(0, maxTags).map((tag: string) => (
+          <span class={`text-xs px-2 py-1 rounded-full ${styles.tagColor}`}>
+            #{tag}
+          </span>
+        ))}
+      </div>
+    )}
+    
+    <!-- Title -->
+    <h3 class={`font-bold text-zinc-900 mb-3 transition-colors line-clamp-2 ${styles.titleHover} ${variant === 'featured' ? 'text-2xl' : 'text-xl'}`}>
+      {post.data.title}
+    </h3>
+    
+    <!-- Description (featured only) -->
+    {variant === 'featured' && (
+      <p class="text-zinc-600 mb-4 line-clamp-2">
+        {post.data.description}
+      </p>
+    )}
+    
+    <!-- Description (default) -->
+    {variant === 'default' && (
+      <p class="text-zinc-600 mb-4 line-clamp-3 text-sm">
+        {post.data.description}
+      </p>
+    )}
+    
+    <!-- Meta -->
+    <div class={`text-zinc-500 ${variant === 'featured' ? 'flex items-center gap-4 text-sm' : 'text-sm'}`}>
+      {variant === 'featured' ? (
+        <>
+          <span>{formatDate(post.data.pubDate)}</span>
+          <span>•</span>
+          <span>{post.data.author}</span>
+        </>
+      ) : (
+        <span>{formatDate(post.data.pubDate)}</span>
+      )}
+    </div>
+  </div>
+</a>
