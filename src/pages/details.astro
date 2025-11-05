@@ -29,12 +29,20 @@ import CTAButton from '../components/CTAButton.astro';
       </p>
       
       <!-- CTA -->
-      <CTAButton 
-        text="Je m'inscris maintenant"
-        variant="primary"
-        size="lg"
-        opensModal={true}
-      />
+      <div class="flex flex-wrap gap-4 justify-center">
+        <CTAButton 
+          text="Je m'inscris maintenant"
+          variant="primary"
+          size="lg"
+          opensModal={true}
+        />
+        <CTAButton 
+          text="Mieux nous connaître"
+          variant="secondary"
+          size="lg"
+          href="/about"
+        />
+      </div>
     </div>
   </section>
 
@@ -228,22 +236,24 @@ import CTAButton from '../components/CTAButton.astro';
       <p class="text-xl mb-8 opacity-90">
         Les places sont limitées à 128 joueurs. Ne manquez pas cette opportunité !
       </p>
-      <button 
-        data-open-modal
-        aria-label="Ouvrir le formulaire d'inscription au tournoi"
-        class="group relative px-10 py-5 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-xl shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
-      >
-        <span class="flex items-center gap-2 justify-center">
-          Je m'inscris maintenant
-          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </span>
-      </button>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <CTAButton 
+          text="Je m'inscris maintenant"
+          variant="primary"
+          size="xl"
+          opensModal={true}
+        />
+        <CTAButton 
+          text="Mieux nous connaître"
+          variant="secondary"
+          size="xl"
+          href="/about"
+        />
+      </div>
       <p class="mt-4 text-sm opacity-75">
         Inscription gratuite • Confirmation immédiate par email
       </p>
     </section>
 
-  </div>
-</Layout>
+      </div>
+    </Layout>
