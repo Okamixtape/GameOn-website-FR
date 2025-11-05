@@ -31,7 +31,7 @@ const {
     <img 
       src="/retro-gaming-hero.jpg"
       alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
-      class="w-full h-full object-cover object-center md:object-[65%_center]"
+      class="w-full h-full object-cover hero-image"
       width="1920"
       height="1080"
       fetchpriority="high"
@@ -116,3 +116,16 @@ const {
     </div>
   </div>
 </section>
+
+<style>
+  /* Position de l'image hero : ordinateur visible à droite sur desktop */
+  .hero-image {
+    object-position: center center;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-image {
+      object-position: 75% center;
+    }
+  }
+</style>
