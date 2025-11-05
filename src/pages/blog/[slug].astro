@@ -137,12 +137,29 @@ const relatedPosts = allPosts
       <p class="text-lg mb-6 opacity-90">
         Rejoignez le PIXEL CLASH Championship 2026 et vivez l'expérience retro gaming ultime !
       </p>
-      <button 
-        data-open-modal
-        class="px-8 py-4 bg-white text-retro-purple font-bold rounded-lg hover:scale-105 transition-transform"
-      >
-        Je m'inscris maintenant
-      </button>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button 
+          data-open-modal
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-purple font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg"
+        >
+          <span>Je m'inscris maintenant</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </button>
+        <a 
+          href="/details"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg transition-all duration-300"
+        >
+          <span>Voir les détails</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+      <p class="mt-4 text-sm opacity-75">
+        Places limitées • Inscription gratuite
+      </p>
     </div>
 
     <!-- Articles Similaires -->

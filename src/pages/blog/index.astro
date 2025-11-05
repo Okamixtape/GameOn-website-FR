@@ -29,8 +29,8 @@ const featuredPosts = sortedPosts.filter((post: CollectionEntry<'blog'>) => post
     <div class="container mx-auto px-4 relative z-10 text-center">
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-6">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
         </svg>
         <span class="font-bold text-sm uppercase tracking-wider">Blog</span>
       </div>
@@ -73,17 +73,35 @@ const featuredPosts = sortedPosts.filter((post: CollectionEntry<'blog'>) => post
       </div>
     </section>
 
-    <!-- CTA Newsletter (Optionnel) -->
+    <!-- CTA Final -->
     <section class="mt-16 text-center bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple p-12 rounded-lg text-white shadow-lg shadow-retro-blue/30">
-      <h2 class="font-gaming text-3xl font-bold mb-4 uppercase tracking-wide">Restez Informé !</h2>
+      <h2 class="font-gaming text-3xl font-bold mb-4 uppercase tracking-wide">Rejoignez l'Aventure !</h2>
       <p class="text-xl mb-8 opacity-90">
-        Recevez les derniers articles et actualités du retro gaming directement dans votre boîte mail.
+        Inscrivez-vous au PIXEL CLASH Championship 2026 et vivez l'expérience retro gaming ultime.
       </p>
-      <button 
-        class="px-8 py-4 bg-white text-retro-purple font-bold rounded-lg hover:scale-105 transition-transform"
-      >
-        S'abonner à la Newsletter
-      </button>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button 
+          data-open-modal
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-purple font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg"
+        >
+          <span>Je m'inscris maintenant</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </button>
+        <a 
+          href="/details"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg transition-all duration-300"
+        >
+          <span>Voir les détails</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+      <p class="mt-4 text-sm opacity-75">
+        Places limitées • Inscription gratuite
+      </p>
     </section>
 
   </div>

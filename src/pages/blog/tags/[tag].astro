@@ -1,0 +1,101 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ArticleCard from '../../../components/blog/ArticleCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
+    return data.draft !== true;
+  });
+  
+  // Récupérer tous les tags uniques
+  const uniqueTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => post.data.tags))];
+  
+  return uniqueTags.map((tag: string) => {
+    const filteredPosts = allPosts.filter((post: CollectionEntry<'blog'>) => 
+      post.data.tags.includes(tag)
+    );
+    
+    return {
+      params: { tag },
+      props: { 
+        posts: filteredPosts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => 
+          b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+        ),
+        tag 
+      },
+    };
+  });
+}
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  tag: string;
+}
+
+const { posts, tag } = Astro.props;
+
+// Formater le tag pour l'affichage
+const displayTag = tag.charAt(0).toUpperCase() + tag.slice(1).replace(/-/g, ' ');
+---
+
+<Layout 
+  title={`Articles #${displayTag} - Blog PIXEL CLASH`}
+  description={`Découvrez tous les articles sur ${displayTag} : guides, actualités et analyses retro gaming.`}
+>
+  <!-- Hero Tag -->
+  <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-16 md:py-20 overflow-hidden mb-16">
+    <!-- Pattern retro background -->
+    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,110,.2) 10px, rgba(255,0,110,.2) 20px);"></div>
+    
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 text-sm text-white/80">
+        <a href="/" class="hover:text-white transition-colors">Accueil</a>
+        <span class="mx-2">→</span>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <span class="mx-2">→</span>
+        <span class="text-white font-medium">#{displayTag}</span>
+      </nav>
+
+      <!-- Badge Tag -->
+      <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-6">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+        </svg>
+        <span class="font-bold text-sm uppercase tracking-wider">Tag</span>
+      </div>
+
+      <h1 class="font-gaming text-4xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]">
+        #{displayTag}
+      </h1>
+      <p class="text-xl text-gray-200">
+        {posts.length} {posts.length > 1 ? 'articles' : 'article'}
+      </p>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-4 pb-16">
+    <!-- Articles -->
+    <section>
+      <div class="grid md:grid-cols-3 gap-8">
+        {posts.map((post: CollectionEntry<'blog'>) => (
+          <ArticleCard post={post} variant="default" maxTags={2} />
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Retour Blog -->
+    <div class="mt-16 text-center">
+      <a 
+        href="/blog"
+        class="inline-flex items-center gap-2 text-retro-blue hover:text-retro-purple transition-colors font-bold"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Retour au blog
+      </a>
+    </div>
+  </div>
+</Layout>

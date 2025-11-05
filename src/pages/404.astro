@@ -7,13 +7,16 @@ import Layout from '../layouts/Layout.astro';
   description="La page que vous recherchez n'existe pas ou a été déplacée."
   noindex={true}
 >
-  <div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
-    <div class="max-w-2xl mx-auto text-center">
-      
+  <!-- Hero 404 Immersif -->
+  <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-20 md:py-28 overflow-hidden">
+    <!-- Pattern retro background -->
+    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,110,.2) 10px, rgba(255,0,110,.2) 20px);"></div>
+    
+    <div class="container mx-auto px-4 relative z-10 text-center">
       <!-- Glitch Effect 404 -->
       <div class="relative mb-8">
         <h1 
-          class="font-gaming text-8xl md:text-9xl font-bold text-retro-purple drop-shadow-[0_0_20px_rgba(114,9,183,0.5)]"
+          class="font-gaming text-8xl md:text-9xl font-bold drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]"
           aria-label="Erreur 404"
         >
           404
@@ -21,13 +24,13 @@ import Layout from '../layouts/Layout.astro';
         
         <!-- Glitch layers (décoratives uniquement) -->
         <div 
-          class="absolute inset-0 font-gaming text-8xl md:text-9xl font-bold text-retro-blue opacity-50 animate-glitch-1 pointer-events-none"
+          class="absolute inset-0 font-gaming text-8xl md:text-9xl font-bold text-retro-blue/50 animate-glitch-1 pointer-events-none"
           aria-hidden="true"
         >
           404
         </div>
         <div 
-          class="absolute inset-0 font-gaming text-8xl md:text-9xl font-bold text-retro-pink opacity-50 animate-glitch-2 pointer-events-none"
+          class="absolute inset-0 font-gaming text-8xl md:text-9xl font-bold text-retro-pink/50 animate-glitch-2 pointer-events-none"
           aria-hidden="true"
         >
           404
@@ -35,21 +38,21 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Message d'erreur -->
-      <h2 class="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide">
         Game Over
       </h2>
       
-      <p class="text-lg md:text-xl text-zinc-600 mb-8 max-w-lg mx-auto">
-        La page que vous recherchez n'existe pas ou a été déplacée. 
+      <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-lg mx-auto leading-relaxed">
+        La page que vous recherchez<br/>n'existe pas ou a été déplacée.<br/><br/>
         Peut-être qu'elle s'est perdue dans les pixels...
       </p>
 
       <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
         <!-- Bouton principal : Retour accueil -->
         <a
           href="/"
-          class="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-lg shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2"
+          class="group inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-purple hover:bg-white/90 font-bold rounded-lg text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
         >
           <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -60,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
         <!-- Bouton secondaire : Détails tournoi -->
         <a
           href="/details"
-          class="inline-flex items-center gap-2 px-8 py-4 border-2 border-retro-purple text-retro-purple hover:bg-retro-purple hover:text-white font-bold rounded-lg text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-retro-purple focus:ring-offset-2"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
         >
           Voir le tournoi
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,29 +73,25 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Liens utiles -->
-      <div class="mt-12 pt-8 border-t border-zinc-200">
-        <p class="text-sm text-zinc-500 mb-4">Liens utiles :</p>
-        <nav class="flex flex-wrap gap-4 justify-center text-sm">
-          <a href="/about" class="text-retro-blue hover:text-retro-purple transition-colors">
-            À propos
-          </a>
-          <span class="text-zinc-300">•</span>
-          <a href="/details" class="text-retro-blue hover:text-retro-purple transition-colors">
-            Détails du tournoi
-          </a>
-          <span class="text-zinc-300">•</span>
-          <a href="/cgu" class="text-retro-blue hover:text-retro-purple transition-colors">
-            CGU
-          </a>
-          <span class="text-zinc-300">•</span>
-          <a href="/politique-confidentialite" class="text-retro-blue hover:text-retro-purple transition-colors">
-            Confidentialité
-          </a>
-        </nav>
-      </div>
-
+      <nav class="flex flex-wrap gap-4 justify-center text-sm text-white/80">
+        <a href="/about" class="hover:text-white transition-colors">
+          Notre histoire
+        </a>
+        <span class="text-white/50">•</span>
+        <a href="/blog" class="hover:text-white transition-colors">
+          Blog
+        </a>
+        <span class="text-white/50">•</span>
+        <a href="/cgu" class="hover:text-white transition-colors">
+          CGU
+        </a>
+        <span class="text-white/50">•</span>
+        <a href="/politique-confidentialite" class="hover:text-white transition-colors">
+          Confidentialité
+        </a>
+      </nav>
     </div>
-  </div>
+  </section>
 </Layout>
 
 <style>
