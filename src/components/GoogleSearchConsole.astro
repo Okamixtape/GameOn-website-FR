@@ -1,0 +1,22 @@
+---
+/**
+ * Composant Google Search Console
+ * 
+ * @description Balise de vérification pour GSC
+ * - Permet de vérifier la propriété du site
+ * - Nécessaire pour accéder aux données SEO
+ * 
+ * @setup
+ * 1. Aller sur: https://search.google.com/search-console
+ * 2. Ajouter propriété: https://pixel-clash.netlify.app
+ * 3. Choisir "Balise HTML" comme méthode de vérification
+ * 4. Copier le code (format: google-site-verification=XXXX)
+ * 5. Ajouter dans .env: PUBLIC_GSC_VERIFICATION=XXXX
+ */
+
+const GSC_VERIFICATION = import.meta.env.PUBLIC_GSC_VERIFICATION;
+---
+
+{GSC_VERIFICATION && (
+  <meta name="google-site-verification" content={GSC_VERIFICATION} />
+)}

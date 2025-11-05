@@ -28,6 +28,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import RegistrationModal from '../components/RegistrationModal.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleSearchConsole from '../components/GoogleSearchConsole.astro';
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -56,6 +58,9 @@ import RegistrationModal from '../components/RegistrationModal.astro';
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={canonicalImageUrl} />
+  
+  <!-- Google Search Console Verification -->
+  <GoogleSearchConsole />
   
   <!-- Hero image preload (desktop WebP) - Uniquement homepage -->
   {isHomepage && <link rel="preload" href="/retro-gaming-hero.webp" as="image" type="image/webp" media="(min-width: 768px)" />}
@@ -109,6 +114,9 @@ import RegistrationModal from '../components/RegistrationModal.astro';
       }
     })} />
   )}
+  
+  <!-- Google Analytics 4 -->
+  <GoogleAnalytics />
 </head>
 <body class="font-sans antialiased flex flex-col min-h-screen">
   <Header currentPath={Astro.url.pathname} />

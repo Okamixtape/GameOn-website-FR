@@ -1,0 +1,41 @@
+---
+/**
+ * Composant Google Analytics 4
+ * 
+ * @description Intègre GA4 pour le suivi du trafic
+ * - Uniquement en production
+ * - Respecte le RGPD (anonymisation IP)
+ * - Script async pour performance
+ * 
+ * @setup
+ * 1. Créer compte GA4: https://analytics.google.com/
+ * 2. Obtenir Measurement ID (format: G-XXXXXXXXXX)
+ * 3. Ajouter dans .env: PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+ */
+
+const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+
+// Activer uniquement en production avec ID configuré
+const isProduction = import.meta.env.PROD;
+const isEnabled = isProduction && GA_MEASUREMENT_ID;
+---
+
+{isEnabled && (
+  <>
+    <!-- Google Analytics 4 -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // Configuration RGPD-friendly
+      gtag('config', GA_MEASUREMENT_ID, {
+        'anonymize_ip': true,           // Anonymisation IP (RGPD)
+        'cookie_flags': 'SameSite=None;Secure', // Cookies sécurisés
+        'allow_google_signals': false,  // Désactiver signaux Google
+        'allow_ad_personalization_signals': false // Pas de pub personnalisée
+      });
+    </script>
+  </>
+)}
