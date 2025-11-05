@@ -100,12 +100,22 @@ const relatedPosts = allPosts
     <div class="container mx-auto px-4">
       <div class="max-w-5xl mx-auto">
         <div class="aspect-video rounded-xl overflow-hidden shadow-2xl shadow-retro-purple/30 border-4 border-white">
-          <img 
-            src={entry.data.image.url} 
-            alt={entry.data.image.alt}
-            class="w-full h-full object-cover"
-            loading="eager"
-          />
+          <picture>
+            <source 
+              srcset={entry.data.image.url.replace('.jpg', '.webp')} 
+              type="image/webp"
+            />
+            <img 
+              src={entry.data.image.url} 
+              alt={entry.data.image.alt}
+              class="w-full h-full object-cover"
+              width="1920"
+              height="1080"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
     </div>
