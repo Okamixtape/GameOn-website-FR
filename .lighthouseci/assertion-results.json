@@ -72,6 +72,7 @@
     "actual": 0,
     "values": [
       0,
+      0,
       0
     ],
     "operator": ">=",
@@ -102,10 +103,27 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.1,
+    "actual": 0,
     "values": [
       0,
-      0.1,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "network-dependency-tree-insight",
+    "level": "error",
+    "url": "http://localhost:4321/",
+    "auditTitle": "Network dependency tree",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.09,
+    "values": [
+      0.09,
+      0.09,
       0.09
     ],
     "operator": ">=",
@@ -134,10 +152,113 @@
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight/"
   },
   {
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 2,
+    "values": [
+      2,
+      2,
+      2
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "unminified-css",
+    "level": "error",
+    "url": "http://localhost:4321/",
+    "auditTitle": "Minify CSS",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-css/"
+  },
+  {
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 36,
+    "values": [
+      36,
+      36,
+      36
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "unminified-javascript",
+    "level": "error",
+    "url": "http://localhost:4321/",
+    "auditTitle": "Minify JavaScript",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/"
+  },
+  {
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 2,
+    "values": [
+      2,
+      2,
+      2
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "unused-css-rules",
+    "level": "error",
+    "url": "http://localhost:4321/",
+    "auditTitle": "Reduce unused CSS",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/"
+  },
+  {
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 1,
+    "values": [
+      1,
+      1,
+      1
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "unused-javascript",
+    "level": "error",
+    "url": "http://localhost:4321/",
+    "auditTitle": "Reduce unused JavaScript",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
+  },
+  {
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 1,
+    "values": [
+      1,
+      1,
+      1
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "uses-responsive-images",
+    "level": "error",
+    "url": "http://localhost:4321/",
+    "auditTitle": "Properly size images",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/"
+  },
+  {
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 39,
+    "values": [
+      39,
+      39,
+      39
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "uses-text-compression",
+    "level": "error",
+    "url": "http://localhost:4321/",
+    "auditTitle": "Enable text compression",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/"
+  },
+  {
     "name": "minScore",
     "expected": 0.9,
     "actual": 0.04,
     "values": [
+      0.04,
       0.04,
       0.04
     ],
@@ -152,10 +273,11 @@
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.55,
+    "actual": 0.56,
     "values": [
+      0.5,
       0.54,
-      0.55
+      0.56
     ],
     "operator": ">=",
     "passed": false,
@@ -422,7 +544,7 @@
     "expected": 0.9,
     "actual": 0.07,
     "values": [
-      0.07,
+      0.06,
       0.07,
       0.07
     ],
@@ -437,11 +559,11 @@
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.55,
+    "actual": 0.56,
     "values": [
-      0.55,
-      0.54,
-      0.55
+      0.42,
+      0.53,
+      0.56
     ],
     "operator": ">=",
     "passed": false,
@@ -605,8 +727,8 @@
     "expected": 0.9,
     "actual": 0.1,
     "values": [
-      0.09,
       0.1,
+      0.09,
       0.1
     ],
     "operator": ">=",
@@ -722,11 +844,11 @@
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.55,
+    "actual": 0.56,
     "values": [
-      0.53,
       0.55,
-      0.55
+      0.56,
+      0.56
     ],
     "operator": ">=",
     "passed": false,
@@ -837,23 +959,6 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "image-delivery-insight",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Improve image delivery",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-optimized-images/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
     "actual": 0,
     "values": [
       0,
@@ -886,23 +991,6 @@
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/seo/link-text/"
   },
   {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "modern-image-formats",
-    "level": "warn",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Serve images in next-gen formats",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images/"
-  },
-  {
     "name": "minScore",
     "expected": 0.9,
     "actual": 0,
@@ -924,9 +1012,9 @@
     "expected": 0.9,
     "actual": 0.1,
     "values": [
-      0.09,
       0.1,
-      0.09
+      0.1,
+      0.1
     ],
     "operator": ">=",
     "passed": false,
@@ -1024,23 +1112,6 @@
   {
     "name": "maxLength",
     "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-responsive-images",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Properly size images",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
     "actual": 39,
     "values": [
       39,
@@ -1058,11 +1129,11 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.05,
+    "actual": 0.06,
     "values": [
       0.05,
-      0.05,
-      0.05
+      0.04,
+      0.06
     ],
     "operator": ">=",
     "passed": false,
@@ -1075,10 +1146,10 @@
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.55,
+    "actual": 0.56,
     "values": [
-      0.54,
-      0.55,
+      0.56,
+      0.56,
       0.55
     ],
     "operator": ">=",
@@ -1175,8 +1246,8 @@
     "expected": 0.9,
     "actual": 0.5,
     "values": [
-      0.5,
       0,
+      0.5,
       0
     ],
     "operator": ">=",
@@ -1278,7 +1349,7 @@
     "actual": 0.1,
     "values": [
       0.1,
-      0.1,
+      0.09,
       0.1
     ],
     "operator": ">=",
@@ -1430,9 +1501,9 @@
     "expected": 0.95,
     "actual": 0.55,
     "values": [
-      0.55,
       0.53,
-      0.53
+      0.55,
+      0.55
     ],
     "operator": ">=",
     "passed": false,
@@ -1580,7 +1651,7 @@
     "expected": 0.9,
     "actual": 0.1,
     "values": [
-      0.1,
+      0.09,
       0.1,
       0.1
     ],
@@ -1697,11 +1768,11 @@
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.55,
+    "actual": 0.56,
     "values": [
+      0.56,
       0.55,
-      0.55,
-      0.55
+      0.56
     ],
     "operator": ">=",
     "passed": false,

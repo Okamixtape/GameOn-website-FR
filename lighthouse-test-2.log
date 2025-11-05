@@ -1,0 +1,1023 @@
+
+> pixelclash-landing-page@0.0.1 test:lighthouse
+> npm run build && lhci autorun
+
+
+> pixelclash-landing-page@0.0.1 build
+> astro build
+
+14:49:11 [content] Syncing content
+14:49:11 [content] Synced content
+14:49:11 [types] Generated 657ms
+14:49:11 [build] output: "static"
+14:49:11 [build] mode: "static"
+14:49:11 [build] directory: /Users/loupaubour/Projects/GameOn-website-FR/dist/
+14:49:11 [build] Collecting build info...
+14:49:11 [build] ✓ Completed in 838ms.
+14:49:11 [build] Building static entrypoints...
+14:49:14 [WARN] [vite] "matchHostname", "matchPathname", "matchPort" and "matchProtocol" are imported from external module "@astrojs/internal-helpers/remote" but never used in "node_modules/astro/dist/assets/utils/remotePattern.js" and "node_modules/astro/dist/assets/services/service.js".
+14:49:14 [vite] ✓ built in 3.13s
+14:49:14 [build] ✓ Completed in 3.21s.
+
+ building client (vite) 
+14:49:14 [vite] transforming...
+14:49:14 [vite] ✓ 1 modules transformed.
+14:49:14 [vite] rendering chunks...
+14:49:14 [vite] ✓ built in 17ms
+
+ generating static routes 
+14:49:14 ▶ src/pages/404.astro
+14:49:14   └─ /404.html (+19ms) 
+14:49:14 ▶ src/pages/about.astro
+14:49:14   └─ /about/index.html (+7ms) 
+14:49:14 ▶ src/pages/blog/tags/[tag].astro
+14:49:14   ├─ /blog/tags/histoire/index.html (+14ms) 
+14:49:14   ├─ /blog/tags/arcade/index.html (+31ms) 
+14:49:15   ├─ /blog/tags/années-80/index.html (+24ms) 
+14:49:15   ├─ /blog/tags/culture-gaming/index.html (+5ms) 
+14:49:15   ├─ /blog/tags/guides/index.html (+25ms) 
+14:49:15   ├─ /blog/tags/retro-gaming/index.html (+6ms) 
+14:49:15   ├─ /blog/tags/debutant/index.html (+12ms) 
+14:49:15   └─ /blog/tags/consoles/index.html (+4ms) 
+14:49:15 ▶ src/pages/blog/[slug].astro
+14:49:15   ├─ /blog/histoire-retro-gaming/index.html (+10ms) 
+14:49:15   └─ /blog/debuter-retro-gaming-guide/index.html (+5ms) 
+14:49:15 ▶ src/pages/blog/index.astro
+14:49:15   └─ /blog/index.html (+13ms) 
+14:49:15 ▶ src/pages/cgu.astro
+14:49:15   └─ /cgu/index.html (+3ms) 
+14:49:15 ▶ src/pages/details.astro
+14:49:15   └─ /details/index.html (+3ms) 
+14:49:15 ▶ src/pages/developer.astro
+14:49:15   └─ /developer/index.html (+12ms) 
+14:49:15 ▶ src/pages/mentions-legales.astro
+14:49:15   └─ /mentions-legales/index.html (+7ms) 
+14:49:15 ▶ src/pages/politique-confidentialite.astro
+14:49:15   └─ /politique-confidentialite/index.html (+5ms) 
+14:49:15 ▶ src/pages/index.astro
+14:49:15   └─ /index.html (+5ms) 
+14:49:15 ✓ Completed in 268ms.
+
+14:49:15 [build] 19 page(s) built in 4.41s
+14:49:15 [build] Complete!
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+Healthcheck passed!
+
+Started a web server with "npm run preview"...
+Running Lighthouse 3 time(s) on http://localhost:4321/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://localhost:4321/details
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://localhost:4321/about
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://localhost:4321/blog
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://localhost:4321/blog/debuter-retro-gaming-guide
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://localhost:4321/developer
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 6 URL(s), 18 total run(s)
+
+18 result(s) for [1mhttp://localhost:4321/[0m :
+
+  [31m✘[0m  [1mbf-cache[0m failure for [1mminScore[0m assertion
+       Page prevented back/forward cache restoration
+       https://developer.chrome.com/docs/lighthouse/performance/bf-cache/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.56[0m
+      [2mall values: 0.5, 0.54, 0.56[0m
+
+
+  [31m✘[0m  [1mcategories[0m.seo failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.92[0m
+      [2mall values: 0.92, 0.92, 0.92[0m
+
+
+  [31m✘[0m  [1mdocument-latency-insight[0m failure for [1mminScore[0m assertion
+       Document request latency
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1mimage-delivery-insight[0m failure for [1mminScore[0m assertion
+       Improve image delivery
+       https://developer.chrome.com/docs/lighthouse/performance/uses-optimized-images/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mlink-text[0m failure for [1mminScore[0m assertion
+       Links do not have descriptive text
+       https://developer.chrome.com/docs/lighthouse/seo/link-text/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mtotal-byte-weight[0m failure for [1mminScore[0m assertion
+       Avoid enormous network payloads
+       https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1munminified-css[0m failure for [1mmaxLength[0m assertion
+       Minify CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-css/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munminified-javascript[0m failure for [1mmaxLength[0m assertion
+       Minify JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m36[0m
+      [2mall values: 36, 36, 36[0m
+
+
+  [31m✘[0m  [1munused-css-rules[0m failure for [1mmaxLength[0m assertion
+       Reduce unused CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-responsive-images[0m failure for [1mmaxLength[0m assertion
+       Properly size images
+       https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-text-compression[0m failure for [1mmaxLength[0m assertion
+       Enable text compression
+       https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/
+
+        expected: <=[32m0[0m
+           found: [31m39[0m
+      [2mall values: 39, 39, 39[0m
+
+
+  ⚠️  [1mfirst-contentful-paint[0m warning for [1mminScore[0m assertion
+       First Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.04[0m
+      [2mall values: 0.04, 0.04, 0.04[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1mspeed-index[0m warning for [1mminScore[0m assertion
+       Speed Index
+       https://developer.chrome.com/docs/lighthouse/performance/speed-index/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.09[0m
+      [2mall values: 0.09, 0.09, 0.09[0m
+
+18 result(s) for [1mhttp://localhost:4321/details[0m :
+
+  [31m✘[0m  [1mbf-cache[0m failure for [1mminScore[0m assertion
+       Page prevented back/forward cache restoration
+       https://developer.chrome.com/docs/lighthouse/performance/bf-cache/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.56[0m
+      [2mall values: 0.42, 0.53, 0.56[0m
+
+
+  [31m✘[0m  [1mcategories[0m.accessibility failure for [1mminScore[0m assertion
+        expected: >=[32m1[0m
+           found: [31m0.94[0m
+      [2mall values: 0.94, 0.94, 0.94[0m
+
+
+  [31m✘[0m  [1mcategories[0m.seo failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.92[0m
+      [2mall values: 0.92, 0.92, 0.92[0m
+
+
+  [31m✘[0m  [1mcolor-contrast[0m failure for [1mminScore[0m assertion
+       Background and foreground colors do not have a sufficient contrast ratio.
+       https://dequeuniversity.com/rules/axe/4.10/color-contrast
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mdocument-latency-insight[0m failure for [1mminScore[0m assertion
+       Document request latency
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1mheading-order[0m failure for [1mminScore[0m assertion
+       Heading elements are not in a sequentially-descending order
+       https://dequeuniversity.com/rules/axe/4.10/heading-order
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mlink-text[0m failure for [1mminScore[0m assertion
+       Links do not have descriptive text
+       https://developer.chrome.com/docs/lighthouse/seo/link-text/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1munminified-css[0m failure for [1mmaxLength[0m assertion
+       Minify CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-css/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munminified-javascript[0m failure for [1mmaxLength[0m assertion
+       Minify JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m36[0m
+      [2mall values: 36, 36, 36[0m
+
+
+  [31m✘[0m  [1munused-css-rules[0m failure for [1mmaxLength[0m assertion
+       Reduce unused CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-text-compression[0m failure for [1mmaxLength[0m assertion
+       Enable text compression
+       https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/
+
+        expected: <=[32m0[0m
+           found: [31m39[0m
+      [2mall values: 39, 39, 39[0m
+
+
+  ⚠️  [1mfirst-contentful-paint[0m warning for [1mminScore[0m assertion
+       First Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.07[0m
+      [2mall values: 0.06, 0.07, 0.07[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1mspeed-index[0m warning for [1mminScore[0m assertion
+       Speed Index
+       https://developer.chrome.com/docs/lighthouse/performance/speed-index/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.1[0m
+      [2mall values: 0.09, 0.1, 0.1[0m
+
+17 result(s) for [1mhttp://localhost:4321/about[0m :
+
+  [31m✘[0m  [1mbf-cache[0m failure for [1mminScore[0m assertion
+       Page prevented back/forward cache restoration
+       https://developer.chrome.com/docs/lighthouse/performance/bf-cache/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.56[0m
+      [2mall values: 0.55, 0.56, 0.56[0m
+
+
+  [31m✘[0m  [1mcategories[0m.accessibility failure for [1mminScore[0m assertion
+        expected: >=[32m1[0m
+           found: [31m0.96[0m
+      [2mall values: 0.96, 0.96, 0.96[0m
+
+
+  [31m✘[0m  [1mcategories[0m.seo failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.92[0m
+      [2mall values: 0.92, 0.92, 0.92[0m
+
+
+  [31m✘[0m  [1mcolor-contrast[0m failure for [1mminScore[0m assertion
+       Background and foreground colors do not have a sufficient contrast ratio.
+       https://dequeuniversity.com/rules/axe/4.10/color-contrast
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mdocument-latency-insight[0m failure for [1mminScore[0m assertion
+       Document request latency
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1mlink-text[0m failure for [1mminScore[0m assertion
+       Links do not have descriptive text
+       https://developer.chrome.com/docs/lighthouse/seo/link-text/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1munminified-css[0m failure for [1mmaxLength[0m assertion
+       Minify CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-css/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munminified-javascript[0m failure for [1mmaxLength[0m assertion
+       Minify JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m36[0m
+      [2mall values: 36, 36, 36[0m
+
+
+  [31m✘[0m  [1munused-css-rules[0m failure for [1mmaxLength[0m assertion
+       Reduce unused CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-text-compression[0m failure for [1mmaxLength[0m assertion
+       Enable text compression
+       https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/
+
+        expected: <=[32m0[0m
+           found: [31m39[0m
+      [2mall values: 39, 39, 39[0m
+
+
+  ⚠️  [1mfirst-contentful-paint[0m warning for [1mminScore[0m assertion
+       First Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.06[0m
+      [2mall values: 0.06, 0.06, 0.06[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1mspeed-index[0m warning for [1mminScore[0m assertion
+       Speed Index
+       https://developer.chrome.com/docs/lighthouse/performance/speed-index/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.1[0m
+      [2mall values: 0.1, 0.09, 0.1[0m
+
+18 result(s) for [1mhttp://localhost:4321/blog[0m :
+
+  [31m✘[0m  [1mbf-cache[0m failure for [1mminScore[0m assertion
+       Page prevented back/forward cache restoration
+       https://developer.chrome.com/docs/lighthouse/performance/bf-cache/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.56[0m
+      [2mall values: 0.56, 0.56, 0.55[0m
+
+
+  [31m✘[0m  [1mcategories[0m.accessibility failure for [1mminScore[0m assertion
+        expected: >=[32m1[0m
+           found: [31m0.96[0m
+      [2mall values: 0.96, 0.96, 0.96[0m
+
+
+  [31m✘[0m  [1mcategories[0m.seo failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.92[0m
+      [2mall values: 0.92, 0.92, 0.92[0m
+
+
+  [31m✘[0m  [1mcolor-contrast[0m failure for [1mminScore[0m assertion
+       Background and foreground colors do not have a sufficient contrast ratio.
+       https://dequeuniversity.com/rules/axe/4.10/color-contrast
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mdocument-latency-insight[0m failure for [1mminScore[0m assertion
+       Document request latency
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1mlink-text[0m failure for [1mminScore[0m assertion
+       Links do not have descriptive text
+       https://developer.chrome.com/docs/lighthouse/seo/link-text/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mtotal-byte-weight[0m failure for [1mminScore[0m assertion
+       Avoid enormous network payloads
+       https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1munminified-css[0m failure for [1mmaxLength[0m assertion
+       Minify CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-css/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munminified-javascript[0m failure for [1mmaxLength[0m assertion
+       Minify JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m36[0m
+      [2mall values: 36, 36, 36[0m
+
+
+  [31m✘[0m  [1munused-css-rules[0m failure for [1mmaxLength[0m assertion
+       Reduce unused CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-text-compression[0m failure for [1mmaxLength[0m assertion
+       Enable text compression
+       https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/
+
+        expected: <=[32m0[0m
+           found: [31m39[0m
+      [2mall values: 39, 39, 39[0m
+
+
+  ⚠️  [1mfirst-contentful-paint[0m warning for [1mminScore[0m assertion
+       First Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.06[0m
+      [2mall values: 0.05, 0.04, 0.06[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1mspeed-index[0m warning for [1mminScore[0m assertion
+       Speed Index
+       https://developer.chrome.com/docs/lighthouse/performance/speed-index/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.1[0m
+      [2mall values: 0.1, 0.1, 0.1[0m
+
+20 result(s) for [1mhttp://localhost:4321/blog/debuter-retro-gaming-guide[0m :
+
+  [31m✘[0m  [1mbf-cache[0m failure for [1mminScore[0m assertion
+       Page prevented back/forward cache restoration
+       https://developer.chrome.com/docs/lighthouse/performance/bf-cache/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.55[0m
+      [2mall values: 0.53, 0.55, 0.55[0m
+
+
+  [31m✘[0m  [1mcategories[0m.seo failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.92[0m
+      [2mall values: 0.92, 0.92, 0.92[0m
+
+
+  [31m✘[0m  [1mdocument-latency-insight[0m failure for [1mminScore[0m assertion
+       Document request latency
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1mimage-delivery-insight[0m failure for [1mminScore[0m assertion
+       Improve image delivery
+       https://developer.chrome.com/docs/lighthouse/performance/uses-optimized-images/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mlink-text[0m failure for [1mminScore[0m assertion
+       Links do not have descriptive text
+       https://developer.chrome.com/docs/lighthouse/seo/link-text/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mtotal-byte-weight[0m failure for [1mminScore[0m assertion
+       Avoid enormous network payloads
+       https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1munminified-css[0m failure for [1mmaxLength[0m assertion
+       Minify CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-css/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munminified-javascript[0m failure for [1mmaxLength[0m assertion
+       Minify JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m37[0m
+      [2mall values: 37, 37, 37[0m
+
+
+  [31m✘[0m  [1munused-css-rules[0m failure for [1mmaxLength[0m assertion
+       Reduce unused CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-responsive-images[0m failure for [1mmaxLength[0m assertion
+       Properly size images
+       https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-text-compression[0m failure for [1mmaxLength[0m assertion
+       Enable text compression
+       https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/
+
+        expected: <=[32m0[0m
+           found: [31m40[0m
+      [2mall values: 40, 40, 40[0m
+
+
+  ⚠️  [1mdom-size[0m warning for [1mminScore[0m assertion
+       Avoid an excessive DOM size
+       https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0, 0.5, 0[0m
+
+
+  ⚠️  [1mdom-size-insight[0m warning for [1mminScore[0m assertion
+       Optimize DOM size
+       https://developer.chrome.com/docs/lighthouse/performance/dom-size/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1mfirst-contentful-paint[0m warning for [1mminScore[0m assertion
+       First Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.04[0m
+      [2mall values: 0.04, 0.04, 0.04[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1mspeed-index[0m warning for [1mminScore[0m assertion
+       Speed Index
+       https://developer.chrome.com/docs/lighthouse/performance/speed-index/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.1[0m
+      [2mall values: 0.1, 0.09, 0.1[0m
+
+17 result(s) for [1mhttp://localhost:4321/developer[0m :
+
+  [31m✘[0m  [1mbf-cache[0m failure for [1mminScore[0m assertion
+       Page prevented back/forward cache restoration
+       https://developer.chrome.com/docs/lighthouse/performance/bf-cache/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.56[0m
+      [2mall values: 0.56, 0.55, 0.56[0m
+
+
+  [31m✘[0m  [1mcategories[0m.accessibility failure for [1mminScore[0m assertion
+        expected: >=[32m1[0m
+           found: [31m0.96[0m
+      [2mall values: 0.96, 0.96, 0.96[0m
+
+
+  [31m✘[0m  [1mcategories[0m.seo failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.92[0m
+      [2mall values: 0.92, 0.92, 0.92[0m
+
+
+  [31m✘[0m  [1mcolor-contrast[0m failure for [1mminScore[0m assertion
+       Background and foreground colors do not have a sufficient contrast ratio.
+       https://dequeuniversity.com/rules/axe/4.10/color-contrast
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mdocument-latency-insight[0m failure for [1mminScore[0m assertion
+       Document request latency
+
+        expected: >=[32m0.9[0m
+           found: [31m0.5[0m
+      [2mall values: 0.5, 0.5, 0.5[0m
+
+
+  [31m✘[0m  [1mlink-text[0m failure for [1mminScore[0m assertion
+       Links do not have descriptive text
+       https://developer.chrome.com/docs/lighthouse/seo/link-text/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1munminified-css[0m failure for [1mmaxLength[0m assertion
+       Minify CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-css/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munminified-javascript[0m failure for [1mmaxLength[0m assertion
+       Minify JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m36[0m
+      [2mall values: 36, 36, 36[0m
+
+
+  [31m✘[0m  [1munused-css-rules[0m failure for [1mmaxLength[0m assertion
+       Reduce unused CSS
+       https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-text-compression[0m failure for [1mmaxLength[0m assertion
+       Enable text compression
+       https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/
+
+        expected: <=[32m0[0m
+           found: [31m39[0m
+      [2mall values: 39, 39, 39[0m
+
+
+  ⚠️  [1mfirst-contentful-paint[0m warning for [1mminScore[0m assertion
+       First Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.07[0m
+      [2mall values: 0.07, 0.07, 0.07[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1mspeed-index[0m warning for [1mminScore[0m assertion
+       Speed Index
+       https://developer.chrome.com/docs/lighthouse/performance/speed-index/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.1[0m
+      [2mall values: 0.09, 0.1, 0.1[0m
+
+Assertion failed. Exiting with status code 1.
+
+assert command failed. Exiting with status code 1.
