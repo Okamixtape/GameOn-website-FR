@@ -48,22 +48,17 @@ const navItems = [
         ))}
       </ul>
 
-      <!-- Bouton Hamburger/Close Mobile (toggle) -->
+      <!-- Bouton Hamburger Mobile -->
       <button
         id="mobile-menu-button"
         type="button"
-        class="md:hidden text-white hover:text-retro-blue transition-all duration-300 p-2 focus:outline-none focus:ring-2 focus:ring-retro-blue rounded relative z-[10000]"
+        class="md:hidden text-white hover:text-retro-blue transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-retro-blue rounded z-[10000]"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Menu de navigation"
       >
-        <!-- Icône Hamburger -->
-        <svg id="hamburger-icon" class="h-7 w-7 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <!-- Icône Close (cachée par défaut) -->
-        <svg id="close-icon" class="h-7 w-7 absolute top-2 left-2 opacity-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </nav>
@@ -132,10 +127,8 @@ const navItems = [
     function initMobileMenu() {
       var button = document.getElementById('mobile-menu-button');
       var menu = document.getElementById('mobile-menu');
-      var hamburgerIcon = document.getElementById('hamburger-icon');
-      var closeIcon = document.getElementById('close-icon');
 
-      if (!button || !menu || !hamburgerIcon || !closeIcon) {
+      if (!button || !menu) {
         console.error('Menu mobile: éléments non trouvés');
         return;
       }
@@ -150,11 +143,6 @@ const navItems = [
         button.setAttribute('aria-expanded', 'true');
         menu.classList.remove('opacity-0', 'pointer-events-none');
         menu.classList.add('opacity-100', 'pointer-events-auto');
-        
-        // Toggle icônes
-        hamburgerIcon.classList.add('opacity-0', 'rotate-90');
-        closeIcon.classList.remove('opacity-0');
-        closeIcon.classList.add('opacity-100', 'rotate-0');
         
         // Bloquer scroll body
         document.body.style.overflow = 'hidden';
@@ -177,11 +165,6 @@ const navItems = [
         button.setAttribute('aria-expanded', 'false');
         menu.classList.add('opacity-0', 'pointer-events-none');
         menu.classList.remove('opacity-100', 'pointer-events-auto');
-        
-        // Toggle icônes
-        hamburgerIcon.classList.remove('opacity-0', 'rotate-90');
-        closeIcon.classList.add('opacity-0');
-        closeIcon.classList.remove('opacity-100', 'rotate-0');
         
         // Réactiver scroll body
         document.body.style.overflow = '';
