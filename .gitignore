@@ -26,6 +26,9 @@ pnpm-debug.log*
 # Development notes archive
 .archive/
 
+# Starter project (original HTML/CSS/JS)
+starterOnly/
+
 # Test results
 test-results/
 playwright-report/

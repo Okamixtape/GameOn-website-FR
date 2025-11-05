@@ -1,7 +1,7 @@
 # 🎮 PIXEL CLASH Championship 2025
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-BADGE-ID/deploy-status)](https://app.netlify.com/sites/pixelclash/deploys)
-[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-95%2B-success)](./LIGHTHOUSE_RESULTS.md)
+[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-95%2B-success)](./docs/lighthouse/FINAL-SUMMARY.md)
 
 > Landing page moderne pour un championnat de retro gaming fictif. Projet portfolio démontrant des compétences en développement web full-stack et design UX/UI.
 
@@ -11,7 +11,7 @@
 
 ## 📋 À Propos
 
-**PIXEL CLASH Championship 2025** est une landing page professionnelle créée comme projet portfolio. Elle simule un événement de gaming retro avec :
+**PIXEL CLASH Championship 2026** est une landing page professionnelle créée comme projet portfolio. Elle simule un événement de gaming retro avec :
 
 - ✅ Design moderne et identité visuelle forte (cyan/violet/rose néon)
 - ✅ Formulaire d'inscription fonctionnel avec validation temps réel
@@ -48,29 +48,43 @@
 
 ```
 GameOn-website-FR/
-├── public/                  # Assets statiques
-│   ├── Logo.png            # Logo PIXEL CLASH (header)
-│   ├── favicon.png         # Favicon
-│   └── retro-gaming-hero.jpg
+├── .archive/               # 📦 Fichiers archivés
+│   ├── starter-project/    # Projet HTML/CSS/JS original
+│   └── LIGHTHOUSE_RESULTS.md (ancien)
+├── docs/                   # 📚 Documentation complète
+│   ├── README.md           # Index documentation
+│   ├── lighthouse/         # Rapports Lighthouse
+│   │   ├── FINAL-SUMMARY.md
+│   │   ├── LIGHTHOUSE-CHECKLIST.md
+│   │   └── CORRECTIONS-APPLIED.md
+│   └── strategy/           # Stratégies marketing
+│       ├── CONVERSION-STRATEGY.md
+│       ├── BLOG-STRATEGY.md
+│       ├── SEO-KEYWORDS.md
+│       └── BRAND_GUIDELINES.md
+├── public/                 # Assets statiques
+│   ├── Logo.png
+│   ├── favicon.png
+│   ├── blog/               # Images blog optimisées
+│   └── retro-gaming-hero.webp
 ├── src/
-│   ├── components/         # Composants Astro réutilisables
+│   ├── components/         # Composants Astro
 │   │   ├── Header.astro
 │   │   ├── Footer.astro
 │   │   ├── Hero.astro
 │   │   └── RegistrationModal.astro
-│   ├── layouts/            # Layouts de page
+│   ├── content/            # Contenu Markdown (blog)
+│   │   └── blog/
+│   ├── layouts/
 │   │   └── Layout.astro
-│   ├── pages/              # Pages (routing automatique)
-│   │   ├── index.astro     # Page d'accueil
-│   │   ├── details.astro   # Détails du tournoi
-│   │   ├── about.astro     # À propos
-│   │   ├── mentions-legales.astro
-│   │   ├── politique-confidentialite.astro
-│   │   └── cgu.astro
+│   ├── pages/              # Pages (routing auto)
+│   │   ├── index.astro
+│   │   ├── details.astro
+│   │   ├── about.astro
+│   │   ├── developer.astro # Portfolio développeur
+│   │   └── blog/
 │   └── styles/
 │       └── global.css
-├── BRAND_GUIDELINES.md     # Guide de style de marque
-├── LIGHTHOUSE_RESULTS.md   # Scores de performance
 └── README.md               # Ce fichier
 ```
 
@@ -116,7 +130,32 @@ npm install
 - **Rajdhani** (600, 700) - Titres gaming
 - **DM Sans** (400, 500, 700) - Corps de texte
 
-Voir [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) pour le guide complet.
+Voir [BRAND_GUIDELINES.md](./docs/strategy/BRAND_GUIDELINES.md) pour le guide complet.
+
+---
+
+## 📚 Documentation
+
+Documentation complète disponible dans `/docs` :
+
+### Pour Développeurs
+- **[docs/README.md](./docs/README.md)** - Index documentation
+- **[docs/lighthouse/FINAL-SUMMARY.md](./docs/lighthouse/FINAL-SUMMARY.md)** - Résumé optimisations
+- **[docs/lighthouse/LIGHTHOUSE-CHECKLIST.md](./docs/lighthouse/LIGHTHOUSE-CHECKLIST.md)** - Checklist performance
+
+### Pour Marketing
+- **[docs/strategy/CONVERSION-STRATEGY.md](./docs/strategy/CONVERSION-STRATEGY.md)** - Stratégie conversion
+- **[docs/strategy/SEO-KEYWORDS.md](./docs/strategy/SEO-KEYWORDS.md)** - Mots-clés SEO
+- **[docs/strategy/BLOG-STRATEGY.md](./docs/strategy/BLOG-STRATEGY.md)** - Stratégie contenu
+
+### Résultats Lighthouse
+Voir [docs/lighthouse/FINAL-SUMMARY.md](./docs/lighthouse/FINAL-SUMMARY.md) pour les résultats complets.
+
+**Scores attendus (Production)** :
+- ⚡ Performance : 95+
+- ♿ Accessibility : 100
+- 🔒 Best Practices : 95+
+- 🔍 SEO : 95+
 
 ---
 
