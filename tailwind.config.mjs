@@ -10,12 +10,12 @@ export default {
       colors: {
         'gaming-violet': '#8B5CF6',   // violet-500 - Couleur secondaire
         'gaming-amber': '#F59E0B',    // amber-500 - Couleur accent
-        'retro-blue': '#00D9FF',      // Bleu néon retro
-        'retro-blue-dark': '#007399', // Bleu foncé (contraste 4.51:1 WCAG AA)
-        'retro-pink': '#FF006E',      // Rose néon retro
-        'retro-pink-dark': '#A3004A', // Rose foncé (contraste 4.52:1 WCAG AA)
-        'retro-purple': '#7209B7',    // Violet foncé retro
-        'retro-purple-dark': '#5A0790', // Violet plus foncé (contraste AA)
+        'retro-blue': '#00D9FF',      // Bleu néon retro (décoration uniquement)
+        'retro-blue-dark': '#007399', // Bleu foncé (5.37:1 WCAG AA)
+        'retro-pink': '#FF006E',      // Rose néon retro (décoration uniquement)
+        'retro-pink-dark': '#A3004A', // Rose foncé (7.91:1 WCAG AA)
+        'retro-purple': '#7209B7',    // Violet foncé retro (8.61:1 WCAG AA)
+        'retro-purple-dark': '#5A0790', // Violet plus foncé (11.24:1 WCAG AAA)
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
