@@ -31,7 +31,7 @@ const {
     <img 
       src="/retro-gaming-hero.jpg"
       alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
-      class="w-full h-full object-cover hero-image"
+      class="w-full h-full object-cover hero-bg"
       width="1920"
       height="1080"
       fetchpriority="high"
@@ -118,14 +118,27 @@ const {
 </section>
 
 <style>
-  /* Position de l'image hero : ordinateur visible à droite sur desktop */
-  .hero-image {
-    object-position: center center;
+  /* 
+   * Position responsive de l'image hero
+   * Basé sur les captures : 403px (mobile), 951px (tablet), 1524px (desktop)
+   */
+  
+  .hero-bg {
+    /* Mobile (< 768px) : centré légèrement vers le haut pour voir plus de setup */
+    object-position: 50% 35%;
   }
   
-  @media (min-width: 768px) {
-    .hero-image {
-      object-position: 75% center;
+  /* Tablet (768px - 1200px) : légèrement à droite */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .hero-bg {
+      object-position: 60% center;
+    }
+  }
+  
+  /* Desktop (≥ 1200px) : bien à droite pour voir l'ordinateur */
+  @media (min-width: 1200px) {
+    .hero-bg {
+      object-position: 70% center;
     }
   }
 </style>
