@@ -21,27 +21,30 @@ const featuredPosts = sortedPosts.filter((post: CollectionEntry<'blog'>) => post
   title="Blog - PIXEL CLASH Championship 2026"
   description="Découvrez l'univers du retro gaming : histoire, guides, actualités et interviews. Tout sur les jeux arcade classiques et la culture gaming."
 >
-  <div class="container mx-auto px-4 py-16">
+  <!-- Hero Blog Immersif -->
+  <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-20 md:py-28 overflow-hidden mb-16">
+    <!-- Pattern retro background -->
+    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,110,.2) 10px, rgba(255,0,110,.2) 20px);"></div>
     
-    <!-- Hero Blog -->
-    <section class="text-center mb-16">
-      <div class="inline-flex items-center gap-2 bg-retro-blue/10 border border-retro-blue/30 rounded-full px-4 py-2 mb-4">
-        <svg class="w-4 h-4 text-retro-blue" fill="currentColor" viewBox="0 0 20 20">
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-6">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
         </svg>
-        <span class="font-bold text-sm uppercase tracking-wider text-retro-blue">Blog</span>
+        <span class="font-bold text-sm uppercase tracking-wider">Blog</span>
       </div>
-      
-      <h1 class="font-gaming text-5xl md:text-6xl font-bold mb-6 uppercase tracking-wide">
-        <span class="bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink bg-clip-text text-transparent">
-          Univers Retro Gaming
-        </span>
+
+      <h1 class="font-gaming text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]">
+        Univers Retro Gaming
       </h1>
-      
-      <p class="text-xl text-zinc-600 max-w-2xl mx-auto">
-        Histoire, guides, actualités et culture gaming. <br/>Plongez dans l'âge d'or de l'arcade.
+      <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+        Histoire, guides, actualités et culture gaming.<br/>Plongez dans l'âge d'or de l'arcade.
       </p>
-    </section>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-4 pb-16">
 
     <!-- Articles Featured -->
     {featuredPosts.length > 0 && (

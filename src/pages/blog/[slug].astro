@@ -42,64 +42,76 @@ const relatedPosts = allPosts
   image={entry.data.image.url}
   type="article"
 >
-  <article class="container mx-auto px-4 py-16 max-w-4xl">
+  <!-- Hero Article Immersif -->
+  <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-16 md:py-20 overflow-hidden">
+    <!-- Pattern retro background -->
+    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,110,.2) 10px, rgba(255,0,110,.2) 20px);"></div>
     
-    <!-- Breadcrumb -->
-    <nav class="mb-8 text-sm text-zinc-600">
-      <a href="/" class="hover:text-retro-blue">Accueil</a>
-      <span class="mx-2">→</span>
-      <a href="/blog" class="hover:text-retro-blue">Blog</a>
-      <span class="mx-2">→</span>
-      <span class="text-zinc-900">{entry.data.title}</span>
-    </nav>
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- Breadcrumb -->
+      <nav class="mb-8 text-sm text-white/80">
+        <a href="/" class="hover:text-white transition-colors">Accueil</a>
+        <span class="mx-2">→</span>
+        <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        <span class="mx-2">→</span>
+        <span class="text-white font-medium">{entry.data.title}</span>
+      </nav>
 
-    <!-- Header -->
-    <header class="mb-12">
-      <!-- Tags -->
-      <div class="flex flex-wrap gap-2 mb-4">
-        {entry.data.tags.map((tag: string) => (
-          <a 
-            href={`/blog/tags/${tag}`}
-            class="text-sm bg-retro-blue/10 text-retro-blue px-3 py-1 rounded-full hover:bg-retro-blue hover:text-white transition-colors"
-          >
-            #{tag}
-          </a>
-        ))}
-      </div>
-      
-      <!-- Title -->
-      <h1 class="font-gaming text-4xl md:text-5xl font-bold mb-6 leading-tight">
-        <span class="bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink bg-clip-text text-transparent">
+      <div class="max-w-4xl mx-auto">
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          {entry.data.tags.map((tag: string) => (
+            <a 
+              href={`/blog/tags/${tag}`}
+              class="text-sm bg-white/20 backdrop-blur-sm border border-white/30 px-3 py-1 rounded-full hover:bg-white/30 transition-colors"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+        
+        <!-- Title -->
+        <h1 class="font-gaming text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight uppercase tracking-wide drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]">
           {entry.data.title}
-        </span>
-      </h1>
-      
-      <!-- Meta -->
-      <div class="flex items-center gap-4 text-zinc-600 mb-8">
-        <span class="font-medium">{entry.data.author}</span>
-        <span>•</span>
-        <time datetime={entry.data.pubDate.toISOString()}>
-          {formatDate(entry.data.pubDate)}
-        </time>
-        {entry.data.updatedDate && (
-          <>
-            <span>•</span>
-            <span class="text-sm">
-              Mis à jour le {formatDate(entry.data.updatedDate)}
-            </span>
-          </>
-        )}
+        </h1>
+        
+        <!-- Meta -->
+        <div class="flex items-center gap-4 text-white/90 mb-8">
+          <span class="font-medium">{entry.data.author}</span>
+          <span>•</span>
+          <time datetime={entry.data.pubDate.toISOString()}>
+            {formatDate(entry.data.pubDate)}
+          </time>
+          {entry.data.updatedDate && (
+            <>
+              <span>•</span>
+              <span class="text-sm">
+                Mis à jour le {formatDate(entry.data.updatedDate)}
+              </span>
+            </>
+          )}
+        </div>
       </div>
-      
-      <!-- Featured Image -->
-      <div class="aspect-video rounded-xl overflow-hidden shadow-2xl mb-8">
-        <img 
-          src={entry.data.image.url} 
-          alt={entry.data.image.alt}
-          class="w-full h-full object-cover"
-        />
+    </div>
+  </section>
+
+  <!-- Featured Image Full Width -->
+  <div class="relative -mt-16 mb-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="aspect-video rounded-xl overflow-hidden shadow-2xl shadow-retro-purple/30 border-4 border-white">
+          <img 
+            src={entry.data.image.url} 
+            alt={entry.data.image.alt}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
       </div>
-    </header>
+    </div>
+  </div>
+
+  <article class="container mx-auto px-4 pb-16 max-w-4xl">
 
     <!-- Content -->
     <div class="prose prose-lg prose-zinc max-w-none

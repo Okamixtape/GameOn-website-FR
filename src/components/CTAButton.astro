@@ -56,17 +56,27 @@ const variantClasses = {
 const baseClasses = 'inline-flex items-center gap-2 font-bold rounded-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-offset-2';
 
 const Tag = opensModal ? 'button' : 'a';
-const attributes = opensModal 
-  ? { 'data-open-modal': true, type: 'button' }
-  : { href: href || '#' };
 ---
 
-<Tag
-  {...attributes}
-  class={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${additionalClasses}`}
->
-  <span>{text}</span>
-  <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-  </svg>
-</Tag>
+{opensModal ? (
+  <button
+    data-open-modal
+    type="button"
+    class={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${additionalClasses}`}
+  >
+    <span>{text}</span>
+    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+    </svg>
+  </button>
+) : (
+  <a
+    href={href || '#'}
+    class={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${additionalClasses}`}
+  >
+    <span>{text}</span>
+    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+    </svg>
+  </a>
+)}
