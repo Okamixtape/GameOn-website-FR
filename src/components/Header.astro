@@ -213,9 +213,14 @@ const navItems = [
         });
       });
 
-      // Fermer le menu en cliquant sur le backdrop
+      // Fermer le menu en cliquant en dehors des zones cliquables
       menu.addEventListener('click', function(e) {
-        if (e.target === menu || e.target.classList.contains('absolute')) {
+        // Vérifier si le clic est sur un lien ou un bouton
+        var isClickOnLink = e.target.tagName === 'A' || e.target.closest('a');
+        var isClickOnNav = e.target.tagName === 'NAV' || e.target.closest('nav');
+        
+        // Si le clic n'est PAS sur un lien, fermer le menu
+        if (!isClickOnLink) {
           closeMenu();
         }
       });
