@@ -105,13 +105,3 @@ Retrouvez ces classiques lors du **PIXEL CLASH Championship 2026** :
 L'âge d'or de l'arcade a créé les fondations du gaming moderne. Ces jeux, avec leur gameplay simple mais profond, continuent d'inspirer les développeurs et de captiver les joueurs 40 ans plus tard.
 
 **Rejoignez-nous au PIXEL CLASH Championship 2026** pour célébrer cet héritage et vivre l'expérience arcade authentique !
-
----
-
-## Pour Aller Plus Loin
-
-- [Le Tournoi PIXEL CLASH 2026](/details)
-- [Notre Histoire](/about)
-- [Je m'inscris maintenant](#)
-
-**Tags** : #RetroGaming #Arcade #Histoire #Gaming #Nostalgie

@@ -325,24 +325,4 @@ Le retro gaming n'est pas qu'une question de nostalgie : c'est redécouvrir des 
 
 ---
 
-## Pour Aller Plus Loin
-
-### 📚 Ressources Complémentaires
-
-- **Guide d'achat consoles** : [Lien vers article détaillé]
-- **Top 50 jeux rétro** : [Lien vers sélection]
-- **Tutoriel émulation** : [Lien vers guide technique]
-
-### 🎮 Participez au PIXEL CLASH Championship 2026
-
-Envie de tester vos compétences sur des jeux arcade classiques ? Rejoignez-nous du **15 au 17 mars 2026** pour 3 jours de compétitions, rencontres et passion retro gaming.
-
-- **128 joueurs** • **15 000€ de cashprize** • **Tous niveaux acceptés**
-
-**Places limitées** : inscrivez-vous dès maintenant !
-
----
-
-**Vous avez des questions sur le retro gaming ?** Rejoignez notre communauté Discord ou laissez un commentaire ci-dessous. L'équipe PIXEL CLASH est là pour vous aider à débuter sereinement dans cet univers passionnant !
-
-*Dernière mise à jour : 4 novembre 2025*
+**Vous avez des questions sur le retro gaming ?** Rejoignez notre communauté Discord ou participez au PIXEL CLASH Championship 2026 pour rencontrer d'autres passionnés !
