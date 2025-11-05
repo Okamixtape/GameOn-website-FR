@@ -48,112 +48,162 @@ const navItems = [
         ))}
       </ul>
 
-      <!-- Bouton Hamburger Mobile -->
+      <!-- Bouton Hamburger/Close Mobile (toggle) -->
       <button
         id="mobile-menu-button"
         type="button"
-        class="md:hidden text-white hover:text-retro-blue transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-retro-blue rounded"
+        class="md:hidden text-white hover:text-retro-blue transition-all duration-300 p-2 focus:outline-none focus:ring-2 focus:ring-retro-blue rounded relative z-[10000]"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Menu de navigation"
       >
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <!-- Icône Hamburger -->
+        <svg id="hamburger-icon" class="h-7 w-7 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <!-- Icône Close (cachée par défaut) -->
+        <svg id="close-icon" class="h-7 w-7 absolute top-2 left-2 opacity-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </nav>
+  </div>
 
-    <!-- Menu Mobile -->
-    <div
-      id="mobile-menu"
-      class="hidden md:hidden fixed top-[73px] left-0 right-0 bg-zinc-900 border-t border-zinc-800 shadow-lg"
-      role="menu"
-      style="display: none; z-index: 9999;"
-    >
-      <!-- Bouton Close Mobile -->
-      <div class="flex justify-end px-4 pt-4">
-        <button
-          id="mobile-menu-close"
-          type="button"
-          class="text-gray-400 hover:text-white transition-colors p-2 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6] rounded"
-          aria-label="Fermer le menu"
-        >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+  <!-- Menu Mobile Overlay Full-Screen -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 opacity-0 pointer-events-none transition-all duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu de navigation mobile"
+    style="z-index: 9999;"
+  >
+    <!-- Backdrop avec blur -->
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    
+    <!-- Pattern retro (comme header) -->
+    <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,217,255,.3) 10px, rgba(0,217,255,.3) 20px);"></div>
+    
+    <!-- Gradient accent -->
+    <div class="absolute inset-0 bg-gradient-to-br from-retro-purple/20 via-transparent to-retro-blue/20"></div>
+    
+    <!-- Contenu menu -->
+    <div class="relative h-full flex flex-col">
+      <!-- Spacer pour header sticky -->
+      <div class="h-[73px]"></div>
       
-      <ul class="flex flex-col py-4">
-        {navItems.map(item => (
-          <li role="none">
-            <a 
-              href={item.href}
-              class={`block px-6 py-3 text-white hover:bg-purple-900/50 hover:text-retro-blue transition-colors focus:outline-none focus:ring-2 focus:ring-retro-blue focus:ring-inset ${
-                currentPath === item.href ? 'bg-purple-900/50 text-retro-blue' : ''
-              }`}
-              role="menuitem"
-              aria-current={currentPath === item.href ? 'page' : undefined}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <!-- Navigation -->
+      <nav class="flex-1 flex items-center justify-center px-6">
+        <ul class="w-full max-w-md space-y-2">
+          {navItems.map(item => (
+            <li class="transform translate-x-8 opacity-0 menu-item">
+              <a 
+                href={item.href}
+                class={`group block px-6 py-4 rounded-lg text-xl font-medium transition-all duration-300 ${
+                  currentPath === item.href 
+                    ? 'bg-gradient-to-r from-retro-blue to-retro-purple text-white shadow-lg shadow-retro-blue/50' 
+                    : 'text-white hover:bg-white/10 hover:text-retro-blue hover:translate-x-2'
+                }`}
+                aria-current={currentPath === item.href ? 'page' : undefined}
+              >
+                <span class="flex items-center justify-between">
+                  {item.label}
+                  <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      
+      <!-- Footer menu (optionnel) -->
+      <div class="p-6 text-center text-sm text-gray-400">
+        <p>PIXEL CLASH Championship 2026</p>
+      </div>
     </div>
   </div>
 </header>
 
 <script is:inline>
-  // Toggle menu mobile - JavaScript pur (pas de TypeScript)
+  // Menu mobile overlay avec animations
   (function() {
     function initMobileMenu() {
       var button = document.getElementById('mobile-menu-button');
-      var closeButton = document.getElementById('mobile-menu-close');
       var menu = document.getElementById('mobile-menu');
+      var hamburgerIcon = document.getElementById('hamburger-icon');
+      var closeIcon = document.getElementById('close-icon');
 
-      if (!button || !menu) {
+      if (!button || !menu || !hamburgerIcon || !closeIcon) {
         console.error('Menu mobile: éléments non trouvés');
         return;
       }
 
-      console.log('Menu mobile initialisé');
+      console.log('Menu mobile overlay initialisé');
 
-      // Fonction pour ouvrir le menu
+      // Fonction pour ouvrir le menu avec animations
       function openMenu() {
-        console.log('Ouverture menu');
+        console.log('Ouverture menu overlay');
+        
+        // Activer le menu
         button.setAttribute('aria-expanded', 'true');
-        menu.classList.remove('hidden');
-        menu.style.display = 'block';
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        
+        // Toggle icônes
+        hamburgerIcon.classList.add('opacity-0', 'rotate-90');
+        closeIcon.classList.remove('opacity-0');
+        closeIcon.classList.add('opacity-100', 'rotate-0');
+        
+        // Bloquer scroll body
+        document.body.style.overflow = 'hidden';
+        
+        // Animer les items du menu (stagger)
+        var menuItems = menu.querySelectorAll('.menu-item');
+        menuItems.forEach(function(item, index) {
+          setTimeout(function() {
+            item.classList.remove('translate-x-8', 'opacity-0');
+            item.classList.add('translate-x-0', 'opacity-100');
+          }, 100 + (index * 50));
+        });
       }
 
-      // Fonction pour fermer le menu
+      // Fonction pour fermer le menu avec animations
       function closeMenu() {
-        console.log('Fermeture menu');
+        console.log('Fermeture menu overlay');
+        
+        // Désactiver le menu
         button.setAttribute('aria-expanded', 'false');
-        menu.classList.add('hidden');
-        menu.style.display = 'none';
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        
+        // Toggle icônes
+        hamburgerIcon.classList.remove('opacity-0', 'rotate-90');
+        closeIcon.classList.add('opacity-0');
+        closeIcon.classList.remove('opacity-100', 'rotate-0');
+        
+        // Réactiver scroll body
+        document.body.style.overflow = '';
+        
+        // Reset items du menu
+        var menuItems = menu.querySelectorAll('.menu-item');
+        menuItems.forEach(function(item) {
+          item.classList.add('translate-x-8', 'opacity-0');
+          item.classList.remove('translate-x-0', 'opacity-100');
+        });
       }
 
-      // Toggle au clic sur le bouton hamburger
+      // Toggle au clic sur le bouton
       button.addEventListener('click', function(e) {
         e.stopPropagation();
         var isExpanded = button.getAttribute('aria-expanded') === 'true';
-        console.log('Clic hamburger, expanded:', isExpanded);
         if (isExpanded) {
           closeMenu();
         } else {
           openMenu();
         }
       });
-
-      // Fermer au clic sur le bouton close
-      if (closeButton) {
-        closeButton.addEventListener('click', function(e) {
-          e.stopPropagation();
-          closeMenu();
-        });
-      }
 
       // Fermer le menu en cliquant sur un lien
       var menuLinks = menu.querySelectorAll('a');
@@ -163,9 +213,9 @@ const navItems = [
         });
       });
 
-      // Fermer le menu en cliquant à l'extérieur
-      document.addEventListener('click', function(e) {
-        if (!button.contains(e.target) && !menu.contains(e.target)) {
+      // Fermer le menu en cliquant sur le backdrop
+      menu.addEventListener('click', function(e) {
+        if (e.target === menu || e.target.classList.contains('absolute')) {
           closeMenu();
         }
       });
