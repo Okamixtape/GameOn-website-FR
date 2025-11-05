@@ -4,8 +4,8 @@ import CTAButton from '../components/CTAButton.astro';
 ---
 
 <Layout 
-  title="À Propos - PIXEL CLASH Championship"
-  description="Découvrez PIXEL CLASH, le championnat retro gaming qui célèbre l'âge d'or du jeu vidéo. Notre mission, nos valeurs, notre équipe."
+  title="Notre Histoire - PIXEL CLASH Championship 2026"
+  description="Découvrez PIXEL CLASH, le championnat retro gaming qui célèbre l'âge d'or du jeu vidéo. Notre mission, nos valeurs, notre histoire."
 >
   <!-- Hero Section Immersive -->
   <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-20 md:py-28 overflow-hidden">
@@ -161,24 +161,29 @@ import CTAButton from '../components/CTAButton.astro';
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA Final -->
     <section class="text-center bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple p-12 rounded-lg text-white shadow-lg shadow-retro-blue/30">
       <h2 class="font-gaming text-3xl font-bold mb-4 uppercase tracking-wide">Rejoignez l'Aventure !</h2>
       <p class="text-xl mb-8 opacity-90">
-        Inscrivez-vous au PIXEL CLASH Championship 2025 et faites partie de l'histoire.
+        Inscrivez-vous au PIXEL CLASH Championship 2026 et faites partie de l'histoire.
       </p>
-      <button 
-        data-open-modal
-        aria-label="Ouvrir le formulaire d'inscription au tournoi"
-        class="group relative px-10 py-5 bg-gradient-to-r from-retro-blue to-retro-purple hover:from-retro-pink hover:to-retro-blue text-white font-bold rounded-lg text-xl shadow-lg shadow-retro-blue/50 hover:shadow-xl hover:shadow-retro-pink/70 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
-      >
-        <span class="flex items-center gap-2 justify-center">
-          Je m'inscris maintenant
-          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </span>
-      </button>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <CTAButton 
+          text="Je m'inscris maintenant"
+          variant="primary"
+          size="xl"
+          opensModal={true}
+        />
+        <CTAButton 
+          text="Voir les détails"
+          variant="secondary"
+          size="xl"
+          href="/details"
+        />
+      </div>
+      <p class="mt-4 text-sm opacity-75">
+        Inscription gratuite • Confirmation immédiate par email
+      </p>
     </section>
 
   </div>
