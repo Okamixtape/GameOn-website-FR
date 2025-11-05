@@ -9,7 +9,9 @@
     "check": "astro check",
     "lint": "eslint . --ext .js,.astro",
     "format": "prettier --write .",
-    "lighthouse": "npm run build && lhci autorun"
+    "lighthouse": "npm run build && lhci autorun",
+    "test:lighthouse": "npm run build && lhci autorun",
+    "test:a11y": "playwright test tests/accessibility.test.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
