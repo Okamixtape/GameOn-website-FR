@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title = "PIXEL CLASH Championship 2025",
-  subtitle = "Rejoignez le championnat retro gaming qui célèbre les racines du jeu vidéo. Compétitions classiques, ambiance arcade, nostalgie garantie !",
+  subtitle = "Rejoignez le championnat retro gaming <br/>qui célèbre les racines du jeu vidéo. <br/><br/>Compétitions classiques, ambiance arcade, nostalgie garantie !",
   ctaText = "Je m'inscris",
   ctaLink = "#",
   imageUrl = "/retro-gaming-hero.jpg"
@@ -67,9 +67,7 @@ const {
       </h1>
       
       <!-- Sous-titre -->
-      <p class="text-xl md:text-2xl text-gray-200 font-medium mb-8 leading-relaxed">
-        {subtitle}
-      </p>
+      <p class="text-xl md:text-2xl text-gray-200 font-medium mb-8 leading-relaxed" set:html={subtitle}></p>
       
       <!-- Trust Signals -->
       <div class="flex flex-wrap items-center gap-4 mb-10">

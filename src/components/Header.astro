@@ -12,8 +12,14 @@ const navItems = [
 ] as const;
 ---
 
-<header class="sticky top-0 z-50 bg-zinc-950 border-b-2 border-retro-blue/50 shadow-lg backdrop-blur-sm" role="banner">
-  <div class="container mx-auto px-4 py-4">
+<header class="sticky top-0 z-50 bg-zinc-950 border-b-4 border-retro-blue shadow-lg overflow-hidden" role="banner">
+  <!-- Pattern retro background (comme footer) -->
+  <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,217,255,.3) 10px, rgba(0,217,255,.3) 20px);"></div>
+  
+  <!-- Glow effect bottom -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-retro-blue to-transparent"></div>
+  
+  <div class="container mx-auto px-4 py-4 relative z-10">
     <nav class="flex items-center justify-between" aria-label="Navigation principale">
       <!-- Logo PIXEL CLASH Gradient - Plus Grand -->
       <a href="/" class="flex items-center gap-2 group" aria-label="PIXEL CLASH - Accueil">
