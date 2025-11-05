@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+  
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Formater la date
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+// Articles similaires (même tags)
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const relatedPosts = allPosts
+  .filter(post => 
+    post.slug !== entry.slug && 
+    post.data.tags.some(tag => entry.data.tags.includes(tag))
+  )
+  .slice(0, 3);
+---
+
+<Layout 
+  title={`${entry.data.title} - Blog PIXEL CLASH`}
+  description={entry.data.description}
+  image={entry.data.image.url}
+  type="article"
+>
+  <article class="container mx-auto px-4 py-16 max-w-4xl">
+    
+    <!-- Breadcrumb -->
+    <nav class="mb-8 text-sm text-zinc-600">
+      <a href="/" class="hover:text-retro-blue">Accueil</a>
+      <span class="mx-2">→</span>
+      <a href="/blog" class="hover:text-retro-blue">Blog</a>
+      <span class="mx-2">→</span>
+      <span class="text-zinc-900">{entry.data.title}</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-12">
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mb-4">
+        {entry.data.tags.map((tag) => (
+          <a 
+            href={`/blog/tags/${tag}`}
+            class="text-sm bg-retro-blue/10 text-retro-blue px-3 py-1 rounded-full hover:bg-retro-blue hover:text-white transition-colors"
+          >
+            #{tag}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Title -->
+      <h1 class="font-gaming text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <span class="bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink bg-clip-text text-transparent">
+          {entry.data.title}
+        </span>
+      </h1>
+      
+      <!-- Meta -->
+      <div class="flex items-center gap-4 text-zinc-600 mb-8">
+        <span class="font-medium">{entry.data.author}</span>
+        <span>•</span>
+        <time datetime={entry.data.pubDate.toISOString()}>
+          {formatDate(entry.data.pubDate)}
+        </time>
+        {entry.data.updatedDate && (
+          <>
+            <span>•</span>
+            <span class="text-sm">
+              Mis à jour le {formatDate(entry.data.updatedDate)}
+            </span>
+          </>
+        )}
+      </div>
+      
+      <!-- Featured Image -->
+      <div class="aspect-video rounded-xl overflow-hidden shadow-2xl mb-8">
+        <img 
+          src={entry.data.image.url} 
+          alt={entry.data.image.alt}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="prose prose-lg prose-zinc max-w-none
+      prose-headings:font-gaming prose-headings:uppercase prose-headings:tracking-wide
+      prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+      prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+      prose-p:leading-relaxed prose-p:text-zinc-700
+      prose-a:text-retro-blue prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-retro-purple prose-strong:font-bold
+      prose-ul:list-disc prose-ul:pl-6
+      prose-ol:list-decimal prose-ol:pl-6
+      prose-li:text-zinc-700
+      prose-blockquote:border-l-4 prose-blockquote:border-retro-blue prose-blockquote:pl-4 prose-blockquote:italic
+      prose-code:bg-zinc-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-retro-purple
+      prose-img:rounded-lg prose-img:shadow-lg
+    ">
+      <Content />
+    </div>
+
+    <!-- CTA Inscription -->
+    <div class="mt-16 p-8 bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple rounded-xl text-white text-center shadow-lg shadow-retro-blue/30">
+      <h3 class="font-gaming text-2xl font-bold mb-4 uppercase">Envie de Participer ?</h3>
+      <p class="text-lg mb-6 opacity-90">
+        Rejoignez le PIXEL CLASH Championship 2026 et vivez l'expérience retro gaming ultime !
+      </p>
+      <button 
+        data-open-modal
+        class="px-8 py-4 bg-white text-retro-purple font-bold rounded-lg hover:scale-105 transition-transform"
+      >
+        Je m'inscris maintenant
+      </button>
+    </div>
+
+    <!-- Articles Similaires -->
+    {relatedPosts.length > 0 && (
+      <section class="mt-16">
+        <h2 class="font-gaming text-3xl font-bold mb-8 uppercase">Articles Similaires</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          {relatedPosts.map((post) => (
+            <a 
+              href={`/blog/${post.slug}`}
+              class="group bg-white border-2 border-zinc-200 rounded-xl overflow-hidden hover:border-retro-purple hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+            >
+              <div class="aspect-video bg-gradient-to-br from-retro-purple to-retro-pink overflow-hidden">
+                <img 
+                  src={post.data.image.url} 
+                  alt={post.data.image.alt}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-lg text-zinc-900 group-hover:text-retro-purple transition-colors line-clamp-2">
+                  {post.data.title}
+                </h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+  </article>
+</Layout>
+
+<script>
+  // Ouvrir le modal d'inscription
+  const modalButton = document.querySelector('[data-open-modal]');
+  if (modalButton) {
+    modalButton.addEventListener('click', () => {
+      const modal = document.getElementById('registration-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+      }
+    });
+  }
+</script>
