@@ -23,7 +23,7 @@ const {
   aria-label="Section principale"
 >
   <!-- Image de fond pleine largeur -->
-  <picture class="absolute inset-0 w-full h-full" style="object-fit: none;">
+  <picture class="absolute inset-0 w-full h-full">
     <source 
       srcset="/retro-gaming-hero.webp" 
       type="image/webp"
@@ -31,7 +31,7 @@ const {
     <img 
       src="/retro-gaming-hero.jpg"
       alt="Setup retro gaming avec consoles vintage et éclairage néon bleu violet"
-      class="w-full h-full object-cover hero-bg"
+      class="w-full h-full object-cover"
       width="1920"
       height="1080"
       fetchpriority="high"
@@ -116,36 +116,3 @@ const {
     </div>
   </div>
 </section>
-
-<style>
-  /* 
-   * Position responsive de l'image hero
-   * Basé sur les captures : 403px (mobile), 951px (tablet), 1524px (desktop)
-   */
-  
-  .hero-bg {
-    /* Mobile (< 768px) : centré légèrement vers le haut */
-    object-position: 50% 30%;
-  }
-  
-  /* Tablet (768px - 1200px) : décalé à droite */
-  @media (min-width: 768px) and (max-width: 1199px) {
-    .hero-bg {
-      object-position: 65% center;
-    }
-  }
-  
-  /* Desktop (≥ 1200px) : bien à droite pour voir l'ordinateur */
-  @media (min-width: 1200px) {
-    .hero-bg {
-      object-position: 75% center;
-    }
-  }
-  
-  /* Large Desktop (≥ 1536px) : encore plus à droite */
-  @media (min-width: 1536px) {
-    .hero-bg {
-      object-position: 78% center;
-    }
-  }
-</style>
