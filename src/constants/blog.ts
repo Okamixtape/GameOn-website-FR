@@ -29,7 +29,7 @@ export const BLOG_VARIANTS = {
   featured: {
     gradient: 'from-retro-blue to-retro-purple',
     hoverBorder: 'hover:border-retro-blue hover:shadow-retro-blue/20',
-    tagColor: 'bg-retro-blue/10 text-retro-blue-dark',
+    tagColor: 'bg-cyan-100 text-retro-blue-dark',
     titleHover: 'group-hover:text-retro-blue',
   },
   default: {

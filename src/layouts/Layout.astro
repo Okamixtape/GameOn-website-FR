@@ -18,6 +18,9 @@ const {
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 const canonicalImageUrl = new URL(image, Astro.site).href;
 
+// Preload hero image uniquement sur homepage
+const isHomepage = Astro.url.pathname === '/';
+
 // Import global styles (includes fonts)
 import '../styles/global.css';
 
@@ -54,8 +57,8 @@ import RegistrationModal from '../components/RegistrationModal.astro';
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={canonicalImageUrl} />
   
-  <!-- Hero image preload (desktop WebP) -->
-  <link rel="preload" href="/retro-gaming-hero.webp" as="image" type="image/webp" media="(min-width: 768px)" />
+  <!-- Hero image preload (desktop WebP) - Uniquement homepage -->
+  {isHomepage && <link rel="preload" href="/retro-gaming-hero.webp" as="image" type="image/webp" media="(min-width: 768px)" />}
   
   <!-- Fonts preload -->
   <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
