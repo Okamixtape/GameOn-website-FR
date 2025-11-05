@@ -124,21 +124,28 @@ const {
    */
   
   .hero-bg {
-    /* Mobile (< 768px) : centré légèrement vers le haut pour voir plus de setup */
-    object-position: 50% 35%;
+    /* Mobile (< 768px) : centré légèrement vers le haut */
+    object-position: 50% 30%;
   }
   
-  /* Tablet (768px - 1200px) : légèrement à droite */
+  /* Tablet (768px - 1200px) : décalé à droite */
   @media (min-width: 768px) and (max-width: 1199px) {
     .hero-bg {
-      object-position: 60% center;
+      object-position: 65% center;
     }
   }
   
   /* Desktop (≥ 1200px) : bien à droite pour voir l'ordinateur */
   @media (min-width: 1200px) {
     .hero-bg {
-      object-position: 70% center;
+      object-position: 75% center;
+    }
+  }
+  
+  /* Large Desktop (≥ 1536px) : encore plus à droite */
+  @media (min-width: 1536px) {
+    .hero-bg {
+      object-position: 78% center;
     }
   }
 </style>

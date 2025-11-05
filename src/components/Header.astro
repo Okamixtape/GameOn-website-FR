@@ -66,8 +66,9 @@ const navItems = [
     <!-- Menu Mobile -->
     <div
       id="mobile-menu"
-      class="hidden md:hidden absolute top-full left-0 right-0 bg-zinc-900 border-t border-zinc-800 shadow-lg"
+      class="hidden md:hidden absolute top-full left-0 right-0 bg-zinc-900 border-t border-zinc-800 shadow-lg z-50"
       role="menu"
+      style="display: none;"
     >
       <!-- Bouton Close Mobile -->
       <div class="flex justify-end px-4 pt-4">
@@ -103,39 +104,60 @@ const navItems = [
   </div>
 </header>
 
-<script is:inline>
-  // Toggle menu mobile
-  const button = document.getElementById('mobile-menu-button');
-  const closeButton = document.getElementById('mobile-menu-close');
-  const menu = document.getElementById('mobile-menu');
+<script>
+  // Toggle menu mobile - Version robuste
+  function initMobileMenu() {
+    const button = document.getElementById('mobile-menu-button');
+    const closeButton = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
 
-  if (button && menu) {
+    if (!button || !menu) return;
+
+    // Fonction pour ouvrir le menu
+    const openMenu = () => {
+      button.setAttribute('aria-expanded', 'true');
+      menu.classList.remove('hidden');
+      menu.style.display = 'block';
+    };
+
     // Fonction pour fermer le menu
     const closeMenu = () => {
       button.setAttribute('aria-expanded', 'false');
       menu.classList.add('hidden');
+      menu.style.display = 'none';
     };
 
     // Toggle au clic sur le bouton hamburger
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!isExpanded));
-      menu.classList.toggle('hidden');
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
     // Fermer au clic sur le bouton close
     if (closeButton) {
-      closeButton.addEventListener('click', closeMenu);
+      closeButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeMenu();
+      });
     }
 
     // Fermer le menu en cliquant sur un lien
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMenu);
+    const menuLinks = menu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
     });
 
     // Fermer le menu en cliquant à l'extérieur
     document.addEventListener('click', (e) => {
-      if (!button.contains(e.target) && !menu.contains(e.target)) {
+      const target = e.target as HTMLElement;
+      if (!button.contains(target) && !menu.contains(target)) {
         closeMenu();
       }
     });
@@ -143,10 +165,19 @@ const navItems = [
     // Fermer avec la touche Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
-        button.setAttribute('aria-expanded', 'false');
-        menu.classList.add('hidden');
-        button.focus(); // Retour focus sur bouton
+        closeMenu();
+        button.focus();
       }
     });
   }
+
+  // Initialiser au chargement
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+
+  // Réinitialiser après navigation (Astro View Transitions)
+  document.addEventListener('astro:page-load', initMobileMenu);
 </script>
