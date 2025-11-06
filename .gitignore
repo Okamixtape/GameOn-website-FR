@@ -35,6 +35,8 @@ playwright-report/
 
 # Lighthouse CI
 .lighthouseci/
+lighthouse-*.report.html
+lighthouse-*.report.json
 
 # Original unoptimized images
 *-original.*
