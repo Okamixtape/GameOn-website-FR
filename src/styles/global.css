@@ -12,3 +12,45 @@
 }
 
 /* Custom styles ici */
+
+/* 🎨 Texte Cyan Accessible avec Effet Néon Rétro */
+@layer utilities {
+  /* Version 1 : Glow Néon INTENSE (effet arcade) */
+  .text-retro-cyan-glow {
+    color: rgb(0 217 255);
+    text-shadow: 
+      0 0 20px rgba(0, 217, 255, 1),      /* Glow cyan TRÈS lumineux */
+      0 0 40px rgba(0, 217, 255, 0.8),    /* Glow étendu */
+      0 0 60px rgba(0, 217, 255, 0.5),    /* Halo large */
+      0 3px 8px rgba(0, 0, 0, 0.9);       /* Ombre portée forte */
+  }
+  
+  /* Version 2 : Ombre Noire Simple (contraste propre) */
+  .text-retro-cyan-shadow {
+    color: rgb(0 217 255);
+    text-shadow: 
+      0 0 15px rgba(0, 0, 0, 1),          /* Halo noir fort */
+      0 2px 6px rgba(0, 0, 0, 0.9),       /* Ombre portée */
+      1px 1px 3px rgba(0, 0, 0, 0.8);     /* Contour subtil */
+  }
+  
+  /* Version 3 : Contour + Glow (style néon tube) */
+  .text-retro-cyan-stroke {
+    color: rgb(0 217 255);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.6);  /* Contour noir visible */
+    text-shadow: 
+      0 0 15px rgba(0, 217, 255, 0.9),    /* Glow cyan */
+      0 0 30px rgba(0, 217, 255, 0.6),    /* Glow étendu */
+      0 2px 5px rgba(0, 0, 0, 0.8);       /* Ombre portée */
+  }
+  
+  /* Version 4 : Background Semi-Transparent (badge) */
+  .text-retro-cyan-badge {
+    color: rgb(0 217 255);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.6);
+    display: inline-block;
+  }
+}
