@@ -8,6 +8,7 @@ export default {
         gaming: ['Rajdhani', 'DM Sans', 'system-ui', 'sans-serif'],
       },
       colors: {
+        // V1 - Palette Retro Gaming (conservée pour transition)
         'gaming-violet': '#8B5CF6',   // violet-500 - Couleur secondaire
         'gaming-amber': '#F59E0B',    // amber-500 - Couleur accent
         'retro-blue': '#00D9FF',      // Bleu néon retro (décoration uniquement)
@@ -16,6 +17,15 @@ export default {
         'retro-pink-dark': '#A3004A', // Rose foncé (7.91:1 WCAG AA)
         'retro-purple': '#7209B7',    // Violet foncé retro (8.61:1 WCAG AA)
         'retro-purple-dark': '#5A0790', // Violet plus foncé (11.24:1 WCAG AAA)
+        
+        // V2 - Palette Zeus (Cyberpunk)
+        'background': '#0a0f24',      // Bleu Nuit - Fond principal
+        'surface': '#1e293b',         // Cartes sombres - Surfaces
+        'primary': '#FFDE00',         // Jaune Éclair - CTA principal
+        'text': '#f8fafc',            // Blanc - Texte principal
+        'text-secondary': '#94a3b8',  // Gris clair - Texte secondaire
+        'accent-cyan': '#00D9FF',     // Cyan néon - Accents
+        'accent-purple': '#A855F7',   // Violet néon - Accents
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

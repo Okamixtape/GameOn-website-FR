@@ -1,0 +1,107 @@
+---
+/**
+ * Homepage Redesign - PoC Sprint 1
+ * 
+ * Architecture Astro Hybride :
+ * - Layout statique (SEO, meta)
+ * - GridBackground statique (performance)
+ * - Hero React Island (animations)
+ * - Features React Island (hover effects)
+ * 
+ * Performance :
+ * - client:load pour Hero (above fold, UX critique)
+ * - client:visible pour Features (below fold)
+ */
+
+import Layout from '../layouts/Layout.astro';
+import { GridBackground } from '../components/redesign/layout/GridBackground';
+
+// React Islands
+import Hero from '../components/redesign/home/Hero';
+import Features from '../components/redesign/home/Features';
+
+const title = "Accueil Redesign - PIXEL CLASH Championship 2026";
+const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de cashprize, 125 joueurs, 3 jours inoubliables. Paris La Défense Arena, 15-17 Juin 2026.";
+---
+
+<Layout title={title} description={description}>
+  
+  <!-- Wrapper Synthwave -->
+  <div class="min-h-screen bg-[#0a0a1f] text-white">
+    
+    <!-- Grid Background (statique - performance) -->
+    <GridBackground client:only="react" />
+    
+    <!-- Hero Section - React Island (animations critiques UX) -->
+    <Hero client:load />
+
+    <!-- Features Section - React Island (below fold) -->
+    <Features client:visible />
+
+    <!-- Footer -->
+    <footer class="relative border-t border-cyan-500/20">
+      <!-- Grid Pattern Background -->
+      <div 
+        class="absolute inset-0 opacity-10"
+        style="background-image: linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px); background-size: 30px 30px;"
+      />
+      
+      <div class="container mx-auto px-4 py-12 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+          <!-- Brand -->
+          <div>
+            <div class="text-2xl tracking-wider mb-4">
+              <span class="text-[#00f3ff]">PIXEL</span>{' '}
+              <span class="text-[#ff00ff]">CLASH</span>
+            </div>
+            <p class="text-gray-400 mb-2">Le championnat retro gaming</p>
+            <p class="text-gray-400 mb-2">qui célèbre les racines du jeu vidéo.</p>
+            <p class="text-gray-500 text-sm">© 2025 Tous droits réservés.</p>
+          </div>
+
+          <!-- Navigation -->
+          <div>
+            <h3 class="text-[#00f3ff] mb-4">NAVIGATION</h3>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+              <li><a href="/tournament" class="text-gray-400 hover:text-white transition-colors">Le tournoi</a></li>
+              <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">Notre histoire</a></li>
+              <li><a href="/blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div>
+            <h3 class="text-[#ff00ff] mb-4">LÉGAL</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mentions légales</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Confidentialité</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">CGU</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Developer Info -->
+        <div class="pt-8 border-t border-cyan-500/20 text-center">
+          <p class="text-lg mb-1">
+            <span class="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
+              Designed & Coded by Loup Aubour
+            </span>
+            <span class="ml-2">⚡️</span>
+          </p>
+          <p class="text-gray-500 text-sm mb-4">
+            Projet Portfolio • Développeur Full-Stack
+          </p>
+          <p class="text-gray-600 text-xs mt-4">
+            Lancement PRO : Ce projet est une démonstration technique et n'est pas lié à un vrai événement.
+          </p>
+          <p class="text-gray-600 text-xs">
+            Contactez-moi pour vos projets de développement technique.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</Layout>
