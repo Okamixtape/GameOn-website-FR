@@ -13,7 +13,7 @@
  * - client:visible pour Features (below fold)
  */
 
-import Layout from '../layouts/Layout.astro';
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
 import { GridBackground } from '../components/redesign/layout/GridBackground';
 
 // React Islands
@@ -27,7 +27,11 @@ const title = "Accueil Redesign - PIXEL CLASH Championship 2026";
 const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de cashprize, 125 joueurs, 3 jours inoubliables. Paris La Défense Arena, 15-17 Juin 2026.";
 ---
 
-<Layout title={title} description={description}>
+<LayoutRedesign 
+  title={title} 
+  description={description}
+  heroImage="/redesign/hero-retro-gaming.jpg"
+>
   
   <!-- Wrapper Synthwave - Fond sombre global -->
   <div class="min-h-screen bg-bg-dark text-text-light">
@@ -116,4 +120,4 @@ const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de
 
   </div>
 
-</Layout>
+</LayoutRedesign>

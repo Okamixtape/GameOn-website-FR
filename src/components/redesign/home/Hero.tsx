@@ -17,7 +17,7 @@ export default function Hero() {
           src={heroData.image.src}
           alt={heroData.image.alt}
           className="w-full h-full object-cover"
-          loading="eager"
+          fetchPriority="high"
           decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a1f] via-[#0a0a1f]/95 to-[#0a0a1f]/80" />

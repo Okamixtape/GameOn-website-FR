@@ -1,0 +1,86 @@
+---
+/**
+ * Layout Redesign - Optimisé pour performance
+ * 
+ * Différences vs Layout.astro :
+ * - Pas de Header/Footer (intégrés dans pages)
+ * - Preload Hero image
+ * - Optimisations LCP
+ */
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  heroImage?: string; // Image Hero à preload
+}
+
+const {
+  title,
+  description = "Rejoignez PIXEL CLASH Championship 2026 : le championnat retro gaming qui célèbre les racines du jeu vidéo. Compétitions classiques, ambiance arcade, nostalgie garantie !",
+  image = "/Logo.png",
+  heroImage,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const canonicalImageUrl = new URL(image, Astro.site).href;
+
+// Import global styles
+import '../styles/global.css';
+
+// Import analytics
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleSearchConsole from '../components/GoogleSearchConsole.astro';
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Meta basics -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} | PIXEL CLASH</title>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalUrl} />
+  
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={canonicalImageUrl} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="PIXEL CLASH Championship" />
+  <meta property="og:locale" content="fr_FR" />
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={canonicalImageUrl} />
+  
+  <!-- Google Search Console -->
+  <GoogleSearchConsole />
+  
+  <!-- Hero Image Preload (LCP optimization) -->
+  {heroImage && (
+    <link rel="preload" href={heroImage} as="image" fetchpriority="high" />
+  )}
+  
+  <!-- Fonts preload -->
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Bold.ttf" as="font" type="font/ttf" crossorigin />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  
+  <!-- Generator -->
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- Google Analytics -->
+  <GoogleAnalytics />
+</head>
+<body class="font-sans antialiased">
+  <slot />
+</body>
+</html>
