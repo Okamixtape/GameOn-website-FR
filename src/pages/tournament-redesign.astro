@@ -1,0 +1,52 @@
+---
+/**
+ * TOURNAMENT REDESIGN PAGE
+ * 
+ * Page complète du tournoi avec :
+ * - Header redesign (navigation)
+ * - Tournament page (6 sections)
+ * - Footer simple
+ * 
+ * Sections :
+ * - Hero (titre + stats)
+ * - Tournament Format (3 stages)
+ * - Prize Pool (podium)
+ * - Rules (6 règles)
+ * - CTA finale
+ * 
+ * Performance :
+ * - client:load pour Header et TournamentPage (interactivité)
+ */
+
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import Header from '../components/redesign/layout/Header';
+import TournamentPage from '../components/redesign/tournament/TournamentPage';
+
+const title = "Le Tournoi - PIXEL CLASH Championship 2026";
+const description = "Format, récompenses et règlement du championnat. 125 slots, €15,000 prize pool, 3 stages de compétition.";
+---
+
+<LayoutRedesign 
+  title={title} 
+  description={description}
+>
+  <!-- Header Redesign -->
+  <Header client:load currentPath="/tournament-redesign" />
+  
+  <!-- Tournament Page Content -->
+  <main class="pt-20">
+    <TournamentPage client:load />
+  </main>
+
+  <!-- Footer Simple -->
+  <footer class="relative border-t border-cyan-500/20 bg-[#0a0a1f]">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <p class="text-gray-400 text-sm">
+        © 2026 PIXEL CLASH Championship - Tous droits réservés
+      </p>
+      <p class="text-gray-600 text-xs mt-2">
+        Projet portfolio par <a href="https://github.com/loupaubour" class="text-cyan-400 hover:text-cyan-300 transition-colors">Loup Aubour</a>
+      </p>
+    </div>
+  </footer>
+</LayoutRedesign>
