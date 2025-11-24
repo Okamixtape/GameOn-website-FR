@@ -10,7 +10,7 @@ import { heroData } from "../../../data/redesign/home";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[600px] flex items-center overflow-hidden">
+    <section className="relative min-h-[700px] flex items-center overflow-visible py-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -29,18 +29,18 @@ export default function Hero() {
         <div className="max-w-4xl">
           {/* Eyebrow - Brand Presentation */}
           <div className="inline-block mb-4">
-            <span className="text-[#ff00ff] tracking-widest text-sm uppercase">
+            <span className="text-neon-magenta tracking-widest text-sm uppercase font-bold">
               {heroData.eyebrow}
             </span>
           </div>
 
           {/* Main H1 - SEO Optimized */}
-          <h1 className="mb-8">
-            <span className="block text-5xl md:text-7xl lg:text-8xl tracking-tight mb-2 text-white leading-tight">
+          <h1 className="mb-8 leading-none">
+            <span className="block text-5xl md:text-7xl lg:text-8xl tracking-tight mb-4 text-text-light font-bold">
               {heroData.title}
             </span>
-            <span className="block text-5xl md:text-7xl lg:text-8xl tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
+            <span className="block text-5xl md:text-7xl lg:text-8xl tracking-tight font-bold">
+              <span className="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
                 {heroData.titleHighlight}
               </span>
             </span>

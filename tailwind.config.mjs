@@ -26,6 +26,14 @@ export default {
         'text-secondary': '#94a3b8',  // Gris clair - Texte secondaire
         'accent-cyan': '#00D9FF',     // Cyan néon - Accents
         'accent-purple': '#A855F7',   // Violet néon - Accents
+        
+        // V3 - Palette Synthwave (Redesign)
+        'neon-cyan': '#00f3ff',       // Cyan néon - Primaire
+        'neon-magenta': '#ff00ff',    // Magenta néon - Secondaire
+        'bg-dark': '#0a0a1f',         // Navy foncé - Fond principal
+        'bg-dark-accent': '#1a0a2e',  // Purple foncé - Fond accent
+        'text-light': '#f8fafc',      // Blanc - Texte principal
+        'text-muted': '#94a3b8',      // Gris - Texte secondaire
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

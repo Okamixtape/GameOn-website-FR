@@ -19,6 +19,9 @@ import { GridBackground } from '../components/redesign/layout/GridBackground';
 // React Islands
 import Hero from '../components/redesign/home/Hero';
 import Features from '../components/redesign/home/Features';
+import GamesShowcase from '../components/redesign/home/GamesShowcase';
+import CommunityStats from '../components/redesign/home/CommunityStats';
+import FinalCTA from '../components/redesign/home/FinalCTA';
 
 const title = "Accueil Redesign - PIXEL CLASH Championship 2026";
 const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de cashprize, 125 joueurs, 3 jours inoubliables. Paris La Défense Arena, 15-17 Juin 2026.";
@@ -26,8 +29,8 @@ const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de
 
 <Layout title={title} description={description}>
   
-  <!-- Wrapper Synthwave -->
-  <div class="min-h-screen bg-[#0a0a1f] text-white">
+  <!-- Wrapper Synthwave - Fond sombre global -->
+  <div class="min-h-screen bg-bg-dark text-text-light">
     
     <!-- Grid Background (statique - performance) -->
     <GridBackground client:only="react" />
@@ -37,6 +40,15 @@ const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de
 
     <!-- Features Section - React Island (below fold) -->
     <Features client:visible />
+
+    <!-- Games Showcase - React Island (carousel) -->
+    <GamesShowcase client:visible />
+
+    <!-- Community Stats - React Island (compteurs animés) -->
+    <CommunityStats client:visible />
+
+    <!-- Final CTA - Statique -->
+    <FinalCTA />
 
     <!-- Footer -->
     <footer class="relative border-t border-cyan-500/20">
