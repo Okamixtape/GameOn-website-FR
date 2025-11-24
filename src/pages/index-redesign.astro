@@ -18,6 +18,7 @@ import { GridBackground } from '../components/redesign/layout/GridBackground';
 
 // Layout Components
 import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
 
 // React Islands
 import Hero from '../components/redesign/home/Hero';
@@ -63,69 +64,8 @@ const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de
       <FinalCTA />
     </div>
 
-    <!-- Footer -->
-    <footer class="relative border-t border-cyan-500/20">
-      <!-- Grid Pattern Background -->
-      <div 
-        class="absolute inset-0 opacity-10"
-        style="background-image: linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px); background-size: 30px 30px;"
-      />
-      
-      <div class="container mx-auto px-4 py-12 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
-          <!-- Brand -->
-          <div>
-            <div class="text-2xl tracking-wider mb-4">
-              <span class="text-[#00f3ff]">PIXEL</span>{' '}
-              <span class="text-[#ff00ff]">CLASH</span>
-            </div>
-            <p class="text-gray-400 mb-2">Le championnat retro gaming</p>
-            <p class="text-gray-400 mb-2">qui célèbre les racines du jeu vidéo.</p>
-            <p class="text-gray-500 text-sm">© 2025 Tous droits réservés.</p>
-          </div>
-
-          <!-- Navigation -->
-          <div>
-            <h3 class="text-[#00f3ff] mb-4">NAVIGATION</h3>
-            <ul class="space-y-2">
-              <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
-              <li><a href="/tournament" class="text-gray-400 hover:text-white transition-colors">Le tournoi</a></li>
-              <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">Notre histoire</a></li>
-              <li><a href="/blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-            </ul>
-          </div>
-
-          <!-- Legal -->
-          <div>
-            <h3 class="text-[#ff00ff] mb-4">LÉGAL</h3>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mentions légales</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Confidentialité</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors">CGU</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Developer Info -->
-        <div class="pt-8 border-t border-cyan-500/20 text-center">
-          <p class="text-lg mb-1">
-            <span class="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
-              Designed & Coded by Loup Aubour
-            </span>
-            <span class="ml-2">⚡️</span>
-          </p>
-          <p class="text-gray-500 text-sm mb-4">
-            Projet Portfolio • Développeur Full-Stack
-          </p>
-          <p class="text-gray-600 text-xs mt-4">
-            Lancement PRO : Ce projet est une démonstration technique et n'est pas lié à un vrai événement.
-          </p>
-          <p class="text-gray-600 text-xs">
-            Contactez-moi pour vos projets de développement technique.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer Redesign -->
+    <Footer />
 
   </div>
 

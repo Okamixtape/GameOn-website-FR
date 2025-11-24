@@ -20,6 +20,7 @@
 
 import LayoutRedesign from '../layouts/LayoutRedesign.astro';
 import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
 import TournamentPage from '../components/redesign/tournament/TournamentPage';
 
 const title = "Le Tournoi - PIXEL CLASH Championship 2026";
@@ -38,15 +39,6 @@ const description = "Format, récompenses et règlement du championnat. 125 slot
     <TournamentPage client:load />
   </main>
 
-  <!-- Footer Simple -->
-  <footer class="relative border-t border-cyan-500/20 bg-[#0a0a1f]">
-    <div class="container mx-auto px-4 py-8 text-center">
-      <p class="text-gray-400 text-sm">
-        © 2026 PIXEL CLASH Championship - Tous droits réservés
-      </p>
-      <p class="text-gray-600 text-xs mt-2">
-        Projet portfolio par <a href="https://github.com/loupaubour" class="text-cyan-400 hover:text-cyan-300 transition-colors">Loup Aubour</a>
-      </p>
-    </div>
-  </footer>
+  <!-- Footer Redesign -->
+  <Footer />
 </LayoutRedesign>

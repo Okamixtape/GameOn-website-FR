@@ -1,0 +1,185 @@
+---
+/**
+ * FOOTER REDESIGN - Style Synthwave
+ * 
+ * Footer réutilisable pour toutes les pages redesign
+ * avec palette Synthwave (cyan, magenta, yellow, pink)
+ * 
+ * Structure :
+ * - 3 colonnes : Branding, Navigation, Légal
+ * - Bannière Portfolio avec CTA développeur
+ * - Grid background subtil
+ */
+
+interface Props {
+  /**
+   * Nom de l'entreprise affiché dans le copyright
+   * @default "PIXEL CLASH"
+   */
+  companyName?: string;
+
+  /**
+   * Année du copyright
+   * @default new Date().getFullYear()
+   */
+  year?: number;
+}
+
+const { 
+  companyName = "PIXEL CLASH", 
+  year = new Date().getFullYear()
+} = Astro.props;
+---
+
+<footer class="relative bg-[#0a0a1f] text-white py-12 mt-auto border-t border-cyan-500/20 overflow-hidden">
+  <!-- Grid Pattern Background -->
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <div 
+      class="w-full h-full" 
+      style={{
+        backgroundImage: 'linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px)',
+        backgroundSize: '50px 50px',
+        opacity: 0.1
+      }}
+    />
+  </div>
+  
+  <!-- Glow effect top -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+    
+    <!-- Section principale -->
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      
+      <!-- Colonne 1 : Branding -->
+      <div class="text-center md:text-left">
+        <h3 class="text-3xl font-bold mb-4 uppercase tracking-wide">
+          <span class="bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#ff00ff] bg-clip-text text-transparent">
+            {companyName}
+          </span>
+        </h3>
+        <p class="text-base text-gray-300 leading-relaxed mb-3">
+          Le championnat retro gaming <br/>qui célèbre les racines du jeu vidéo.
+        </p>
+        <p class="text-sm text-gray-400">
+          © {year} Tous droits réservés.
+        </p>
+      </div>
+
+      <!-- Colonne 2 : Navigation rapide -->
+      <div class="text-center">
+        <h4 class="text-white font-bold mb-5 uppercase text-sm tracking-widest border-b border-cyan-500/30 pb-2 inline-block">
+          Navigation
+        </h4>
+        <nav aria-label="Navigation footer" class="flex flex-col gap-3 mt-4">
+          <a 
+            href="/index-redesign" 
+            class="text-gray-300 hover:text-[#00f3ff] transition-colors font-medium"
+          >
+            Accueil
+          </a>
+          <a 
+            href="/tournament-redesign" 
+            class="text-gray-300 hover:text-[#00f3ff] transition-colors font-medium"
+          >
+            Le tournoi
+          </a>
+          <a 
+            href="/about" 
+            class="text-gray-300 hover:text-[#ff00ff] transition-colors font-medium"
+          >
+            Notre histoire
+          </a>
+          <a 
+            href="/blog" 
+            class="text-gray-300 hover:text-[#ff00ff] transition-colors font-medium"
+          >
+            Blog
+          </a>
+        </nav>
+      </div>
+
+      <!-- Colonne 3 : Liens légaux -->
+      <div class="text-center md:text-right">
+        <h4 class="text-white font-bold mb-5 uppercase text-sm tracking-widest border-b border-cyan-500/30 pb-2 inline-block">
+          Légal
+        </h4>
+        <nav aria-label="Liens légaux" class="flex flex-col gap-3 mt-4">
+          <a 
+            href="/mentions-legales" 
+            class="text-gray-300 hover:text-[#00f3ff] transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded px-1"
+          >
+            Mentions légales
+          </a>
+          <a 
+            href="/politique-confidentialite" 
+            class="text-gray-300 hover:text-[#00f3ff] transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded px-1"
+          >
+            Confidentialité
+          </a>
+          <a 
+            href="/cgu" 
+            class="text-gray-300 hover:text-[#00f3ff] transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded px-1"
+          >
+            CGU
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Bannière Portfolio - CTA Développeur -->
+    <div class="mt-10 pt-8 border-t border-cyan-500/20">
+      <div class="text-center mb-6">
+        <p class="text-sm text-gray-300 mb-3">
+          <a 
+            href="https://github.com/Okamixtape/GameOn-website-FR" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[#00f3ff] hover:text-[#ff00ff] transition-colors font-semibold"
+          >
+            Projet Portfolio
+          </a> • Design & développement par 
+          <a 
+            href="https://github.com/Okamixtape" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-300 hover:text-[#00f3ff] transition-colors underline decoration-gray-600 hover:decoration-cyan-500 font-semibold"
+          >
+            Loup Aubour
+          </a>
+        </p>
+        
+        <!-- CTA Développeur -->
+        <div class="flex flex-wrap gap-3 justify-center items-center mt-4">
+          <a 
+            href="/developer"
+            class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-purple-500/30 border border-cyan-500/30 text-[#00f3ff] hover:text-white text-sm font-semibold rounded-lg transition-all duration-300"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            À propos du développeur
+          </a>
+          <a 
+            href="https://github.com/Okamixtape" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center gap-2 px-4 py-2 bg-[#0a0a1f] hover:bg-[#1a0a2e] border border-cyan-500/30 text-gray-300 hover:text-white text-sm font-semibold rounded-lg transition-all duration-300"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+        
+        <p class="text-xs text-gray-400 italic mt-4">
+          L'événement PIXEL CLASH est fictif et créé à des fins de démonstration technique.<br/>
+          <span class="text-[#ff00ff]">Vous aimez ce site ?</span> Contactez-moi pour vos projets web !
+        </p>
+      </div>
+    </div>
+
+  </div>
+</footer>
