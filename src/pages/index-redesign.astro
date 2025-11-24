@@ -16,6 +16,9 @@
 import LayoutRedesign from '../layouts/LayoutRedesign.astro';
 import { GridBackground } from '../components/redesign/layout/GridBackground';
 
+// Layout Components
+import Header from '../components/redesign/layout/Header';
+
 // React Islands
 import Hero from '../components/redesign/home/Hero';
 import Features from '../components/redesign/home/Features';
@@ -36,23 +39,29 @@ const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de
   <!-- Wrapper Synthwave - Fond sombre global -->
   <div class="min-h-screen bg-bg-dark text-text-light">
     
+    <!-- Header Redesign - Fixed top navigation -->
+    <Header client:load currentPath={Astro.url.pathname} />
+    
     <!-- Grid Background (statique - performance) -->
     <GridBackground client:only="react" />
     
-    <!-- Hero Section - React Island (animations critiques UX) -->
-    <Hero client:load />
+    <!-- Content wrapper with padding for fixed header -->
+    <div class="pt-20">
+      <!-- Hero Section - React Island (animations critiques UX) -->
+      <Hero client:load />
 
-    <!-- Features Section - React Island (below fold) -->
-    <Features client:visible />
+      <!-- Features Section - React Island (below fold) -->
+      <Features client:visible />
 
-    <!-- Games Showcase - React Island (carousel) -->
-    <GamesShowcase client:visible />
+      <!-- Games Showcase - React Island (carousel) -->
+      <GamesShowcase client:visible />
 
-    <!-- Community Stats - React Island (compteurs animés) -->
-    <CommunityStats client:visible />
+      <!-- Community Stats - React Island (compteurs animés) -->
+      <CommunityStats client:visible />
 
-    <!-- Final CTA - Statique -->
-    <FinalCTA />
+      <!-- Final CTA - Statique -->
+      <FinalCTA />
+    </div>
 
     <!-- Footer -->
     <footer class="relative border-t border-cyan-500/20">
