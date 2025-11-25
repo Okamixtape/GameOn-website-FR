@@ -1,0 +1,238 @@
+---
+/**
+ * Redesign Index - Navigation Hub
+ * 
+ * Page d'index listant toutes les pages redesign
+ * Utile pour développement et démo
+ */
+
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import { GridBackground } from '../components/redesign/layout/GridBackground';
+import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
+import { ExternalLink, CheckCircle, Clock } from 'lucide-react';
+
+const title = "Index Pages Redesign - PIXEL CLASH";
+const description = "Navigation hub pour toutes les pages redesign Synthwave";
+
+const pages = [
+  {
+    id: "home",
+    name: "Homepage",
+    url: "/index-redesign",
+    status: "complete",
+    description: "Page d'accueil avec Hero, Features, Games Showcase, Stats",
+    tech: "Astro-First (Hero + Features Astro pur)",
+    lighthouse: "76/100",
+    js: "146 KB"
+  },
+  {
+    id: "tournament",
+    name: "Tournament Details",
+    url: "/tournament-redesign",
+    status: "complete",
+    description: "Détails tournoi avec Format, Prize Pool, Rules",
+    tech: "React monolithique (hardcoded classes)",
+    lighthouse: "84/100",
+    js: "166 KB"
+  },
+  {
+    id: "about",
+    name: "About",
+    url: "/about-redesign",
+    status: "complete",
+    description: "À propos avec Mission, Values, Stats",
+    tech: "100% Astro pur (0 KB JS)",
+    lighthouse: "90/100*",
+    js: "140 KB"
+  },
+  {
+    id: "developer",
+    name: "Developer/Portfolio",
+    url: "/developer-redesign",
+    status: "complete",
+    description: "Vitrine développeur avec Stack, Projects, Skills",
+    tech: "100% Astro pur (0 KB JS)",
+    lighthouse: "90/100*",
+    js: "140 KB"
+  }
+];
+---
+
+<LayoutRedesign title={title} description={description}>
+  <div class="min-h-screen bg-bg-dark text-text-light">
+    
+    <!-- Header -->
+    <Header client:load currentPath={Astro.url.pathname} />
+    
+    <!-- Grid Background -->
+    <GridBackground client:only="react" />
+    
+    <!-- Content -->
+    <div class="pt-20">
+      
+      <!-- Hero -->
+      <section class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block mb-4">
+              <span class="text-neon-cyan tracking-widest text-sm uppercase font-bold">
+                REDESIGN INDEX
+              </span>
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 font-bold">
+              <span class="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
+                Pages Redesign
+              </span>
+            </h1>
+            <p class="text-xl text-text-muted mb-8">
+              Navigation hub pour toutes les pages redesign avec architecture Astro-First
+            </p>
+            <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-500/10 border border-green-500/30">
+              <CheckCircle className="w-5 h-5 text-green-400" />
+              <span class="text-green-400 font-medium">4/4 Pages Complètes</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pages List -->
+      <section class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-5xl mx-auto space-y-6">
+            {pages.map((page) => (
+              <div class="group relative">
+                <!-- Glow effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-magenta rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-2xl" />
+                
+                <!-- Card -->
+                <div class="relative p-6 rounded-2xl bg-bg-dark/60 backdrop-blur-xl border border-neon-cyan/20 group-hover:border-neon-cyan/50 transition-all duration-300">
+                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <!-- Left: Info -->
+                    <div class="flex-1">
+                      <div class="flex items-center gap-3 mb-2">
+                        <h2 class="text-2xl font-bold text-text-light">
+                          {page.name}
+                        </h2>
+                        {page.status === 'complete' && (
+                          <span class="px-3 py-1 text-xs rounded-full bg-green-500/10 border border-green-500/30 text-green-400">
+                            ✓ Complete
+                          </span>
+                        )}
+                        {page.status === 'wip' && (
+                          <span class="px-3 py-1 text-xs rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            WIP
+                          </span>
+                        )}
+                      </div>
+                      <p class="text-text-muted mb-3">
+                        {page.description}
+                      </p>
+                      <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="px-3 py-1 text-xs rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan">
+                          {page.tech}
+                        </span>
+                      </div>
+                      <div class="flex gap-4 text-sm">
+                        <div>
+                          <span class="text-text-muted">Lighthouse:</span>
+                          <span class="text-neon-cyan font-medium ml-1">{page.lighthouse}</span>
+                        </div>
+                        <div>
+                          <span class="text-text-muted">JS Bundle:</span>
+                          <span class="text-neon-magenta font-medium ml-1">{page.js}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right: CTA -->
+                    <div class="flex-shrink-0">
+                      <a
+                        href={page.url}
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-neon-magenta to-neon-cyan hover:from-neon-magenta/90 hover:to-neon-cyan/90 text-white font-bold rounded-lg shadow-lg shadow-purple-500/50 transition-all"
+                      >
+                        Voir la Page
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Summary -->
+      <section class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">
+              <span class="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
+                Métriques Globales
+              </span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="text-center p-6 rounded-xl bg-gradient-to-br from-bg-dark/60 to-bg-dark-accent/60 backdrop-blur-xl border border-neon-cyan/20">
+                <div class="text-4xl font-bold text-neon-cyan mb-2">4</div>
+                <div class="text-text-muted text-sm uppercase">Pages Complètes</div>
+              </div>
+              <div class="text-center p-6 rounded-xl bg-gradient-to-br from-bg-dark/60 to-bg-dark-accent/60 backdrop-blur-xl border border-neon-cyan/20">
+                <div class="text-4xl font-bold text-neon-magenta mb-2">-118 KB</div>
+                <div class="text-text-muted text-sm uppercase">JS Éliminé</div>
+              </div>
+              <div class="text-center p-6 rounded-xl bg-gradient-to-br from-bg-dark/60 to-bg-dark-accent/60 backdrop-blur-xl border border-neon-cyan/20">
+                <div class="text-4xl font-bold text-green-400 mb-2">+12</div>
+                <div class="text-text-muted text-sm uppercase">Points Lighthouse</div>
+              </div>
+              <div class="text-center p-6 rounded-xl bg-gradient-to-br from-bg-dark/60 to-bg-dark-accent/60 backdrop-blur-xl border border-neon-cyan/20">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">8s</div>
+                <div class="text-text-muted text-sm uppercase">Build Time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Documentation -->
+      <section class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-3xl mx-auto text-center p-8 rounded-2xl bg-gradient-to-br from-neon-magenta/10 via-neon-cyan/10 to-neon-magenta/10 border border-neon-cyan/30 backdrop-blur-xl">
+            <h2 class="text-2xl font-bold mb-4 text-text-light">
+              Documentation Complète
+            </h2>
+            <p class="text-text-muted mb-6">
+              Consultez les rapports détaillés pour comprendre l'architecture et les optimisations
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <a
+                href="/docs/REDESIGN-PAGES-REPORT.md"
+                class="px-4 py-2 bg-transparent border border-white/30 text-white hover:bg-white/5 rounded-lg transition-all text-sm"
+              >
+                Pages Report
+              </a>
+              <a
+                href="/docs/LIGHTHOUSE-REDESIGN-RESULTS.md"
+                class="px-4 py-2 bg-transparent border border-white/30 text-white hover:bg-white/5 rounded-lg transition-all text-sm"
+              >
+                Lighthouse Results
+              </a>
+              <a
+                href="/docs/TOURNAMENT-FIX-REPORT.md"
+                class="px-4 py-2 bg-transparent border border-white/30 text-white hover:bg-white/5 rounded-lg transition-all text-sm"
+              >
+                Tournament Fix
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <Footer />
+
+  </div>
+</LayoutRedesign>
