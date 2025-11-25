@@ -11,7 +11,8 @@ export const aboutHero = {
   titleHighlight: "Nouvelle Génération",
   description: "PIXEL CLASH réinvente les compétitions rétro gaming en combinant nostalgie des années 80-90 et production événementielle moderne. Une expérience unique pour les passionnés.",
   image: {
-    src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=600&fit=crop",
+    src: "/images/redesign/hero-about-800.jpg",
+    srcset: "/images/redesign/hero-about-400.jpg 400w, /images/redesign/hero-about-800.jpg 800w, /images/redesign/hero-about-1200.jpg 1200w",
     alt: "Arcade rétro gaming ambiance néon"
   }
 };

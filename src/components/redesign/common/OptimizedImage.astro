@@ -13,6 +13,7 @@
 
 interface Props {
   src: string;
+  srcset?: string;
   alt: string;
   width?: number;
   height?: number;
@@ -33,32 +34,41 @@ const {
   sizes = '100vw'
 } = Astro.props;
 
-// Générer srcset pour responsive
-const generateSrcSet = (baseSrc: string) => {
-  // Si c'est une URL externe (Unsplash), utiliser leurs paramètres
-  if (baseSrc.startsWith('http')) {
+// Utiliser srcset fourni ou générer automatiquement
+const getSrcSet = () => {
+  // Si srcset fourni dans props, l'utiliser directement
+  if (Astro.props.srcset) {
     return {
-      srcset: `${baseSrc}&w=400 400w, ${baseSrc}&w=800 800w, ${baseSrc}&w=1200 1200w`,
-      src: `${baseSrc}&w=800`
+      srcset: Astro.props.srcset,
+      src: src
+    };
+  }
+  
+  // Sinon, générer srcset automatiquement
+  // Si c'est une URL externe (Unsplash), utiliser leurs paramètres
+  if (src.startsWith('http')) {
+    return {
+      srcset: `${src}&w=400 400w, ${src}&w=800 800w, ${src}&w=1200 1200w`,
+      src: `${src}&w=800`
     };
   }
   
   // Si c'est une image locale
-  const ext = baseSrc.split('.').pop();
-  const base = baseSrc.replace(`.${ext}`, '');
+  const ext = src.split('.').pop();
+  const base = src.replace(`.${ext}`, '');
   
   return {
-    srcset: `${base}-400.webp 400w, ${base}-800.webp 800w, ${base}-1200.webp 1200w`,
-    src: `${base}-800.webp`
+    srcset: `${base}-400.jpg 400w, ${base}-800.jpg 800w, ${base}-1200.jpg 1200w`,
+    src: `${base}-800.jpg`
   };
 };
 
-const { srcset, src: optimizedSrc } = generateSrcSet(src);
+const { srcset: finalSrcset, src: optimizedSrc } = getSrcSet();
 ---
 
 <img
   src={optimizedSrc}
-  srcset={srcset}
+  srcset={finalSrcset}
   sizes={sizes}
   alt={alt}
   width={width}

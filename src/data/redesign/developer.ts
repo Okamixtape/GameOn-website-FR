@@ -12,7 +12,8 @@ export const developerHero = {
   tagline: "Architecte de solutions web performantes et scalables",
   description: "Spécialisé en développement web moderne (React, Astro, TypeScript) et infrastructure cloud (AWS, Terraform). Passionné par la performance, l'accessibilité et les architectures serverless.",
   image: {
-    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=600&fit=crop",
+    src: "/images/redesign/hero-developer-800.jpg",
+    srcset: "/images/redesign/hero-developer-400.jpg 400w, /images/redesign/hero-developer-800.jpg 800w, /images/redesign/hero-developer-1200.jpg 1200w",
     alt: "Setup développeur moderne"
   },
   cta: {

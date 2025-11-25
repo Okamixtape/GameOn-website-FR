@@ -1,0 +1,25 @@
+
+> pixelclash-landing-page@0.0.1 dev
+> astro dev
+
+12:56:01 [types] Generated 1ms
+
+Auto-generating collections for folders in "src/content/" that are not defined as collections.
+This is deprecated, so you should define these collections yourself in "src/content.config.ts".
+The following collections have been auto-generated: blog-redesign
+
+12:56:01 [content] Syncing content
+12:56:01 [content] Astro config changed
+12:56:01 [content] Astro version changed
+12:56:01 [content] Clearing content store
+12:56:01 [WARN] [glob-loader] No files found matching "**/*.md,!**/_*/**/*.md,!**/_*.md" in directory "src/content/blog-redesign"
+12:56:02 [content] Synced content
+12:56:02 [vite] Re-optimizing dependencies because vite config has changed
+
+ astro  v5.16.0 ready in 1568 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+12:56:02 watching for file changes...
+12:57:03 [200] / 1115ms

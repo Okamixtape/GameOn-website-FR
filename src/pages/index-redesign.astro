@@ -30,14 +30,17 @@ import GamesShowcase from '../components/redesign/home/GamesShowcase';
 import CommunityStats from '../components/redesign/home/CommunityStats';
 import FinalCTA from '../components/redesign/home/FinalCTA';
 
-const title = "Accueil Redesign - PIXEL CLASH Championship 2026";
-const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de cashprize, 125 joueurs, 3 jours inoubliables. Paris La Défense Arena, 15-17 Juin 2026.";
+// Data pour preload
+import { heroData } from '../data/redesign/home';
+
+const title = "PIXEL CLASH Championship 2026 - Tournoi Rétro Gaming";
+const description = "Rejoignez le plus grand championnat de jeux vidéo rétro. Compétitions sur classiques arcade, cashprize 15K€, ambiance années 80-90. Inscriptions ouvertes !";
 ---
 
 <LayoutRedesign 
   title={title} 
   description={description}
-  heroImage="/redesign/hero-retro-gaming.jpg"
+  heroImage={heroData.image.src}
 >
   
   <!-- Wrapper Synthwave - Fond sombre global -->

@@ -20,6 +20,7 @@ import OptimizedImage from "../common/OptimizedImage.astro";
   <div class="absolute inset-0">
     <OptimizedImage
       src={heroData.image.src}
+      srcset={heroData.image.srcset}
       alt={heroData.image.alt}
       class="w-full h-full object-cover"
       loading="eager"

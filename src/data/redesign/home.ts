@@ -36,6 +36,7 @@ export interface HeroData {
   };
   image: {
     src: string;
+    srcset?: string;
     alt: string;
   };
 }
@@ -84,8 +85,9 @@ export const heroData: HeroData = {
     urgency: "Places limitées !",
   },
   image: {
-    src: "/redesign/hero-retro-gaming.jpg",
-    alt: "Retro gaming setup - PIXEL CLASH Championship 2026",
+    src: "/images/redesign/hero-home-800.jpg",
+    srcset: "/images/redesign/hero-home-400.jpg 400w, /images/redesign/hero-home-800.jpg 800w, /images/redesign/hero-home-1200.jpg 1200w",
+    alt: "Setup gaming rétro avec consoles vintage"
   },
 };
 
