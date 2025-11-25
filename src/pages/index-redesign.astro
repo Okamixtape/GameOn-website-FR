@@ -23,9 +23,9 @@ import Footer from '../components/redesign/layout/Footer.astro';
 
 // Astro Components (0 KB JS)
 import Hero from '../components/redesign/home/Hero.astro';
+import Features from '../components/redesign/home/Features.astro';
 
 // React Islands (interactivité uniquement)
-import Features from '../components/redesign/home/Features';
 import GamesShowcase from '../components/redesign/home/GamesShowcase';
 import CommunityStats from '../components/redesign/home/CommunityStats';
 import FinalCTA from '../components/redesign/home/FinalCTA';
@@ -54,8 +54,8 @@ const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de
       <!-- Hero Section - Astro Pure (0 KB JS) ✅ -->
       <Hero />
 
-      <!-- Features Section - React Island (below fold) -->
-      <Features client:visible />
+      <!-- Features Section - Astro Pure (0 KB JS) ✅ -->
+      <Features />
 
       <!-- Games Showcase - React Island (carousel) -->
       <GamesShowcase client:visible />
