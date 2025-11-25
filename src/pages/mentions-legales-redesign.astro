@@ -1,0 +1,131 @@
+---
+/**
+ * Mentions Légales Redesign
+ * 
+ * Page légale avec design Synthwave minimal
+ * 100% Astro pur (0 KB JS)
+ */
+
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import { GridBackground } from '../components/redesign/layout/GridBackground';
+import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
+import { Scale, ArrowLeft } from 'lucide-react';
+
+const title = "Mentions Légales - PIXEL CLASH";
+const description = "Mentions légales du site PIXEL CLASH Championship 2026";
+---
+
+<LayoutRedesign title={title} description={description}>
+  <div class="min-h-screen bg-bg-dark text-text-light">
+    
+    <Header client:load currentPath={Astro.url.pathname} />
+    <GridBackground client:only="react" />
+    
+    <div class="pt-20">
+      <article class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl">
+          
+          <a 
+            href="/"
+            class="inline-flex items-center gap-2 text-neon-cyan hover:text-neon-magenta transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Retour à l'accueil
+          </a>
+
+          <div class="mb-12">
+            <div class="flex items-center gap-3 mb-4">
+              <Scale className="w-8 h-8 text-neon-cyan" />
+              <h1 class="text-4xl md:text-5xl font-bold">
+                <span class="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
+                  Mentions Légales
+                </span>
+              </h1>
+            </div>
+            <p class="text-text-muted">Informations légales obligatoires</p>
+          </div>
+
+          <div class="space-y-8">
+            <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20">
+              <h2 class="text-2xl font-bold text-text-light mb-4">1. Éditeur du site</h2>
+              <div class="text-text-muted space-y-2">
+                <p><strong class="text-neon-cyan">Raison sociale :</strong> PIXEL CLASH SARL</p>
+                <p><strong class="text-neon-cyan">Siège social :</strong> 123 Avenue des Champs-Élysées, 75008 Paris</p>
+                <p><strong class="text-neon-cyan">SIRET :</strong> 123 456 789 00012</p>
+                <p><strong class="text-neon-cyan">Capital social :</strong> 10 000 €</p>
+                <p><strong class="text-neon-cyan">Email :</strong> contact@pixelclash.fr</p>
+                <p><strong class="text-neon-cyan">Téléphone :</strong> +33 1 23 45 67 89</p>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20">
+              <h2 class="text-2xl font-bold text-text-light mb-4">2. Directeur de publication</h2>
+              <p class="text-text-muted">
+                <strong class="text-neon-cyan">Nom :</strong> Loup Aubour<br />
+                <strong class="text-neon-cyan">Qualité :</strong> Gérant
+              </p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20">
+              <h2 class="text-2xl font-bold text-text-light mb-4">3. Hébergement</h2>
+              <div class="text-text-muted space-y-2">
+                <p><strong class="text-neon-cyan">Hébergeur :</strong> Amazon Web Services (AWS)</p>
+                <p><strong class="text-neon-cyan">Service :</strong> AWS S3 + CloudFront CDN</p>
+                <p><strong class="text-neon-cyan">Adresse :</strong> Amazon Web Services EMEA SARL, 38 Avenue John F. Kennedy, L-1855 Luxembourg</p>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20">
+              <h2 class="text-2xl font-bold text-text-light mb-4">4. Propriété intellectuelle</h2>
+              <p class="text-text-muted leading-relaxed mb-4">
+                L'ensemble du contenu de ce site (textes, images, vidéos, logos, graphismes) est la propriété exclusive de PIXEL CLASH SARL ou de ses partenaires.
+              </p>
+              <p class="text-text-muted leading-relaxed">
+                Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site est strictement interdite sans autorisation écrite préalable.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20">
+              <h2 class="text-2xl font-bold text-text-light mb-4">5. Données personnelles</h2>
+              <p class="text-text-muted leading-relaxed mb-4">
+                Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données vous concernant.
+              </p>
+              <p class="text-text-muted leading-relaxed">
+                Pour exercer ces droits, contactez-nous à : <a href="mailto:dpo@pixelclash.fr" class="text-neon-cyan hover:text-neon-magenta transition-colors">dpo@pixelclash.fr</a>
+              </p>
+              <p class="text-text-muted leading-relaxed mt-4">
+                Consultez notre <a href="/politique-confidentialite-redesign" class="text-neon-cyan hover:text-neon-magenta transition-colors">Politique de Confidentialité</a> pour plus d'informations.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20">
+              <h2 class="text-2xl font-bold text-text-light mb-4">6. Cookies</h2>
+              <p class="text-text-muted leading-relaxed mb-4">
+                Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser le trafic via Google Analytics.
+              </p>
+              <p class="text-text-muted leading-relaxed">
+                Vous pouvez désactiver les cookies dans les paramètres de votre navigateur.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20">
+              <h2 class="text-2xl font-bold text-text-light mb-4">7. Crédits</h2>
+              <div class="text-text-muted space-y-2">
+                <p><strong class="text-neon-cyan">Conception & Développement :</strong> Loup Aubour</p>
+                <p><strong class="text-neon-cyan">Framework :</strong> Astro 5.14.8</p>
+                <p><strong class="text-neon-cyan">Design :</strong> Synthwave Cyberpunk</p>
+                <p><strong class="text-neon-cyan">Icons :</strong> Lucide React</p>
+                <p><strong class="text-neon-cyan">Images :</strong> Unsplash</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </div>
+
+    <Footer />
+
+  </div>
+</LayoutRedesign>
