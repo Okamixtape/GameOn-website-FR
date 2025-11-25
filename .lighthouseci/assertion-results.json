@@ -2,11 +2,45 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.28,
+    "actual": 0,
     "values": [
-      0.28,
-      0.23,
-      0.28
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "errors-in-console",
+    "level": "error",
+    "url": "http://localhost:4321/index-redesign",
+    "auditTitle": "Browser errors were logged to the console",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/best-practices/errors-in-console/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "forced-reflow-insight",
+    "level": "error",
+    "url": "http://localhost:4321/index-redesign",
+    "auditTitle": "Forced reflow",
+    "auditDocumentationLink": "https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-forced-synchronous-layouts"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.26,
+    "values": [
+      0.24,
+      0.26,
+      0.25
     ],
     "operator": ">=",
     "passed": false,
@@ -19,11 +53,11 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.85,
+    "actual": 0.67,
     "values": [
-      0.85,
-      0.61,
-      0.8
+      0.57,
+      0.67,
+      0.52
     ],
     "operator": ">=",
     "passed": false,
@@ -87,10 +121,10 @@
   {
     "name": "maxLength",
     "expected": 0,
-    "actual": 1,
+    "actual": 2,
     "values": [
       2,
-      1,
+      2,
       2
     ],
     "operator": "<=",
@@ -102,47 +136,13 @@
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
   },
   {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 1,
-    "values": [
-      1,
-      1,
-      1
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-rel-preconnect",
-    "level": "error",
-    "url": "http://localhost:4321/index-redesign",
-    "auditTitle": "Preconnect to required origins",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 1,
-    "values": [
-      1,
-      1,
-      1
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-responsive-images",
-    "level": "error",
-    "url": "http://localhost:4321/index-redesign",
-    "auditTitle": "Properly size images",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/"
-  },
-  {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.77,
+    "actual": 0.76,
     "values": [
-      0.77,
-      0.74,
-      0.77
+      0.75,
+      0.76,
+      0.75
     ],
     "operator": ">=",
     "passed": false,
@@ -155,11 +155,11 @@
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.78,
+    "actual": 0.75,
     "values": [
-      0.78,
-      0.72,
-      0.78
+      0.73,
+      0.75,
+      0.74
     ],
     "operator": ">=",
     "passed": false,
@@ -171,11 +171,45 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.71,
+    "actual": 0,
     "values": [
-      0.71,
-      0.46,
-      0.43
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "dom-size-insight",
+    "level": "warn",
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Optimize DOM size",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/dom-size/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "forced-reflow-insight",
+    "level": "error",
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Forced reflow",
+    "auditDocumentationLink": "https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-forced-synchronous-layouts"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.42,
+    "values": [
+      0.38,
+      0.42,
+      0.39
     ],
     "operator": ">=",
     "passed": false,
@@ -188,11 +222,11 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.78,
+    "actual": 0.65,
     "values": [
-      0.74,
-      0.78,
-      0.74
+      0.5,
+      0.65,
+      0.38
     ],
     "operator": ">=",
     "passed": false,
@@ -272,12 +306,29 @@
   },
   {
     "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.89,
+    "expected": 0.9,
+    "actual": 0.84,
     "values": [
-      0.89,
       0.83,
-      0.81
+      0.84,
+      0.83
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "interactive",
+    "level": "warn",
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Time to Interactive",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.95,
+    "actual": 0.79,
+    "values": [
+      0.75,
+      0.79,
+      0.74
     ],
     "operator": ">=",
     "passed": false,
