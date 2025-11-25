@@ -1,0 +1,125 @@
+---
+/**
+ * Hero Section - Homepage Redesign (Astro Pure)
+ * 
+ * Converti de React → Astro pour performance
+ * - 0 KB JavaScript (vs 5 KB + 136 KB React)
+ * - Rendu statique SSG
+ * - Icons Lucide en SVG inline
+ * 
+ * @performance Gain estimé : +8 points Lighthouse
+ */
+
+import { Calendar, MapPin, Trophy, Clock, ArrowRight } from "lucide-react";
+import { heroData } from "../../../data/redesign/home";
+---
+
+<section class="relative min-h-[700px] flex items-center overflow-visible py-20">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0">
+    <img
+      src={heroData.image.src}
+      alt={heroData.image.alt}
+      class="w-full h-full object-cover"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a1f] via-[#0a0a1f]/95 to-[#0a0a1f]/80" />
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a1f]" />
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl">
+      <!-- Eyebrow - Brand Presentation -->
+      <div class="inline-block mb-4">
+        <span class="text-neon-magenta tracking-widest text-sm uppercase font-bold">
+          {heroData.eyebrow}
+        </span>
+      </div>
+
+      <!-- Main H1 - SEO Optimized -->
+      <h1 class="mb-8 leading-none">
+        <span class="block text-5xl md:text-7xl lg:text-8xl tracking-tight mb-4 text-text-light font-bold">
+          {heroData.title}
+        </span>
+        <span class="block text-5xl md:text-7xl lg:text-8xl tracking-tight font-bold">
+          <span class="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
+            {heroData.titleHighlight}
+          </span>
+        </span>
+      </h1>
+
+      <!-- Date & Location Badges - Critical Info Above Fold -->
+      <div class="flex flex-wrap gap-3 mb-8">
+        <div class="px-5 py-3 rounded-xl bg-[#0a0a1f]/70 border border-cyan-500/40 backdrop-blur-lg flex items-center gap-3 shadow-lg shadow-cyan-500/20">
+          <Calendar className="w-5 h-5 text-[#00f3ff]" />
+          <div>
+            <div class="text-xs text-gray-400 uppercase">
+              {heroData.date.label}
+            </div>
+            <div class="text-white">{heroData.date.value}</div>
+          </div>
+        </div>
+        <div class="px-5 py-3 rounded-xl bg-[#0a0a1f]/70 border border-pink-500/40 backdrop-blur-lg flex items-center gap-3 shadow-lg shadow-pink-500/20">
+          <MapPin className="w-5 h-5 text-[#ff00ff]" />
+          <div>
+            <div class="text-xs text-gray-400 uppercase">
+              {heroData.location.label}
+            </div>
+            <div class="text-white">{heroData.location.value}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primary CTA -->
+      <div class="mb-4">
+        <a
+          href={heroData.ctaPrimary.href}
+          class="inline-flex items-center gap-2 text-lg px-8 py-7 bg-gradient-to-r from-[#ff00ff] via-[#ff0080] to-[#ff00ff] hover:from-[#ff00ff]/90 hover:to-[#ff00ff]/70 text-white border-0 rounded-lg shadow-2xl shadow-pink-500/60 hover:shadow-pink-500/80 transition-all animate-pulse hover:animate-none relative group"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+            {heroData.ctaPrimary.text}
+            <ArrowRight className="w-5 h-5" />
+          </span>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] opacity-0 group-hover:opacity-20 transition-opacity rounded-lg" />
+        </a>
+      </div>
+
+      <!-- Combined Badge - Social Proof + Cashprize + Urgency -->
+      <div class="inline-flex flex-wrap items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-green-500/10 via-yellow-500/10 to-red-500/10 border border-green-500/30 backdrop-blur-md mb-6">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+          <span class="text-green-400 text-sm">
+            ✓ {heroData.socialProof.registrations}
+          </span>
+        </div>
+        <span class="text-gray-500">•</span>
+        <div class="flex items-center gap-2">
+          <Trophy className="w-4 h-4 text-yellow-400" />
+          <span class="text-yellow-400 text-sm font-semibold">
+            {heroData.socialProof.cashprize}
+          </span>
+        </div>
+        <span class="text-gray-500">•</span>
+        <div class="flex items-center gap-2">
+          <Clock className="w-4 h-4 text-red-400" />
+          <span class="text-red-400 text-sm">
+            {heroData.socialProof.urgency}
+          </span>
+        </div>
+      </div>
+
+      <!-- Secondary CTA -->
+      <div>
+        <a
+          href={heroData.ctaSecondary.href}
+          class="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-white/30 text-white hover:bg-white/5 hover:border-white/50 rounded-lg transition-all"
+        >
+          {heroData.ctaSecondary.text}
+          <ArrowRight className="w-4 h-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

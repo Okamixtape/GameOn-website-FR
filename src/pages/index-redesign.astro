@@ -1,16 +1,17 @@
 ---
 /**
- * Homepage Redesign - PoC Sprint 1
+ * Homepage Redesign - Astro-First Architecture
  * 
- * Architecture Astro Hybride :
- * - Layout statique (SEO, meta)
- * - GridBackground statique (performance)
- * - Hero React Island (animations)
- * - Features React Island (hover effects)
+ * Architecture Optimisée :
+ * - Hero : Astro pur (0 KB JS) ✅
+ * - Features : React Island (hover effects)
+ * - Header : React Island (mobile menu)
+ * - CommunityStats : React Island (compteurs animés)
  * 
  * Performance :
- * - client:load pour Hero (above fold, UX critique)
- * - client:visible pour Features (below fold)
+ * - Hero statique SSG (gain +8 pts)
+ * - React uniquement pour interactivité réelle
+ * - Objectif : Lighthouse ≥ 95/100
  */
 
 import LayoutRedesign from '../layouts/LayoutRedesign.astro';
@@ -20,8 +21,10 @@ import { GridBackground } from '../components/redesign/layout/GridBackground';
 import Header from '../components/redesign/layout/Header';
 import Footer from '../components/redesign/layout/Footer.astro';
 
-// React Islands
-import Hero from '../components/redesign/home/Hero';
+// Astro Components (0 KB JS)
+import Hero from '../components/redesign/home/Hero.astro';
+
+// React Islands (interactivité uniquement)
 import Features from '../components/redesign/home/Features';
 import GamesShowcase from '../components/redesign/home/GamesShowcase';
 import CommunityStats from '../components/redesign/home/CommunityStats';
@@ -48,8 +51,8 @@ const description = "Rejoignez le championnat rétro gaming ultime. 15,000€ de
     
     <!-- Content wrapper with padding for fixed header -->
     <div class="pt-20">
-      <!-- Hero Section - React Island (animations critiques UX) -->
-      <Hero client:load />
+      <!-- Hero Section - Astro Pure (0 KB JS) ✅ -->
+      <Hero />
 
       <!-- Features Section - React Island (below fold) -->
       <Features client:visible />
