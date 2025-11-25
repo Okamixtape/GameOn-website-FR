@@ -12,17 +12,19 @@
 
 import { Calendar, MapPin, Trophy, Clock, ArrowRight } from "lucide-react";
 import { heroData } from "../../../data/redesign/home";
+import OptimizedImage from "../common/OptimizedImage.astro";
 ---
 
 <section class="relative min-h-[700px] flex items-center overflow-visible py-20">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0">
-    <img
+    <OptimizedImage
       src={heroData.image.src}
       alt={heroData.image.alt}
       class="w-full h-full object-cover"
+      loading="eager"
       fetchpriority="high"
-      decoding="async"
+      sizes="100vw"
     />
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a1f] via-[#0a0a1f]/95 to-[#0a0a1f]/80" />
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a1f]" />
