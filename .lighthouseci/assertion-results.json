@@ -2,103 +2,36 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0,
+    "actual": 0.23,
     "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "document-latency-insight",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Document request latency"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "first-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/",
-    "auditTitle": "First Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "image-delivery-insight",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Improve image delivery",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-optimized-images/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
+      0.22,
+      0.23,
+      0.23
     ],
     "operator": ">=",
     "passed": false,
     "auditId": "largest-contentful-paint",
     "level": "warn",
-    "url": "http://localhost:4321/",
+    "url": "http://localhost:4321/index-redesign",
     "auditTitle": "Largest Contentful Paint",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
   },
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0,
+    "actual": 0.64,
     "values": [
-      0,
-      0,
-      0
+      0.64,
+      0.56,
+      0.53
     ],
     "operator": ">=",
     "passed": false,
-    "auditId": "link-text",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Links do not have descriptive text",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/seo/link-text/"
+    "auditId": "max-potential-fid",
+    "level": "warn",
+    "url": "http://localhost:4321/index-redesign",
+    "auditTitle": "Max Potential First Input Delay",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/"
   },
   {
     "name": "minScore",
@@ -113,43 +46,26 @@
     "passed": false,
     "auditId": "network-dependency-tree-insight",
     "level": "error",
-    "url": "http://localhost:4321/",
+    "url": "http://localhost:4321/index-redesign",
     "auditTitle": "Network dependency tree",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains"
   },
   {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.09,
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 2,
     "values": [
-      0.09,
-      0.09,
-      0.09
+      2,
+      2,
+      2
     ],
-    "operator": ">=",
+    "operator": "<=",
     "passed": false,
-    "auditId": "speed-index",
+    "auditId": "render-blocking-insight",
     "level": "warn",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "total-byte-weight",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Avoid enormous network payloads",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight/"
+    "url": "http://localhost:4321/index-redesign",
+    "auditTitle": "Render blocking requests",
+    "auditDocumentationLink": "https://web.dev/learn/performance/understanding-the-critical-path#render-blocking_resources"
   },
   {
     "name": "maxLength",
@@ -162,45 +78,11 @@
     ],
     "operator": "<=",
     "passed": false,
-    "auditId": "unminified-css",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Minify CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-css/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 36,
-    "values": [
-      36,
-      36,
-      36
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Minify JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-css-rules",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Reduce unused CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/"
+    "auditId": "render-blocking-resources",
+    "level": "warn",
+    "url": "http://localhost:4321/index-redesign",
+    "auditTitle": "Eliminate render-blocking resources",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
   },
   {
     "name": "maxLength",
@@ -215,9 +97,26 @@
     "passed": false,
     "auditId": "unused-javascript",
     "level": "error",
-    "url": "http://localhost:4321/",
+    "url": "http://localhost:4321/index-redesign",
     "auditTitle": "Reduce unused JavaScript",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
+  },
+  {
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 1,
+    "values": [
+      1,
+      1,
+      1
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "uses-rel-preconnect",
+    "level": "error",
+    "url": "http://localhost:4321/index-redesign",
+    "auditTitle": "Preconnect to required origins",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/"
   },
   {
     "name": "maxLength",
@@ -232,997 +131,42 @@
     "passed": false,
     "auditId": "uses-responsive-images",
     "level": "error",
-    "url": "http://localhost:4321/",
+    "url": "http://localhost:4321/index-redesign",
     "auditTitle": "Properly size images",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/"
   },
   {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 39,
-    "values": [
-      39,
-      39,
-      39
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-text-compression",
-    "level": "error",
-    "url": "http://localhost:4321/",
-    "auditTitle": "Enable text compression",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/"
-  },
-  {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.04,
+    "actual": 0.74,
     "values": [
-      0.04,
-      0.04,
-      0.04
+      0.73,
+      0.74,
+      0.74
     ],
     "operator": ">=",
     "passed": false,
     "auditId": "interactive",
     "level": "warn",
-    "url": "http://localhost:4321/",
+    "url": "http://localhost:4321/index-redesign",
     "auditTitle": "Time to Interactive",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
   },
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.56,
+    "actual": 0.74,
     "values": [
-      0.5,
-      0.54,
-      0.56
+      0.7,
+      0.74,
+      0.71
     ],
     "operator": ">=",
     "passed": false,
     "auditProperty": "performance",
     "auditId": "categories",
     "level": "error",
-    "url": "http://localhost:4321/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.92,
-    "values": [
-      0.92,
-      0.92,
-      0.92
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "seo",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "color-contrast",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Background and foreground colors do not have a sufficient contrast ratio.",
-    "auditDocumentationLink": "https://dequeuniversity.com/rules/axe/4.10/color-contrast"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "document-latency-insight",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Document request latency"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "first-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "First Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "heading-order",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Heading elements are not in a sequentially-descending order",
-    "auditDocumentationLink": "https://dequeuniversity.com/rules/axe/4.10/heading-order"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "largest-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Largest Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "link-text",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Links do not have descriptive text",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/seo/link-text/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "network-dependency-tree-insight",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Network dependency tree",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.1,
-    "values": [
-      0.09,
-      0.1,
-      0.1
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "speed-index",
-    "level": "warn",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-css",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Minify CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-css/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 36,
-    "values": [
-      36,
-      36,
-      36
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Minify JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-css-rules",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Reduce unused CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 1,
-    "values": [
-      1,
-      1,
-      1
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Reduce unused JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 39,
-    "values": [
-      39,
-      39,
-      39
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-text-compression",
-    "level": "error",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Enable text compression",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.07,
-    "values": [
-      0.06,
-      0.07,
-      0.07
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "interactive",
-    "level": "warn",
-    "url": "http://localhost:4321/details",
-    "auditTitle": "Time to Interactive",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.56,
-    "values": [
-      0.42,
-      0.53,
-      0.56
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "performance",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/details"
-  },
-  {
-    "name": "minScore",
-    "expected": 1,
-    "actual": 0.94,
-    "values": [
-      0.94,
-      0.94,
-      0.94
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "accessibility",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/details"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.92,
-    "values": [
-      0.92,
-      0.92,
-      0.92
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "seo",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/details"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "color-contrast",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Background and foreground colors do not have a sufficient contrast ratio.",
-    "auditDocumentationLink": "https://dequeuniversity.com/rules/axe/4.10/color-contrast"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "document-latency-insight",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Document request latency"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "first-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "First Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "largest-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Largest Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "link-text",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Links do not have descriptive text",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/seo/link-text/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "network-dependency-tree-insight",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Network dependency tree",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.1,
-    "values": [
-      0.1,
-      0.09,
-      0.1
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "speed-index",
-    "level": "warn",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-css",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Minify CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-css/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 36,
-    "values": [
-      36,
-      36,
-      36
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Minify JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-css-rules",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Reduce unused CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 1,
-    "values": [
-      1,
-      1,
-      1
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Reduce unused JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 39,
-    "values": [
-      39,
-      39,
-      39
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-text-compression",
-    "level": "error",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Enable text compression",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.06,
-    "values": [
-      0.06,
-      0.06,
-      0.06
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "interactive",
-    "level": "warn",
-    "url": "http://localhost:4321/about",
-    "auditTitle": "Time to Interactive",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.56,
-    "values": [
-      0.55,
-      0.56,
-      0.56
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "performance",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/about"
-  },
-  {
-    "name": "minScore",
-    "expected": 1,
-    "actual": 0.96,
-    "values": [
-      0.96,
-      0.96,
-      0.96
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "accessibility",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/about"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.92,
-    "values": [
-      0.92,
-      0.92,
-      0.92
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "seo",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/about"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "color-contrast",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Background and foreground colors do not have a sufficient contrast ratio.",
-    "auditDocumentationLink": "https://dequeuniversity.com/rules/axe/4.10/color-contrast"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "document-latency-insight",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Document request latency"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "first-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "First Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "largest-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Largest Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "link-text",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Links do not have descriptive text",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/seo/link-text/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "network-dependency-tree-insight",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Network dependency tree",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.1,
-    "values": [
-      0.1,
-      0.1,
-      0.1
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "speed-index",
-    "level": "warn",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "total-byte-weight",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Avoid enormous network payloads",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-css",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Minify CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-css/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 36,
-    "values": [
-      36,
-      36,
-      36
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Minify JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-css-rules",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Reduce unused CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 1,
-    "values": [
-      1,
-      1,
-      1
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Reduce unused JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 39,
-    "values": [
-      39,
-      39,
-      39
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-text-compression",
-    "level": "error",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Enable text compression",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.06,
-    "values": [
-      0.05,
-      0.04,
-      0.06
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "interactive",
-    "level": "warn",
-    "url": "http://localhost:4321/blog",
-    "auditTitle": "Time to Interactive",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.56,
-    "values": [
-      0.56,
-      0.56,
-      0.55
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "performance",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/blog"
-  },
-  {
-    "name": "minScore",
-    "expected": 1,
-    "actual": 0.96,
-    "values": [
-      0.96,
-      0.96,
-      0.96
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "accessibility",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/blog"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.92,
-    "values": [
-      0.92,
-      0.92,
-      0.92
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "seo",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/blog"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "document-latency-insight",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Document request latency"
+    "url": "http://localhost:4321/index-redesign"
   },
   {
     "name": "minScore",
@@ -1237,30 +181,13 @@
     "passed": false,
     "auditId": "dom-size-insight",
     "level": "warn",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
+    "url": "http://localhost:4321/tournament-redesign",
     "auditTitle": "Optimize DOM size",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/dom-size/"
   },
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0,
-      0.5,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "dom-size",
-    "level": "warn",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Avoid an excessive DOM size",
-    "auditDocumentationLink": "https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
     "actual": 0,
     "values": [
       0,
@@ -1269,365 +196,45 @@
     ],
     "operator": ">=",
     "passed": false,
-    "auditId": "first-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "First Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "image-delivery-insight",
+    "auditId": "forced-reflow-insight",
     "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Improve image delivery",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-optimized-images/"
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Forced reflow",
+    "auditDocumentationLink": "https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-forced-synchronous-layouts"
   },
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0,
+    "actual": 0.37,
     "values": [
-      0,
-      0,
-      0
+      0.35,
+      0.37,
+      0.33
     ],
     "operator": ">=",
     "passed": false,
     "auditId": "largest-contentful-paint",
     "level": "warn",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
+    "url": "http://localhost:4321/tournament-redesign",
     "auditTitle": "Largest Contentful Paint",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
   },
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0,
+    "actual": 0.53,
     "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "link-text",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Links do not have descriptive text",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/seo/link-text/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "network-dependency-tree-insight",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Network dependency tree",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.1,
-    "values": [
-      0.1,
-      0.09,
-      0.1
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "speed-index",
-    "level": "warn",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "total-byte-weight",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Avoid enormous network payloads",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-css",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Minify CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-css/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 37,
-    "values": [
-      37,
-      37,
-      37
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Minify JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-css-rules",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Reduce unused CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 1,
-    "values": [
-      1,
-      1,
-      1
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Reduce unused JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 1,
-    "values": [
-      1,
-      1,
-      1
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-responsive-images",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Properly size images",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 40,
-    "values": [
-      40,
-      40,
-      40
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "uses-text-compression",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Enable text compression",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.04,
-    "values": [
-      0.04,
-      0.04,
-      0.04
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "interactive",
-    "level": "warn",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide",
-    "auditTitle": "Time to Interactive",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.55,
-    "values": [
+      0.4,
       0.53,
-      0.55,
-      0.55
+      0.32
     ],
     "operator": ">=",
     "passed": false,
-    "auditProperty": "performance",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.92,
-    "values": [
-      0.92,
-      0.92,
-      0.92
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "seo",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/blog/debuter-retro-gaming-guide"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "color-contrast",
-    "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Background and foreground colors do not have a sufficient contrast ratio.",
-    "auditDocumentationLink": "https://dequeuniversity.com/rules/axe/4.10/color-contrast"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.5,
-    "values": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "document-latency-insight",
-    "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Document request latency"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "first-contentful-paint",
+    "auditId": "max-potential-fid",
     "level": "warn",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "First Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "largest-contentful-paint",
-    "level": "warn",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Largest Contentful Paint",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "link-text",
-    "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Links do not have descriptive text",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/seo/link-text/"
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Max Potential First Input Delay",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/"
   },
   {
     "name": "minScore",
@@ -1642,26 +249,26 @@
     "passed": false,
     "auditId": "network-dependency-tree-insight",
     "level": "error",
-    "url": "http://localhost:4321/developer",
+    "url": "http://localhost:4321/tournament-redesign",
     "auditTitle": "Network dependency tree",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains"
   },
   {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.1,
+    "name": "maxLength",
+    "expected": 0,
+    "actual": 2,
     "values": [
-      0.09,
-      0.1,
-      0.1
+      2,
+      2,
+      2
     ],
-    "operator": ">=",
+    "operator": "<=",
     "passed": false,
-    "auditId": "speed-index",
+    "auditId": "render-blocking-insight",
     "level": "warn",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Speed Index",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Render blocking requests",
+    "auditDocumentationLink": "https://web.dev/learn/performance/understanding-the-critical-path#render-blocking_resources"
   },
   {
     "name": "maxLength",
@@ -1674,45 +281,11 @@
     ],
     "operator": "<=",
     "passed": false,
-    "auditId": "unminified-css",
-    "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Minify CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-css/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 36,
-    "values": [
-      36,
-      36,
-      36
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unminified-javascript",
-    "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Minify JavaScript",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unminified-javascript/"
-  },
-  {
-    "name": "maxLength",
-    "expected": 0,
-    "actual": 2,
-    "values": [
-      2,
-      2,
-      2
-    ],
-    "operator": "<=",
-    "passed": false,
-    "auditId": "unused-css-rules",
-    "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Reduce unused CSS",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/"
+    "auditId": "render-blocking-resources",
+    "level": "warn",
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Eliminate render-blocking resources",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
   },
   {
     "name": "maxLength",
@@ -1727,90 +300,58 @@
     "passed": false,
     "auditId": "unused-javascript",
     "level": "error",
-    "url": "http://localhost:4321/developer",
+    "url": "http://localhost:4321/tournament-redesign",
     "auditTitle": "Reduce unused JavaScript",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/"
   },
   {
     "name": "maxLength",
     "expected": 0,
-    "actual": 39,
+    "actual": 1,
     "values": [
-      39,
-      39,
-      39
+      1,
+      1,
+      1
     ],
     "operator": "<=",
     "passed": false,
-    "auditId": "uses-text-compression",
+    "auditId": "uses-rel-preconnect",
     "level": "error",
-    "url": "http://localhost:4321/developer",
-    "auditTitle": "Enable text compression",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/"
+    "url": "http://localhost:4321/tournament-redesign",
+    "auditTitle": "Preconnect to required origins",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/"
   },
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.07,
+    "actual": 0.82,
     "values": [
-      0.07,
-      0.07,
-      0.07
+      0.81,
+      0.82,
+      0.8
     ],
     "operator": ">=",
     "passed": false,
     "auditId": "interactive",
     "level": "warn",
-    "url": "http://localhost:4321/developer",
+    "url": "http://localhost:4321/tournament-redesign",
     "auditTitle": "Time to Interactive",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
   },
   {
     "name": "minScore",
     "expected": 0.95,
-    "actual": 0.56,
+    "actual": 0.76,
     "values": [
-      0.56,
-      0.55,
-      0.56
+      0.74,
+      0.76,
+      0.7
     ],
     "operator": ">=",
     "passed": false,
     "auditProperty": "performance",
     "auditId": "categories",
     "level": "error",
-    "url": "http://localhost:4321/developer"
-  },
-  {
-    "name": "minScore",
-    "expected": 1,
-    "actual": 0.96,
-    "values": [
-      0.96,
-      0.96,
-      0.96
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "accessibility",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/developer"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.95,
-    "actual": 0.92,
-    "values": [
-      0.92,
-      0.92,
-      0.92
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "seo",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:4321/developer"
+    "url": "http://localhost:4321/tournament-redesign"
   }
 ]

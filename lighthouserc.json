@@ -3,12 +3,8 @@
     "collect": {
       "startServerCommand": "npm run preview",
       "url": [
-        "http://localhost:4321/",
-        "http://localhost:4321/details",
-        "http://localhost:4321/about",
-        "http://localhost:4321/blog",
-        "http://localhost:4321/blog/debuter-retro-gaming-guide",
-        "http://localhost:4321/developer"
+        "http://localhost:4321/index-redesign",
+        "http://localhost:4321/tournament-redesign"
       ],
       "numberOfRuns": 3
     },

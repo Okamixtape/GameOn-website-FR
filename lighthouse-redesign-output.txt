@@ -1,0 +1,295 @@
+
+> pixelclash-landing-page@0.0.1 test:lighthouse
+> npm run build && lhci autorun
+
+
+> pixelclash-landing-page@0.0.1 build
+> astro build
+
+11:49:42 [content] Syncing content
+11:49:42 [content] Synced content
+11:49:42 [types] Generated 497ms
+11:49:42 [build] output: "static"
+11:49:42 [build] mode: "static"
+11:49:42 [build] directory: /Users/loupaubour/Projects/GameOn-website-FR/dist/
+11:49:42 [build] Collecting build info...
+11:49:42 [build] ✓ Completed in 611ms.
+11:49:42 [build] Building static entrypoints...
+11:49:45 [WARN] [vite] "matchHostname", "matchPathname", "matchPort" and "matchProtocol" are imported from external module "@astrojs/internal-helpers/remote" but never used in "node_modules/astro/dist/assets/utils/remotePattern.js".
+11:49:46 [vite] ✓ built in 3.63s
+11:49:46 [build] ✓ Completed in 3.71s.
+
+ building client (vite) 
+11:49:46 [vite] transforming...
+11:49:50 [vite] ✓ 2087 modules transformed.
+11:49:50 [vite] rendering chunks...
+11:49:50 [vite] computing gzip size...
+11:49:50 [vite] dist/_astro/index.yGrMsBkE.js               0.06 kB │ gzip:  0.08 kB
+11:49:50 [vite] dist/_astro/arrow-right.mGqEskn3.js         0.35 kB │ gzip:  0.27 kB
+11:49:50 [vite] dist/_astro/GridBackground.DMEbMhwT.js      0.41 kB │ gzip:  0.29 kB
+11:49:50 [vite] dist/_astro/zap.Jo80Ikec.js                 0.45 kB │ gzip:  0.32 kB
+11:49:50 [vite] dist/_astro/users.CZFfLO49.js               0.49 kB │ gzip:  0.33 kB
+11:49:50 [vite] dist/_astro/star.C-CFCXgl.js                0.66 kB │ gzip:  0.41 kB
+11:49:50 [vite] dist/_astro/trophy.DWcY9hCU.js              0.66 kB │ gzip:  0.39 kB
+11:49:50 [vite] dist/_astro/gamepad-2.Cj51g9Qa.js           0.81 kB │ gzip:  0.50 kB
+11:49:50 [vite] dist/_astro/jsx-runtime.D3GSbgeI.js         1.00 kB │ gzip:  0.62 kB
+11:49:50 [vite] dist/_astro/home.C_28siRt.js                1.59 kB │ gzip:  0.91 kB
+11:49:50 [vite] dist/_astro/createLucideIcon.CkkcfhgF.js    1.86 kB │ gzip:  0.80 kB
+11:49:50 [vite] dist/_astro/Features.DJgbqXGy.js            2.70 kB │ gzip:  1.06 kB
+11:49:50 [vite] dist/_astro/GamesShowcase.B2lV6AXh.js       3.05 kB │ gzip:  1.16 kB
+11:49:50 [vite] dist/_astro/CommunityStats.Cw2Jq-7E.js      3.07 kB │ gzip:  1.35 kB
+11:49:50 [vite] dist/_astro/Header.B8JWwfGF.js              4.07 kB │ gzip:  1.37 kB
+11:49:50 [vite] dist/_astro/Hero.eA1H5v_c.js                5.36 kB │ gzip:  1.68 kB
+11:49:50 [vite] dist/_astro/index.yBjzXJbu.js               6.79 kB │ gzip:  2.72 kB
+11:49:50 [vite] dist/_astro/TournamentPage.BtPhovYP.js     25.63 kB │ gzip:  4.66 kB
+11:49:50 [vite] dist/_astro/HeroV2.oTnbOdC9.js            115.17 kB │ gzip: 38.09 kB
+11:49:50 [vite] dist/_astro/client.Ck_OXNAA.js            136.54 kB │ gzip: 44.02 kB
+11:49:50 [vite] ✓ built in 4.37s
+
+ generating static routes 
+11:49:50 ▶ src/pages/404.astro
+11:49:50   └─ /404.html (+17ms) 
+11:49:50 ▶ src/pages/about.astro
+11:49:50   └─ /about/index.html (+5ms) 
+11:49:50 ▶ src/pages/blog/tags/[tag].astro
+11:49:50   ├─ /blog/tags/histoire/index.html (+8ms) 
+11:49:50   ├─ /blog/tags/arcade/index.html (+4ms) 
+11:49:50   ├─ /blog/tags/années-80/index.html (+3ms) 
+11:49:50   ├─ /blog/tags/culture-gaming/index.html (+3ms) 
+11:49:50   ├─ /blog/tags/guides/index.html (+4ms) 
+11:49:50   ├─ /blog/tags/retro-gaming/index.html (+4ms) 
+11:49:50   ├─ /blog/tags/debutant/index.html (+5ms) 
+11:49:50   └─ /blog/tags/consoles/index.html (+4ms) 
+11:49:50 ▶ src/pages/blog/[slug].astro
+11:49:50   ├─ /blog/histoire-retro-gaming/index.html (+4ms) 
+11:49:50   └─ /blog/debuter-retro-gaming-guide/index.html (+3ms) 
+11:49:50 ▶ src/pages/blog/index.astro
+11:49:50   └─ /blog/index.html (+13ms) 
+11:49:50 ▶ src/pages/cgu.astro
+11:49:50   └─ /cgu/index.html (+3ms) 
+11:49:50 ▶ src/pages/details.astro
+11:49:50   └─ /details/index.html (+5ms) 
+11:49:50 ▶ src/pages/developer.astro
+11:49:50   └─ /developer/index.html (+4ms) 
+11:49:50 ▶ src/pages/index-redesign.astro
+11:49:50   └─ /index-redesign/index.html (+33ms) 
+11:49:51 ▶ src/pages/index-v2.astro
+11:49:51   └─ /index-v2/index.html (+7ms) 
+11:49:51 ▶ src/pages/mentions-legales.astro
+11:49:51   └─ /mentions-legales/index.html (+2ms) 
+11:49:51 ▶ src/pages/politique-confidentialite.astro
+11:49:51   └─ /politique-confidentialite/index.html (+5ms) 
+11:49:51 ▶ src/pages/tournament-redesign.astro
+11:49:51   └─ /tournament-redesign/index.html (+9ms) 
+11:49:51 ▶ src/pages/index.astro
+11:49:51   └─ /index.html (+5ms) 
+11:49:51 ✓ Completed in 572ms.
+
+11:49:51 [build] 22 page(s) built in 9.31s
+11:49:51 [build] Complete!
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+Healthcheck passed!
+
+Started a web server with "npm run preview"...
+Running Lighthouse 3 time(s) on http://localhost:4321/index-redesign
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://localhost:4321/tournament-redesign
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 2 URL(s), 6 total run(s)
+
+10 result(s) for [1mhttp://localhost:4321/index-redesign[0m :
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.74[0m
+      [2mall values: 0.7, 0.74, 0.71[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-rel-preconnect[0m failure for [1mmaxLength[0m assertion
+       Preconnect to required origins
+       https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-responsive-images[0m failure for [1mmaxLength[0m assertion
+       Properly size images
+       https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.74[0m
+      [2mall values: 0.73, 0.74, 0.74[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.23[0m
+      [2mall values: 0.22, 0.23, 0.23[0m
+
+
+  ⚠️  [1mmax-potential-fid[0m warning for [1mminScore[0m assertion
+       Max Potential First Input Delay
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.64[0m
+      [2mall values: 0.64, 0.56, 0.53[0m
+
+
+  ⚠️  [1mrender-blocking-insight[0m warning for [1mmaxLength[0m assertion
+       Render blocking requests
+       https://web.dev/learn/performance/understanding-the-critical-path#render-blocking_resources
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  ⚠️  [1mrender-blocking-resources[0m warning for [1mmaxLength[0m assertion
+       Eliminate render-blocking resources
+       https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+11 result(s) for [1mhttp://localhost:4321/tournament-redesign[0m :
+
+  [31m✘[0m  [1mcategories[0m.performance failure for [1mminScore[0m assertion
+        expected: >=[32m0.95[0m
+           found: [31m0.76[0m
+      [2mall values: 0.74, 0.76, 0.7[0m
+
+
+  [31m✘[0m  [1mforced-reflow-insight[0m failure for [1mminScore[0m assertion
+       Forced reflow
+       https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing#avoid-forced-synchronous-layouts
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1mnetwork-dependency-tree-insight[0m failure for [1mminScore[0m assertion
+       Network dependency tree
+       https://developer.chrome.com/docs/lighthouse/performance/critical-request-chains
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  [31m✘[0m  [1munused-javascript[0m failure for [1mmaxLength[0m assertion
+       Reduce unused JavaScript
+       https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  [31m✘[0m  [1muses-rel-preconnect[0m failure for [1mmaxLength[0m assertion
+       Preconnect to required origins
+       https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/
+
+        expected: <=[32m0[0m
+           found: [31m1[0m
+      [2mall values: 1, 1, 1[0m
+
+
+  ⚠️  [1mdom-size-insight[0m warning for [1mminScore[0m assertion
+       Optimize DOM size
+       https://developer.chrome.com/docs/lighthouse/performance/dom-size/
+
+        expected: >=[32m0.9[0m
+           found: [31m0[0m
+      [2mall values: 0, 0, 0[0m
+
+
+  ⚠️  [1minteractive[0m warning for [1mminScore[0m assertion
+       Time to Interactive
+       https://developer.chrome.com/docs/lighthouse/performance/interactive/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.82[0m
+      [2mall values: 0.81, 0.82, 0.8[0m
+
+
+  ⚠️  [1mlargest-contentful-paint[0m warning for [1mminScore[0m assertion
+       Largest Contentful Paint
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.37[0m
+      [2mall values: 0.35, 0.37, 0.33[0m
+
+
+  ⚠️  [1mmax-potential-fid[0m warning for [1mminScore[0m assertion
+       Max Potential First Input Delay
+       https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/
+
+        expected: >=[32m0.9[0m
+           found: [31m0.53[0m
+      [2mall values: 0.4, 0.53, 0.32[0m
+
+
+  ⚠️  [1mrender-blocking-insight[0m warning for [1mmaxLength[0m assertion
+       Render blocking requests
+       https://web.dev/learn/performance/understanding-the-critical-path#render-blocking_resources
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+
+  ⚠️  [1mrender-blocking-resources[0m warning for [1mmaxLength[0m assertion
+       Eliminate render-blocking resources
+       https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/
+
+        expected: <=[32m0[0m
+           found: [31m2[0m
+      [2mall values: 2, 2, 2[0m
+
+Assertion failed. Exiting with status code 1.
+
+assert command failed. Exiting with status code 1.
