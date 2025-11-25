@@ -1,210 +1,36 @@
 ---
 /**
- * About Page Redesign - Astro-First Architecture
+ * About Page Redesign - Conforme Figma Make
  * 
- * Page À Propos avec design Synthwave
- * - 100% Astro pur (0 KB JS)
- * - Sections : Hero, Mission, Values, Stats, CTA
- * - Performance optimale
+ * Sections :
+ * 1. THE ORIGIN STORY (Hero)
+ * 2. NOTRE PARCOURS (Timeline animée)
+ * 3. NOS STATISTIQUES (Compteurs)
+ * 4. NOS VALEURS (3 cartes)
+ * 5. CTA Final
  */
 
 import LayoutRedesign from '../layouts/LayoutRedesign.astro';
-import { GridBackground } from '../components/redesign/layout/GridBackground';
 import Header from '../components/redesign/layout/Header';
 import Footer from '../components/redesign/layout/Footer.astro';
+import AboutPage from '../components/redesign/about/AboutPage';
 
-import { Heart, Trophy, Users, Zap, Gamepad2, Calendar, ArrowRight } from 'lucide-react';
-import { 
-  aboutHero, 
-  aboutMission, 
-  aboutValues, 
-  aboutStats, 
-  aboutCTA 
-} from '../data/redesign/about';
-
-const title = "À Propos - PIXEL CLASH Championship 2026";
-const description = "Découvrez PIXEL CLASH, l'événement rétro gaming nouvelle génération. Mission, valeurs, et vision pour la communauté gaming.";
-
-// Icon mapping
-const iconMap = {
-  Heart,
-  Trophy,
-  Users,
-  Zap,
-  Gamepad2,
-  Calendar
-} as const;
+const title = "Notre Histoire - PIXEL CLASH";
+const description = "Découvrez l'histoire de PIXEL CLASH, le championnat qui célèbre les racines du jeu vidéo et rassemble les passionnés de l'âge d'or de l'arcade depuis 2015.";
 ---
 
-<LayoutRedesign title={title} description={description}>
+<LayoutRedesign 
+  title={title} 
+  description={description}
+>
   <div class="min-h-screen bg-bg-dark text-text-light">
     
-    <!-- Header -->
     <Header client:load currentPath={Astro.url.pathname} />
     
-    <!-- Grid Background -->
-    <GridBackground client:only="react" />
-    
-    <!-- Content -->
     <div class="pt-20">
-      
-      <!-- Hero Section -->
-      <section class="relative min-h-[500px] flex items-center overflow-hidden py-20">
-        <!-- Background Image -->
-        <div class="absolute inset-0">
-          <img
-            src={aboutHero.image.src}
-            alt={aboutHero.image.alt}
-            class="w-full h-full object-cover"
-            loading="eager"
-          />
-          <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a1f] via-[#0a0a1f]/95 to-[#0a0a1f]/80" />
-        </div>
-
-        <!-- Content -->
-        <div class="container mx-auto px-4 relative z-10">
-          <div class="max-w-3xl">
-            <div class="inline-block mb-4">
-              <span class="text-neon-cyan tracking-widest text-sm uppercase font-bold">
-                {aboutHero.eyebrow}
-              </span>
-            </div>
-            <h1 class="mb-6 leading-tight">
-              <span class="block text-5xl md:text-6xl lg:text-7xl mb-2 text-text-light font-bold">
-                {aboutHero.title}
-              </span>
-              <span class="block text-5xl md:text-6xl lg:text-7xl font-bold">
-                <span class="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
-                  {aboutHero.titleHighlight}
-                </span>
-              </span>
-            </h1>
-            <p class="text-xl text-text-muted leading-relaxed">
-              {aboutHero.description}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Mission Section -->
-      <section class="relative py-20">
-        <div class="container mx-auto px-4 relative z-10">
-          <!-- Header -->
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl mb-4 font-bold">
-              <span class="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
-                {aboutMission.title}
-              </span>
-            </h2>
-            <p class="text-text-muted text-lg">{aboutMission.subtitle}</p>
-          </div>
-
-          <!-- Mission Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {aboutMission.cards.map((card) => {
-              const Icon = iconMap[card.icon as keyof typeof iconMap];
-              return (
-                <div class="group relative">
-                  <!-- Glow effect -->
-                  <div class="absolute inset-0 bg-gradient-to-r from-neon-magenta to-neon-cyan rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-                  
-                  <!-- Card -->
-                  <div class="relative h-full p-8 rounded-2xl bg-bg-dark/60 backdrop-blur-xl border border-neon-cyan/20 group-hover:border-neon-cyan/50 transition-all duration-300">
-                    <div class={`w-14 h-14 rounded-xl bg-gradient-to-br ${card.gradient} flex items-center justify-center mb-4`}>
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
-                    <h3 class="text-2xl mb-3 text-text-light font-bold">{card.title}</h3>
-                    <p class="text-text-muted leading-relaxed">{card.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <!-- Values Section -->
-      <section class="relative py-20 bg-gradient-to-b from-transparent to-bg-dark-accent">
-        <div class="container mx-auto px-4 relative z-10">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl mb-4 font-bold text-text-light">
-              {aboutValues.title}
-            </h2>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {aboutValues.items.map((item) => (
-              <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-magenta/20 hover:border-neon-magenta/50 transition-all">
-                <h3 class="text-xl mb-2 text-neon-magenta font-bold">{item.value}</h3>
-                <p class="text-text-muted text-sm">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <!-- Stats Section -->
-      <section class="relative py-20">
-        <div class="container mx-auto px-4 relative z-10">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-text-light">
-              {aboutStats.title}
-            </h2>
-          </div>
-
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {aboutStats.stats.map((stat) => {
-              const Icon = iconMap[stat.icon as keyof typeof iconMap];
-              return (
-                <div class="text-center p-6 rounded-xl bg-gradient-to-br from-bg-dark/60 to-bg-dark-accent/60 backdrop-blur-xl border border-neon-cyan/20">
-                  <Icon className="w-8 h-8 text-neon-cyan mx-auto mb-3" />
-                  <div class="text-4xl md:text-5xl font-bold text-neon-cyan mb-2">
-                    {stat.value}
-                  </div>
-                  <div class="text-text-muted text-sm uppercase tracking-wide">
-                    {stat.label}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section class="relative py-20">
-        <div class="container mx-auto px-4 relative z-10">
-          <div class="max-w-4xl mx-auto text-center p-12 rounded-2xl bg-gradient-to-br from-neon-magenta/10 via-neon-cyan/10 to-neon-magenta/10 border border-neon-cyan/30 backdrop-blur-xl">
-            <h2 class="text-3xl md:text-4xl mb-4 font-bold">
-              <span class="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
-                {aboutCTA.title}
-              </span>
-            </h2>
-            <p class="text-text-muted text-lg mb-8">
-              {aboutCTA.description}
-            </p>
-            <div class="flex flex-wrap gap-4 justify-center">
-              <a
-                href={aboutCTA.primaryButton.href}
-                class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-neon-magenta to-neon-cyan hover:from-neon-magenta/90 hover:to-neon-cyan/90 text-white font-bold rounded-lg shadow-lg shadow-purple-500/50 transition-all"
-              >
-                {aboutCTA.primaryButton.text}
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href={aboutCTA.secondaryButton.href}
-                class="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-white/30 text-white hover:bg-white/5 hover:border-white/50 rounded-lg transition-all"
-              >
-                {aboutCTA.secondaryButton.text}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <AboutPage client:load />
     </div>
 
-    <!-- Footer -->
     <Footer />
 
   </div>
