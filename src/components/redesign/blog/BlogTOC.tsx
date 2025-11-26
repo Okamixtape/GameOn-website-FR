@@ -42,16 +42,24 @@ export default function BlogTOC() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculer par rapport à la fin de l'article, pas la fin de la page
+      // Calculer par rapport au début et à la fin de l'article
       const articleContent = document.getElementById('content');
       if (!articleContent) return;
 
+      // Début : top de l'article
+      const articleTop = articleContent.getBoundingClientRect().top + window.scrollY;
+      // Fin : bottom de l'article
       const articleBottom = articleContent.getBoundingClientRect().bottom + window.scrollY;
-      const viewportHeight = window.innerHeight;
-      const scrollableHeight = articleBottom - viewportHeight;
       
-      // Progress = 100% quand on atteint la fin de l'article
-      const progress = Math.min(100, Math.max(0, (window.scrollY / scrollableHeight) * 100));
+      const viewportHeight = window.innerHeight;
+      
+      // 0% quand le début de l'article atteint le haut du viewport
+      // 100% quand la fin de l'article atteint le bas du viewport
+      const scrollStart = articleTop;
+      const scrollEnd = articleBottom - viewportHeight;
+      const scrollRange = scrollEnd - scrollStart;
+      
+      const progress = Math.min(100, Math.max(0, ((window.scrollY - scrollStart) / scrollRange) * 100));
       setScrollProgress(progress);
     };
 
