@@ -1,15 +1,15 @@
 ---
-title: "Top 10 des Jeux d'Arcade Iconiques qui Ont Marqué l'Histoire"
-description: "Découvrez les 10 jeux d'arcade les plus influents de tous les temps, de Pac-Man à Street Fighter II."
-pubDate: 2025-11-18
+title: "Top 10 des Bornes d'Arcade les Plus Mythiques de Tous les Temps"
+description: "De Donkey Kong à Street Fighter II, découvrez les bornes d'arcade qui ont marqué l'histoire du jeu vidéo et continuent d'inspirer les développeurs aujourd'hui."
+pubDate: 2025-10-29
 author: "PIXEL CLASH Team"
 image:
-  url: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=400&fit=crop"
-  alt: "Bornes d'arcade vintage"
-tags: ["arcade", "top-10", "classiques", "années-80"]
-featured: true
+  url: "https://images.unsplash.com/photo-1635187834534-d1fa994fcabb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNhZGUlMjBtYWNoaW5lJTIwdmludGFnZXxlbnwxfHx8fDE3NjM5NzQ2NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  alt: "Borne d'arcade vintage"
+tags: ["Top List", "arcade", "classiques"]
+featured: false
 draft: false
-readingTime: 10
+readingTime: 6
 ---
 
 # Top 10 des Jeux d'Arcade Iconiques
