@@ -12,7 +12,8 @@
     "lighthouse": "npm run build && lhci autorun",
     "test:lighthouse": "npm run build && lhci autorun",
     "test:a11y": "playwright test tests/accessibility.test.ts",
-    "check:colors": "node scripts/check-contrast.js"
+    "check:colors": "node scripts/check-contrast.js",
+    "seo:audit": "npm run build && node scripts/seo-audit.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
