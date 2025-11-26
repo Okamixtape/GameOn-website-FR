@@ -1,6 +1,7 @@
 /**
  * BlogTOC - Table of Contents Sidebar (HUD Style)
  * Sticky sidebar avec progress tracking et share buttons
+ * Détecte automatiquement les sections H2 du contenu
  */
 
 import { Twitter, Facebook, Linkedin, Bookmark } from 'lucide-react';
@@ -11,15 +12,33 @@ interface Section {
   label: string;
 }
 
-const sections: Section[] = [
-  { id: 'intro', label: 'Introduction' },
-  { id: 'content', label: 'Contenu Principal' },
-  { id: 'conclusion', label: 'Conclusion' }
-];
-
 export default function BlogTOC() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState('intro');
+  const [activeSection, setActiveSection] = useState('');
+  const [sections, setSections] = useState<Section[]>([]);
+
+  // Détecter les sections H2 au montage
+  useEffect(() => {
+    const contentDiv = document.getElementById('content');
+    if (contentDiv) {
+      const headings = contentDiv.querySelectorAll('h2');
+      const detectedSections: Section[] = Array.from(headings).map((heading, index) => {
+        // Créer un ID si pas présent
+        if (!heading.id) {
+          const id = heading.textContent?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || `section-${index}`;
+          heading.id = id;
+        }
+        return {
+          id: heading.id,
+          label: heading.textContent || `Section ${index + 1}`
+        };
+      });
+      setSections(detectedSections);
+      if (detectedSections.length > 0) {
+        setActiveSection(detectedSections[0].id);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
