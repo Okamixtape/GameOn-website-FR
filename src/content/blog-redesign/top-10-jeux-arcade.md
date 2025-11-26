@@ -74,12 +74,10 @@ Premier jeu avec une **véritable narration** :
 
 ### Gameplay Révolutionnaire
 
-```
-8 personnages jouables
-6 boutons (3 coups de poing, 3 coups de pied)
-Combos et special moves
-Versus mode compétitif
-```
+- **8 personnages jouables**
+- **6 boutons** (3 coups de poing, 3 coups de pied)
+- **Combos et special moves**
+- **Versus mode compétitif**
 
 ### Héritage
 
