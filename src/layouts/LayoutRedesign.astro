@@ -87,6 +87,9 @@ import GoogleSearchConsole from '../components/GoogleSearchConsole.astro';
   <!-- Generator -->
   <meta name="generator" content={Astro.generator} />
   
+  <!-- Slot for additional head content (Schema.org, etc.) -->
+  <slot name="head" />
+  
   <!-- Critical CSS Inline (Performance) -->
   <style is:inline>
     /* Critical Above-the-Fold CSS */

@@ -20,6 +20,7 @@ import { GridBackground } from '../components/redesign/layout/GridBackground';
 // Layout Components
 import Header from '../components/redesign/layout/Header';
 import Footer from '../components/redesign/layout/Footer.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 
 // Astro Components (0 KB JS)
 import Hero from '../components/redesign/home/Hero.astro';
@@ -33,8 +34,8 @@ import FinalCTA from '../components/redesign/home/FinalCTA';
 // Data pour preload
 import { heroData } from '../data/redesign/home';
 
-const title = "PIXEL CLASH Championship 2026 - Tournoi Rétro Gaming";
-const description = "Rejoignez le plus grand championnat de jeux vidéo rétro. Compétitions sur classiques arcade, cashprize 15K€, ambiance années 80-90. Inscriptions ouvertes !";
+const title = "PIXEL CLASH 2026 | Championnat Retrogaming & Tournoi Jeux Arcade Paris";
+const description = "Rejoignez PIXEL CLASH 2026 : le plus grand tournoi retrogaming de France. Compétitions jeux arcade classiques, cashprize 15K€, ambiance années 80-90. Inscrivez-vous maintenant !";
 ---
 
 <LayoutRedesign 
@@ -42,6 +43,8 @@ const description = "Rejoignez le plus grand championnat de jeux vidéo rétro. 
   description={description}
   heroImage={heroData.image.src}
 >
+  <!-- Schema.org Structured Data -->
+  <SchemaOrg type="Event" slot="head" />
   
   <!-- Wrapper Synthwave - Fond sombre global -->
   <div class="min-h-screen bg-bg-dark text-text-light">

@@ -1,0 +1,101 @@
+---
+/**
+ * Schema.org JSON-LD
+ * Structured Data pour SEO
+ */
+
+interface Props {
+  type: 'Event' | 'Organization' | 'WebSite';
+}
+
+const { type } = Astro.props;
+const siteUrl = Astro.site?.href || 'https://pixelclash.fr';
+
+// Organization Schema (toujours présent)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PIXEL CLASH",
+  "url": siteUrl,
+  "logo": `${siteUrl}Logo.png`,
+  "description": "PIXEL CLASH Championship - Le plus grand tournoi retrogaming de France",
+  "sameAs": [
+    "https://twitter.com/pixelclash",
+    "https://facebook.com/pixelclash",
+    "https://instagram.com/pixelclash"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "email": "contact@pixelclash.fr"
+  }
+};
+
+// Event Schema (page d'accueil)
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "PIXEL CLASH Championship 2026",
+  "description": "Le plus grand tournoi retrogaming de France. Compétitions sur jeux arcade classiques des années 80-90.",
+  "startDate": "2026-03-15",
+  "endDate": "2026-03-17",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Grande Halle de La Villette",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "211 Avenue Jean Jaurès",
+      "addressLocality": "Paris",
+      "postalCode": "75019",
+      "addressCountry": "FR"
+    }
+  },
+  "image": `${siteUrl}og-image.png`,
+  "organizer": {
+    "@type": "Organization",
+    "name": "PIXEL CLASH",
+    "url": siteUrl
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": `${siteUrl}tournament-redesign`,
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-11-01"
+  },
+  "performer": {
+    "@type": "PerformingGroup",
+    "name": "Joueurs PIXEL CLASH"
+  }
+};
+
+// WebSite Schema (recherche)
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PIXEL CLASH",
+  "url": siteUrl,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}blog-redesign?search={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+let schema;
+if (type === 'Event') {
+  schema = [organizationSchema, eventSchema, websiteSchema];
+} else if (type === 'Organization') {
+  schema = [organizationSchema, websiteSchema];
+} else {
+  schema = websiteSchema;
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
