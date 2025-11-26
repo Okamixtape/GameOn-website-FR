@@ -22,6 +22,7 @@ import LayoutRedesign from '../layouts/LayoutRedesign.astro';
 import Header from '../components/redesign/layout/Header';
 import Footer from '../components/redesign/layout/Footer.astro';
 import TournamentPage from '../components/redesign/tournament/TournamentPage';
+import SchemaOrg from '../components/SchemaOrg.astro';
 
 const title = "Tournoi Retrogaming PIXEL CLASH 2026 | Inscription Championnat Jeux Arcade";
 const description = "Inscrivez-vous au tournoi retrogaming PIXEL CLASH 2026 : 125 places, cashprize 15K€, compétitions jeux arcade classiques. Format, règlement et récompenses détaillés.";
@@ -31,6 +32,9 @@ const description = "Inscrivez-vous au tournoi retrogaming PIXEL CLASH 2026 : 12
   title={title} 
   description={description}
 >
+  <!-- Schema.org Event -->
+  <SchemaOrg type="Event" slot="head" />
+  
   <!-- Header Redesign -->
   <Header client:load currentPath="/tournament-redesign" />
   

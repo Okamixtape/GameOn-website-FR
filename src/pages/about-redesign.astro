@@ -14,15 +14,19 @@ import LayoutRedesign from '../layouts/LayoutRedesign.astro';
 import Header from '../components/redesign/layout/Header';
 import Footer from '../components/redesign/layout/Footer.astro';
 import AboutPage from '../components/redesign/about/AboutPage';
+import SchemaOrg from '../components/SchemaOrg.astro';
 
-const title = "Notre Histoire - PIXEL CLASH";
-const description = "Découvrez l'histoire de PIXEL CLASH, le championnat qui célèbre les racines du jeu vidéo et rassemble les passionnés de l'âge d'or de l'arcade depuis 2015.";
+const title = "À Propos PIXEL CLASH | Histoire Championnat Retrogaming France";
+const description = "Découvrez l'histoire de PIXEL CLASH, le plus grand championnat retrogaming de France depuis 2015. Notre mission : célébrer l'âge d'or des jeux arcade et rassembler la communauté gaming.";
 ---
 
 <LayoutRedesign 
   title={title} 
   description={description}
 >
+  <!-- Schema.org Organization -->
+  <SchemaOrg type="Organization" slot="head" />
+  
   <div class="min-h-screen bg-bg-dark text-text-light">
     
     <Header client:load currentPath={Astro.url.pathname} />
