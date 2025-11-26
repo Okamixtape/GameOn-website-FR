@@ -77,6 +77,68 @@ const description = post.data.description;
           </div>
         </div>
       </div>
+
+      {/* Author Card - Player Profile Style */}
+      <section class="relative py-12 border-t border-cyan-500/20 bg-[#0a0a1f]">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-3xl mx-auto">
+            <div class="p-8 rounded-2xl bg-[#0a0a1f]/60 backdrop-blur-xl border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
+              <div class="flex items-start gap-6">
+                {/* Avatar */}
+                <div class="relative">
+                  <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#00f3ff] to-[#ff00ff] p-1">
+                    <div class="w-full h-full rounded-xl bg-[#0a0a1f] flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="absolute -bottom-2 -right-2 w-8 h-8 rounded-lg bg-yellow-400 flex items-center justify-center shadow-lg shadow-yellow-400/50">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#0a0a1f]">
+                      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                      <path d="M4 22h16"></path>
+                      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-2">
+                    <h3 class="text-2xl text-white font-bold">Thomas "RetroKing" Dubois</h3>
+                    <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs uppercase tracking-wider">
+                      Rédacteur En Chef
+                    </span>
+                  </div>
+                  <p class="text-gray-400 leading-relaxed mb-4">
+                    Passionné de retro gaming depuis 1987. Collectionneur de bornes d'arcade et expert en histoire du jeu vidéo. Champion PIXEL CLASH 2023.
+                  </p>
+
+                  {/* Stats */}
+                  <div class="flex gap-6">
+                    <div>
+                      <div class="text-2xl font-mono text-cyan-400 font-bold">42</div>
+                      <div class="text-xs text-gray-500 uppercase">Articles</div>
+                    </div>
+                    <div>
+                      <div class="text-2xl font-mono text-[#ff00ff] font-bold">15K</div>
+                      <div class="text-xs text-gray-500 uppercase">Lecteurs</div>
+                    </div>
+                    <div>
+                      <div class="text-2xl font-mono text-yellow-400 font-bold">Level 8</div>
+                      <div class="text-xs text-gray-500 uppercase">Expert</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <Footer />

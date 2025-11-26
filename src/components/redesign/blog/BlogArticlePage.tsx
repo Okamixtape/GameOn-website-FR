@@ -9,7 +9,7 @@
  * 5. Author card (player profile style)
  */
 
-import { Clock, User, Trophy, ArrowLeft, Share2, Bookmark, Twitter, Facebook, Linkedin } from 'lucide-react';
+import { Clock, ArrowLeft, Twitter, Facebook, Linkedin, Bookmark } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface BlogArticlePageProps {
@@ -244,57 +244,6 @@ export default function BlogArticlePage({
         </div>
       </section>
 
-      {/* Author Card - Player Profile Style */}
-      <section className="relative py-12 border-t border-cyan-500/20">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="p-8 rounded-2xl bg-[#0a0a1f]/60 backdrop-blur-xl border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
-              <div className="flex items-start gap-6">
-                {/* Avatar */}
-                <div className="relative">
-                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#00f3ff] to-[#ff00ff] p-1">
-                    <div className="w-full h-full rounded-xl bg-[#0a0a1f] flex items-center justify-center">
-                      <User className="w-12 h-12 text-cyan-400" />
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-lg bg-yellow-400 flex items-center justify-center shadow-lg shadow-yellow-400/50">
-                    <Trophy className="w-4 h-4 text-[#0a0a1f]" />
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-2xl text-white font-bold">Thomas "RetroKing" Dubois</h3>
-                    <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs uppercase tracking-wider">
-                      Rédacteur En Chef
-                    </span>
-                  </div>
-                  <p className="text-gray-400 leading-relaxed mb-4">
-                    Passionné de retro gaming depuis 1987. Collectionneur de bornes d'arcade et expert en histoire du jeu vidéo. Champion PIXEL CLASH 2023.
-                  </p>
-
-                  {/* Stats */}
-                  <div className="flex gap-6">
-                    <div>
-                      <div className="text-2xl font-mono text-cyan-400 font-bold">42</div>
-                      <div className="text-xs text-gray-500 uppercase">Articles</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-mono text-[#ff00ff] font-bold">15K</div>
-                      <div className="text-xs text-gray-500 uppercase">Lecteurs</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-mono text-yellow-400 font-bold">Level 8</div>
-                      <div className="text-xs text-gray-500 uppercase">Expert</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
