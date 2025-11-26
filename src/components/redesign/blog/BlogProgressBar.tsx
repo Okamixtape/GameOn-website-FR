@@ -9,10 +9,21 @@ export default function BlogProgressBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
+      // Calculer par rapport à la fin de l'article, pas la fin de la page
+      const articleContent = document.getElementById('content');
+      if (!articleContent) return;
+
+      const articleBottom = articleContent.getBoundingClientRect().bottom + window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const scrollableHeight = articleBottom - viewportHeight;
+      
+      // Progress = 100% quand on atteint la fin de l'article
+      const progress = Math.min(100, Math.max(0, (window.scrollY / scrollableHeight) * 100));
       setScrollProgress(progress);
     };
+
+    // Calculer au montage
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
