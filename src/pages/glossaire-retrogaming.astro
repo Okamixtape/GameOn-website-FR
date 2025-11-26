@@ -1,0 +1,317 @@
+---
+/**
+ * Glossaire Retrogaming - Définitions et Termes
+ * Optimisé SEO pour featured snippets Google
+ */
+
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
+
+const title = "Glossaire Retrogaming | Dictionnaire Jeux Arcade & Termes Gaming Vintage";
+const description = "Découvrez tous les termes du retrogaming : définitions jeux arcade, vocabulaire gaming années 80-90, expressions tournoi. Guide complet pour passionnés de jeux vidéo classiques.";
+
+// Glossaire avec mots-clés SEO
+const glossary = [
+  {
+    letter: "A",
+    terms: [
+      {
+        term: "Arcade",
+        definition: "Salle de jeux équipée de bornes d'arcade où les joueurs insèrent des pièces pour jouer. Très populaires dans les années 80-90, les arcades étaient des lieux de rencontre pour les gamers."
+      },
+      {
+        term: "Attract Mode",
+        definition: "Mode démo d'une borne d'arcade qui se lance automatiquement pour attirer les joueurs. Affiche généralement le gameplay, les high scores et les instructions."
+      }
+    ]
+  },
+  {
+    letter: "B",
+    terms: [
+      {
+        term: "Borne d'Arcade",
+        definition: "Meuble de jeu vidéo autonome équipé d'un écran, de contrôles (joystick, boutons) et d'un monnayeur. Icône du retrogaming, présente dans les salles d'arcade des années 80-90."
+      },
+      {
+        term: "Boss",
+        definition: "Ennemi puissant apparaissant généralement en fin de niveau. Nécessite des stratégies spécifiques pour être vaincu. Concept popularisé par les jeux arcade classiques."
+      },
+      {
+        term: "Bullet Hell",
+        definition: "Genre de shoot'em up où l'écran est rempli de projectiles ennemis. Le joueur doit esquiver des patterns complexes. Popularisé par des jeux comme Galaga."
+      }
+    ]
+  },
+  {
+    letter: "C",
+    terms: [
+      {
+        term: "Cashprize",
+        definition: "Récompense en argent offerte aux gagnants d'un tournoi gaming. PIXEL CLASH 2026 propose 15,000€ de cashprize pour les meilleurs joueurs retrogaming."
+      },
+      {
+        term: "Combo",
+        definition: "Enchaînement de coups sans interruption dans les jeux de combat. Technique essentielle dans Street Fighter II et autres fighting games arcade."
+      },
+      {
+        term: "Continue",
+        definition: "Option permettant de reprendre la partie après un Game Over en insérant une nouvelle pièce. Système monétaire des bornes d'arcade."
+      },
+      {
+        term: "CRT",
+        definition: "Cathode Ray Tube - Écran à tube cathodique utilisé dans les bornes d'arcade originales. Offre un affichage authentique sans latence pour le retrogaming."
+      }
+    ]
+  },
+  {
+    letter: "D",
+    terms: [
+      {
+        term: "Dip Switch",
+        definition: "Interrupteurs à l'intérieur d'une borne d'arcade permettant de configurer la difficulté, le nombre de vies, le prix par partie, etc."
+      },
+      {
+        term: "Donkey Kong",
+        definition: "Jeu d'arcade iconique de Nintendo (1981) qui a introduit Mario (alors appelé Jumpman). Premier jeu avec une véritable narration."
+      }
+    ]
+  },
+  {
+    letter: "E",
+    terms: [
+      {
+        term: "Émulation",
+        definition: "Technique permettant de jouer à des jeux rétro sur du matériel moderne via un logiciel simulant la console ou borne originale. Débat dans la communauté retrogaming."
+      },
+      {
+        term: "Extra Life",
+        definition: "Vie supplémentaire obtenue en atteignant un certain score ou en collectant des items spéciaux. Concept clé des jeux arcade pour prolonger la partie."
+      }
+    ]
+  },
+  {
+    letter: "F",
+    terms: [
+      {
+        term: "Fighting Game",
+        definition: "Genre de jeu de combat un contre un. Street Fighter II (1991) a défini les standards du genre avec ses combos et special moves."
+      },
+      {
+        term: "Frame",
+        definition: "Image individuelle dans une animation de jeu. Les jeux arcade tournent généralement à 60 FPS (frames per second). Important pour le timing précis en compétition."
+      }
+    ]
+  },
+  {
+    letter: "G",
+    terms: [
+      {
+        term: "Galaga",
+        definition: "Shoot'em up arcade de Namco (1981). Amélioration de Space Invaders avec des formations d'ennemis complexes et un système de capture de vaisseau."
+      },
+      {
+        term: "Game Over",
+        definition: "Écran affiché quand le joueur perd toutes ses vies. Dans les arcades, propose généralement un countdown pour insérer une pièce et continuer."
+      }
+    ]
+  },
+  {
+    letter: "H",
+    terms: [
+      {
+        term: "High Score",
+        definition: "Meilleur score enregistré sur une borne d'arcade. Affiché sur l'écran d'accueil pour créer une compétition entre joueurs. Concept central du retrogaming."
+      },
+      {
+        term: "Hit Box",
+        definition: "Zone invisible autour d'un personnage ou objet qui détecte les collisions. Crucial pour la précision dans les jeux arcade compétitifs."
+      }
+    ]
+  },
+  {
+    letter: "J",
+    terms: [
+      {
+        term: "Joystick",
+        definition: "Manette de contrôle des bornes d'arcade. Composé d'un levier et de boutons. Les joysticks Sanwa et Seimitsu sont les standards professionnels."
+      },
+      {
+        term: "Jeux Arcade",
+        definition: "Jeux vidéo conçus pour les bornes d'arcade. Caractérisés par un gameplay accessible, une difficulté progressive et un système de scoring. Âge d'or : 1978-1990."
+      }
+    ]
+  },
+  {
+    letter: "P",
+    terms: [
+      {
+        term: "Pac-Man",
+        definition: "Jeu d'arcade iconique de Namco (1980). Premier personnage de jeu vidéo à devenir une icône culturelle mondiale. Plus de 400,000 bornes vendues."
+      },
+      {
+        term: "Pattern",
+        definition: "Séquence répétitive de mouvements ennemis dans un jeu arcade. Mémoriser les patterns est essentiel pour réussir en compétition retrogaming."
+      },
+      {
+        term: "Pixel Art",
+        definition: "Style graphique utilisant des pixels visibles. Esthétique des jeux arcade classiques, aujourd'hui très populaire dans les jeux indépendants."
+      },
+      {
+        term: "Power-Up",
+        definition: "Item collectible qui améliore temporairement les capacités du joueur. Concept introduit par les jeux arcade des années 80."
+      }
+    ]
+  },
+  {
+    letter: "R",
+    terms: [
+      {
+        term: "Retrogaming",
+        definition: "Pratique consistant à jouer aux jeux vidéo classiques des années 70-90. Inclut la collection de consoles vintage, l'émulation et la participation à des tournois comme PIXEL CLASH."
+      },
+      {
+        term: "ROM",
+        definition: "Read-Only Memory - Fichier contenant les données d'un jeu arcade ou console. Utilisé pour l'émulation. Légalité discutée dans la communauté."
+      }
+    ]
+  },
+  {
+    letter: "S",
+    terms: [
+      {
+        term: "Shoot'em Up",
+        definition: "Genre de jeu où le joueur contrôle un vaisseau et tire sur des vagues d'ennemis. Space Invaders (1978) et Galaga (1981) sont des classiques du genre."
+      },
+      {
+        term: "Space Invaders",
+        definition: "Jeu d'arcade de Taito (1978) qui a lancé l'industrie du jeu vidéo. Premier blockbuster gaming avec plus de 2 milliards de dollars de revenus."
+      },
+      {
+        term: "Speedrun",
+        definition: "Pratique consistant à finir un jeu le plus rapidement possible. Très populaire dans la communauté retrogaming avec des records sur jeux arcade classiques."
+      },
+      {
+        term: "Street Fighter II",
+        definition: "Fighting game de Capcom (1991) qui a défini le genre. Système de combos, 8 personnages jouables, versus mode. Toujours joué en compétition aujourd'hui."
+      }
+    ]
+  },
+  {
+    letter: "T",
+    terms: [
+      {
+        term: "Tournoi Retrogaming",
+        definition: "Compétition sur jeux vidéo classiques. PIXEL CLASH Championship 2026 est le plus grand tournoi retrogaming de France avec 125 joueurs et 15K€ de cashprize."
+      },
+      {
+        term: "Twin Stick",
+        definition: "Type de contrôle utilisant deux joysticks, un pour le mouvement et un pour la direction de tir. Popularisé par des jeux comme Robotron 2084."
+      }
+    ]
+  }
+];
+---
+
+<LayoutRedesign 
+  title={title} 
+  description={description}
+>
+  <!-- Header -->
+  <Header client:load currentPath="/glossaire-retrogaming" />
+  
+  <!-- Glossaire Content -->
+  <div class="min-h-screen bg-bg-dark text-text-light pt-32 pb-20">
+    <div class="container mx-auto px-4 max-w-5xl">
+      
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <p class="text-cyan-400 text-sm font-mono uppercase tracking-wider mb-4">
+          📖 Glossaire Complet
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
+            Dictionnaire Retrogaming
+          </span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Tous les termes et définitions du retrogaming, jeux arcade et gaming vintage
+        </p>
+      </div>
+
+      <!-- Alphabet Navigation -->
+      <div class="mb-12 p-4 rounded-2xl bg-[#0a0a1f]/60 backdrop-blur-xl border border-cyan-500/30">
+        <div class="flex flex-wrap gap-2 justify-center">
+          {glossary.map(section => (
+            <a 
+              href={`#letter-${section.letter}`}
+              class="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500/20 to-magenta-500/20 border border-cyan-500/30 hover:border-cyan-500 text-cyan-400 hover:text-white font-bold transition-all"
+            >
+              {section.letter}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Glossary Sections -->
+      <div class="space-y-12">
+        {glossary.map(section => (
+          <div id={`letter-${section.letter}`} class="scroll-mt-32">
+            <h2 class="text-3xl font-bold mb-6 text-cyan-400">
+              {section.letter}
+            </h2>
+            <div class="space-y-4">
+              {section.terms.map(item => (
+                <div class="p-6 rounded-xl bg-[#0a0a1f]/60 backdrop-blur-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    {item.term}
+                  </h3>
+                  <p class="text-gray-300 leading-relaxed">
+                    {item.definition}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 p-8 rounded-2xl bg-gradient-to-r from-[#ff00ff]/10 to-[#00f3ff]/10 border border-cyan-500/30 backdrop-blur-xl text-center">
+        <h2 class="text-2xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
+            Prêt à Rejoindre le Tournoi ?
+          </span>
+        </h2>
+        <p class="text-gray-400 mb-6">
+          Maintenant que vous maîtrisez le vocabulaire, inscrivez-vous à PIXEL CLASH 2026 !
+        </p>
+        <a 
+          href="/tournament-redesign"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ff00ff] to-[#ff0080] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-magenta-500/50 transition-all"
+        >
+          🎮 S'inscrire au Tournoi
+        </a>
+      </div>
+
+      <!-- SEO Links -->
+      <div class="mt-12 text-center text-sm text-gray-500">
+        <p class="mb-2">Ressources complémentaires :</p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/blog-redesign" class="text-cyan-400 hover:text-cyan-300">Blog Retrogaming</a>
+          <span>•</span>
+          <a href="/faq-redesign" class="text-cyan-400 hover:text-cyan-300">FAQ Tournoi</a>
+          <span>•</span>
+          <a href="/tournament-redesign" class="text-cyan-400 hover:text-cyan-300">Format Championnat</a>
+          <span>•</span>
+          <a href="/index-redesign" class="text-cyan-400 hover:text-cyan-300">Accueil</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <Footer />
+
+</LayoutRedesign>
