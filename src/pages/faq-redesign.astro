@@ -1,0 +1,177 @@
+---
+/**
+ * FAQ Page - Questions Fréquentes
+ * Optimisée SEO avec Schema.org FAQPage
+ */
+
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
+
+const title = "FAQ Tournoi Retrogaming | Questions Fréquentes PIXEL CLASH 2026";
+const description = "Toutes les réponses à vos questions sur le tournoi retrogaming PIXEL CLASH 2026 : inscription, format, jeux, règlement, cashprize. Guide complet pour participants.";
+
+// FAQ Data avec mots-clés SEO
+const faqs = [
+  {
+    question: "Comment s'inscrire au tournoi retrogaming PIXEL CLASH 2026 ?",
+    answer: "L'inscription au tournoi est gratuite et se fait en ligne sur notre site. Cliquez sur 'S'inscrire' en haut de la page, remplissez le formulaire avec vos informations et validez. Vous recevrez une confirmation par email. Places limitées à 125 joueurs."
+  },
+  {
+    question: "Quels sont les jeux du championnat jeux arcade ?",
+    answer: "Le tournoi propose 12 jeux arcade classiques des années 80-90 : Pac-Man, Street Fighter II, Donkey Kong, Space Invaders, Galaga, Ms. Pac-Man, Defender, Frogger, Asteroids, Centipede, et d'autres classiques. Tous les jeux sont sur matériel d'époque authentique."
+  },
+  {
+    question: "Quel est le format du tournoi ?",
+    answer: "Le championnat se déroule sur 3 jours (15-17 juin 2026) avec 3 phases : Qualifications (jour 1), Demi-finales (jour 2), et Finale (jour 3). Chaque joueur participe à plusieurs jeux. Les meilleurs scores avancent aux phases suivantes."
+  },
+  {
+    question: "Quel est le montant du cashprize ?",
+    answer: "Le prize pool total est de 15,000€ répartis entre les gagnants : 1ère place 7,500€, 2ème place 4,500€, 3ème place 2,000€, et 1,000€ pour les places 4-8. Des prix spéciaux sont également prévus pour les meilleures performances par jeu."
+  },
+  {
+    question: "Où se déroule le tournoi retrogaming ?",
+    answer: "PIXEL CLASH Championship 2026 se tient à la Grande Halle de La Villette, Paris 19ème (211 Avenue Jean Jaurès, 75019 Paris). Facilement accessible en métro (ligne 5, station Porte de Pantin) et en bus."
+  },
+  {
+    question: "Faut-il être un joueur professionnel pour participer ?",
+    answer: "Non ! Le tournoi est ouvert à tous les niveaux, du débutant au pro. Nous avons des catégories pour différents niveaux d'expérience. L'important est la passion pour le retrogaming et l'envie de s'amuser dans une ambiance conviviale."
+  },
+  {
+    question: "Y a-t-il un âge minimum pour participer ?",
+    answer: "Les participants doivent avoir au moins 13 ans. Les mineurs (13-17 ans) doivent fournir une autorisation parentale signée lors de l'inscription. Les joueurs de moins de 16 ans doivent être accompagnés d'un adulte pendant le tournoi."
+  },
+  {
+    question: "Puis-je venir en tant que spectateur ?",
+    answer: "Oui ! L'entrée pour les spectateurs est gratuite. Vous pourrez assister aux matchs, profiter de l'ambiance arcade, et découvrir les bornes d'arcade vintage. Des animations et démonstrations sont prévues tout au long de l'événement."
+  },
+  {
+    question: "Le matériel est-il fourni ?",
+    answer: "Oui, tout le matériel est fourni : bornes d'arcade authentiques, écrans CRT d'époque, joysticks et boutons arcade professionnels. Vous n'avez besoin d'apporter que votre talent et votre passion pour les jeux rétro !"
+  },
+  {
+    question: "Comment se préparer au tournoi ?",
+    answer: "Entraînez-vous sur les jeux du tournoi (liste disponible sur notre site), regardez des vidéos de stratégies, rejoignez notre Discord pour échanger avec d'autres joueurs, et consultez notre blog pour des guides et astuces. La pratique régulière fait la différence !"
+  }
+];
+
+// Schema.org FAQPage
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<LayoutRedesign 
+  title={title} 
+  description={description}
+>
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  
+  <!-- Header -->
+  <Header client:load currentPath="/faq-redesign" />
+  
+  <!-- FAQ Content -->
+  <div class="min-h-screen bg-bg-dark text-text-light pt-32 pb-20">
+    <div class="container mx-auto px-4 max-w-4xl">
+      
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <p class="text-cyan-400 text-sm font-mono uppercase tracking-wider mb-4">
+          ❓ Questions Fréquentes
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
+            FAQ Tournoi Retrogaming
+          </span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Toutes les réponses à vos questions sur PIXEL CLASH Championship 2026
+        </p>
+      </div>
+
+      <!-- FAQ List -->
+      <div class="space-y-6">
+        {faqs.map((faq, index) => (
+          <details 
+            class="group p-6 rounded-2xl bg-[#0a0a1f]/60 backdrop-blur-xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all"
+          >
+            <summary class="cursor-pointer list-none flex items-start gap-4">
+              <span class="text-cyan-400 font-mono text-sm mt-1 flex-shrink-0">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h2 class="text-xl font-semibold text-white group-open:text-cyan-400 transition-colors flex-1">
+                {faq.question}
+              </h2>
+              <svg 
+                class="w-6 h-6 text-cyan-400 flex-shrink-0 transition-transform group-open:rotate-180" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-4 pl-10 text-gray-300 leading-relaxed">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 p-8 rounded-2xl bg-gradient-to-r from-[#ff00ff]/10 to-[#00f3ff]/10 border border-cyan-500/30 backdrop-blur-xl text-center">
+        <h2 class="text-2xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
+            Vous avez d'autres questions ?
+          </span>
+        </h2>
+        <p class="text-gray-400 mb-6">
+          Contactez-nous par email ou rejoignez notre Discord pour échanger avec la communauté
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a 
+            href="mailto:contact@pixelclash.fr"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#00f3ff] to-[#00d4ff] text-bg-dark font-bold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
+          >
+            📧 Nous contacter
+          </a>
+          <a 
+            href="/tournament-redesign"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ff00ff] to-[#ff0080] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-magenta-500/50 transition-all"
+          >
+            🎮 S'inscrire au tournoi
+          </a>
+        </div>
+      </div>
+
+      <!-- SEO Links -->
+      <div class="mt-12 text-center text-sm text-gray-500">
+        <p class="mb-2">Liens utiles :</p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="/blog-redesign" class="text-cyan-400 hover:text-cyan-300">Blog Retrogaming</a>
+          <span>•</span>
+          <a href="/tournament-redesign" class="text-cyan-400 hover:text-cyan-300">Format Tournoi</a>
+          <span>•</span>
+          <a href="/index-redesign" class="text-cyan-400 hover:text-cyan-300">Accueil</a>
+          <span>•</span>
+          <a href="/about-redesign" class="text-cyan-400 hover:text-cyan-300">À Propos</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <Footer />
+
+</LayoutRedesign>

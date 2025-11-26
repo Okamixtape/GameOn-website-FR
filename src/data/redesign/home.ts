@@ -61,8 +61,8 @@ export interface SectionHeader {
 
 export const heroData: HeroData = {
   eyebrow: "PIXEL CLASH PRESENTS",
-  title: "CHAMPIONNAT",
-  titleHighlight: "RÉTRO GAMING 2026",
+  title: "CHAMPIONNAT RETROGAMING",
+  titleHighlight: "TOURNOI JEUX ARCADE 2026",
   date: {
     label: "Date",
     value: "15-17 Juin 2026",
@@ -97,8 +97,8 @@ export const heroData: HeroData = {
 
 export const featuresHeader: SectionHeader = {
   eyebrow: "🎯 POURQUOI PARTICIPER",
-  title: "REJOIGNEZ L'AVENTURE",
-  subtitle: "4 raisons de ne pas manquer PIXEL CLASH Championship 2026",
+  title: "REJOIGNEZ LE TOURNOI RETROGAMING",
+  subtitle: "4 raisons de participer au plus grand championnat jeux arcade de France",
 };
 
 export const featuresData: FeatureCard[] = [
