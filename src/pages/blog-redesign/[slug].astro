@@ -8,7 +8,8 @@ import type { CollectionEntry } from 'astro:content';
 import LayoutRedesign from '../../layouts/LayoutRedesign.astro';
 import Header from '../../components/redesign/layout/Header';
 import Footer from '../../components/redesign/layout/Footer.astro';
-import BlogArticlePage from '../../components/redesign/blog/BlogArticlePage';
+import BlogProgressBar from '../../components/redesign/blog/BlogProgressBar';
+import BlogTOC from '../../components/redesign/blog/BlogTOC';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog-redesign', ({ data }) => {
@@ -38,45 +39,145 @@ const formatDate = (date: Date) => {
 
 const title = post.data.title;
 const description = post.data.description;
+const category = post.data.tags[0] || "Retro-Guide";
+const date = formatDate(post.data.pubDate);
+const readTime = `${post.data.readingTime || 8} min`;
+const image = post.data.image?.url || "https://images.unsplash.com/photo-1583634852966-130c15654305";
 ---
 
 <LayoutRedesign title={title} description={description}>
-  <div class="min-h-screen bg-bg-dark text-text-light">
+  <div class="min-h-screen bg-[#0a0a1f] text-white">
     
     <Header client:load currentPath={Astro.url.pathname} />
     
-    <div class="pt-20">
-      <BlogArticlePage 
-        client:load
-        title={post.data.title}
-        excerpt={post.data.description}
-        category={post.data.tags[0] || "Retro-Guide"}
-        date={formatDate(post.data.pubDate)}
-        readTime={`${post.data.readingTime || 8} min`}
-        image={post.data.image?.url || "https://images.unsplash.com/photo-1583634852966-130c15654305"}
-        content=""
+    {/* Progress Bar */}
+    <BlogProgressBar client:load />
+
+    {/* Grid Pattern Background */}
+    <div class="fixed inset-0 opacity-20 pointer-events-none">
+      <div 
+        class="w-full h-full" 
+        style={{
+          backgroundImage: 'linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          opacity: 0.1
+        }}
       />
-      
-      <div class="container mx-auto px-4 relative z-10 -mt-96">
-        <div class="max-w-3xl mx-auto lg:ml-[25%]">
-          <div 
-            class="prose prose-invert prose-cyan max-w-none
-              prose-headings:text-text-light
-              prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-12 prose-h2:bg-gradient-to-r prose-h2:from-[#00f3ff] prose-h2:to-[#ff00ff] prose-h2:bg-clip-text prose-h2:text-transparent
-              prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-8
-              prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
-              prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:text-cyan-300
-              prose-strong:text-white prose-strong:font-bold
-              prose-ul:text-gray-300 prose-ul:mb-4
-              prose-li:mb-2
-              prose-blockquote:border-l-4 prose-blockquote:border-cyan-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-400 prose-blockquote:bg-cyan-500/5 prose-blockquote:py-2 prose-blockquote:rounded-r-lg
-              prose-code:text-cyan-400 prose-code:bg-[#0a0a1f] prose-code:px-2 prose-code:py-1 prose-code:rounded
-            "
+    </div>
+
+    {/* Hero Section */}
+    <section class="relative min-h-[70vh] flex items-end overflow-hidden pt-20">
+      {/* Background Image with Overlay */}
+      <div class="absolute inset-0">
+        <img 
+          src={image}
+          alt={title}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a1f]/70 via-[#0a0a1f]/80 to-[#0a0a1f]" />
+      </div>
+
+      {/* Content */}
+      <div class="container mx-auto px-4 relative z-10 pb-12">
+        <div class="max-w-4xl">
+          {/* Back Button */}
+          <a 
+            href="/blog-redesign"
+            class="inline-flex items-center gap-2 mb-6 px-6 py-3 text-cyan-400 hover:text-white border border-cyan-500/30 hover:border-cyan-500 hover:bg-cyan-500/10 transition-all rounded-lg font-bold"
           >
-            <Content />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Retour au Blog
+          </a>
+
+          {/* Meta */}
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 backdrop-blur-md text-cyan-400 text-sm uppercase tracking-wider">
+              {category}
+            </span>
+            <span class="text-gray-400 text-sm flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              {readTime} de lecture
+            </span>
+            <span class="text-gray-400 text-sm">{date}</span>
           </div>
+
+          {/* Title */}
+          <h1 class="text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight font-bold">
+            <span class="bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
+              {title}
+            </span>
+          </h1>
+
+          {/* Excerpt */}
+          <p class="text-xl text-gray-300 leading-relaxed">
+            {description}
+          </p>
         </div>
       </div>
+    </section>
+
+    {/* Main Content Area with TOC */}
+    <section class="relative py-12">
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-8">
+          {/* Sticky Table of Contents - HUD Style */}
+          <aside class="lg:col-span-3 hidden lg:block">
+            <BlogTOC client:load />
+          </aside>
+
+          {/* Article Content */}
+          <article class="lg:col-span-9">
+            <div class="max-w-3xl mx-auto">
+              <div 
+                id="content"
+                class="prose prose-invert prose-cyan max-w-none
+                  prose-headings:text-text-light
+                  prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-12 prose-h2:bg-gradient-to-r prose-h2:from-[#00f3ff] prose-h2:to-[#ff00ff] prose-h2:bg-clip-text prose-h2:text-transparent
+                  prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-8
+                  prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
+                  prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:text-cyan-300
+                  prose-strong:text-white prose-strong:font-bold
+                  prose-ul:text-gray-300 prose-ul:mb-4
+                  prose-li:mb-2
+                  prose-blockquote:border-l-4 prose-blockquote:border-cyan-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-400 prose-blockquote:bg-cyan-500/5 prose-blockquote:py-2 prose-blockquote:rounded-r-lg
+                  prose-code:text-cyan-400 prose-code:bg-[#0a0a1f] prose-code:px-2 prose-code:py-1 prose-code:rounded
+                "
+              >
+                <Content />
+              </div>
+
+              {/* CTA Box */}
+              <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#ff00ff]/10 to-[#00f3ff]/10 border border-cyan-500/30 backdrop-blur-xl">
+                <h3 class="text-2xl mb-4 font-bold">
+                  <span class="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
+                    Rejoignez PIXEL CLASH Championship 2026
+                  </span>
+                </h3>
+                <p class="text-gray-300 mb-6">
+                  Vivez l'expérience arcade ultime et écrivez votre propre légende gaming.
+                </p>
+                <a 
+                  href="/tournament-redesign"
+                  class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] hover:from-[#ff00ff]/90 hover:to-[#00f3ff]/90 text-white border-0 shadow-lg shadow-purple-500/50 rounded-lg font-bold transition-all"
+                >
+                  S'inscrire au Tournoi
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
       {/* Author Card - Player Profile Style */}
       <section class="relative py-12 border-t border-cyan-500/20 bg-[#0a0a1f]">
