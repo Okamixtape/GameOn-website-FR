@@ -28,7 +28,7 @@ Le rétro gaming, c'est jouer aux **jeux vidéo classiques** des années 70, 80 
 4. **Collection** de consoles et jeux
 5. **Compétition** dans des tournois comme PIXEL CLASH
 
-## 🕹️ Par Où Commencer ?
+## <span class="emoji">🕹️</span> Par Où Commencer ?
 
 ### Option 1 : Matériel Original
 

@@ -16,7 +16,7 @@ readingTime: 6
 
 Les bornes d'arcade ont défini une génération de gamers. Voici les 10 titres qui ont marqué l'histoire du jeu vidéo.
 
-## 🥇 #1 - Pac-Man (1980)
+## <span class="emoji">🥇</span> #1 - Pac-Man (1980)
 
 **L'icône absolue du gaming**
 
@@ -34,7 +34,7 @@ Pac-Man a transcendé le jeu vidéo pour devenir un **phénomène culturel mondi
 
 > "Pac-Man a prouvé que les jeux vidéo pouvaient toucher tout le monde, pas seulement les geeks." - Toru Iwatani, créateur
 
-## 🥈 #2 - Space Invaders (1978)
+## <span class="emoji">🥈</span> #2 - Space Invaders (1978)
 
 **Le jeu qui a lancé l'industrie**
 
@@ -48,7 +48,7 @@ Pac-Man a transcendé le jeu vidéo pour devenir un **phénomène culturel mondi
 - Difficulté progressive (ennemis accélèrent)
 - Bande-son iconique qui s'accélère
 
-## 🥉 #3 - Donkey Kong (1981)
+## <span class="emoji">🥉</span> #3 - Donkey Kong (1981)
 
 **La naissance de Mario**
 
