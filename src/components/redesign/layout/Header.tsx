@@ -17,7 +17,7 @@ export default function Header({ currentPath = '/' }: HeaderProps) {
 
   const isActive = (path: string) => {
     if (path === '/') {
-      return currentPath === '/' || currentPath === '/index-redesign';
+      return currentPath === '/';
     }
     return currentPath.startsWith(path);
   };

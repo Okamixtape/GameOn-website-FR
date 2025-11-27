@@ -1,280 +1,321 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CTAButton from '../components/CTAButton.astro';
+/**
+ * Developer/Portfolio Page Redesign - Astro-First Architecture
+ * 
+ * Page vitrine développeur avec design Synthwave
+ * - 100% Astro pur (0 KB JS)
+ * - Sections : Hero, Stack, Projects, Skills, Contact
+ * - Performance optimale
+ */
 
-const title = "Loup Aubour - Développeur Full-Stack";
-const description = "Développeur Full-Stack spécialisé en React, TypeScript, Astro et Cloud Engineering. Créateur du projet PIXEL CLASH.";
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import { GridBackground } from '../components/redesign/layout/GridBackground';
+import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
+
+import { 
+  Code, Server, Cloud, Wrench, Zap, Eye, Box, 
+  Mail, Github, Linkedin, ArrowRight, ExternalLink 
+} from 'lucide-react';
+
+import { 
+  developerHero, 
+  developerStack, 
+  developerProjects,
+  developerSkills,
+  developerContact 
+} from '../data/redesign/developer';
+
+const title = "Développeur Full-Stack - Loup Aubour";
+const description = "Cloud Engineer & Full-Stack Developer spécialisé en React, Astro, TypeScript et AWS. Portfolio de projets web performants.";
+
+// Icon mapping
+const iconMap = {
+  Code, Server, Cloud, Wrench, Zap, Eye, Box,
+  Mail, Github, Linkedin, ArrowRight, ExternalLink
+} as const;
 ---
 
-<Layout title={title} description={description}>
-  <!-- Hero Développeur -->
-  <section class="relative bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 text-white py-20 md:py-32 overflow-hidden">
-    <!-- Pattern retro -->
-    <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,217,255,.3) 10px, rgba(0,217,255,.3) 20px);"></div>
+<LayoutRedesign title={title} description={description}>
+  <div class="min-h-screen bg-bg-dark text-text-light">
     
-    <!-- Gradient accent -->
-    <div class="absolute inset-0 bg-gradient-to-br from-retro-blue/10 via-transparent to-retro-purple/10"></div>
+    <!-- Header -->
+    <Header client:load currentPath={Astro.url.pathname} />
     
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-4xl mx-auto text-center">
-        
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          <span class="font-bold text-sm uppercase tracking-wider">Développeur Full-Stack</span>
-        </div>
-
-        <!-- Titre -->
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          <span class="bg-gradient-to-r from-retro-blue via-retro-purple to-retro-pink bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,217,255,0.5)]">
-            Loup Aubour
-          </span>
-        </h1>
-        
-        <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-          Développeur Full-Stack & Cloud Engineer<br/>
-          Spécialisé en React, TypeScript, Astro et AWS
-        </p>
-
-        <!-- Stats -->
-        <div class="flex flex-wrap justify-center gap-8 mb-10">
-          <div class="text-center">
-            <div class="text-3xl font-bold text-retro-blue mb-1">5+</div>
-            <div class="text-sm text-gray-300">Années d'expérience</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-retro-purple mb-1">50+</div>
-            <div class="text-sm text-gray-300">Projets réalisés</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-retro-pink mb-1">100%</div>
-            <div class="text-sm text-gray-300">Clients satisfaits</div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="flex flex-wrap gap-4 justify-center">
-          <a 
-            href="mailto:loup.aubour@gmail.com"
-            class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-retro-blue to-retro-purple text-white font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-retro-blue/50"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-            Me contacter
-          </a>
-          <a 
-            href="https://github.com/Okamixtape"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 text-white font-bold rounded-lg transition-all duration-300"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-            </svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- À propos -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold mb-8 text-center">À Propos</h2>
-        
-        <div class="prose prose-lg max-w-none">
-          <p class="text-gray-700 leading-relaxed mb-6">
-            Développeur Full-Stack passionné avec plus de 5 ans d'expérience dans la création d'applications web modernes et performantes. 
-            Spécialisé en React, TypeScript, Astro et Cloud Engineering (AWS).
-          </p>
-          
-          <p class="text-gray-700 leading-relaxed mb-6">
-            <strong class="text-retro-purple">PIXEL CLASH</strong> est un projet portfolio démontrant mes compétences en :
-          </p>
-          
-          <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-            <li><strong>Frontend moderne</strong> : Astro 5, React, TypeScript, Tailwind CSS 4</li>
-            <li><strong>Performance</strong> : Lighthouse 95+, Core Web Vitals optimisés</li>
-            <li><strong>Accessibilité</strong> : WCAG 2.1 AA, tests axe-core automatisés</li>
-            <li><strong>Cloud Engineering</strong> : AWS S3, CloudFront, CI/CD GitHub Actions</li>
-            <li><strong>SEO</strong> : Optimisation complète, sitemap, meta tags</li>
-            <li><strong>Design System</strong> : Composants réutilisables, cohérence visuelle</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stack Technique -->
-  <section class="py-20 bg-zinc-50">
-    <div class="container mx-auto px-4">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12 text-center">Stack Technique</h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Frontend -->
-          <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-zinc-200 hover:border-retro-blue transition-colors">
-            <h3 class="text-2xl font-bold mb-4 text-retro-blue">Frontend</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>• React / Next.js</li>
-              <li>• Astro 5</li>
-              <li>• TypeScript</li>
-              <li>• Tailwind CSS 4</li>
-              <li>• Vue.js / Nuxt</li>
-            </ul>
-          </div>
-
-          <!-- Backend -->
-          <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-zinc-200 hover:border-retro-purple transition-colors">
-            <h3 class="text-2xl font-bold mb-4 text-retro-purple-dark">Backend</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>• Node.js / Express</li>
-              <li>• Python / FastAPI</li>
-              <li>• PostgreSQL / MongoDB</li>
-              <li>• REST / GraphQL</li>
-              <li>• Prisma / TypeORM</li>
-            </ul>
-          </div>
-
-          <!-- Cloud & DevOps -->
-          <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-zinc-200 hover:border-retro-pink transition-colors">
-            <h3 class="text-2xl font-bold mb-4 text-retro-pink">Cloud & DevOps</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>• AWS (S3, CloudFront, Lambda)</li>
-              <li>• Docker / Kubernetes</li>
-              <li>• CI/CD (GitHub Actions)</li>
-              <li>• Terraform</li>
-              <li>• Monitoring (Sentry, Datadog)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12 text-center">Services Proposés</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Service 1 -->
-          <div class="p-8 border-2 border-zinc-200 rounded-xl hover:border-retro-blue hover:shadow-xl transition-all">
-            <div class="w-12 h-12 bg-retro-blue/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-retro-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-3">Développement Web</h3>
-            <p class="text-gray-700 mb-4">
-              Sites web modernes, performants et accessibles. <br/>Landing pages, sites vitrine, applications web complexes.
-            </p>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li>✓ Design responsive</li>
-              <li>✓ Performance optimisée</li>
-              <li>✓ SEO intégré</li>
-            </ul>
-          </div>
-
-          <!-- Service 2 -->
-          <div class="p-8 border-2 border-zinc-200 rounded-xl hover:border-retro-purple hover:shadow-xl transition-all">
-            <div class="w-12 h-12 bg-retro-purple/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-retro-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-3">Applications Full-Stack</h3>
-            <p class="text-gray-700 mb-4">
-              Applications web complètes avec backend, <br/>base de données, authentification et API.
-            </p>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li>✓ Architecture scalable</li>
-              <li>✓ API REST/GraphQL</li>
-              <li>✓ Sécurité renforcée</li>
-            </ul>
-          </div>
-
-          <!-- Service 3 -->
-          <div class="p-8 border-2 border-zinc-200 rounded-xl hover:border-retro-pink hover:shadow-xl transition-all">
-            <div class="w-12 h-12 bg-retro-pink/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-retro-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-3">Cloud Engineering</h3>
-            <p class="text-gray-700 mb-4">
-              Déploiement, infrastructure cloud (AWS), <br/>CI/CD, monitoring et optimisation.
-            </p>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li>✓ AWS / Vercel / Netlify</li>
-              <li>✓ CI/CD automatisé</li>
-              <li>✓ Monitoring & alertes</li>
-            </ul>
-          </div>
-
-          <!-- Service 4 -->
-          <div class="p-8 border-2 border-zinc-200 rounded-xl hover:border-amber-500 hover:shadow-xl transition-all">
-            <div class="w-12 h-12 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-3">Optimisation & Audit</h3>
-            <p class="text-gray-700 mb-4">
-              Audit de performance, accessibilité, SEO. <br/>Optimisation de sites existants.
-            </p>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li>✓ Lighthouse 95+</li>
-              <li>✓ WCAG 2.1 AA</li>
-              <li>✓ Core Web Vitals</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Final -->
-  <section class="py-20 bg-gradient-to-br from-retro-purple via-retro-blue to-retro-pink text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Travaillons Ensemble</h2>
-      <p class="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-        Vous avez un projet web ? <br/>Besoin d'un développeur Full-Stack expérimenté ?<br/><br/>
-        Contactez-moi pour discuter de vos besoins.
-      </p>
+    <!-- Grid Background -->
+    <GridBackground client:only="react" />
+    
+    <!-- Content -->
+    <div class="pt-20">
       
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a 
-          href="mailto:loup.aubour@gmail.com"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-purple font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          loup.aubour@gmail.com
-        </a>
-        <a 
-          href="https://github.com/Okamixtape"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 text-white font-bold rounded-lg transition-all duration-300"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-          </svg>
-          Voir mon GitHub
-        </a>
-      </div>
+      <!-- Hero Section -->
+      <section class="relative min-h-[600px] flex items-center overflow-hidden py-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+          <img
+            src={developerHero.image.src}
+            alt={developerHero.image.alt}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a1f] via-[#0a0a1f]/95 to-[#0a0a1f]/70" />
+        </div>
 
-      <p class="mt-8 text-sm opacity-75">
-        Disponible pour missions freelance et CDI • Télétravail ou sur site
-      </p>
+        <!-- Content -->
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl">
+            <div class="inline-block mb-4">
+              <span class="text-neon-cyan tracking-widest text-sm uppercase font-bold">
+                {developerHero.eyebrow}
+              </span>
+            </div>
+            <h1 class="mb-6 leading-tight">
+              <span class="block text-3xl md:text-4xl text-text-muted mb-2">
+                {developerHero.name}
+              </span>
+              <span class="block text-5xl md:text-6xl lg:text-7xl mb-4 font-bold">
+                <span class="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
+                  {developerHero.title}
+                </span>
+              </span>
+              <span class="block text-2xl md:text-3xl text-text-light">
+                {developerHero.tagline}
+              </span>
+            </h1>
+            <p class="text-xl text-text-muted leading-relaxed mb-8 max-w-2xl">
+              {developerHero.description}
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href={developerHero.cta.primary.href}
+                class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-neon-magenta to-neon-cyan hover:from-neon-magenta/90 hover:to-neon-cyan/90 text-white font-bold rounded-lg shadow-lg shadow-purple-500/50 transition-all"
+              >
+                {developerHero.cta.primary.text}
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href={developerHero.cta.secondary.href}
+                class="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-white/30 text-white hover:bg-white/5 hover:border-white/50 rounded-lg transition-all"
+              >
+                {developerHero.cta.secondary.text}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stack Section -->
+      <section class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl mb-4 font-bold">
+              <span class="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
+                {developerStack.title}
+              </span>
+            </h2>
+            <p class="text-text-muted text-lg">{developerStack.subtitle}</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {developerStack.categories.map((category) => {
+              const Icon = iconMap[category.icon as keyof typeof iconMap];
+              return (
+                <div class="group relative">
+                  <div class="absolute inset-0 bg-gradient-to-r from-neon-magenta to-neon-cyan rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                  
+                  <div class="relative h-full p-6 rounded-2xl bg-bg-dark/60 backdrop-blur-xl border border-neon-cyan/20 group-hover:border-neon-cyan/50 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                      <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center`}>
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 class="text-2xl font-bold text-text-light">{category.name}</h3>
+                    </div>
+                    <ul class="space-y-2">
+                      {category.technologies.map((tech) => (
+                        <li class="flex justify-between items-center">
+                          <span class="text-text-muted">{tech.name}</span>
+                          <span class="text-neon-cyan text-sm font-medium">{tech.level}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="relative py-20 bg-gradient-to-b from-transparent to-bg-dark-accent">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl mb-4 font-bold text-text-light">
+              {developerProjects.title}
+            </h2>
+            <p class="text-text-muted text-lg">{developerProjects.subtitle}</p>
+          </div>
+
+          <div class="space-y-8">
+            {developerProjects.projects.map((project) => (
+              <div class="group relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-magenta rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-2xl" />
+                
+                <div class="relative grid md:grid-cols-2 gap-6 p-6 rounded-2xl bg-bg-dark/60 backdrop-blur-xl border border-neon-magenta/20 group-hover:border-neon-magenta/50 transition-all duration-300">
+                  <!-- Image -->
+                  <div class="rounded-xl overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <!-- Content -->
+                  <div class="flex flex-col justify-between">
+                    <div>
+                      <h3 class="text-2xl md:text-3xl mb-3 font-bold text-text-light">
+                        {project.name}
+                      </h3>
+                      <p class="text-text-muted mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
+                      <div class="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map((tag) => (
+                          <span class="px-3 py-1 text-xs rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <!-- Metrics -->
+                    <div class="grid grid-cols-3 gap-3 mb-4">
+                      {project.metrics.map((metric) => (
+                        <div class="text-center p-3 rounded-lg bg-bg-dark/40 border border-neon-cyan/10">
+                          <div class="text-lg font-bold text-neon-cyan">{metric.value}</div>
+                          <div class="text-xs text-text-muted">{metric.label}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <!-- Links -->
+                    <div class="flex gap-3">
+                      {project.links.demo && (
+                        <a
+                          href={project.links.demo}
+                          class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-neon-magenta/20 border border-neon-magenta/40 text-neon-magenta hover:bg-neon-magenta/30 rounded-lg transition-all text-sm"
+                        >
+                          Démo
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
+                      {project.links.github && (
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-transparent border border-white/30 text-white hover:bg-white/5 rounded-lg transition-all text-sm"
+                        >
+                          GitHub
+                          <Github className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl mb-4 font-bold text-text-light">
+              {developerSkills.title}
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {developerSkills.skills.map((skill) => {
+              const Icon = iconMap[skill.icon as keyof typeof iconMap];
+              return (
+                <div class="p-6 rounded-xl bg-bg-dark/40 backdrop-blur-md border border-neon-cyan/20 hover:border-neon-cyan/50 transition-all">
+                  <div class="flex items-start gap-4 mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-magenta flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="text-xl font-bold text-text-light mb-1">{skill.name}</h3>
+                      <p class="text-text-muted text-sm">{skill.description}</p>
+                    </div>
+                  </div>
+                  <!-- Progress bar -->
+                  <div class="w-full h-2 bg-bg-dark rounded-full overflow-hidden">
+                    <div 
+                      class="h-full bg-gradient-to-r from-neon-cyan to-neon-magenta"
+                      style={`width: ${skill.level}%`}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="relative py-20">
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-3xl mx-auto text-center p-12 rounded-2xl bg-gradient-to-br from-neon-magenta/10 via-neon-cyan/10 to-neon-magenta/10 border border-neon-cyan/30 backdrop-blur-xl">
+            <h2 class="text-3xl md:text-4xl mb-4 font-bold">
+              <span class="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
+                {developerContact.title}
+              </span>
+            </h2>
+            <p class="text-text-muted text-lg mb-8">
+              {developerContact.description}
+            </p>
+
+            <!-- Contact Methods -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              {developerContact.methods.map((method) => {
+                const Icon = iconMap[method.icon as keyof typeof iconMap];
+                return (
+                  <a
+                    href={method.href}
+                    target={method.id !== 'email' ? '_blank' : undefined}
+                    rel={method.id !== 'email' ? 'noopener noreferrer' : undefined}
+                    class="p-4 rounded-xl bg-bg-dark/40 border border-neon-cyan/20 hover:border-neon-cyan/50 hover:bg-bg-dark/60 transition-all group"
+                  >
+                    <Icon className="w-6 h-6 text-neon-cyan mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                    <div class="text-sm text-text-muted mb-1">{method.label}</div>
+                    <div class="text-text-light font-medium">{method.value}</div>
+                  </a>
+                );
+              })}
+            </div>
+
+            <!-- CTA -->
+            <a
+              href={developerContact.cta.href}
+              class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-neon-magenta to-neon-cyan hover:from-neon-magenta/90 hover:to-neon-cyan/90 text-white font-bold rounded-lg shadow-lg shadow-purple-500/50 transition-all"
+            >
+              {developerContact.cta.text}
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
     </div>
-  </section>
-</Layout>
+
+    <!-- Footer -->
+    <Footer />
+
+  </div>
+</LayoutRedesign>

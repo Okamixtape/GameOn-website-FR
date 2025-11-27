@@ -1,109 +1,49 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ArticleCard from '../../components/blog/ArticleCard.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+/**
+ * Blog Listing Page - Conforme Figma Make
+ */
 
-// Récupérer tous les articles publiés
-const allPosts = await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
+import { getCollection } from 'astro:content';
+import LayoutRedesign from '../../layouts/LayoutRedesign.astro';
+import Header from '../../components/redesign/layout/Header';
+import Footer from '../../components/redesign/layout/Footer.astro';
+import BlogListingPage from '../../components/redesign/blog/BlogListingPage';
+
+const title = "Blog Retrogaming | Actualités Jeux Arcade & Guides Tournoi - PIXEL CLASH";
+const description = "Découvrez l'histoire du retrogaming, guides jeux arcade, stratégies tournoi et actualités gaming. Articles experts pour passionnés de jeux vidéo classiques années 80-90.";
+
+// Récupérer tous les articles
+const allPosts = await getCollection('blog-redesign', ({ data }) => {
   return data.draft !== true;
 });
 
-// Trier par date (plus récent en premier)
-const sortedPosts = allPosts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => 
-  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-
-// Articles featured
-const featuredPosts = sortedPosts.filter((post: CollectionEntry<'blog'>) => post.data.featured);
+// Mapper vers le format attendu par BlogListingPage
+const articles = allPosts.map((post) => ({
+  id: post.id,
+  title: post.data.title,
+  excerpt: post.data.description,
+  category: post.data.tags[0] || "Retro-Guide", // Première tag comme catégorie
+  date: new Intl.DateTimeFormat('fr-FR', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  }).format(post.data.pubDate),
+  readTime: `${post.data.readingTime || 8} min`,
+  image: post.data.image?.url || "https://images.unsplash.com/photo-1583634852966-130c15654305",
+  featured: post.data.featured || false
+}));
 ---
 
-<Layout 
-  title="Blog - PIXEL CLASH Championship 2026"
-  description="Découvrez l'univers du retro gaming : histoire, guides, actualités et interviews. Tout sur les jeux arcade classiques et la culture gaming."
->
-  <!-- Hero Blog Immersif -->
-  <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-20 md:py-28 overflow-hidden mb-16">
-    <!-- Pattern retro background -->
-    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,110,.2) 10px, rgba(255,0,110,.2) 20px);"></div>
+<LayoutRedesign title={title} description={description}>
+  <div class="min-h-screen bg-bg-dark text-text-light">
     
-    <div class="container mx-auto px-4 relative z-10 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-6">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/>
-          <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"/>
-        </svg>
-        <span class="font-bold text-sm uppercase tracking-wider">Blog</span>
-      </div>
-
-      <h1 class="font-gaming text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(0,217,255,0.8)]">
-        Univers Retro Gaming
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-        Histoire, guides, actualités et culture gaming.<br/>Plongez dans l'âge d'or de l'arcade.
-      </p>
+    <Header client:load currentPath={Astro.url.pathname} />
+    
+    <div class="pt-20">
+      <BlogListingPage client:load articles={articles} />
     </div>
-  </section>
 
-  <div class="container mx-auto px-4 pb-16">
-
-    <!-- Articles Featured -->
-    {featuredPosts.length > 0 && (
-      <section class="mb-16">
-        <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-          <span class="text-amber-500">⭐</span>
-          Articles à la Une
-        </h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-          {featuredPosts.map((post: CollectionEntry<'blog'>) => (
-            <ArticleCard post={post} variant="featured" maxTags={3} />
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- Tous les Articles -->
-    <section>
-      <h2 class="text-3xl font-bold mb-8">Tous les Articles</h2>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        {sortedPosts.map((post: CollectionEntry<'blog'>) => (
-          <ArticleCard post={post} variant="default" maxTags={2} />
-        ))}
-      </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="mt-16 text-center bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple p-12 rounded-lg text-white shadow-lg shadow-retro-blue/30">
-      <h2 class="font-gaming text-3xl font-bold mb-4 uppercase tracking-wide">Rejoignez l'Aventure !</h2>
-      <p class="text-xl mb-8 opacity-90">
-        Inscrivez-vous au PIXEL CLASH Championship 2026 et vivez l'expérience retro gaming ultime.
-      </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <button 
-          data-open-modal
-          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-retro-purple font-bold rounded-lg hover:scale-105 transition-all duration-300 shadow-lg"
-        >
-          <span>Je m'inscris maintenant</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </button>
-        <a 
-          href="/details"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold rounded-lg transition-all duration-300"
-        >
-          <span>Voir les détails</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </a>
-      </div>
-      <p class="mt-4 text-sm opacity-75">
-        Places limitées • Inscription gratuite
-      </p>
-    </section>
+    <Footer />
 
   </div>
-</Layout>
+</LayoutRedesign>

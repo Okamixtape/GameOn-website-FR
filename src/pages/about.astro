@@ -1,190 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CTAButton from '../components/CTAButton.astro';
+/**
+ * About Page Redesign - Conforme Figma Make
+ * 
+ * Sections :
+ * 1. THE ORIGIN STORY (Hero)
+ * 2. NOTRE PARCOURS (Timeline animée)
+ * 3. NOS STATISTIQUES (Compteurs)
+ * 4. NOS VALEURS (3 cartes)
+ * 5. CTA Final
+ */
+
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import Header from '../components/redesign/layout/Header';
+import Footer from '../components/redesign/layout/Footer.astro';
+import AboutPage from '../components/redesign/about/AboutPage';
+import SchemaOrg from '../components/SchemaOrg.astro';
+
+const title = "À Propos PIXEL CLASH | Histoire Championnat Retrogaming France";
+const description = "Découvrez l'histoire de PIXEL CLASH, le plus grand championnat retrogaming de France depuis 2015. Notre mission : célébrer l'âge d'or des jeux arcade et rassembler la communauté gaming.";
 ---
 
-<Layout 
-  title="Notre Histoire - PIXEL CLASH Championship 2026"
-  description="Découvrez PIXEL CLASH, le championnat retro gaming qui célèbre l'âge d'or du jeu vidéo. Notre mission, nos valeurs, notre histoire."
+<LayoutRedesign 
+  title={title} 
+  description={description}
 >
-  <!-- Hero Section Immersive -->
-  <section class="relative bg-gradient-to-br from-retro-pink via-retro-purple to-retro-blue text-white py-20 md:py-28 overflow-hidden">
-    <!-- Pattern retro background -->
-    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,110,.2) 10px, rgba(255,0,110,.2) 20px);"></div>
+  <!-- Schema.org Organization -->
+  <SchemaOrg type="Organization" slot="head" />
+  
+  <div class="min-h-screen bg-bg-dark text-text-light">
     
-    <div class="container mx-auto px-4 relative z-10 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-6">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
-        </svg>
-        <span class="font-bold text-sm uppercase tracking-wider">Notre Histoire</span>
-      </div>
-
-      <h1 class="font-gaming text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase tracking-wide drop-shadow-[0_0_30px_rgba(255,0,110,0.8)]">
-        À Propos de PIXEL CLASH
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
-        Le championnat qui célèbre les racines du jeu vidéo <br/>et rassemble les passionnés de l'âge d'or de l'arcade.
-      </p>
-      
-      <!-- CTA -->
-      <div class="flex flex-wrap gap-4 justify-center">
-        <CTAButton 
-          text="Je m'inscris maintenant"
-          variant="primary"
-          size="lg"
-          opensModal={true}
-        />
-        <CTAButton 
-          text="Voir les détails"
-          variant="secondary"
-          size="lg"
-          href="/details"
-        />
-      </div>
+    <Header client:load currentPath={Astro.url.pathname} />
+    
+    <div class="pt-20">
+      <AboutPage client:load />
     </div>
-  </section>
 
-  <div class="container mx-auto px-4 py-16">
-
-    <!-- Mission -->
-    <section class="mb-16 bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple p-12 rounded-lg text-white shadow-lg shadow-retro-blue/30">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="font-gaming text-3xl font-bold mb-6 uppercase tracking-wide text-center">Notre Mission</h2>
-        <p class="text-lg leading-relaxed mb-4">
-          PIXEL CLASH est né d'une passion commune pour l'âge d'or du jeu vidéo. 
-          Notre mission est de célébrer les racines du gaming en organisant des 
-          compétitions qui honorent les classiques tout en créant une communauté 
-          soudée de passionnés.
-        </p>
-        <p class="text-lg leading-relaxed">
-          Nous croyons que les jeux rétro ne sont pas seulement de la nostalgie, 
-          mais une forme d'art intemporelle qui mérite d'être préservée et partagée 
-          avec les nouvelles générations de joueurs.
-        </p>
-      </div>
-    </section>
-
-    <!-- Valeurs -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-8 text-center">Nos Valeurs</h2>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Valeur 1 -->
-        <div class="group relative bg-white border-2 border-zinc-200 rounded-xl p-8 hover:border-retro-blue hover:-translate-y-2 hover:shadow-2xl hover:shadow-retro-blue/20 transition-all duration-300">
-          <div class="w-16 h-16 mb-6 bg-cyan-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-retro-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-zinc-900 mb-3">Communauté</h3>
-          <p class="text-zinc-600 leading-relaxed">
-            Créer un espace inclusif où tous les joueurs, quel que soit leur niveau, 
-            peuvent partager leur passion pour le retro gaming.
-          </p>
-        </div>
-
-        <!-- Valeur 2 -->
-        <div class="group relative bg-white border-2 border-zinc-200 rounded-xl p-8 hover:border-retro-purple hover:-translate-y-2 hover:shadow-2xl hover:shadow-retro-purple/20 transition-all duration-300">
-          <div class="w-16 h-16 mb-6 bg-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-retro-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-zinc-900 mb-3">Excellence</h3>
-          <p class="text-zinc-600 leading-relaxed">
-            Organiser des événements de qualité professionnelle avec des standards 
-            élevés de compétition et d'expérience joueur.
-          </p>
-        </div>
-
-        <!-- Valeur 3 -->
-        <div class="group relative bg-white border-2 border-zinc-200 rounded-xl p-8 hover:border-retro-pink hover:-translate-y-2 hover:shadow-2xl hover:shadow-retro-pink/20 transition-all duration-300">
-          <div class="w-16 h-16 mb-6 bg-pink-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-            <svg class="w-10 h-10 text-retro-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-bold text-xl text-zinc-900 mb-3">Nostalgie</h3>
-          <p class="text-zinc-600 leading-relaxed">
-            Préserver et célébrer l'héritage des jeux classiques qui ont façonné 
-            l'industrie du jeu vidéo moderne.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Histoire -->
-    <section class="mb-16 bg-white p-8 md:p-12 rounded-lg border border-zinc-200">
-      <h2 class="text-3xl font-bold mb-8 text-center">Notre Histoire</h2>
-      
-      <div class="max-w-3xl mx-auto space-y-8 text-zinc-700">
-        <div class="flex items-start gap-6">
-          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-retro-blue to-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-retro-blue/50 ring-4 ring-cyan-100">
-            2024
-          </div>
-          <div class="flex-1">
-            <h3 class="font-gaming text-xl mb-2 text-retro-blue-dark uppercase tracking-wide">La Naissance</h3>
-            <p class="text-zinc-600 leading-relaxed">
-              PIXEL CLASH est créé par une équipe de passionnés de retro gaming 
-              déterminés à créer un championnat qui honore les classiques.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-6">
-          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-retro-purple to-purple-700 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-retro-purple/50 ring-4 ring-purple-100">
-            2025
-          </div>
-          <div class="flex-1">
-            <h3 class="font-gaming text-xl mb-2 text-retro-purple uppercase tracking-wide">Préparation</h3>
-            <p class="text-zinc-600 leading-relaxed">
-              Développement du concept, partenariats avec les acteurs du retro gaming 
-              et construction de la communauté PIXEL CLASH.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-6">
-          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-retro-pink to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-retro-pink/50 ring-4 ring-pink-100">
-            2026
-          </div>
-          <div class="flex-1">
-            <h3 class="font-gaming text-xl mb-2 text-retro-pink uppercase tracking-wide">Premier Championnat</h3>
-            <p class="text-zinc-600 leading-relaxed">
-              Lancement du premier PIXEL CLASH Championship avec 128 joueurs, 
-              15 000€ de cashprize et 3 jours de compétitions intenses.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="text-center bg-gradient-to-r from-retro-purple via-retro-blue to-retro-purple p-12 rounded-lg text-white shadow-lg shadow-retro-blue/30">
-      <h2 class="font-gaming text-3xl font-bold mb-4 uppercase tracking-wide">Rejoignez l'Aventure !</h2>
-      <p class="text-xl mb-8 opacity-90">
-        Inscrivez-vous au PIXEL CLASH Championship 2026 et faites partie de l'histoire.
-      </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <CTAButton 
-          text="Je m'inscris maintenant"
-          variant="primary"
-          size="xl"
-          opensModal={true}
-        />
-        <CTAButton 
-          text="Voir les détails"
-          variant="secondary"
-          size="xl"
-          href="/details"
-        />
-      </div>
-      <p class="mt-4 text-sm opacity-75">
-        Inscription gratuite • Confirmation immédiate par email
-      </p>
-    </section>
+    <Footer />
 
   </div>
-</Layout>
+</LayoutRedesign>
