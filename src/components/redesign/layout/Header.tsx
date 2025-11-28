@@ -1,5 +1,6 @@
 import { ArrowRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { openInscriptionModal } from '../../../hooks/useInscriptionModal';
 
 interface HeaderProps {
   currentPath?: string;
@@ -53,13 +54,13 @@ export default function Header({ currentPath = '/' }: HeaderProps) {
           </nav>
 
           {/* Desktop CTA Button */}
-          <a 
-            href="/inscription"
+          <button 
+            onClick={openInscriptionModal}
             className="hidden md:inline-flex items-center gap-2 px-6 py-2 text-sm bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] hover:from-[#ff00ff]/90 hover:to-[#00f3ff]/90 text-white rounded-lg shadow-lg shadow-purple-500/40 transition-all"
           >
             S'inscrire
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
 
           {/* Mobile Menu Button */}
           <button 
@@ -122,14 +123,16 @@ export default function Header({ currentPath = '/' }: HeaderProps) {
 
               {/* Mobile CTA */}
               <div className="pt-6 border-t border-white/10">
-                <a 
-                  href="/inscription"
-                  onClick={() => setMobileMenuOpen(false)}
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openInscriptionModal();
+                  }}
                   className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] hover:from-[#ff00ff]/90 hover:to-[#00f3ff]/90 text-white rounded-lg shadow-lg shadow-purple-500/40 transition-all"
                 >
                   S'inscrire
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>

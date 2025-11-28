@@ -1,4 +1,5 @@
 import { Trophy, Gamepad2, Users, Shield, Zap, ArrowRight, CheckCircle2, Star, Target, Award, Swords, Crown } from 'lucide-react';
+import { openInscriptionModal } from '../../../hooks/useInscriptionModal';
 
 /**
  * TOURNAMENT PAGE - Conforme à la maquette Figma Make
@@ -496,8 +497,8 @@ export default function TournamentPage() {
             </p>
 
             {/* CTA Button */}
-            <a 
-              href="/inscription"
+            <button 
+              onClick={openInscriptionModal}
               className="inline-flex items-center gap-3 text-xl px-12 py-8 bg-gradient-to-r from-[#ff00ff] via-[#ff0080] to-[#ff00ff] hover:from-[#ff00ff]/90 hover:to-[#ff00ff]/70 text-white border-0 shadow-2xl shadow-pink-500/60 hover:shadow-pink-500/80 transition-all animate-pulse hover:animate-none relative group rounded-lg"
             >
               <span className="relative z-10 flex items-center gap-3">
@@ -505,7 +506,7 @@ export default function TournamentPage() {
                 <ArrowRight className="w-6 h-6" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] opacity-0 group-hover:opacity-20 transition-opacity rounded-lg" />
-            </a>
+            </button>
 
             {/* Social Proof */}
             <div className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-green-500/10 via-yellow-500/10 to-red-500/10 border border-green-500/30 backdrop-blur-md mt-6">
