@@ -3,14 +3,14 @@
  * À intégrer dans le layout principal pour qu'elle soit disponible partout
  */
 
-import InscriptionModal from '../inscription/InscriptionModal';
+import InscriptionModalSimple from '../inscription/InscriptionModalSimple';
 import { useInscriptionModal } from '../../../hooks/useInscriptionModal';
 
 export default function InscriptionModalWrapper() {
   const { isOpen, closeModal } = useInscriptionModal();
 
   return (
-    <InscriptionModal 
+    <InscriptionModalSimple 
       open={isOpen} 
       onOpenChange={closeModal} 
     />

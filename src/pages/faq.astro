@@ -145,12 +145,13 @@ const faqSchema = {
           >
             📧 Nous contacter
           </a>
-          <a 
-            href="/tournament"
+          <button 
+            data-open-modal
+            type="button"
             class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ff00ff] to-[#ff0080] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-magenta-500/50 transition-all"
           >
             🎮 S'inscrire au tournoi
-          </a>
+          </button>
         </div>
       </div>
 
@@ -175,3 +176,17 @@ const faqSchema = {
   <Footer />
 
 </LayoutRedesign>
+
+<script>
+  // Gérer l'ouverture de la modale d'inscription
+  import { openInscriptionModal } from '../hooks/useInscriptionModal';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const modalButton = document.querySelector('[data-open-modal]');
+    if (modalButton) {
+      modalButton.addEventListener('click', () => {
+        openInscriptionModal();
+      });
+    }
+  });
+</script>

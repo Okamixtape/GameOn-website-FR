@@ -31,6 +31,9 @@ import '../styles/global.css';
 // Import analytics
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import GoogleSearchConsole from '../components/GoogleSearchConsole.astro';
+
+// Import modale d'inscription
+import InscriptionModalWrapper from '../components/redesign/layout/InscriptionModalWrapper';
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -101,5 +104,8 @@ import GoogleSearchConsole from '../components/GoogleSearchConsole.astro';
 </head>
 <body class="font-sans antialiased">
   <slot />
+  
+  <!-- Modale d'inscription globale -->
+  <InscriptionModalWrapper client:load />
 </body>
 </html>

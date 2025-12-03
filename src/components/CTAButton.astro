@@ -80,3 +80,20 @@ const Tag = opensModal ? 'button' : 'a';
     </svg>
   </a>
 )}
+
+{opensModal && (
+  <script>
+    // Importer la fonction d'ouverture de la modale
+    import { openInscriptionModal } from '../hooks/useInscriptionModal';
+    
+    // Attacher l'événement au clic sur tous les boutons avec data-open-modal
+    document.addEventListener('DOMContentLoaded', () => {
+      const modalButtons = document.querySelectorAll('[data-open-modal]');
+      modalButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          openInscriptionModal();
+        });
+      });
+    });
+  </script>
+)}
