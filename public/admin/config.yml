@@ -1,0 +1,134 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: fr
+
+collections:
+  # 1. Configuration Générale du Site
+  - name: "settings"
+    label: "Paramètres du Site"
+    files:
+      - name: "general"
+        label: "Informations Générales"
+        file: "src/content/settings/general.json"
+        fields:
+          - { label: "Nom du Site", name: "siteName", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Email Contact", name: "email", widget: "string" }
+          - { label: "Téléphone", name: "phone", widget: "string" }
+          - { label: "Adresse", name: "address", widget: "text" }
+
+  # 2. Page d'Accueil
+  - name: "homepage"
+    label: "Page d'Accueil"
+    files:
+      - name: "hero"
+        label: "Section Hero"
+        file: "src/content/homepage/hero.json"
+        fields:
+          - { label: "Surtitre", name: "eyebrow", widget: "string" }
+          - { label: "Titre Principal", name: "title", widget: "string" }
+          - { label: "Titre Mis en Valeur", name: "titleHighlight", widget: "string" }
+          - label: "Date de l'Événement"
+            name: "date"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string", default: "Date" }
+              - { label: "Valeur", name: "value", widget: "string" }
+          - label: "Lieu"
+            name: "location"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string", default: "Lieu" }
+              - { label: "Valeur", name: "value", widget: "string" }
+          - label: "Bouton Principal"
+            name: "ctaPrimary"
+            widget: "object"
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "Lien", name: "href", widget: "string" }
+          - label: "Image Hero"
+            name: "image"
+            widget: "object"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Texte Alternatif", name: "alt", widget: "string" }
+
+  # 3. Blog / Actualités
+  - name: "blog"
+    label: "Articles de Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Date de Publication", name: "pubDate", widget: "datetime" }
+      - { label: "Auteur", name: "author", widget: "string", default: "PIXEL CLASH Team" }
+      - { label: "Image de Couverture", name: "heroImage", widget: "image" }
+      - { label: "Temps de Lecture (min)", name: "readingTime", widget: "number", default: 5 }
+      - { label: "Article Mis en Avant", name: "featured", widget: "boolean", default: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # 4. Tournoi
+  - name: "tournament"
+    label: "Page Tournoi"
+    files:
+      - name: "tournament-info"
+        label: "Informations Tournoi"
+        file: "src/content/tournament/info.json"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Cashprize Total", name: "cashprize", widget: "string" }
+          - { label: "Nombre de Participants", name: "participants", widget: "number" }
+          - label: "Formats de Jeu"
+            name: "formats"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Icône", name: "icon", widget: "string" }
+
+  # 5. Produits/Jeux
+  - name: "games"
+    label: "Jeux Disponibles"
+    folder: "src/content/games"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nom du Jeu", name: "name", widget: "string" }
+      - { label: "Année", name: "year", widget: "number" }
+      - { label: "Console", name: "console", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Disponible au Tournoi", name: "available", widget: "boolean", default: true }
+
+  # 6. Infos Pratiques
+  - name: "practical-info"
+    label: "Infos Pratiques"
+    files:
+      - name: "schedule"
+        label: "Horaires"
+        file: "src/content/practical/schedule.json"
+        fields:
+          - label: "Horaires"
+            name: "hours"
+            widget: "list"
+            fields:
+              - { label: "Jour", name: "day", widget: "string" }
+              - { label: "Horaires", name: "hours", widget: "string" }
+      - name: "faq"
+        label: "FAQ"
+        file: "src/content/practical/faq.json"
+        fields:
+          - label: "Questions Fréquentes"
+            name: "questions"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Réponse", name: "answer", widget: "text" }

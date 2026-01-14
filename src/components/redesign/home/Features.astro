@@ -10,7 +10,8 @@
  * @performance Gain estimé : +5 points Lighthouse
  */
 
-import { Trophy, Users, Gamepad2, Star, ArrowRight } from "lucide-react";
+import { Trophy, Users, Gamepad2, Star } from "lucide-react";
+import CTAButton from "../common/CTAButton";
 import {
   featuresData,
   featuresHeader,
@@ -54,7 +55,7 @@ const iconMap = {
         const Icon = iconMap[feature.icon as keyof typeof iconMap];
 
         return (
-          <div key={feature.id} class="group relative">
+          <div class="group relative">
             <!-- Glow effect (CSS pur - performance) -->
             <div class="absolute inset-0 bg-gradient-to-r from-neon-magenta to-neon-cyan rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
 
@@ -78,13 +79,9 @@ const iconMap = {
 
     <!-- Bottom CTA -->
     <div class="text-center">
-      <a
-        href={featuresCTA.href}
-        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-neon-magenta to-neon-cyan hover:from-neon-magenta/90 hover:to-neon-cyan/90 text-white font-bold border-0 rounded-lg shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 transition-all"
-      >
+      <CTAButton client:load variant="secondary">
         {featuresCTA.text}
-        <ArrowRight className="w-4 h-4" />
-      </a>
+      </CTAButton>
       <p class="text-text-muted text-sm mt-4">{featuresCTA.note}</p>
     </div>
   </div>

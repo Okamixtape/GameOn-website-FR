@@ -18,11 +18,11 @@ export const developerHero = {
   },
   cta: {
     primary: {
-      text: "Voir mes Projets",
+      text: "Voir les Projets",
       href: "#projects"
     },
     secondary: {
-      text: "Me Contacter",
+      text: "Contact",
       href: "#contact"
     }
   }

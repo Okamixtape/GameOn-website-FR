@@ -12,9 +12,9 @@ const stats = [
   {
     id: "players",
     icon: Users,
-    value: 500,
-    suffix: "+",
-    label: "Joueurs Inscrits",
+    value: 98,
+    suffix: "/125",
+    label: "Places Réservées",
     color: "from-cyan-400 to-cyan-600",
   },
   {
@@ -30,7 +30,7 @@ const stats = [
     icon: Zap,
     value: 15,
     suffix: "K€",
-    label: "Prize Pool",
+    label: "de Récompense",
     color: "from-purple-400 to-purple-600",
   },
   {
@@ -38,7 +38,7 @@ const stats = [
     icon: Gamepad2,
     value: 3,
     suffix: " jours",
-    label: "D'Expérience Gaming",
+    label: "De Gaming",
     color: "from-pink-400 to-pink-600",
   },
 ];

@@ -1,7 +1,7 @@
 ---
 title: "Débuter en Retro Gaming : Le Guide Complet 2026"
 description: "Console idéale, émulation, jeux cultes : tout ce qu'il faut savoir pour débuter en retro gaming. Guide pratique avec conseils d'achat et sélection de jeux essentiels."
-pubDate: 2025-11-04
+pubDate: 2025-11-04T00:00:00.000Z
 author: "PIXEL CLASH Team"
 image:
   url: "https://images.unsplash.com/photo-1695028644151-1ec92bae9fb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYW1pbmclMjBjb25zb2xlJTIwY29udHJvbGxlcnxlbnwxfHx8fDE3NjM4ODI0MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080"

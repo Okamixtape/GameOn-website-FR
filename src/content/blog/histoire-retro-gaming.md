@@ -1,7 +1,7 @@
 ---
 title: "L'Histoire du Rétro Gaming : Des Arcades aux Consoles Modernes"
 description: "Plongez dans l'histoire fascinante du rétro gaming, des premières bornes d'arcade aux consoles qui ont marqué l'histoire du jeu vidéo."
-pubDate: 2025-11-20
+pubDate: 2025-11-20T00:00:00.000Z
 author: "PIXEL CLASH Team"
 image:
   url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=400&fit=crop"

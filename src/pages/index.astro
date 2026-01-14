@@ -56,7 +56,7 @@ const description = "Rejoignez PIXEL CLASH 2026 : le plus grand tournoi retrogam
     <GridBackground client:only="react" />
     
     <!-- Content wrapper with padding for fixed header -->
-    <div class="pt-20">
+    <div class="pt-16">
       <!-- Hero Section - Astro Pure (0 KB JS) ✅ -->
       <Hero />
 
@@ -64,13 +64,13 @@ const description = "Rejoignez PIXEL CLASH 2026 : le plus grand tournoi retrogam
       <Features />
 
       <!-- Games Showcase - React Island (carousel) -->
-      <GamesShowcase client:visible />
+      <!-- <GamesShowcase client:visible /> -->
 
       <!-- Community Stats - React Island (compteurs animés) -->
       <CommunityStats client:visible />
 
-      <!-- Final CTA - Statique -->
-      <FinalCTA />
+      <!-- Final CTA - React Island (bouton interactif) -->
+      <FinalCTA client:load />
     </div>
 
     <!-- Footer Redesign -->

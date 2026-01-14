@@ -1,7 +1,7 @@
 ---
 title: "Top 10 des Bornes d'Arcade les Plus Mythiques de Tous les Temps"
 description: "De Donkey Kong à Street Fighter II, découvrez les bornes d'arcade qui ont marqué l'histoire du jeu vidéo et continuent d'inspirer les développeurs aujourd'hui."
-pubDate: 2025-10-29
+pubDate: 2025-10-29T00:00:00.000Z
 author: "PIXEL CLASH Team"
 image:
   url: "https://images.unsplash.com/photo-1635187834534-d1fa994fcabb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNhZGUlMjBtYWNoaW5lJTIwdmludGFnZXxlbnwxfHx8fDE3NjM5NzQ2NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"

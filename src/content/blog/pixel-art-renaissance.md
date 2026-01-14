@@ -1,7 +1,7 @@
 ---
 title: "La Renaissance du Pixel Art : Pourquoi Cette Esthétique Domine en 2026"
 description: "Analyse de la tendance pixel art dans les jeux indépendants modernes. Comment les développeurs utilisent les contraintes du retro pour créer des expériences uniques."
-pubDate: 2025-10-22
+pubDate: 2025-10-22T00:00:00.000Z
 author: "PIXEL CLASH Team"
 image:
   url: "https://images.unsplash.com/photo-1688498410298-c319c5cf29a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGdhbWluZyUyMHNldHVwfGVufDF8fHx8MTc2Mzk3NDY0N3ww&ixlib=rb-4.1.0&q=80&w=1080"

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Administration - PIXEL CLASH</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    // Configuration française
+    CMS.registerLocale('fr', {
+      auth: {
+        login: 'Connexion',
+        loggingIn: 'Connexion en cours...',
+        loginWithNetlifyIdentity: 'Se connecter avec Netlify Identity',
+        errors: {
+          email: 'Veuillez entrer votre email.',
+          password: 'Veuillez entrer votre mot de passe.',
+          identitySettings: 'Impossible d\'accéder aux paramètres d\'identité.'
+        }
+      },
+      app: {
+        header: {
+          content: 'Contenu',
+          workflow: 'Workflow',
+          media: 'Médias',
+          quickAdd: 'Ajout rapide'
+        }
+      },
+      collection: {
+        sidebar: {
+          collections: 'Collections',
+          allCollections: 'Toutes les collections',
+          searchAll: 'Rechercher partout',
+          searchIn: 'Rechercher dans'
+        }
+      },
+      editor: {
+        editorControl: {
+          field: {
+            optional: 'optionnel'
+          }
+        },
+        editorControlPane: {
+          widget: {
+            required: '%{fieldLabel} est requis.',
+            regexPattern: '%{fieldLabel} ne correspond pas au format : %{pattern}.',
+            processing: '%{fieldLabel} est en cours de traitement.',
+            range: '%{fieldLabel} doit être entre %{minValue} et %{maxValue}.',
+            min: '%{fieldLabel} doit être au moins %{minValue}.',
+            max: '%{fieldLabel} doit être %{maxValue} ou moins.'
+          }
+        },
+        editor: {
+          onLeavePage: 'Êtes-vous sûr de vouloir quitter cette page ?',
+          onUpdatingWithUnsavedChanges: 'Vous avez des modifications non enregistrées, veuillez les enregistrer avant de mettre à jour le statut.',
+          onPublishingNotReady: 'Veuillez mettre à jour le statut à "Prêt" avant de publier.',
+          onPublishingWithUnsavedChanges: 'Vous avez des modifications non enregistrées, veuillez les enregistrer avant de publier.',
+          onPublishing: 'Êtes-vous sûr de vouloir publier cette entrée ?',
+          onUnpublishing: 'Êtes-vous sûr de vouloir dépublier cette entrée ?',
+          onDeleteWithUnsavedChanges: 'Êtes-vous sûr de vouloir supprimer cette entrée publiée, ainsi que vos modifications non enregistrées de la session en cours ?',
+          onDeletePublishedEntry: 'Êtes-vous sûr de vouloir supprimer cette entrée publiée ?',
+          loadingEntry: 'Chargement de l\'entrée...'
+        }
+      }
+    });
+  </script>
+</body>
+</html>

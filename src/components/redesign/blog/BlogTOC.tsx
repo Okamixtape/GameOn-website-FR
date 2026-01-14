@@ -40,23 +40,59 @@ export default function BlogTOC() {
     }
   }, []);
 
+  // Observer pour détecter la section active de manière linéaire
+  useEffect(() => {
+    const handleScroll = () => {
+      const contentDiv = document.getElementById('content');
+      if (!contentDiv) return;
+
+      const headings = contentDiv.querySelectorAll('h2');
+      if (headings.length === 0) return;
+
+      // Trouver la section la plus proche du haut du viewport
+      // On considère qu'une section est active quand elle est à moins de 30% du haut
+      const viewportTop = window.scrollY;
+      const triggerPoint = viewportTop + window.innerHeight * 0.3;
+
+      let currentSection = headings[0].id;
+
+      headings.forEach((heading) => {
+        const headingTop = heading.getBoundingClientRect().top + window.scrollY;
+        
+        // Si le heading est au-dessus ou proche du trigger point, c'est la section active
+        if (headingTop <= triggerPoint) {
+          currentSection = heading.id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    // Calculer au montage et à chaque scroll
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sections]);
+
   useEffect(() => {
     const handleScroll = () => {
       // Calculer par rapport au début et à la fin de l'article
       const articleContent = document.getElementById('content');
       if (!articleContent) return;
 
+      // Hauteur du header fixe
+      const headerHeight = 72;
+      
       // Début : top de l'article
       const articleTop = articleContent.getBoundingClientRect().top + window.scrollY;
       // Fin : bottom de l'article
       const articleBottom = articleContent.getBoundingClientRect().bottom + window.scrollY;
       
-      const viewportHeight = window.innerHeight;
-      
-      // 0% quand le début de l'article atteint le haut du viewport
-      // 100% quand la fin de l'article atteint le bas du viewport
-      const scrollStart = articleTop;
-      const scrollEnd = articleBottom - viewportHeight;
+      // 0% quand le début de l'article atteint le bas du header (72px du haut)
+      // 100% quand la fin de l'article atteint le bas du header (tout lu)
+      const scrollStart = articleTop - headerHeight;
+      const scrollEnd = articleBottom - headerHeight;
       const scrollRange = scrollEnd - scrollStart;
       
       const progress = Math.min(100, Math.max(0, ((window.scrollY - scrollStart) / scrollRange) * 100));

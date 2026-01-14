@@ -1,7 +1,7 @@
 ---
 title: "Interview : Les Vétérans de PIXEL CLASH Partagent Leurs Secrets"
 description: "Rencontre exclusive avec trois champions du tournoi. Ils partagent leurs stratégies, leurs souvenirs, et leurs conseils pour les nouveaux joueurs."
-pubDate: 2025-10-15
+pubDate: 2025-09-22T00:00:00.000Z
 author: "PIXEL CLASH Team"
 image:
   url: "https://images.unsplash.com/photo-1583634852966-130c15654305?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGFyY2FkZSUyMGdhbWluZyUyMG5lb258ZW58MXx8fHwxNzYzOTc0NjQ2fDA&ixlib=rb-4.1.0&q=80&w=1080"

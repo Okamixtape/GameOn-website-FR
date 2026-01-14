@@ -10,9 +10,10 @@ import Header from '../../components/redesign/layout/Header';
 import Footer from '../../components/redesign/layout/Footer.astro';
 import BlogProgressBar from '../../components/redesign/blog/BlogProgressBar';
 import BlogTOC from '../../components/redesign/blog/BlogTOC';
+import CTAButton from '../../components/redesign/common/CTAButton';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog-redesign', ({ data }) => {
+  const posts = await getCollection('blog', ({ data }) => {
     return data.draft !== true;
   });
   
@@ -23,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  post: CollectionEntry<'blog-redesign'>;
+  post: CollectionEntry<'blog'>;
 }
 
 const { post } = Astro.props;
@@ -66,7 +67,7 @@ const image = post.data.image?.url || "https://images.unsplash.com/photo-1583634
     </div>
 
     {/* Hero Section */}
-    <section class="relative min-h-[70vh] flex items-end overflow-hidden pt-20">
+    <section class="relative min-h-[70vh] flex items-end overflow-hidden pt-16">
       {/* Background Image with Overlay */}
       <div class="absolute inset-0">
         <img 
@@ -164,16 +165,9 @@ const image = post.data.image?.url || "https://images.unsplash.com/photo-1583634
                 <p class="text-gray-300 mb-6">
                   Vivez l'expérience arcade ultime et écrivez votre propre légende gaming.
                 </p>
-                <a 
-                  href="/tournament-redesign"
-                  class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] hover:from-[#ff00ff]/90 hover:to-[#00f3ff]/90 text-white border-0 shadow-lg shadow-purple-500/50 rounded-lg font-bold transition-all"
-                >
+                <CTAButton client:load variant="tertiary">
                   S'inscrire au Tournoi
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                  </svg>
-                </a>
+                </CTAButton>
               </div>
             </div>
           </article>

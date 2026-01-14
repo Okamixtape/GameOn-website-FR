@@ -63,7 +63,7 @@ export const aboutValues = {
     {
       id: "excellence",
       value: "Excellence",
-      description: "Production événementielle de qualité, streaming professionnel, cashprize attractif."
+      description: "Production événementielle de qualité, streaming professionnel, récompense attractive."
     },
     {
       id: "respect",
@@ -83,8 +83,8 @@ export const aboutStats = {
   stats: [
     {
       id: "players",
-      value: "125+",
-      label: "Joueurs Inscrits",
+      value: "98/125",
+      label: "Places Réservées",
       icon: "Users"
     },
     {
@@ -96,7 +96,7 @@ export const aboutStats = {
     {
       id: "prize",
       value: "15K€",
-      label: "Cashprize Total",
+      label: "de Récompense",
       icon: "Trophy"
     },
     {

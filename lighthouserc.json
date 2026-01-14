@@ -3,8 +3,9 @@
     "collect": {
       "startServerCommand": "npm run preview",
       "url": [
-        "http://localhost:4321/index-redesign",
-        "http://localhost:4321/tournament-redesign"
+        "http://localhost:4321/",
+        "http://localhost:4321/tournament",
+        "http://localhost:4321/about"
       ],
       "numberOfRuns": 3
     },

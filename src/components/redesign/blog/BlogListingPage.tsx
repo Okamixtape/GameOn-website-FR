@@ -68,7 +68,7 @@ export default function BlogListingPage({ articles }: BlogListingPageProps) {
               <div className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 backdrop-blur-md">
                 <span className="text-[#00f3ff] text-sm tracking-widest flex items-center gap-2 justify-center">
                   <TrendingUp className="w-4 h-4" />
-                  🗃️ DATA HUB
+                  📰 BLOG GAMING
                 </span>
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function BlogListingPage({ articles }: BlogListingPageProps) {
             {/* Main Title */}
             <h1 className="text-5xl md:text-7xl mb-6 leading-tight font-bold">
               <span className="block bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
-                UNIVERS RETRO GAMING
+                BLOG RETROGAMING
               </span>
             </h1>
 
@@ -254,7 +254,7 @@ function FeaturedCard({ article }: { article: BlogArticle }) {
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-500">{article.date}</span>
               <a 
-                href={`/blog-redesign/${article.id}`}
+                href={`/blog/${article.id}`}
                 className="inline-flex items-center gap-2 px-6 py-3 text-[#00f3ff] hover:text-white border border-cyan-500/30 hover:border-cyan-500 hover:bg-cyan-500/10 transition-all rounded-lg font-bold"
               >
                 Lire l'article
@@ -271,7 +271,7 @@ function FeaturedCard({ article }: { article: BlogArticle }) {
 // Article Card Component
 function ArticleCard({ article }: { article: BlogArticle }) {
   return (
-    <a href={`/blog-redesign/${article.id}`} className="group relative w-full block">
+    <a href={`/blog/${article.id}`} className="group relative w-full block">
       {/* Glow Effect on Hover */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] opacity-0 group-hover:opacity-100 transition-opacity blur-xl -z-10" />
       

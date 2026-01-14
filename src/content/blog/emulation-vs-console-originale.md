@@ -1,7 +1,7 @@
 ---
 title: "Émulation vs Console Originale : Le Débat qui Divise la Communauté"
 description: "Authenticité versus praticité : deux visions du retro gaming s'affrontent. Nous explorons les arguments des deux camps avec objectivité."
-pubDate: 2025-10-08
+pubDate: 2025-10-08T00:00:00.000Z
 author: "PIXEL CLASH Team"
 image:
   url: "https://images.unsplash.com/photo-1695028644151-1ec92bae9fb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYW1pbmclMjBjb25zb2xlJTIwY29udHJvbGxlcnxlbnwxfHx8fDE3NjM4ODI0MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080"

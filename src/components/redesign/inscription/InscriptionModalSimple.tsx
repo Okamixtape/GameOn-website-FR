@@ -97,7 +97,7 @@ export default function InscriptionModalSimple({ open, onOpenChange }: Inscripti
           <div className="relative space-y-2">
             <h2 className="text-2xl md:text-3xl text-center">
               <span className="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent font-bold">
-                Inscription PIXEL CLASH 2026
+                Inscription <br />PIXEL CLASH 2026
               </span>
             </h2>
             <p className="text-sm text-gray-400 text-center">

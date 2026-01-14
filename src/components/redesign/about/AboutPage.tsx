@@ -12,6 +12,8 @@
 import { Trophy, Zap, Users, Sparkles, Gamepad2, Flag, Rocket, ArrowRight, Target, Heart, Swords } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import CTAButton from '../common/CTAButton';
+import FinalCTA from '../home/FinalCTA';
 
 export default function AboutPage() {
   return (
@@ -47,15 +49,15 @@ export default function AboutPage() {
             {/* Eyebrow */}
             <div className="inline-block mb-6">
               <div className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 backdrop-blur-md">
-                <span className="text-[#00f3ff] text-sm tracking-widest">📖 NOTRE HISTOIRE</span>
+                <span className="text-[#00f3ff] text-sm tracking-widest">🎮 NOTRE HISTOIRE</span>
               </div>
             </div>
 
             {/* Main Title */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight font-bold">
-              <span className="block mb-2">THE</span>
+              <span className="block mb-2 text-white">L'HISTOIRE DE</span>
               <span className="block bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
-                ORIGIN STORY
+                PIXEL CLASH
               </span>
             </h1>
 
@@ -79,8 +81,8 @@ export default function AboutPage() {
       {/* Our DNA Section - Values */}
       <ValuesSection />
 
-      {/* Final CTA */}
-      <CTASection />
+      {/* Final CTA - Importé depuis la page d'accueil */}
+      <FinalCTA />
     </div>
   );
 }
@@ -97,7 +99,7 @@ function TimelineSection() {
         <div className="text-center mb-20">
           <div className="inline-block mb-4">
             <div className="px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/30 backdrop-blur-md">
-              <span className="text-[#ff00ff] text-sm tracking-widest">🎮 THE JOURNEY</span>
+              <span className="text-[#ff00ff] text-sm tracking-widest">🎮 LE PARCOURS</span>
             </div>
           </div>
           <h2 className="text-4xl md:text-5xl mb-4 font-bold">
@@ -136,7 +138,7 @@ function TimelineSection() {
           <div className="space-y-0">
             <TimelineItem
               year="2015"
-              title="PRESS START"
+              title="NIVEAU 1"
               description="Le premier tournoi PIXEL CLASH voit le jour dans un petit bar arcade de Paris. 30 joueurs, une passion commune, et le début d'une légende."
               icon={<Gamepad2 className="w-6 h-6" />}
               iconColor="from-cyan-400 to-cyan-600"
@@ -147,7 +149,7 @@ function TimelineSection() {
 
             <TimelineItem
               year="2018"
-              title="FIRST BOSS FIGHT"
+              title="PREMIER BOSS"
               description="Expansion majeure : 5 tournois organisés, 200 participants, et notre premier partenariat avec des sponsors gaming. Le cashprize atteint 5,000€."
               icon={<Swords className="w-6 h-6" />}
               iconColor="from-purple-400 to-purple-600"
@@ -175,21 +177,33 @@ function TimelineSection() {
               iconColor="from-pink-400 to-pink-600"
               side="right"
               glowColor="pink"
+              isFuture
               index={3}
             />
 
             <TimelineItem
               year="2026"
-              title="ULTIMATE CHALLENGE"
+              title="NIVEAU FINAL"
               description="L'avenir s'annonce épique. Nouveaux jeux, nouveaux défis, et une communauté plus forte que jamais. Rejoignez-nous pour écrire la prochaine page de l'histoire."
               icon={<Flag className="w-8 h-8" />}
               iconColor="from-cyan-400 to-pink-600"
               side="left"
               glowColor="cyan"
-              isFuture
               index={4}
             />
           </div>
+        </div>
+
+        {/* CTA après Timeline - Capture l'émotion */}
+        <div className="text-center mt-20">
+          <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl mx-auto">
+            10 ans d'histoire, des milliers de joueurs, une seule passion.
+            <br />
+            <span className="text-cyan-400 font-bold">Écrivez votre propre légende</span> avec nous.
+          </p>
+          <CTAButton variant="tertiary">
+            Je rejoins l'aventure
+          </CTAButton>
         </div>
       </div>
     </section>
@@ -301,51 +315,6 @@ function ValuesSection() {
   );
 }
 
-// CTA Section Component
-function CTASection() {
-  return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] opacity-20 blur-3xl" />
-          
-          <div className="relative p-12 rounded-3xl bg-[#0a0a1f]/60 backdrop-blur-xl border border-cyan-500/30 shadow-[0_0_60px_rgba(0,243,255,0.2)]">
-            <h2 className="text-4xl md:text-5xl mb-6 font-bold">
-              <span className="bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
-                PRÊT À REJOINDRE L'HISTOIRE ?
-              </span>
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Inscrivez-vous au PIXEL CLASH Championship 2026 et faites partie de la légende.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/details"
-                className="inline-flex items-center justify-center gap-2 text-lg px-8 py-7 bg-gradient-to-r from-[#ff00ff] via-[#ff0080] to-[#ff00ff] hover:from-[#ff00ff]/90 hover:to-[#ff00ff]/70 text-white rounded-md shadow-2xl shadow-pink-500/60 hover:shadow-pink-500/80 transition-all relative group font-bold"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  JE M'INSCRIS MAINTENANT
-                  <ArrowRight className="w-5 h-5" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] opacity-0 group-hover:opacity-20 transition-opacity rounded-md" />
-              </a>
-              <a 
-                href="/tournament-redesign"
-                className="inline-flex items-center justify-center gap-2 text-lg px-8 py-7 bg-transparent border-2 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-500 rounded-md transition-all font-bold"
-              >
-                VOIR LE TOURNOI
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-            <p className="text-gray-500 text-sm mt-6">
-              Places limitées • Inscription gratuite • L'aventure commence le 15 juin 2026
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // Timeline Item Component (suite dans le prochain message)
 
@@ -410,35 +379,6 @@ function TimelineItem({ year, title, description, icon, iconColor, side, glowCol
         whileHover={{ scale: isFuture ? 1.08 : 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        {isFuture && (
-          <>
-            <motion.div 
-              className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] opacity-50"
-              animate={{
-                scale: [1, 1.02, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{ filter: 'blur(8px)' }}
-            />
-            <motion.div
-              className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400/20 to-pink-400/20"
-              animate={{
-                x: [0, -2, 2, 0],
-                opacity: [0, 0.5, 0],
-              }}
-              transition={{
-                duration: 0.3,
-                repeat: Infinity,
-                repeatDelay: 3,
-              }}
-            />
-          </>
-        )}
 
         <div className={`relative p-8 rounded-2xl bg-[#0a0a1f]/80 backdrop-blur-xl border ${colors.border} ${colors.hoverBorder} ${colors.shadow} ${colors.hoverShadow} transition-all duration-300 ${
           isFuture ? 'border-2' : ''
@@ -538,51 +478,13 @@ function TimelineItem({ year, title, description, icon, iconColor, side, glowCol
       </motion.div>
 
       <motion.div 
-        className={`hidden md:flex absolute left-1/2 ${isFuture ? 'w-10 h-10' : 'w-8 h-8'} rounded-full bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] shadow-lg ${colors.shadow} z-10 border-4 border-[#0a0a1f] items-center justify-center`}
-        style={{ transform: 'translateX(-50%)' }}
-        animate={isFuture ? {
-          scale: [1, 1.2, 1],
-          boxShadow: [
-            '0 0 20px rgba(0,243,255,0.5)',
-            '0 0 40px rgba(255,0,255,0.8)',
-            '0 0 20px rgba(0,243,255,0.5)',
-          ],
-        } : {}}
-        transition={isFuture ? {
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        } : {}}
+        className={`hidden md:flex absolute ${isFuture ? 'w-10 h-10' : 'w-8 h-8'} rounded-full bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] shadow-lg ${colors.shadow} z-10 border-4 border-[#0a0a1f] items-center justify-center`}
+        style={{ 
+          left: '50%',
+          marginLeft: '4px',
+          transform: 'translateX(-50%)'
+        }}
       >
-        {isFuture && (
-          <>
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-cyan-400"
-              animate={{
-                scale: [1, 1.8],
-                opacity: [0.8, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeOut",
-              }}
-            />
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-pink-400"
-              animate={{
-                scale: [1, 1.8],
-                opacity: [0.8, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: 1,
-              }}
-            />
-          </>
-        )}
         <div className={`${isFuture ? 'w-4 h-4' : 'w-3 h-3'} rounded-full bg-white`} />
       </motion.div>
     </motion.div>

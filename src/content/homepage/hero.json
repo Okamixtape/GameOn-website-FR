@@ -1,0 +1,30 @@
+{
+  "eyebrow": "CHAMPIONNAT RETROGAMING 2026",
+  "title": "PIXEL CLASH",
+  "titleHighlight": "2026",
+  "date": {
+    "label": "Date",
+    "value": "20-22 Juin 2026"
+  },
+  "location": {
+    "label": "Lieu",
+    "value": "Paris Event Center"
+  },
+  "ctaPrimary": {
+    "text": "S'inscrire maintenant",
+    "href": "#inscription"
+  },
+  "ctaSecondary": {
+    "text": "Découvrir le tournoi",
+    "href": "#tournoi"
+  },
+  "image": {
+    "src": "/images/hero-retro-gaming.jpg",
+    "alt": "Tournoi retrogaming PIXEL CLASH 2026"
+  },
+  "socialProof": {
+    "registrations": "487 inscrits",
+    "cashprize": "15 000€ de cashprize",
+    "urgency": "Places limitées"
+  }
+}

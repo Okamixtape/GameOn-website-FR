@@ -7,6 +7,7 @@
 import LayoutRedesign from '../layouts/LayoutRedesign.astro';
 import Header from '../components/redesign/layout/Header';
 import Footer from '../components/redesign/layout/Footer.astro';
+import CTAButton from '../components/redesign/common/CTAButton';
 
 const title = "Glossaire Retrogaming | Dictionnaire Jeux Arcade & Termes Gaming Vintage";
 const description = "Découvrez tous les termes du retrogaming : définitions jeux arcade, vocabulaire gaming années 80-90, expressions tournoi. Guide complet pour passionnés de jeux vidéo classiques.";
@@ -286,12 +287,9 @@ const glossary = [
         <p class="text-gray-400 mb-6">
           Maintenant que vous maîtrisez le vocabulaire, inscrivez-vous à PIXEL CLASH 2026 !
         </p>
-        <a 
-          href="/tournament"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ff00ff] to-[#ff0080] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-magenta-500/50 transition-all"
-        >
-          🎮 S'inscrire au Tournoi
-        </a>
+        <CTAButton client:load variant="tertiary">
+          S'inscrire au Tournoi
+        </CTAButton>
       </div>
 
       <!-- SEO Links -->

@@ -7,6 +7,7 @@
 import LayoutRedesign from '../layouts/LayoutRedesign.astro';
 import Header from '../components/redesign/layout/Header';
 import Footer from '../components/redesign/layout/Footer.astro';
+import CTAButton from '../components/redesign/common/CTAButton';
 
 const title = "FAQ Tournoi Retrogaming | Questions Fréquentes PIXEL CLASH 2026";
 const description = "Toutes les réponses à vos questions sur le tournoi retrogaming PIXEL CLASH 2026 : inscription, format, jeux, règlement, cashprize. Guide complet pour participants.";
@@ -145,13 +146,9 @@ const faqSchema = {
           >
             📧 Nous contacter
           </a>
-          <button 
-            data-open-modal
-            type="button"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ff00ff] to-[#ff0080] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-magenta-500/50 transition-all"
-          >
-            🎮 S'inscrire au tournoi
-          </button>
+          <CTAButton client:load variant="tertiary">
+            S'inscrire au tournoi
+          </CTAButton>
         </div>
       </div>
 
@@ -176,17 +173,3 @@ const faqSchema = {
   <Footer />
 
 </LayoutRedesign>
-
-<script>
-  // Gérer l'ouverture de la modale d'inscription
-  import { openInscriptionModal } from '../hooks/useInscriptionModal';
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    const modalButton = document.querySelector('[data-open-modal]');
-    if (modalButton) {
-      modalButton.addEventListener('click', () => {
-        openInscriptionModal();
-      });
-    }
-  });
-</script>

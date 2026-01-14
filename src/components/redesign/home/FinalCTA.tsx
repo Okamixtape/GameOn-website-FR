@@ -5,7 +5,8 @@
  * @performance CSS pur
  */
 
-import { ArrowRight, Zap } from "lucide-react";
+import { Zap, Trophy, Clock } from "lucide-react";
+import CTAButton from '../common/CTAButton';
 
 export default function FinalCTA() {
   return (
@@ -33,54 +34,54 @@ export default function FinalCTA() {
               Prêt à Rejoindre
             </span>
             <span className="block bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-cyan bg-clip-text text-transparent">
-              L'Histoire ?
+              l'Histoire ?
             </span>
           </h2>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-text-muted mb-12 max-w-2xl mx-auto">
-            Inscrivez-vous dès maintenant et faites partie des 500 joueurs qui
-            vont marquer le championnat 2026
+            Rejoignez les 98 pionniers déjà inscrits et réservez votre place
+            parmi les 125 joueurs du championnat 2026
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Primary CTA */}
-            <a
-              href="/tournament"
-              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-neon-magenta via-neon-cyan to-neon-magenta bg-size-200 hover:bg-pos-100 text-white font-bold text-lg rounded-lg shadow-2xl shadow-neon-magenta/50 hover:shadow-neon-cyan/70 transition-all duration-500 animate-pulse hover:animate-none"
-            >
-              <span className="relative z-10">S'INSCRIRE MAINTENANT</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-magenta opacity-0 group-hover:opacity-20 transition-opacity rounded-lg" />
-            </a>
+            <CTAButton variant="primary">
+              S'INSCRIRE MAINTENANT
+            </CTAButton>
 
             {/* Secondary CTA */}
             <a
-              href="/about"
+              href="/tournament"
               className="inline-flex items-center gap-2 px-10 py-5 bg-transparent border-2 border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan/10 hover:border-neon-cyan/50 font-bold text-lg rounded-lg transition-all duration-300"
             >
               En Savoir Plus
             </a>
           </div>
 
-          {/* Social Proof */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm">
+          {/* Social Proof - Inscrits, Cashprize, Places */}
+          <div className="mt-12 inline-flex flex-wrap items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-green-500/10 via-yellow-500/10 to-red-500/10 border border-green-500/30 backdrop-blur-md">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-green-400 font-medium">
-                487 inscrits aujourd'hui
+              <span className="text-green-400 text-sm">
+                ✓ 98 inscrits
               </span>
             </div>
-            <span className="text-text-muted">•</span>
+            <span className="text-gray-500">•</span>
             <div className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-yellow-400" />
-              <span className="text-yellow-400 font-medium">
-                Places limitées
+              <Trophy className="w-4 h-4 text-yellow-400" />
+              <span className="text-yellow-400 text-sm">
+                💰 15 000€ de récompense
               </span>
             </div>
-            <span className="text-text-muted">•</span>
-            <span className="text-text-muted">Inscription gratuite</span>
+            <span className="text-gray-500">•</span>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-red-400" />
+              <span className="text-red-400 text-sm">
+                27 places restantes
+              </span>
+            </div>
           </div>
         </div>
       </div>

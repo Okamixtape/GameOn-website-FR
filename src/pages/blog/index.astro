@@ -13,7 +13,7 @@ const title = "Blog Retrogaming | Actualités Jeux Arcade & Guides Tournoi - PIX
 const description = "Découvrez l'histoire du retrogaming, guides jeux arcade, stratégies tournoi et actualités gaming. Articles experts pour passionnés de jeux vidéo classiques années 80-90.";
 
 // Récupérer tous les articles
-const allPosts = await getCollection('blog-redesign', ({ data }) => {
+const allPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
 });
 
@@ -39,7 +39,7 @@ const articles = allPosts.map((post) => ({
     
     <Header client:load currentPath={Astro.url.pathname} />
     
-    <div class="pt-20">
+    <div class="pt-16">
       <BlogListingPage client:load articles={articles} />
     </div>
 

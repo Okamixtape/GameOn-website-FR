@@ -1,5 +1,6 @@
 import { Trophy, Gamepad2, Users, Shield, Zap, ArrowRight, CheckCircle2, Star, Target, Award, Swords, Crown } from 'lucide-react';
-import { openInscriptionModal } from '../../../hooks/useInscriptionModal';
+import CTAButton from '../common/CTAButton';
+import FinalCTA from '../home/FinalCTA';
 
 /**
  * TOURNAMENT PAGE - Conforme à la maquette Figma Make
@@ -34,15 +35,16 @@ export default function TournamentPage() {
           <div className="text-center max-w-4xl mx-auto">
             {/* Eyebrow */}
             <div className="inline-block mb-4">
-              <span className="text-[#ff00ff] tracking-widest text-sm uppercase">
-                MISSION BRIEFING
+              <span className="text-neon-magenta tracking-widest text-sm uppercase font-bold">
+                LE CHAMPIONNAT
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl md:text-7xl mb-6">
-              <span className="bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
-                LE TOURNOI
+            <h1 className="text-5xl md:text-7xl mb-6 leading-tight font-bold">
+              <span className="block mb-2 text-white">TOURNOI RETROGAMING</span>
+              <span className="block bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
+                PIXEL CLASH 2026
               </span>
             </h1>
 
@@ -54,13 +56,13 @@ export default function TournamentPage() {
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center gap-4">
               <div className="px-5 py-3 rounded-xl bg-[#0a0a1f]/70 border border-cyan-500/40 backdrop-blur-lg">
-                <div className="text-[#00f3ff] text-sm">125 Slots</div>
+                <div className="text-[#00f3ff] text-sm">125 Places</div>
               </div>
               <div className="px-5 py-3 rounded-xl bg-[#0a0a1f]/70 border border-yellow-500/40 backdrop-blur-lg">
-                <div className="text-yellow-400 text-sm">€15,000 Prize Pool</div>
+                <div className="text-yellow-400 text-sm">15 000€ de Récompense</div>
               </div>
               <div className="px-5 py-3 rounded-xl bg-[#0a0a1f]/70 border border-pink-500/40 backdrop-blur-lg">
-                <div className="text-[#ff00ff] text-sm">3 Stages</div>
+                <div className="text-[#ff00ff] text-sm">3 Phases</div>
               </div>
             </div>
           </div>
@@ -79,7 +81,7 @@ export default function TournamentPage() {
             </div>
             <h2 className="text-4xl md:text-5xl mb-4">
               <span className="bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
-                VOTRE PARCOURS VERS LA VICTOIRE
+                3 PHASES VERS LA GLOIRE
               </span>
             </h2>
           </div>
@@ -96,7 +98,7 @@ export default function TournamentPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
                 <div className="relative bg-[#0a0a1f]/80 backdrop-blur-xl border-2 border-cyan-500/50 rounded-2xl p-8 group-hover:border-cyan-500 transition-all">
                   {/* Step Number */}
-                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/50">
+                  <div className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-cyan-500/50">
                     1
                   </div>
                   
@@ -115,7 +117,7 @@ export default function TournamentPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-gray-300 text-sm mb-4">
                     Phase de sélection en ligne. Les 32 meilleurs joueurs se qualifient pour la phase suivante.
                   </p>
 
@@ -142,7 +144,7 @@ export default function TournamentPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
                 <div className="relative bg-[#0a0a1f]/80 backdrop-blur-xl border-2 border-purple-500/50 rounded-2xl p-8 group-hover:border-purple-500 transition-all">
                   {/* Step Number */}
-                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/50">
+                  <div className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-purple-500/50">
                     2
                   </div>
                   
@@ -161,7 +163,7 @@ export default function TournamentPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-gray-300 text-sm mb-4">
                     Les 32 qualifiés s'affrontent en bracket double élimination. Les 3 finalistes émergent.
                   </p>
 
@@ -188,7 +190,7 @@ export default function TournamentPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
                 <div className="relative bg-[#0a0a1f]/80 backdrop-blur-xl border-2 border-pink-500/50 rounded-2xl p-8 group-hover:border-pink-500 transition-all">
                   {/* Step Number */}
-                  <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/50">
+                  <div className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-pink-500/50">
                     3
                   </div>
                   
@@ -207,7 +209,7 @@ export default function TournamentPage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-gray-300 text-sm mb-4">
                     Finale en présentiel à Paris La Défense Arena. Les 3 finalistes s'affrontent sur scène devant le public.
                   </p>
 
@@ -242,12 +244,12 @@ export default function TournamentPage() {
           <div className="text-center mb-16">
             <div className="inline-block mb-4">
               <div className="px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/30 backdrop-blur-md">
-                <span className="text-yellow-400 text-sm">💰 RÉCOMPENSES</span>
+                <span className="text-yellow-400 text-sm">💰 RÉCOMPENSE</span>
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl mb-4">
               <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent">
-                PRIZE POOL
+                RÉCOMPENSE
               </span>
             </h2>
             <p className="text-3xl text-white mb-2">
@@ -369,6 +371,16 @@ export default function TournamentPage() {
               </div>
             </div>
           </div>
+
+          {/* CTA après Prize Pool - Capture l'intérêt */}
+          <div className="text-center mt-16">
+            <p className="text-xl text-gray-300 mb-6">
+              <span className="text-yellow-400 font-bold">15 000€</span> vous attendent. Êtes-vous prêt à relever le défi ?
+            </p>
+            <CTAButton variant="secondary">
+              Je veux gagner le cashprize
+            </CTAButton>
+          </div>
         </div>
       </section>
 
@@ -481,53 +493,8 @@ export default function TournamentPage() {
         </div>
       </section>
 
-      {/* Sticky CTA Section */}
-      <section className="relative py-20 overflow-hidden border-t border-cyan-500/20">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a1f] via-[#1a0a2e] to-[#0a0a1f]" />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl mb-6">
-              <span className="bg-gradient-to-r from-[#00f3ff] via-[#ff00ff] to-[#00f3ff] bg-clip-text text-transparent">
-                PRÊT À REJOINDRE LA COMPÉTITION ?
-              </span>
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Ne manquez pas votre chance de remporter €15,000 et le titre de Champion
-            </p>
-
-            {/* CTA Button */}
-            <button 
-              onClick={openInscriptionModal}
-              className="inline-flex items-center gap-3 text-xl px-12 py-8 bg-gradient-to-r from-[#ff00ff] via-[#ff0080] to-[#ff00ff] hover:from-[#ff00ff]/90 hover:to-[#ff00ff]/70 text-white border-0 shadow-2xl shadow-pink-500/60 hover:shadow-pink-500/80 transition-all animate-pulse hover:animate-none relative group rounded-lg"
-            >
-              <span className="relative z-10 flex items-center gap-3">
-                S'INSCRIRE MAINTENANT
-                <ArrowRight className="w-6 h-6" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] opacity-0 group-hover:opacity-20 transition-opacity rounded-lg" />
-            </button>
-
-            {/* Social Proof */}
-            <div className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-green-500/10 via-yellow-500/10 to-red-500/10 border border-green-500/30 backdrop-blur-md mt-6">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-green-400 text-sm">✓ 487 inscrits</span>
-              </div>
-              <span className="text-gray-500">•</span>
-              <div className="flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-yellow-400" />
-                <span className="text-yellow-400 text-sm font-semibold">€15,000 cashprize</span>
-              </div>
-              <span className="text-gray-500">•</span>
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-red-400" />
-                <span className="text-red-400 text-sm">38 places restantes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Final CTA Section - Importé depuis la page d'accueil */}
+      <FinalCTA />
     </div>
   );
 }

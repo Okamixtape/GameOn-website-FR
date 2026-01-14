@@ -13,6 +13,7 @@ export interface HeroData {
   eyebrow: string;
   title: string;
   titleHighlight: string;
+  subtitle: string;
   date: {
     label: string;
     value: string;
@@ -60,12 +61,13 @@ export interface SectionHeader {
 // ============================================================================
 
 export const heroData: HeroData = {
-  eyebrow: "PIXEL CLASH PRESENTS",
+  eyebrow: "PIXEL CLASH PRÉSENTE",
   title: "CHAMPIONNAT RETROGAMING",
   titleHighlight: "TOURNOI JEUX ARCADE 2026",
+  subtitle: "Le plus grand championnat de jeux arcade classiques en France. 125 joueurs, 15 000€ de récompense, 3 jours de compétition intense.",
   date: {
     label: "Date",
-    value: "15-17 Juin 2026",
+    value: "15 au 17 Juin 2026",
   },
   location: {
     label: "Lieu",
@@ -80,9 +82,9 @@ export const heroData: HeroData = {
     href: "#teaser",
   },
   socialProof: {
-    registrations: "487 inscrits",
-    cashprize: "15,000€ cashprize",
-    urgency: "Places limitées !",
+    registrations: "98 inscrits sur 125",
+    cashprize: "15 000€ de récompense",
+    urgency: "27 places restantes !",
   },
   image: {
     src: "/images/redesign/hero-home-800.jpg",
@@ -106,9 +108,9 @@ export const featuresData: FeatureCard[] = [
     id: "cashprize",
     icon: "Trophy",
     iconColor: "from-yellow-400 to-yellow-600",
-    title: "15,000€ de Cashprize",
+    title: "15 000€ de Récompense",
     description:
-      "Remportez la 1ère place. Un prize pool qui récompensera le talent de tous les joueurs.",
+      "Remportez la 1ère place. Une récompense qui valorise le talent de tous les joueurs.",
   },
   {
     id: "community",
@@ -122,7 +124,7 @@ export const featuresData: FeatureCard[] = [
     id: "ambiance",
     icon: "Gamepad2",
     iconColor: "from-purple-400 to-purple-600",
-    title: "Ambiance Arcade",
+    title: "Ambiance Retrogaming",
     description:
       "Plongez dans une atmosphère authentique avec néons, bornes d'arcade et musique 16bit.",
   },

@@ -7,8 +7,6 @@
 ## 🎯 Mission Principale
 
 Transformer la landing page PIXEL CLASH (anciennement GameOn) en **projet portfolio professionnel** démontrant :
-- ✅ Architecture cloud moderne (AWS S3 + CloudFront)
-- ✅ CI/CD automatisé (GitHub Actions)
 - ✅ Performance optimale (Lighthouse 95+)
 - ✅ Accessibilité WCAG 2.1 AA
 - ✅ Sécurité et conformité RGPD
