@@ -150,7 +150,7 @@ function TimelineSection() {
             <TimelineItem
               year="2018"
               title="PREMIER BOSS"
-              description="Expansion majeure : 5 tournois organisés, 200 participants, et notre premier partenariat avec des sponsors gaming. Le cashprize atteint 5,000€."
+              description="Expansion majeure : 5 tournois organisés, 200 participants, et notre premier partenariat avec des sponsors gaming. La récompense atteint 5 000€."
               icon={<Swords className="w-6 h-6" />}
               iconColor="from-purple-400 to-purple-600"
               side="right"
@@ -172,23 +172,23 @@ function TimelineSection() {
             <TimelineItem
               year="2025"
               title="LEVEL UP"
-              description="Notre plus gros événement à ce jour : Paris La Défense Arena, 15,000€ de cashprize, et 3 jours de compétitions intenses. Le retro gaming n'a jamais été aussi vivant."
+              description="Notre plus gros événement à ce jour : 500 participants, 10 000€ de récompense, et notre première édition sur 2 jours. Le retro gaming n'a jamais été aussi vivant."
               icon={<Rocket className="w-6 h-6" />}
               iconColor="from-pink-400 to-pink-600"
               side="right"
               glowColor="pink"
-              isFuture
               index={3}
             />
 
             <TimelineItem
               year="2026"
               title="NIVEAU FINAL"
-              description="L'avenir s'annonce épique. Nouveaux jeux, nouveaux défis, et une communauté plus forte que jamais. Rejoignez-nous pour écrire la prochaine page de l'histoire."
+              description="Paris La Défense Arena, 125 joueurs, 15 000€ de récompense, 3 jours de compétition intense. 15 jeux iconiques, streaming live, et la plus grande scène retrogaming de France."
               icon={<Flag className="w-8 h-8" />}
               iconColor="from-cyan-400 to-pink-600"
               side="left"
               glowColor="cyan"
+              isFuture
               index={4}
             />
           </div>
@@ -237,7 +237,7 @@ function StatsSection() {
           <StatCard number={10} suffix="+" label="ANNÉES D'XP" icon={<Trophy className="w-8 h-8" />} color="cyan" />
           <StatCard number={50} suffix="+" label="TOURNOIS" icon={<Gamepad2 className="w-8 h-8" />} color="purple" />
           <StatCard number={5000} suffix="+" label="JOUEURS" icon={<Users className="w-8 h-8" />} color="pink" />
-          <StatCard number={15} suffix="K€" label="CASHPRIZE 2026" icon={<Sparkles className="w-8 h-8" />} color="yellow" />
+          <StatCard number={15} suffix="K€" label="RÉCOMPENSE 2026" icon={<Sparkles className="w-8 h-8" />} color="yellow" />
         </div>
       </div>
     </section>
@@ -254,7 +254,7 @@ function ValuesSection() {
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <div className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 backdrop-blur-md">
-              <span className="text-[#00f3ff] text-sm tracking-widest">💎 OUR DNA</span>
+              <span className="text-[#00f3ff] text-sm tracking-widest">💎 NOTRE ADN</span>
             </div>
           </div>
           <h2 className="text-4xl md:text-5xl mb-4 font-bold">

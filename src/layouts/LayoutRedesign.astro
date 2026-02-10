@@ -47,6 +47,11 @@ import InscriptionModalWrapper from '../components/redesign/layout/InscriptionMo
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalUrl} />
   
+  <!-- Preload Hero Image for LCP optimization -->
+  {heroImage && (
+    <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
+  )}
+  
   <!-- OpenGraph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
@@ -62,15 +67,6 @@ import InscriptionModalWrapper from '../components/redesign/layout/InscriptionMo
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={canonicalImageUrl} />
   
-  <!-- Performance: Preload Critical Resources -->
-  {heroImage && (
-    <link 
-      rel="preload" 
-      as="image" 
-      href={`${heroImage}&w=1200`}
-      fetchpriority="high"
-    />
-  )}
   
   <!-- Performance: Preconnect to External Domains -->
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />

@@ -89,7 +89,7 @@ export const aboutStats = {
     },
     {
       id: "games",
-      value: "12",
+      value: "15",
       label: "Jeux Iconiques",
       icon: "Gamepad2"
     },

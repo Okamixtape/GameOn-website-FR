@@ -48,18 +48,18 @@ const getSrcSet = () => {
   // Si c'est une URL externe (Unsplash), utiliser leurs paramètres
   if (src.startsWith('http')) {
     return {
-      srcset: `${src}&w=400 400w, ${src}&w=800 800w, ${src}&w=1200 1200w`,
-      src: `${src}&w=800`
+      srcset: `${src}?w=400 400w, ${src}?w=800 800w, ${src}?w=1200 1200w`,
+      src: `${src}?w=800`
     };
   }
   
-  // Si c'est une image locale
+  // Si c'est une image locale, générer les chemins vers les fichiers existants
   const ext = src.split('.').pop();
   const base = src.replace(`.${ext}`, '');
   
   return {
-    srcset: `${base}-400.jpg 400w, ${base}-800.jpg 800w, ${base}-1200.jpg 1200w`,
-    src: `${base}-800.jpg`
+    srcset: `${base}-400.${ext} 400w, ${base}-800.${ext} 800w, ${base}-1200.${ext} 1200w`,
+    src: `${base}-800.${ext}`
   };
 };
 

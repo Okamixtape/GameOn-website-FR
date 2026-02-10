@@ -29,19 +29,21 @@ import Features from '../components/redesign/home/Features.astro';
 // React Islands (interactivité uniquement)
 import GamesShowcase from '../components/redesign/home/GamesShowcase';
 import CommunityStats from '../components/redesign/home/CommunityStats';
+import Testimonials from '../components/redesign/home/Testimonials';
+import Gallery from '../components/redesign/home/Gallery';
 import FinalCTA from '../components/redesign/home/FinalCTA';
 
 // Data pour preload
 import { heroData } from '../data/redesign/home';
 
 const title = "PIXEL CLASH 2026 | Championnat Retrogaming & Tournoi Jeux Arcade Paris";
-const description = "Rejoignez PIXEL CLASH 2026 : le plus grand tournoi retrogaming de France. Compétitions jeux arcade classiques, cashprize 15K€, ambiance années 80-90. Inscrivez-vous maintenant !";
+const description = "Rejoignez PIXEL CLASH 2026 : le plus grand tournoi retrogaming de France. Compétitions jeux arcade classiques, 15K€ de récompense, ambiance années 80-90. Inscrivez-vous maintenant !";
 ---
 
 <LayoutRedesign 
   title={title} 
   description={description}
-  heroImage={heroData.image.src}
+  heroImage="/images/redesign/hero-home-800.jpg"
 >
   <!-- Schema.org Structured Data -->
   <SchemaOrg type="Event" slot="head" />
@@ -68,6 +70,12 @@ const description = "Rejoignez PIXEL CLASH 2026 : le plus grand tournoi retrogam
 
       <!-- Community Stats - React Island (compteurs animés) -->
       <CommunityStats client:visible />
+
+      <!-- Testimonials - React Island (témoignages participants) -->
+      <Testimonials client:visible />
+
+      <!-- Gallery - React Island (galerie photos événement) -->
+      <Gallery client:visible />
 
       <!-- Final CTA - React Island (bouton interactif) -->
       <FinalCTA client:load />

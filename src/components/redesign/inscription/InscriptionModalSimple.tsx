@@ -123,19 +123,27 @@ export default function InscriptionModalSimple({ open, onOpenChange }: Inscripti
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] bg-clip-text text-transparent">
-                  Inscription Confirmée !
+                  Merci pour votre intérêt !
                 </h3>
-                <p className="text-cyan-400">Bienvenue dans l'aventure PIXEL CLASH</p>
+                <p className="text-cyan-400">Ceci est un site fictif — Démo technique</p>
                 <p className="text-sm text-gray-400">
-                  Vous recevrez un email de confirmation dans quelques instants.
+                  PIXEL CLASH est un projet de démonstration créé par Loup Aubour, développeur web indépendant. Aucune donnée n'a été enregistrée ni transmise.
                 </p>
               </div>
-              <button
-                onClick={handleClose}
-                className="px-6 py-3 bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] hover:from-[#ff00ff]/90 hover:to-[#00f3ff]/90 text-white rounded-lg font-bold transition-all"
-              >
-                Fermer
-              </button>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="/developer"
+                  className="px-6 py-3 bg-gradient-to-r from-[#ff00ff] to-[#00f3ff] hover:from-[#ff00ff]/90 hover:to-[#00f3ff]/90 text-white rounded-lg font-bold transition-all"
+                >
+                  Découvrir le développeur
+                </a>
+                <button
+                  onClick={handleClose}
+                  className="px-6 py-3 border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 rounded-lg font-bold transition-all"
+                >
+                  Fermer
+                </button>
+              </div>
             </div>
           ) : formState === 'error' ? (
             <div className="text-center py-8 space-y-6">

@@ -15,24 +15,24 @@ import Footer from '../components/redesign/layout/Footer.astro';
 
 import { 
   Code, Server, Cloud, Wrench, Zap, Eye, Box, 
-  Mail, Github, Linkedin, ArrowRight, ExternalLink 
+  Mail, Github, Linkedin, ArrowRight, ExternalLink, Phone 
 } from 'lucide-react';
 
 import { 
   developerHero, 
-  developerStack, 
+  developerServices, 
   developerProjects,
   developerSkills,
   developerContact 
 } from '../data/redesign/developer';
 
-const title = "Développeur Full-Stack - Loup Aubour";
-const description = "Cloud Engineer & Full-Stack Developer spécialisé en React, Astro, TypeScript et AWS. Portfolio de projets web performants.";
+const title = "Loup Aubour | Développeur Web Indépendant à Boulogne-Billancourt";
+const description = "Création de sites web performants pour commerçants, artisans et professions libérales. Performance Google 100/100, SEO local, sites responsive. Devis gratuit.";
 
 // Icon mapping
 const iconMap = {
   Code, Server, Cloud, Wrench, Zap, Eye, Box,
-  Mail, Github, Linkedin, ArrowRight, ExternalLink
+  Mail, Github, Linkedin, ArrowRight, ExternalLink, Phone
 } as const;
 ---
 
@@ -104,37 +104,41 @@ const iconMap = {
         </div>
       </section>
 
-      <!-- Stack Section -->
+      <!-- Services Section -->
       <section class="relative py-20">
         <div class="container mx-auto px-4 relative z-10">
           <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl mb-4 font-bold">
               <span class="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
-                {developerStack.title}
+                {developerServices.title}
               </span>
             </h2>
-            <p class="text-text-muted text-lg">{developerStack.subtitle}</p>
+            <p class="text-text-muted text-lg max-w-2xl mx-auto">{developerServices.subtitle}</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {developerStack.categories.map((category) => {
-              const Icon = iconMap[category.icon as keyof typeof iconMap];
+            {developerServices.services.map((service) => {
+              const Icon = iconMap[service.icon as keyof typeof iconMap];
               return (
                 <div class="group relative">
                   <div class="absolute inset-0 bg-gradient-to-r from-neon-magenta to-neon-cyan rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
                   
-                  <div class="relative h-full p-6 rounded-2xl bg-bg-dark/60 backdrop-blur-xl border border-neon-cyan/20 group-hover:border-neon-cyan/50 transition-all duration-300">
-                    <div class="flex items-center gap-3 mb-4">
-                      <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center`}>
+                  <div class="relative h-full p-6 rounded-2xl bg-bg-dark/60 backdrop-blur-xl border border-neon-cyan/20 group-hover:border-neon-cyan/50 transition-all duration-300 flex flex-col">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center flex-shrink-0`}>
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 class="text-2xl font-bold text-text-light">{category.name}</h3>
+                      <div>
+                        <h3 class="text-xl font-bold text-text-light">{service.name}</h3>
+                        <span class="text-neon-cyan text-sm font-semibold">{service.price}</span>
+                      </div>
                     </div>
-                    <ul class="space-y-2">
-                      {category.technologies.map((tech) => (
-                        <li class="flex justify-between items-center">
-                          <span class="text-text-muted">{tech.name}</span>
-                          <span class="text-neon-cyan text-sm font-medium">{tech.level}</span>
+                    <p class="text-text-muted text-sm mb-4 leading-relaxed">{service.description}</p>
+                    <ul class="space-y-2 mt-auto">
+                      {service.features.map((feature) => (
+                        <li class="flex items-center gap-2 text-sm text-text-muted">
+                          <span class="text-neon-cyan">✓</span>
+                          {feature}
                         </li>
                       ))}
                     </ul>
@@ -205,21 +209,12 @@ const iconMap = {
                       {project.links.demo && (
                         <a
                           href={project.links.demo}
-                          class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-neon-magenta/20 border border-neon-magenta/40 text-neon-magenta hover:bg-neon-magenta/30 rounded-lg transition-all text-sm"
-                        >
-                          Démo
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
-                      {project.links.github && (
-                        <a
-                          href={project.links.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-transparent border border-white/30 text-white hover:bg-white/5 rounded-lg transition-all text-sm"
+                          class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-neon-magenta/20 border border-neon-magenta/40 text-neon-magenta hover:bg-neon-magenta/30 rounded-lg transition-all text-sm"
                         >
-                          GitHub
-                          <Github className="w-4 h-4" />
+                          Voir le site
+                          <ExternalLink className="w-4 h-4" />
                         </a>
                       )}
                     </div>

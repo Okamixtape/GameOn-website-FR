@@ -278,7 +278,7 @@ export default function TournamentPage() {
                   {/* Prize Amount */}
                   <div className="text-center py-6 mb-4 rounded-xl bg-gradient-to-br from-gray-400/20 to-gray-500/20 border border-gray-400/30">
                     <div className="text-4xl text-gray-300 mb-1">€5,000</div>
-                    <div className="text-sm text-gray-400">Cash Prize</div>
+                    <div className="text-sm text-gray-400">Récompense</div>
                   </div>
 
                   {/* Extras */}
@@ -314,7 +314,7 @@ export default function TournamentPage() {
                   {/* Prize Amount */}
                   <div className="text-center py-8 mb-6 rounded-xl bg-gradient-to-br from-yellow-400/30 to-yellow-600/30 border-2 border-yellow-400/50 shadow-lg shadow-yellow-500/20">
                     <div className="text-6xl text-yellow-400 mb-2">€7,500</div>
-                    <div className="text-sm text-yellow-500">Grand Prize</div>
+                    <div className="text-sm text-yellow-500">Récompense</div>
                   </div>
 
                   {/* Extras */}
@@ -353,7 +353,7 @@ export default function TournamentPage() {
                   {/* Prize Amount */}
                   <div className="text-center py-6 mb-4 rounded-xl bg-gradient-to-br from-orange-600/20 to-orange-700/20 border border-orange-600/30">
                     <div className="text-4xl text-orange-400 mb-1">€2,500</div>
-                    <div className="text-sm text-orange-500/70">Cash Prize</div>
+                    <div className="text-sm text-orange-500/70">Récompense</div>
                   </div>
 
                   {/* Extras */}
@@ -378,7 +378,7 @@ export default function TournamentPage() {
               <span className="text-yellow-400 font-bold">15 000€</span> vous attendent. Êtes-vous prêt à relever le défi ?
             </p>
             <CTAButton variant="secondary">
-              Je veux gagner le cashprize
+              Je veux tenter ma chance
             </CTAButton>
           </div>
         </div>

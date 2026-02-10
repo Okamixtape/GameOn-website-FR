@@ -40,3 +40,6 @@ lighthouse-*.report.json
 
 # Original unoptimized images
 *-original.*
+
+# Local Netlify folder
+.netlify

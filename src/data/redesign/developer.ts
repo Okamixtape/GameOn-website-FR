@@ -2,162 +2,171 @@
  * Data Layer - Developer/Portfolio Page Redesign
  * 
  * Contenu statique pour la page vitrine développeur
- * Architecture Astro-First (0 KB JS)
+ * Aligné avec le Google Business Profile de Loup Aubour
  */
 
 export const developerHero = {
-  eyebrow: "DÉVELOPPEUR FULL-STACK",
+  eyebrow: "DÉVELOPPEUR WEB INDÉPENDANT",
   name: "Loup Aubour",
-  title: "Cloud Engineer & Full-Stack Developer",
-  tagline: "Architecte de solutions web performantes et scalables",
-  description: "Spécialisé en développement web moderne (React, Astro, TypeScript) et infrastructure cloud (AWS, Terraform). Passionné par la performance, l'accessibilité et les architectures serverless.",
+  title: "Concepteur de Sites Web",
+  tagline: "Je ne vends pas de la technique, je vends de la visibilité",
+  description: "Développeur web indépendant basé à Boulogne-Billancourt. J'aide les commerçants, artisans et professions libérales à trouver plus de clients grâce à Internet. Sites ultra-rapides, parfaitement lisibles sur mobile, et optimisés pour Google. Résultat : Performance Google 100/100 et première page Google pour mes clients.",
   image: {
     src: "/images/redesign/hero-developer-800.jpg",
     srcset: "/images/redesign/hero-developer-400.jpg 400w, /images/redesign/hero-developer-800.jpg 800w, /images/redesign/hero-developer-1200.jpg 1200w",
-    alt: "Setup développeur moderne"
+    alt: "Loup Aubour - Développeur web indépendant"
   },
   cta: {
     primary: {
-      text: "Voir les Projets",
+      text: "Voir mes Réalisations",
       href: "#projects"
     },
     secondary: {
-      text: "Contact",
+      text: "Discuter de votre projet",
       href: "#contact"
     }
   }
 };
 
-export const developerStack = {
-  title: "Stack Technique",
-  subtitle: "Technologies et outils maîtrisés",
-  categories: [
+export const developerServices = {
+  title: "Mes Services",
+  subtitle: "Pas d'agence, pas d'intermédiaire. Un interlocuteur unique, réactif et pédagogique.",
+  services: [
     {
-      id: "frontend",
-      name: "Frontend",
+      id: "creation",
+      name: "Création de site internet",
+      description: "Création d'un site vitrine moderne avec Performance Google 100/100. Idéal pour les commerçants, artisans et professions libérales qui veulent être visibles en ligne.",
       icon: "Code",
       color: "from-cyan-500 to-blue-500",
-      technologies: [
-        { name: "React 18", level: "Expert" },
-        { name: "Astro 5", level: "Expert" },
-        { name: "TypeScript", level: "Expert" },
-        { name: "Tailwind CSS", level: "Expert" },
-        { name: "Next.js", level: "Avancé" }
+      price: "À partir de 2 200 €",
+      features: [
+        "Un site moderne qui inspire confiance à vos clients",
+        "Performance Google 100/100 — votre site se charge instantanément",
+        "Visible sur Google dès la mise en ligne",
+        "Hébergement 1 an offert"
       ]
     },
     {
-      id: "backend",
-      name: "Backend",
-      icon: "Server",
-      color: "from-green-500 to-emerald-500",
-      technologies: [
-        { name: "Node.js", level: "Expert" },
-        { name: "Express", level: "Avancé" },
-        { name: "PostgreSQL", level: "Avancé" },
-        { name: "MongoDB", level: "Intermédiaire" },
-        { name: "REST APIs", level: "Expert" }
-      ]
-    },
-    {
-      id: "cloud",
-      name: "Cloud & DevOps",
-      icon: "Cloud",
-      color: "from-orange-500 to-red-500",
-      technologies: [
-        { name: "AWS (S3, CloudFront, Lambda)", level: "Expert" },
-        { name: "Terraform", level: "Avancé" },
-        { name: "GitHub Actions", level: "Expert" },
-        { name: "Docker", level: "Avancé" },
-        { name: "Vercel", level: "Expert" }
-      ]
-    },
-    {
-      id: "tools",
-      name: "Outils & Méthodes",
+      id: "refonte",
+      name: "Refonte de site web",
+      description: "Modernisation complète de votre site existant. Amélioration de la vitesse, du design et du référencement pour attirer plus de clients.",
       icon: "Wrench",
       color: "from-purple-500 to-pink-500",
-      technologies: [
-        { name: "Git", level: "Expert" },
-        { name: "Playwright", level: "Avancé" },
-        { name: "ESLint/Prettier", level: "Expert" },
-        { name: "Lighthouse CI", level: "Avancé" },
-        { name: "Agile/Scrum", level: "Avancé" }
+      price: "À partir de 1 800 €",
+      features: [
+        "Diagnostic complet de votre site actuel",
+        "Nouveau design professionnel et moderne",
+        "Vos textes et photos transférés sans rien perdre",
+        "Un site plus rapide qui remonte sur Google"
+      ]
+    },
+    {
+      id: "seo",
+      name: "Référencement Google (SEO)",
+      description: "Optimisation de votre site pour apparaître en première page Google dans votre zone géographique. SEO local pour capter les clients près de chez vous.",
+      icon: "Eye",
+      color: "from-green-500 to-emerald-500",
+      price: "À partir de 1 200 €",
+      features: [
+        "Diagnostic complet de votre visibilité Google",
+        "Optimisation de votre fiche Google Business",
+        "Vous apparaissez quand vos clients cherchent près de chez vous",
+        "Rapport de suivi mensuel de vos positions"
+      ]
+    },
+    {
+      id: "maintenance",
+      name: "Maintenance de site web",
+      description: "Maintenance mensuelle de votre site : mises à jour de sécurité, sauvegardes, corrections et petites évolutions pour garder votre site performant.",
+      icon: "Cloud",
+      color: "from-orange-500 to-red-500",
+      price: "À partir de 250 €/mois",
+      features: [
+        "Votre site toujours à jour et sécurisé",
+        "Votre site protégé contre les pannes",
+        "Corrections et petites évolutions incluses",
+        "Support réactif — réponse sous 24h"
       ]
     }
   ]
 };
 
 export const developerProjects = {
-  title: "Projets Récents",
-  subtitle: "Sélection de réalisations techniques",
+  title: "Mes Réalisations",
+  subtitle: "Des sites qui génèrent des résultats concrets pour mes clients",
   projects: [
     {
-      id: "gameon",
-      name: "GameOn Landing Page",
-      description: "Landing page statique haute performance avec architecture Astro Islands, design Synthwave, et déploiement AWS S3 + CloudFront.",
-      tags: ["Astro 5", "React 18", "Tailwind 4", "AWS", "Lighthouse 95+"],
+      id: "loupaubour",
+      name: "loupaubour.fr",
+      description: "Mon site professionnel. Vitrine de mes services et portfolio. Conçu pour démontrer mon expertise en performance web et référencement local.",
+      tags: ["Site vitrine", "SEO Local", "Performance 100/100", "Responsive"],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      metrics: [
+        { label: "Performance", value: "100/100" },
+        { label: "SEO", value: "100/100" },
+        { label: "Mobile", value: "100/100" }
+      ],
+      links: {
+        demo: "https://loupaubour.fr"
+      }
+    },
+    {
+      id: "lepanierfromager",
+      name: "lepanierfromager.fr",
+      description: "Cette artisane fromagère n'avait aucune présence en ligne. Aujourd'hui, ses clients la trouvent en un clic sur Google grâce à son site vitrine optimisé.",
+      tags: ["Artisan", "SEO Local", "Site vitrine", "Google Business"],
+      image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&h=400&fit=crop",
+      metrics: [
+        { label: "Performance", value: "100/100" },
+        { label: "SEO", value: "100/100" },
+        { label: "Visibilité", value: "4× #1 Google" }
+      ],
+      links: {
+        demo: "https://lepanierfromager.fr"
+      }
+    },
+    {
+      id: "pixelclash",
+      name: "Pixel Clash",
+      description: "Projet personnel — Site événementiel pour un championnat retrogaming. Démo technique de mes compétences en architecture web moderne et optimisation performance.",
+      tags: ["Démo technique", "Événementiel", "Astro", "React"],
       image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=400&fit=crop",
       metrics: [
-        { label: "Performance", value: "95/100" },
+        { label: "Performance", value: "98/100" },
         { label: "Accessibilité", value: "100/100" },
-        { label: "Build Time", value: "< 8s" }
+        { label: "SEO", value: "100/100" }
       ],
       links: {
-        demo: "/index-redesign",
-        github: "https://github.com/loupaubour/GameOn-website-FR"
-      }
-    },
-    {
-      id: "architecture",
-      name: "Architecture Hybride Astro",
-      description: "Système d'îlots React dans Astro pour hydration sélective. Conversion composants statiques React → Astro pur pour gains performance.",
-      tags: ["Astro Islands", "React", "Performance", "Architecture"],
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
-      metrics: [
-        { label: "JS Éliminé", value: "-123 KB" },
-        { label: "Gain Perf", value: "+12 pts" },
-        { label: "Modules", value: "1689" }
-      ],
-      links: {
-        demo: "/tournament-redesign",
-        docs: "/docs/LIGHTHOUSE-REDESIGN-RESULTS.md"
-      }
-    },
-    {
-      id: "cicd",
-      name: "Pipeline CI/CD AWS",
-      description: "Automatisation complète : build, tests (Lighthouse, a11y), déploiement S3, invalidation CloudFront via GitHub Actions.",
-      tags: ["GitHub Actions", "AWS", "Terraform", "CI/CD"],
-      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop",
-      metrics: [
-        { label: "Deploy Time", value: "< 2 min" },
-        { label: "Tests Auto", value: "100%" },
-        { label: "Uptime", value: "99.9%" }
-      ],
-      links: {
-        github: "https://github.com/loupaubour/GameOn-website-FR/tree/main/.github/workflows"
+        demo: "https://pixel-clash.netlify.app"
       }
     }
   ]
 };
 
 export const developerContact = {
-  title: "Travaillons Ensemble",
-  description: "Disponible pour missions freelance, projets open-source, ou opportunités CDI.",
+  title: "Discutons de Votre Projet",
+  description: "Pas d'agence, pas d'intermédiaire. Contactez-moi directement pour un accompagnement réactif, pédagogique et sans jargon technique.",
   methods: [
     {
-      id: "email",
-      label: "Email",
-      value: "loup.aubour@example.com",
-      icon: "Mail",
-      href: "mailto:loup.aubour@example.com"
+      id: "phone",
+      label: "Téléphone",
+      value: "06 08 84 86 82",
+      icon: "Phone",
+      href: "tel:+33608848682"
+    },
+    {
+      id: "website",
+      label: "Site web",
+      value: "loupaubour.fr",
+      icon: "ExternalLink",
+      href: "https://loupaubour.fr"
     },
     {
       id: "github",
       label: "GitHub",
-      value: "@loupaubour",
+      value: "@Okamixtape",
       icon: "Github",
-      href: "https://github.com/loupaubour"
+      href: "https://github.com/Okamixtape"
     },
     {
       id: "linkedin",
@@ -168,41 +177,41 @@ export const developerContact = {
     }
   ],
   cta: {
-    text: "Télécharger mon CV",
-    href: "/cv-loup-aubour.pdf"
+    text: "Demander un devis gratuit",
+    href: "https://loupaubour.fr/#contact"
   }
 };
 
 export const developerSkills = {
-  title: "Compétences Clés",
+  title: "Pourquoi Me Choisir",
   skills: [
     {
       id: "performance",
-      name: "Performance Web",
-      description: "Optimisation Lighthouse, Core Web Vitals, lazy loading, code splitting",
+      name: "Performance Google 100/100",
+      description: "Vos visiteurs ne patientent pas. Mes sites se chargent en moins d'une seconde, ce qui améliore votre référencement et votre taux de conversion.",
       icon: "Zap",
-      level: 95
-    },
-    {
-      id: "accessibility",
-      name: "Accessibilité",
-      description: "WCAG 2.1 AA, ARIA, navigation clavier, lecteurs d'écran",
-      icon: "Eye",
       level: 100
     },
     {
-      id: "architecture",
-      name: "Architecture",
-      description: "Design patterns, clean code, scalabilité, maintenabilité",
-      icon: "Box",
-      level: 90
+      id: "seo",
+      name: "Visibilité sur Google",
+      description: "Être en première page Google dans votre ville, c'est possible. J'optimise chaque site pour le référencement local et Google Business Profile.",
+      icon: "Eye",
+      level: 95
     },
     {
-      id: "cloud",
-      name: "Cloud Engineering",
-      description: "AWS, infrastructure as code, serverless, CDN, CI/CD",
+      id: "mobile",
+      name: "Parfait sur Mobile",
+      description: "Plus de 60% de vos clients vous trouvent sur leur téléphone. Chaque site est conçu mobile-first pour une expérience irréprochable.",
+      icon: "Box",
+      level: 100
+    },
+    {
+      id: "accompagnement",
+      name: "Accompagnement Sur-Mesure",
+      description: "Un interlocuteur unique du début à la fin. Devis détaillé sous 48h, support 3 mois gratuit après livraison, et des explications sans jargon technique.",
       icon: "Cloud",
-      level: 85
+      level: 95
     }
   ]
 };

@@ -87,8 +87,7 @@ export const heroData: HeroData = {
     urgency: "27 places restantes !",
   },
   image: {
-    src: "/images/redesign/hero-home-800.jpg",
-    srcset: "/images/redesign/hero-home-400.jpg 400w, /images/redesign/hero-home-800.jpg 800w, /images/redesign/hero-home-1200.jpg 1200w",
+    src: "/images/redesign/hero-home.jpg",
     alt: "Setup gaming rétro avec consoles vintage"
   },
 };

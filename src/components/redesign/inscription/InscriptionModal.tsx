@@ -348,11 +348,11 @@ export default function InscriptionModal({ open, onOpenChange }: InscriptionModa
     setErrorMessage('');
   };
 
-  // Navigate to tournament page
+  // Navigate to developer page
   const handleViewTournament = () => {
     handleClose();
-    // Navigate to tournament page
-    window.location.href = '/tournament';
+    // Navigate to developer page
+    window.location.href = '/developer';
   };
 
   return (
