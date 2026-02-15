@@ -133,23 +133,12 @@ export const defaultValues: Partial<InscriptionFormData> = {
 
 export async function submitInscription(data: InscriptionFormData): Promise<{ success: boolean; message?: string }> {
   try {
-    // TODO: Intégrer avec Formspark ou votre backend
-    console.log('Inscription data:', data);
+    // Simulation — ce site est une démo technique, aucune donnée n'est collectée
+    console.log('[DEMO] Inscription data:', data);
     
-    // Simuler un délai réseau
     await new Promise((resolve) => setTimeout(resolve, 1500));
     
-    // Simuler succès
     return { success: true };
-    
-    // En production, remplacer par :
-    // const response = await fetch('https://submit-form.com/YOUR_FORM_ID', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data),
-    // });
-    // return { success: response.ok };
-    
   } catch (error) {
     console.error('Inscription error:', error);
     return {

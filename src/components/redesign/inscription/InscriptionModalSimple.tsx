@@ -1,6 +1,6 @@
 /**
- * Modale d'inscription simplifiée - Version sans dépendances UI
- * TODO: Remplacer par InscriptionModal.tsx une fois les composants UI installés
+ * Modale d'inscription — Formulaire avec validation temps réel
+ * Version autonome sans dépendances UI externes (shadcn)
  */
 
 import { useState } from 'react';
