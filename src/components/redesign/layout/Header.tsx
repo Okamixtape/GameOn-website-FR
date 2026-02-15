@@ -1,50 +1,56 @@
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CTAButton from '../common/CTAButton';
+import { openInscriptionModal } from '../../../hooks/useInscriptionModal';
 
 interface HeaderProps {
   currentPath?: string;
 }
 
+const NAV_ITEMS = [
+  { label: 'Accueil', path: '/' },
+  { label: 'Le Tournoi', path: '/tournament' },
+  { label: 'Notre Histoire', path: '/about' },
+  { label: 'Blog', path: '/blog' },
+] as const;
+
 export default function Header({ currentPath = '/' }: HeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const navItems = [
-    { label: 'Accueil', path: '/', shadowColor: 'shadow-cyan-500/50' },
-    { label: 'Le Tournoi', path: '/tournament', shadowColor: 'shadow-pink-500/50' },
-    { label: 'Notre Histoire', path: '/about', shadowColor: 'shadow-purple-500/50' },
-    { label: 'Blog', path: '/blog', shadowColor: 'shadow-cyan-500/50' },
-  ];
+  const isActive = (path: string) => 
+    path === '/' ? currentPath === '/' : currentPath.startsWith(path);
 
-  const isActive = (path: string) => {
-    if (path === '/') {
-      return currentPath === '/';
-    }
-    return currentPath.startsWith(path);
-  };
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-[#0a0a1f]/80 backdrop-blur-md border-b border-white/5">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+    <>
+      {/* ── Header bar ── */}
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-[#0a0a1f]/80 backdrop-blur-md border-b border-white/5">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a 
-            href="/"
-            className="text-2xl tracking-wider hover:opacity-80 transition-opacity"
-          >
+          <a href="/" className="text-2xl tracking-wider hover:opacity-80 transition-opacity">
             <span className="text-[#00f3ff]">PIXEL</span>{' '}
             <span className="text-[#ff00ff]">CLASH</span>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-2">
-            {navItems.map((item) => (
+          {/* Desktop nav — lg+ (1024px) */}
+          <nav className="hidden lg:flex items-center gap-2">
+            {NAV_ITEMS.map((item) => (
               <a
                 key={item.path}
                 href={item.path}
-                className={`px-5 py-2 rounded-lg transition-all ${
+                className={`px-5 py-2 rounded-lg transition-colors ${
                   isActive(item.path)
-                    ? `bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] text-white shadow-lg ${item.shadowColor}`
+                    ? 'bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] text-white shadow-lg shadow-purple-500/30'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -53,86 +59,87 @@ export default function Header({ currentPath = '/' }: HeaderProps) {
             ))}
           </nav>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:block">
+          {/* Desktop CTA */}
+          <div className="hidden lg:block">
             <CTAButton variant="secondary" className="px-6 py-2 text-sm">
               S'inscrire
             </CTAButton>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Hamburger — below lg */}
           <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-cyan-400 p-2 hover:text-cyan-300 transition-colors"
-            aria-label="Toggle menu"
+            onClick={() => setOpen(true)}
+            className="lg:hidden text-cyan-400 p-2"
+            aria-label="Ouvrir le menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <Menu className="w-6 h-6" />
           </button>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <>
-          {/* Backdrop */}
-          <div 
-            className="fixed inset-0 bg-black/50 z-[90] md:hidden"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-          
-          {/* Drawer */}
-          <div className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#0a0a1f] border-l border-cyan-500/20 z-[95] md:hidden transform transition-transform duration-300">
-            <div className="flex flex-col h-full p-6">
-              {/* Mobile Header */}
-              <div className="flex items-center justify-between mb-8">
-                <a 
-                  href="/"
-                  className="text-xl tracking-wider"
-                  onClick={() => setMobileMenuOpen(false)}
+      {/* ── Mobile fullscreen overlay ── */}
+      {/* Rendu hors du <header> pour éviter tout conflit de z-index */}
+      {open && (
+        <div
+          className="fixed inset-0 z-[200] lg:hidden bg-[#0a0a1f]"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navigation"
+        >
+          {/* Top bar — même dimensions que le header */}
+          <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a 
+              href="/" 
+              className="text-2xl tracking-wider"
+              onClick={() => setOpen(false)}
+            >
+              <span className="text-[#00f3ff]">PIXEL</span>{' '}
+              <span className="text-[#ff00ff]">CLASH</span>
+            </a>
+            <button 
+              onClick={() => setOpen(false)}
+              className="text-cyan-400 p-2"
+              aria-label="Fermer le menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Separator */}
+          <div className="border-b border-white/5" />
+
+          {/* Nav links — centré verticalement dans l'espace restant */}
+          <div className="flex flex-col justify-between" style={{ height: 'calc(100dvh - 4rem)' }}>
+            <nav className="flex-1 flex flex-col items-center justify-center gap-2 px-6">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  onClick={() => setOpen(false)}
+                  className={`w-full max-w-sm text-center py-4 rounded-xl text-lg font-medium transition-colors ${
+                    isActive(item.path)
+                      ? 'bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] text-white'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  }`}
                 >
-                  <span className="text-[#00f3ff]">PIXEL</span>{' '}
-                  <span className="text-[#ff00ff]">CLASH</span>
+                  {item.label}
                 </a>
-                <button 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-gray-400 hover:text-white"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
+              ))}
+            </nav>
 
-              {/* Mobile Navigation */}
-              <nav className="flex flex-col gap-4 flex-1">
-                {navItems.map((item) => (
-                  <a
-                    key={item.path}
-                    href={item.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`px-5 py-3 rounded-lg transition-all text-center ${
-                      isActive(item.path)
-                        ? `bg-gradient-to-r from-[#00f3ff] to-[#ff00ff] text-white shadow-lg ${item.shadowColor}`
-                        : 'text-gray-400 hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-
-              {/* Mobile CTA */}
-              <div className="pt-6 border-t border-white/10">
-                <CTAButton 
-                  variant="secondary" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full"
-                >
-                  S'inscrire
-                </CTAButton>
-              </div>
+            {/* CTA bottom */}
+            <div className="px-6 pb-8 flex justify-center">
+              <CTAButton 
+                variant="secondary" 
+                onClick={() => { setOpen(false); setTimeout(openInscriptionModal, 100); }}
+                className="w-full max-w-sm justify-center"
+              >
+                S'inscrire
+              </CTAButton>
             </div>
           </div>
-        </>
+        </div>
       )}
-    </header>
+    </>
   );
 }
